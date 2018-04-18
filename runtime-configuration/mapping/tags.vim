@@ -1,6 +1,11 @@
 " Open tag under cursor.
 nnoremap <leader>to :tag <C-R><C-W><CR>
 
+" Go back in the tag jump history
+nnoremap <leader>tb :pop!<CR>
+nnoremap <leader>ta :tag!<CR>
+nnoremap <leader>th :tags<CR>
+
 " Open and jump to the tagbar window (use the TagBar plugin)
 nnoremap <leader>tt :TagbarOpen fj<CR>
 
