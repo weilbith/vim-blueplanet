@@ -182,7 +182,7 @@ set wrapscan
 set scrolloff=2
 
 " Use current selection to search.
-xnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>"{{{
 xnoremap <silent> # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch(cmdtype)
@@ -190,7 +190,7 @@ function! s:VSetSearch(cmdtype)
   norm! gv"sy
   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
   let @s = temp
-endfunction
+endfunction"}}}
 " ---
 
 
@@ -201,6 +201,12 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 " Height of the preview window.
 set previewheight=10
 
-" Highlighting for results in preview window(s).
-highlight previewWord ctermbg=191 ctermfg=0 guibg=#d7ff5f guifg=#000000
-highlight previewLine ctermbg=197 ctermfg=0 guibg=#ff005f guifg=#ffffff
+
+" Folding
+set foldmethod=marker
+set foldlevel=0
+set foldminlines=1 " Close folds always.
+set foldclose=all " Always close folds when leave them.
+
+" Use the fold column per default.
+set foldcolumn=3
