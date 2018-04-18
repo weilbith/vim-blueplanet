@@ -8,6 +8,7 @@ source $HOME/.vim/runtime-configuration/options.vim
 source $HOME/.vim/runtime-configuration/helper/utilities.vim
 source $HOME/.vim/runtime-configuration/helper/preview_window.vim
 source $HOME/.vim/runtime-configuration/helper/quickfix.vim
+source $HOME/.vim/runtime-configuration/helper/location.vim
 source $HOME/.vim/runtime-configuration/helper/tags.vim
 
 " Plugins
@@ -24,4 +25,5 @@ source $HOME/.vim/runtime-configuration/mapping.vim
 " Source auto command(groups).
 source $HOME/.vim/runtime-configuration/autocommands/preview_window.vim
 source $HOME/.vim/runtime-configuration/autocommands/quickfix.vim
+source $HOME/.vim/runtime-configuration/autocommands/location.vim
 source $HOME/.vim/runtime-configuration/autocommands/tags.vim

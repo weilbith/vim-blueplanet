@@ -33,6 +33,7 @@ source $HOME/.vim/runtime-configuration/mapping/buffers.vim       " b
 source $HOME/.vim/runtime-configuration/mapping/search.vim        " s
 source $HOME/.vim/runtime-configuration/mapping/files.vim         " f
 source $HOME/.vim/runtime-configuration/mapping/git.vim           " g
+source $HOME/.vim/runtime-configuration/mapping/location.vim      " l
 source $HOME/.vim/runtime-configuration/mapping/quickfix.vim      " q
 source $HOME/.vim/runtime-configuration/mapping/quit.vim          " Q
 source $HOME/.vim/runtime-configuration/mapping/sessions.vim      " $

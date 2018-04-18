@@ -1,5 +1,5 @@
 " The maximum height for the quickfix window.
-let s:quickfix_height = 15
+let s:quickfix_height = 10
 
 " Flag for event composition, if a new buffer has been added into the preview window.
 let s:new_qf_preview = 0
@@ -13,7 +13,7 @@ augroup Quickfix
   " set the window height to this threshold.
   " Else (less than) shrink it to the number of entries plus one empty line,
   " to show that this are all entries.
-  autocmd! BufReadPost quickfix |
+  autocmd! BufReadPost quickfix if !location#is_location_window(win_getid()) |
         \ wincmd J |
         \ let s:quickfix_length = len(getqflist()) |
         \ if s:quickfix_length > s:quickfix_height |
@@ -23,7 +23,9 @@ augroup Quickfix
         \ endif
 
   " Show the quickfix entry under the cursor as preview when cursor stay there.
-  autocmd CursorHold * nested if &filetype == 'qf' | call quickfix#show_quickfix_preview() | endif
+  autocmd CursorHold * nested if &filetype == 'qf' && !location#is_location_window(win_getid()) |
+        \ call quickfix#show_quickfix_preview() |
+        \ endif
 
   " Unset the preview window number if the window gets closed.
   autocmd QuitPre * nested if quickfix#is_quickfix_preview_window() |
