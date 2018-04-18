@@ -15,3 +15,8 @@ nnoremap <silent> <leader>qp :<C-u>call quickfix#toggle_quickfix_preview()<CR>
 
 " Edit the currently preview in the active window.
 nnoremap <silent> <leader>qP :<C-u>call quickfix#open_quickfix_preview_file()<CR>
+
+" Switch to older quickfix lists.
+nnoremap <silent> <leader>qb :<C-u>:colder<CR><CR>
+nnoremap <silent> <leader>qa :<C-u>:cnewer<CR><CR>
+nnoremap <silent> <leader>qh :<C-u>:chistory<CR>
