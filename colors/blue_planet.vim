@@ -82,8 +82,8 @@ if &t_Co >= 256 || has('gui_running')
     highlight Visual            ctermbg=222  ctermfg=16   guibg=#F0C674 guifg=#191B1F cterm=NONE           gui=NONE
     highlight VisualNOS         ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline      gui=underline
 
-    highlight FoldColumn        ctermbg=NONE ctermfg=59   guibg=NONE    guifg=#373B41 cterm=NONE           gui=NONE
-    highlight Folded            ctermbg=NONE ctermfg=59   guibg=NONE    guifg=#373B41 cterm=NONE           gui=NONE
+    highlight FoldColumn        ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#5fd7ff cterm=NONE           gui=NONE
+    highlight Folded            ctermbg=NONE ctermfg=173  guibg=NONE    guifg=#DE935F cterm=NONE           gui=NONE
 
     highlight VertSplit         ctermbg=NONE ctermfg=24   guibg=#005f87 guifg=#005f87 cterm=bold           gui=bold
     highlight WildMenu          ctermbg=24   ctermfg=15   guibg=#005f87 guifg=#FFFFFF cterm=NONE           gui=NONE
@@ -109,6 +109,10 @@ if &t_Co >= 256 || has('gui_running')
 
     highlight ColorColumn       ctermbg=16   ctermfg=NONE guibg=#24272D guifg=NONE    cterm=NONE           gui=NONE
     highlight SignColumn        ctermbg=234  ctermfg=242  guibg=#1C1C1C guifg=#6C6C6C cterm=NONE           gui=NONE
+    
+    " Highlighting for results in preview window(s).
+    highlight previewWord ctermbg=191 ctermfg=0 guibg=#d7ff5f guifg=#000000
+    highlight previewLine ctermbg=197 ctermfg=0 guibg=#ff005f guifg=#ffffff
 
 
 elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
