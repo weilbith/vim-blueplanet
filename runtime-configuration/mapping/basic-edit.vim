@@ -36,6 +36,11 @@ inoremap sss ß
 " Make macros accessible in select mode as in normal mode.
 xnoremap <expr> @ ":norm @" . nr2char(getchar()) . "<CR>"
 
-
-" Spell
-
+" Use concealed drop down menu for spell correction in normal mode as in
+" insert mode.
+" Add some more key maps for the menu.
+nnoremap z= ea<C-x><C-s>
+inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
+inoremap <expr> <C-cr> pumvisible() ? "\<C-y>" : "\<C-cr>"
+inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<Up>" : "\<C-k>"
