@@ -6,7 +6,7 @@ augroup PreviewWindow
   autocmd!
 
   " -> a buffer is shown in the preview window, that does not exits so far
-  " in this case the the buffer is not already loaded and setting local variables does not work.
+  " in this case the buffer is not already loaded and setting local variables does not work.
   " set a global flag that mark this event to handle it later on when the buffer is loaded.
   autocmd bufadd * nested if &previewwindow |
         \ let s:new_preview = v:true |

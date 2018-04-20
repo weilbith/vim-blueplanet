@@ -5,6 +5,7 @@ source $HOME/.vim/runtime-configuration/plugin-configuration/choosewin.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/cursor-word.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/delimit-mate.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/denite.vim
+" source $HOME/.vim/runtime-configuration/plugin-configuration/deoplete.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/dev-icons.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/ferret.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/gutentags.vim
@@ -16,6 +17,7 @@ source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-commenter.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-tree.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-tree_git.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-tree_syntax-highlight.vim
+source $HOME/.vim/runtime-configuration/plugin-configuration/rooter.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/signify.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/startify.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/tabman.vim

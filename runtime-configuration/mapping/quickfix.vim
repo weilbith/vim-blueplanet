@@ -20,3 +20,4 @@ nnoremap <silent> <leader>qP :<C-u>call quickfix#open_quickfix_preview_file()<CR
 nnoremap <silent> <leader>qb :<C-u>:colder<CR><CR>
 nnoremap <silent> <leader>qa :<C-u>:cnewer<CR><CR>
 nnoremap <silent> <leader>qh :<C-u>:chistory<CR>
+

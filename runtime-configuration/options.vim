@@ -22,13 +22,13 @@ set spell
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 
-" Use the dropdown menu for spell correction from the insert mode in normal mode.
+" Use the drop down menu for spell correction from the insert mode in normal mode.
 nnoremap <Leader>s ea<C-X><C-S>
 
 " Automatically update unchanged buffers, which files have been modified.
 set autoread
 
-" Set font for GVim
+" Set font for Glam
 if has("gui_running")
   set guifont=UbuntuMonoDerivativePowerline_N:h11:cDEFAULT
 end
@@ -182,7 +182,7 @@ set wrapscan
 set scrolloff=2
 
 " Use current selection to search.
-xnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>"{{{
+xnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap <silent> # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch(cmdtype)
@@ -210,3 +210,5 @@ set foldclose=all " Always close folds when leave them.
 
 " Use the fold column per default.
 set foldcolumn=3
+
+set pyxversion=3
