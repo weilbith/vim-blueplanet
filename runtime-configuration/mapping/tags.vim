@@ -17,7 +17,7 @@ nnoremap <leader>tl :tselect <C-R><C-W><CR>
 
 " Open next/previous match.
 nnoremap <leader>t* :tnext<CR>
-nnoremap <leader>t#:tprevious<CR>
+nnoremap <leader>t# :tprevious<CR>
 
 " Show next/previous match in the preview window.
 nnoremap <leader>tn :ptnext<CR>
