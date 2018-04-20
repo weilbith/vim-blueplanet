@@ -13,6 +13,8 @@ source $HOME/.vim/runtime-configuration/plugin-configuration/indent-line.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/lime-light.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/markdown.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/match-up.vim
+source $HOME/.vim/runtime-configuration/plugin-configuration/neomake.vim
+source $HOME/.vim/runtime-configuration/plugin-configuration/neosnippet.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-commenter.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-tree.vim
 source $HOME/.vim/runtime-configuration/plugin-configuration/nerd-tree_git.vim

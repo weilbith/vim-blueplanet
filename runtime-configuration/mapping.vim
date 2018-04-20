@@ -49,6 +49,7 @@ source $HOME/.vim/runtime-configuration/mapping/cmd-line.vim
 source $HOME/.vim/runtime-configuration/mapping/copy-paste.vim
 source $HOME/.vim/runtime-configuration/mapping/save.vim
 source $HOME/.vim/runtime-configuration/mapping/toggle.vim
+source $HOME/.vim/runtime-configuration/mapping/autocompletion.vim
 
 
 " Further mappings for specific file types are in the 'ftplugin'

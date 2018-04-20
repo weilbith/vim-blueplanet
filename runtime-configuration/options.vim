@@ -211,4 +211,13 @@ set foldclose=all " Always close folds when leave them.
 " Use the fold column per default.
 set foldcolumn=3
 
+" For deoplete
 set pyxversion=3
+
+" For neosnippet
+if has('conceal')
+  set conceallevel=2
+  set concealcursor=niv
+endif
+
+
