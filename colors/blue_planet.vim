@@ -35,7 +35,7 @@ if &t_Co >= 256 || has('gui_running')
 
     highlight Function          ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#0087d7 cterm=NONE           gui=NONE
     highlight Comment           ctermbg=NONE ctermfg=274  guibg=NONE    guifg=#9e9e9e cterm=NONE           gui=italic
-    highlight Constant          ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#005f87 cterm=NONE           gui=NONE
+    highlight Constant          ctermbg=NONE ctermfg=24   guibg=NONE    guifg=#005f87 cterm=NONE           gui=NONE
     highlight Conditional       ctermbg=NONE ctermfg=214  guibg=NONE    guifg=#F5BB12 cterm=NONE           gui=NONE
     highlight Operator          ctermbg=NONE ctermfg=214  guibg=NONE    guifg=#F5BB12 cterm=NONE           gui=NONE
     highlight Error             ctermbg=NONE ctermfg=197  guibg=NONE    guifg=#ff005f cterm=reverse        gui=reverse
@@ -54,10 +54,10 @@ if &t_Co >= 256 || has('gui_running')
     highlight LineNr            ctermbg=234  ctermfg=242  guibg=#1C1C1C guifg=#6C6C6C cterm=NONE           gui=NONE
     highlight NonText           ctermbg=NONE ctermfg=152  guibg=NONE    guifg=#BFD7DB cterm=NONE           gui=NONE
 
-    highlight Pmenu             ctermbg=59   ctermfg=145  guibg=#373B41 guifg=#BDBDBD cterm=NONE           gui=NONE
-    highlight PmenuSbar         ctermbg=59   ctermfg=NONE guibg=#373B41 guifg=NONE    cterm=NONE           gui=NONE
-    highlight PmenuSel          ctermbg=109  ctermfg=16   guibg=#8ABEB7 guifg=#24272D cterm=NONE           gui=NONE
-    highlight PmenuThumb        ctermbg=109  ctermfg=109  guibg=#8ABEB7 guifg=#8ABEB7 cterm=NONE           gui=NONE
+    highlight Pmenu             ctermbg=24   ctermfg=15   guibg=#005f87 guifg=#ffffff cterm=NONE           gui=NONE
+    highlight PmenuSbar         ctermbg=32   ctermfg=NONE guibg=#0087d7 guifg=NONE cterm=NONE           gui=NONE
+    highlight PmenuSel          ctermbg=81   ctermfg=235  guibg=#5fd7ff guifg=#262626 cterm=NONE           gui=NONE
+    highlight PmenuThumb        ctermbg=81   ctermfg=NONE guibg=#5fd7ff guifg=NONE cterm=NONE           gui=NONE
 
     highlight ErrorMsg          ctermbg=16   ctermfg=166  guibg=#191B1F guifg=#D3422E cterm=reverse        gui=reverse
     highlight ModeMsg           ctermbg=NONE ctermfg=70   guibg=NONE    guifg=#4BAE16 cterm=NONE           gui=NONE
@@ -82,10 +82,10 @@ if &t_Co >= 256 || has('gui_running')
     highlight Visual            ctermbg=222  ctermfg=16   guibg=#F0C674 guifg=#191B1F cterm=NONE           gui=NONE
     highlight VisualNOS         ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline      gui=underline
 
-    highlight FoldColumn        ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#5fd7ff cterm=NONE           gui=NONE
+    highlight FoldColumn        ctermbg=NONE ctermfg=81   guibg=NONE    guifg=#5fd7ff cterm=NONE           gui=NONE
     highlight Folded            ctermbg=NONE ctermfg=173  guibg=NONE    guifg=#DE935F cterm=NONE           gui=NONE
 
-    highlight VertSplit         ctermbg=NONE ctermfg=24   guibg=#005f87 guifg=#005f87 cterm=bold           gui=bold
+    highlight VertSplit         ctermbg=24   ctermfg=24   guibg=#005f87 guifg=#005f87 cterm=bold           gui=bold
     highlight WildMenu          ctermbg=24   ctermfg=15   guibg=#005f87 guifg=#FFFFFF cterm=NONE           gui=NONE
 
     highlight SpecialKey        ctermbg=NONE ctermfg=59   guibg=NONE    guifg=#404449 cterm=NONE           gui=NONE

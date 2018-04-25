@@ -221,3 +221,5 @@ if has('conceal')
 endif
 
 
+" PUM
+set pumheight=30
