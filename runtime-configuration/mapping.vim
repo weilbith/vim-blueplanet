@@ -21,35 +21,47 @@ vnoremap <Right> <Nop>
 
 
 " Edit/load vim runtime configuration.
-nnoremap <leader>ve :e $HOME/.vimrc<CR>
-nnoremap <leader>vl :source $HOME/.vimrc<CR>:echom "Vimrc reloaded!"<CR>
+nnoremap <leader>ve :<C-u>call <SID>handleVimrc(v:true)<CR>
+nnoremap <leader>vl :<C-u>call <SID>handleVimrc(v:false)<CR>:echom "Vimrc reloaded!"<CR>
+
+
+
+" Simply sourcing of mapping groups.
+" Use the name of the group.
+"
+" Argument:
+"   group - name of the group as string
+"
+function! s:source(group) abort
+  execute 'source ' . g:base_configuration_folder . 'mapping/' . a:group . '.vim'
+endfunction
 
 
 " Source special sections of mappings.
 " Each following mapping is prefixed by the leader.
 " Each section has its own/two character(s) which is followed after the
 " leader for all their mappings.
-source $HOME/.vim/runtime-configuration/mapping/buffers.vim       " b
-source $HOME/.vim/runtime-configuration/mapping/search.vim        " s
-source $HOME/.vim/runtime-configuration/mapping/files.vim         " f
-source $HOME/.vim/runtime-configuration/mapping/git.vim           " g
-source $HOME/.vim/runtime-configuration/mapping/location.vim      " l
-source $HOME/.vim/runtime-configuration/mapping/quickfix.vim      " q
-source $HOME/.vim/runtime-configuration/mapping/quit.vim          " Q
-source $HOME/.vim/runtime-configuration/mapping/sessions.vim      " $
-source $HOME/.vim/runtime-configuration/mapping/tabs.vim          " T
-source $HOME/.vim/runtime-configuration/mapping/tags.vim          " t
-source $HOME/.vim/runtime-configuration/mapping/windows.vim       " w
-source $HOME/.vim/runtime-configuration/mapping/refactor.vim      " r
+call s:source('buffers')       " b
+call s:source('search')        " s
+call s:source('files')         " f
+call s:source('git')           " g
+call s:source('location')      " l
+call s:source('quickfix')      " q
+call s:source('quit')          " Q
+call s:source('sessions')      " $
+call s:source('tabs')          " T
+call s:source('tags')          " t
+call s:source('windows')       " w
+call s:source('refactor')      " r
 
 
 " Source mappings that are group but haven't a fixed character.
-source $HOME/.vim/runtime-configuration/mapping/basic-edit.vim
-source $HOME/.vim/runtime-configuration/mapping/cmd-line.vim
-source $HOME/.vim/runtime-configuration/mapping/copy-paste.vim
-source $HOME/.vim/runtime-configuration/mapping/save.vim
-source $HOME/.vim/runtime-configuration/mapping/toggle.vim
-source $HOME/.vim/runtime-configuration/mapping/autocompletion.vim
+call s:source('basic-edit')
+call s:source('cmd-line')
+call s:source('copy-paste')
+call s:source('save')
+call s:source('toggle')
+call s:source('autocompletion')
 
 
 " Further mappings for specific file types are in the 'ftplugin'
@@ -66,3 +78,31 @@ source $HOME/.vim/runtime-configuration/mapping/autocompletion.vim
 "  c - nerd commener
 "  double leader - easymotion
 "  m - signature
+
+
+
+" Functions
+
+" Function to work with the runtime configuration main file.
+" Core is to differ between the `init.vim` for NeoVim and `.vimrc` for pure Vim.
+" Can open the file to edit or source it.
+"
+" Arguments:
+"   edit -  boolean describing if file should be opened to edit
+"           If false it will be sourced.
+"
+function! s:handleVimrc(edit) abort
+  " Get the correct file.
+  if has('nvim')
+    let l:file = g:base_folder . 'init.vim'
+  else 
+    let l:file = $HOME/.vimrc
+  endif
+
+  " Edit or source the file based on the argument.
+  if (a:edit)
+    execute 'edit ' . l:file
+  else
+    execute 'source ' . l:file
+  endif
+endfunction
