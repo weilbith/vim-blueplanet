@@ -1,10 +1,6 @@
-" Move between buffers in most recent order (use BufMRU plugin).
-nnoremap <leader>bn :BufMRUNext<CR>
-nnoremap <leader>bp :BufMRUPrev<CR>
-
 " Move between buffers in order as the buffer list.
-nnoremap <leader>bN :bnext<CR>
-nnoremap <leader>bP :bprevious<CR>
+nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
 
 " Delete buffer and safe it before (without close the window displayed in).
 nnoremap <silent> <leader>bd :<C-u> call <SID>delete_buffer(v:true, v:false)<CR>
