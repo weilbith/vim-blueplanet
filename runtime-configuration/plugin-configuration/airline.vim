@@ -86,6 +86,16 @@ function! HelpWindow(...)
   endif
 endfunction
 
+" Get gutentags status if it is loaded.
+function! GutentagStatus () abort
+  " Check if gutentags plugin is sourced.
+  if dein#is_sourced('gutentags')
+    return gutentags#statusline('Generating...')
+  else 
+    return ''
+  endif
+endfunction
+
 
 if !exists('s:arline_window_functions_added')
   let s:arline_window_functions_added = v:true
@@ -98,7 +108,7 @@ endif
 " Define the functions per section.
 let g:airline_section_a=airline#section#create(['mode']) 
 " let g:airline_section_b=airline#section#create(['hunks', 'branch']) " Does not work for some reason. 
-let g:airline_section_c=airline#section#create(['%t %m %{gutentags#statusline("Generating...")}', 'readonly', 'paste', ' ', 'tagbar']) 
+let g:airline_section_c=airline#section#create(['%t %m %{GutentagStatus()}', 'readonly', 'paste', ' ', 'tagbar']) 
 " let g:airline_section_x=airline#section#create(['spell', '  %{g:airline_right_alt_sep} ', 'filetype']) 
 let g:airline_section_y=airline#section#create(['fileencoding', 'fileformat']) 
 let g:airline_section_z=airline#section#create(['linenr', 'maxlinenr']) 
