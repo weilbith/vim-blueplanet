@@ -1,3 +1,5 @@
+echom 'airline sourced: ' . dein#is_sourced('airline')
+
 " Style
 let g:airline_theme='blue_planet'
 let g:airline_powerline_fonts=1
