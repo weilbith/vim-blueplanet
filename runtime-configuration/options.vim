@@ -28,21 +28,23 @@ nnoremap <Leader>s ea<C-X><C-S>
 " Automatically update unchanged buffers, which files have been modified.
 set autoread
 
-" Set font for Glam
+" Do some GUI specific stuff.
 if has("gui_running")
+  " Set font for Glam
   set guifont=UbuntuMonoDerivativePowerline_N:h11:cDEFAULT
-end
 
-" Start GUI maximized.
-autocmd GUIEnter * simalt ~x
+  " Start window full maximized.
+  autocmd GUIEnter * simalt ~x
 
-" Remove the menu and toolbar of GVim
-set guioptions -=m
-set guioptions -=T
+  " Remove the menu and toolbar of GVim
+  set guioptions -=m
+  set guioptions -=T
 
-" Remove scroll bars in GVim.
-set guioptions -=r
-set guioptions -=L
+  " Remove scroll bars in GVim.
+  set guioptions -=r
+  set guioptions -=L
+endif
+
 
 " Define the leaders.
 let mapleader = " "
@@ -120,7 +122,7 @@ set novisualbell
 " Adjust the shells for GVim (windows) and vim in terminal (Unix).
 if has("win32")
    set shell=cmd.exe " For working on MS-Windows
-elseif if filereadable("/bin/zsh")
+elseif filereadable("/bin/zsh")
    set shell=/bin/zsh " Private use case
 else
    set shell=/bin/bash " Fallback for servers without zsh
@@ -212,7 +214,9 @@ set foldclose=all " Always close folds when leave them.
 set foldcolumn=3
 
 " For deoplete
-set pyxversion=3
+if !has('nvim')
+  set pyxversion=3
+endif
 
 " For neosnippet
 if has('conceal')

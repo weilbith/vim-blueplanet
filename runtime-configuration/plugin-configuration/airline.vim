@@ -61,8 +61,8 @@ function! PreviewWindow(...)
   let builder = a:1
   let context = a:2
 
-  let l:regular_preview_window = preview_window#is_preview_window_open() && context.winnr == preview_window#get_preview_window_nr()
-  let l:quickfix_preview_window = context.winnr == quickfix#get_quickfix_preview_window_nr()
+  let l:regular_preview_window = utils#preview_window#is_preview_window_open() && context.winnr == utils#preview_window#get_preview_window_nr()
+  let l:quickfix_preview_window = context.winnr == utils#quickfix#get_quickfix_preview_window_nr()
 
   " In case a preview window is open, check if it is this one.
   if l:regular_preview_window || l:quickfix_preview_window

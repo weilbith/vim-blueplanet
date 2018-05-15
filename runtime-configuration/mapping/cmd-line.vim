@@ -1,6 +1,6 @@
 " Move without arrow keys.
-cnoremap <C-P> <Up>
-cnoremap <C-N> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
 cnoremap <C-h> <Left>
 cnoremap <C-l> <Right>
 

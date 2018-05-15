@@ -24,7 +24,7 @@ nnoremap <leader>tn :ptnext<CR>
 nnoremap <leader>tN :ptprevious<CR>
 
 " Open the match shown in the current preview window.
-nnoremap <silent> <leader>tO :<C-u> call tags#open_preview_match()<CR>
+nnoremap <silent> <leader>tO :<C-u> call utils#tags#open_preview_match()<CR>
 
 " Search in tag list and use live filter (use the Denite plugin)
 nnoremap <leader>ts :Denite outline<CR>

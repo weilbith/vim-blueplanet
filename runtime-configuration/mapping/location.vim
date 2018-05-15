@@ -1,6 +1,6 @@
 " Open or jump to the location window, if not in the location window now or
 " jump back.
-nnoremap <silent> <leader>ll :<C-u>call location#location_jump()<CR>
+nnoremap <silent> <leader>ll :<C-u>call utils#location#location_jump()<CR>
 
 " Close the open location window.
 nnoremap <silent> <leader>lc :<C-u>lclose<CR>

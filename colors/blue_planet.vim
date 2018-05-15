@@ -34,7 +34,7 @@ if &t_Co >= 256 || has('gui_running')
     highlight Normal            ctermbg=235  ctermfg=15   guibg=#262626 guifg=#FFFFFF cterm=NONE           gui=NONE
 
     highlight Function          ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#0087d7 cterm=NONE           gui=NONE
-    highlight Comment           ctermbg=NONE ctermfg=274  guibg=NONE    guifg=#9e9e9e cterm=NONE           gui=italic
+    highlight Comment           ctermbg=NONE ctermfg=247  guibg=NONE    guifg=#9e9e9e cterm=NONE           gui=italic
     highlight Constant          ctermbg=NONE ctermfg=24   guibg=NONE    guifg=#005f87 cterm=NONE           gui=NONE
     highlight Conditional       ctermbg=NONE ctermfg=214  guibg=NONE    guifg=#F5BB12 cterm=NONE           gui=NONE
     highlight Operator          ctermbg=NONE ctermfg=214  guibg=NONE    guifg=#F5BB12 cterm=NONE           gui=NONE
@@ -68,8 +68,8 @@ if &t_Co >= 256 || has('gui_running')
     highlight TabLineFill       ctermbg=NONE ctermfg=NONE guibg=#1B1D1E guifg=#1B1D1E cterm=NONE           gui=NONE
     highlight TabLine           ctermbg=NONE ctermfg=NONE guibg=#1B1D1E guifg=#808080 cterm=NONE           gui=NONE
 
-    highlight Cursor            ctermbg=15   ctermfg=NONE guibg=#FFFFFF guifg=NONE    cterm=NONE           gui=NONE
-    highlight CursorColumn      ctermbg=16   ctermfg=NONE guibg=#191B1F guifg=NONE    cterm=NONE           gui=NONE
+    highlight Cursor            ctermbg=9   ctermfg=15 guibg=#000000 guifg=NONE    cterm=NONE           gui=NONE
+    highlight CursorColumn      ctermbg=9   ctermfg=15 guibg=#FFFFFF guifg=NONE    cterm=NONE           gui=NONE
     highlight CursorLine        ctermbg=238  ctermfg=NONE guibg=#444444 guifg=NONE    cterm=NONE           gui=NONE
     highlight CursorLineNr      ctermbg=238  ctermfg=249  guibg=#444444 guifg=#B2B2B2 cterm=NONE           gui=NONE
 
