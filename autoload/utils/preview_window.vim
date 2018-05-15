@@ -1,7 +1,7 @@
 " Check if the preview window is open.
 " Return true if so.
 "
-function! preview_window#is_preview_window_open() 
+function! utils#preview_window#is_preview_window_open() 
   " Try to jump the preview window.
   " Get an error, if there is none.
   try
@@ -19,9 +19,9 @@ endfunction
 " Get the preview windows number.
 " Return nothing in case there is no preview window.
 " 
-function! preview_window#get_preview_window_nr()
+function! utils#preview_window#get_preview_window_nr()
   " Do nothing in case no preview window is active.
-  if !preview_window#is_preview_window_open() | return | endif
+  if !utils#preview_window#is_preview_window_open() | return | endif
 
   " Jump to the preview window, store its id and jump back.
   let l:window = win_getid()
@@ -41,9 +41,9 @@ endfunction
 " Arguments:
 "   cmd - the command to call with execute
 "
-function! preview_window#call_wrapper(cmd) abort
+function! utils#preview_window#call_wrapper(cmd) abort
   " Check if the preview window is open.
-  let l:previewOpen = preview_window#is_preview_window_open()
+  let l:previewOpen = utils#preview_window#is_preview_window_open()
 
   " Remove the preview window flag from the window and cache its id.
   if l:previewOpen

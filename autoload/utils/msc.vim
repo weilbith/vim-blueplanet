@@ -1,20 +1,14 @@
-" Show a message and highlight it with the warning group.
-function! utilities#show_warning_message(message) abort
-  echohl WarningMsg | echo a:message | echohl None
-endfunction
-
-
 " Get the text from the current visual selection.
 " Show a warning, if more than one line is selected.
 "
-function! utilities#get_visual_selection() abort
+function! msc#get_visual_selection() abort
   " Get the selected range.
   let [l:line_start, l:column_start] = getpos("'<")[1:2]
   let [l:line_end, l:column_end] = getpos("'>")[1:2]
 
   " Make sure to not have multiple lines.
   if l:line_end > l:line_start
-    call utilities#show_warning_message("Refactor multiple lines is not allowed!")
+    call messages#warning("Refactor multiple lines is not allowed!")
     return
   endif
 

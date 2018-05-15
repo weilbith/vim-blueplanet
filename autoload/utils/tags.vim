@@ -3,9 +3,9 @@
 " At least it highlight the tag in the preview buffer.
 " Only works if the preview window is already open.
 "
-function! tags#preview_word() abort
+function! utils#tags#preview_word() abort
   " Only do this if the preview window is open. 
-  if preview_window#is_preview_window_open()
+  if utils#preview_window#is_preview_window_open()
     " Don't do this in the preview window itself or any special buffer
     " (typically not listed).
     if &previewwindow || !&buflisted | return | endif
@@ -57,9 +57,9 @@ endfunction
 " and jump to the same position (where the tag is located).
 " Does nothing, if no preview window is open.
 "
-function! tags#open_preview_match() abort
+function! utils#tags#open_preview_match() abort
   " Only works if the preview window is open.
-  if preview_window#is_preview_window_open()
+  if utils#preview_window#is_preview_window_open()
     " Jump (and back) to the preview window to get the open buffer and the cursor position.
     wincmd P
     let l:bufnr = bufnr('%')

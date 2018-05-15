@@ -1,9 +1,9 @@
 " Function to jump/open (to) the location window, if currently outside.
 " Jump back from the location window, if currently inside.
-function! location#location_jump()
+function! utils#location#location_jump()
   " Make sure a location list for the current window exit.
   if len(getloclist(0)) == 0
-    call utilities#show_warning_message("No location list for the current window!")
+    call messages#warning("No location list for the current window!")
     return
   endif
 
@@ -21,7 +21,7 @@ endfunction
 " Argumens:
 "   winid - id of the window to check
 "
-function! location#is_location_window(winid) 
+function! utils#location#is_location_window(winid) 
   let dict = getwininfo(a:winid)
   if len(dict) > 0 && get(dict[0], 'quickfix', 0) && get(dict[0], 'loclist', 0) 
     return v:true
