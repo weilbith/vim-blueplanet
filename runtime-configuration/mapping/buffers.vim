@@ -9,7 +9,7 @@ nnoremap <silent> <leader>bd :<C-u> call <SID>delete_buffer(v:true, v:false)<CR>
 nnoremap <silent> <leader>bD :<C-u> call <SID>delete_buffer(v:false, v:true)<CR>
 
 " Search in all buffers with live filter in present list (use Denite plugin).
-nnoremap <leader>bb :Denite buffer<CR>
+nnoremap <silent> <leader>bb :Denite buffer<CR>
 
 " Switch buffer in active window to buffer with specific id (use the Airline plugin).
 " Do no use the [N}b(uffer) command, cause it does not relate with the visual tab bar ids.

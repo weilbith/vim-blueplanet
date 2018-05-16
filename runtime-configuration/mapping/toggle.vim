@@ -5,9 +5,11 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " The Tagbar window.
 nnoremap <silent> <F3> :TagbarToggle<CR>
 
+" The Tabman window.
+nnoremap <silent> <F4> :TMToggle<CR>
+
 " Show Undo Tree. (Close Nerdtree for that cause it resize else)
 nnoremap <S-u> :<C-u>call <SID>toggle_undotree()<CR>
-" nnoremap <S-u> :UndotreeToggle<CR>:NERDTreeToggle<CR>
 
 " Show YankRing window.
 nnoremap <silent> <leader>yw :<C-u>call <SID>toggleYRShow()<CR>
@@ -15,7 +17,7 @@ nnoremap <silent> <leader>yw :<C-u>call <SID>toggleYRShow()<CR>
 
 " Other Toogles
 " Spell check (enabled by default).
-nnoremap <silent> <F4> :setlocal spell!<CR>
+nnoremap <silent> <F5> :setlocal spell!<CR>
 
 
 
