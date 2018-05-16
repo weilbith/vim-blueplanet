@@ -23,3 +23,9 @@ options   head
     autocmd!
     ${2}
   augroup END
+
+snippet   deinadd
+alias     da deinadd dein#add
+    call dein#add('${1:PLUGIN_SOURCE}', {
+              \ ${2:OPTIONS}
+              \ })
