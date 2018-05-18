@@ -195,6 +195,10 @@ call dein#add('sodapopcan/vim-twiggy', {
       \ 'on_cmd': 'Twiggy'
       \ })
 
+call dein#add('kana/vim-submode', {
+      \ 'name': 'submode'
+      \ })
+
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
 call dein#add('gko/vim-coloresque')

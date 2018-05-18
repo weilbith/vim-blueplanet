@@ -1,6 +1,8 @@
-" Move between buffers in order as the buffer list.
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bp :bprevious<CR>
+" Move between buffers in submode *require submode plugin)
+call submode#enter_with('test', 'n', '', '<space>bn', ':bnext<Cr>')
+call submode#enter_with('test', 'n', '', '<space>bp', ':bprevious<Cr>')
+call submode#map('test', 'n', '', 'n', ':bnext<Cr>')
+call submode#map('test', 'n', '', 'p', ':bprevious<Cr>')
 
 " Delete buffer and safe it before (without close the window displayed in).
 nnoremap <silent> <leader>bd :<C-u> call <SID>delete_buffer(v:true, v:false)<CR>
@@ -9,7 +11,7 @@ nnoremap <silent> <leader>bd :<C-u> call <SID>delete_buffer(v:true, v:false)<CR>
 nnoremap <silent> <leader>bD :<C-u> call <SID>delete_buffer(v:false, v:true)<CR>
 
 " Search in all buffers with live filter in present list (use Denite plugin).
-nnoremap <silent> <leader>bb :Denite buffer<CR>
+nnoremap <leader>bb :Denite buffer<CR>
 
 " Switch buffer in active window to buffer with specific id (use the Airline plugin).
 " Do no use the [N}b(uffer) command, cause it does not relate with the visual tab bar ids.
@@ -57,5 +59,5 @@ function! s:delete_buffer(save, force) abort
   endif
   
   " Resize the new window that was split with the previous buffer.
-  execute "resize " . l:height
+  execute 'resize ' . l:height
 endfunction

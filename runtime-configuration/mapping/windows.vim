@@ -6,18 +6,26 @@ nnoremap <silent> <leader>wv :vsplit<CR>
 nnoremap <silent> <leader>wc :close<CR>
 nnoremap <silent> <leader>wC :ChooseWin \| close<CR>
 
-" Close preview window
+" Jump to/close preview window
+nnoremap <silent> <leader>wp :wincmd p<CR>
 nnoremap <silent> <leader>wz :wincmd z<CR>
+
+" Jump back to last window.
+nnoremap <silent> <leader>wb :wincmd p<CR>
 
 " Choose a window (use the ChooseWin plugin).
 nnoremap <silent> <leader>ww :ChooseWin<CR>
 
 " Jump between windows of a split layout.
-" Neighbors
-nnoremap <silent> <leader>wh :wincmd h<CR>
-nnoremap <silent> <leader>wj :wincmd j<CR>
-nnoremap <silent> <leader>wk :wincmd k<CR>
-nnoremap <silent> <leader>wl :wincmd l<CR>
+" Neighbors and use submode (require submode plugin).
+call submode#enter_with('switch', 'n', '', '<space>wh', '<C-w>h')
+call submode#enter_with('switch', 'n', '', '<space>wj', '<C-w>j')
+call submode#enter_with('switch', 'n', '', '<space>wk', '<C-w>k')
+call submode#enter_with('switch', 'n', '', '<space>wl', '<C-w>l')
+call submode#map('switch', 'n', '', 'h', '<C-w>h')
+call submode#map('switch', 'n', '', 'j', '<C-w>j')
+call submode#map('switch', 'n', '', 'k', '<C-w>k')
+call submode#map('switch', 'n', '', 'l', '<C-w>l')
 
 " By id (works nice with the airline section for the window id)
 nnoremap <silent> <leader>w1 :1wincmd w<CR>
@@ -31,9 +39,19 @@ nnoremap <silent> <leader>w8 :8wincmd w<CR>
 nnoremap <silent> <leader>w9 :9wincmd w<CR>
 
 " Resize active window.
+" In-/Decrease width/height by using submode (submodes plugin required)
+call submode#enter_with('resize', 'n', '', '<space>wrk', '<C-w>+')
+call submode#enter_with('resize', 'n', '', '<space>wrj', '<C-w>-')
+call submode#enter_with('resize', 'n', '', '<space>wrl', '<C-w>>')
+call submode#enter_with('resize', 'n', '', '<space>wrh', '<C-w><')
+call submode#map('resize', 'n', '', 'k', '<C-w>+')
+call submode#map('resize', 'n', '', 'j', '<C-w>-')
+call submode#map('resize', 'n', '', 'l', '<C-w>>')
+call submode#map('resize', 'n', '', 'h', '<C-w><')
+
 " In-/Decrease or set to fixed width/height by user input.
-noremap <silent> <leader>wrh :<C-u>call <SID>windowChangeSize('height')<CR>
-noremap <silent> <leader>wrw :<C-u>call <SID>windowChangeSize('width')<CR>
+noremap <silent> <leader>wrH :<C-u>call <SID>windowChangeSize('height')<CR>
+noremap <silent> <leader>wrW :<C-u>call <SID>windowChangeSize('width')<CR>
 
 " Maximize current window (with Goyo plugin)
 nnoremap <silent> <leader>wm :<C-u> call <SID>toggle_max_window()<CR>
