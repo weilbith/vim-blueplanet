@@ -1,4 +1,4 @@
-let g:FerretAutojump = 1
+let g:FerretAutojump = 0
 let g:FerretMap = 0
 
 if has('nvim')
