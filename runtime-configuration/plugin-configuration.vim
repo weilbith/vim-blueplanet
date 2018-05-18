@@ -199,6 +199,10 @@ call dein#add('kana/vim-submode', {
       \ 'name': 'submode'
       \ })
 
+call dein#add('sbdchd/neoformat', {
+      \ 'name': 'neoformat'
+      \ })
+
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
 call dein#add('gko/vim-coloresque')

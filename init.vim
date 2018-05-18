@@ -35,7 +35,8 @@ call s:source('plugin-configuration')
 call s:source('mapping')
 
 " Source auto command(groups).
+call s:source('formatting', 'autocommands')
+call s:source('location', 'autocommands')
 call s:source('preview_window', 'autocommands')
 call s:source('quickfix', 'autocommands')
-call s:source('location', 'autocommands')
 call s:source('tags', 'autocommands')
