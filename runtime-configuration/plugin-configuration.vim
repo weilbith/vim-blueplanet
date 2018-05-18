@@ -59,7 +59,7 @@ call dein#add('Shougo/dein.vim')
 
 call dein#add('vim-airline/vim-airline', {
       \ 'name': 'airline',
-      \ 'depends': ['neomake', 'gutentags']
+      \ 'depends': ['neomake', 'gutentags', 'fugitive']
       \ })
 
 call dein#add('t9md/vim-choosewin', {
@@ -167,18 +167,33 @@ call dein#add('neomake/neomake', {
       \ 'name': 'neomake'
       \ })
 
+call dein#add('tpope/vim-fugitive', {
+      \ 'name': 'fugitive'
+      \ })
+
+call dein#add('tommcdo/vim-lion', {
+      \ 'name': 'lion'
+      \ })
+
+call dein#add('alvan/vim-closetag', {
+      \ 'name': 'close-tag'
+      \ })
+
+call dein#add('AndrewRadev/splitjoin.vim', {
+      \ 'name': 'splitjoin'
+      \ })
+
+call dein#add('cohama/agit.vim', {
+      \ 'name': 'agit'
+      \ })
 
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
 call dein#add('gko/vim-coloresque')
-call dein#add('alvan/vim-closetag')
 call dein#add('tpope/vim-repeat')
 call dein#add('kshenoy/vim-signature')
 call dein#add('wellle/targets.vim')
 call dein#add('tommcdo/vim-exchange')
-call dein#add('tommcdo/vim-lion')
-call dein#add('AndrewRadev/splitjoin.vim')
-call dein#add('tpope/vim-fugitive')
 
 
 " source $HOME/.vim/runtime-configuration/plugin-configuration/deoplete.vim
