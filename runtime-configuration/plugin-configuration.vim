@@ -184,7 +184,15 @@ call dein#add('AndrewRadev/splitjoin.vim', {
       \ })
 
 call dein#add('cohama/agit.vim', {
-      \ 'name': 'agit'
+      \ 'name': 'agit',
+      \ 'depends': 'fugitive',
+      \ 'on_cmd': ['Agit', 'AgitFile']
+      \ })
+
+call dein#add('sodapopcan/vim-twiggy', {
+      \ 'name': 'twiggy',
+      \ 'depends': 'fugitive',
+      \ 'on_cmd': 'Twiggy'
       \ })
 
 call dein#add('easymotion/vim-easymotion')

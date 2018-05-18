@@ -1,10 +1,11 @@
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gP :Gpull<CR>
-nnoremap <leader>gl :<C-u> call <SID>toggleAgit('Agit')<CR>
-nnoremap <leader>gL :<C-u> call <SID>toggleAgit('AgitFile')<CR>
 nnoremap <leader>gd :Gsdiff<CR>
+nnoremap <leader>gP :Gpull<CR>
+nnoremap <silent> <leader>gl :<C-u> call <SID>toggleAgit('Agit')<CR>
+nnoremap <silent> <leader>gL :<C-u> call <SID>toggleAgit('AgitFile')<CR>
+nnoremap <leader>gb :Twiggy<CR>
 
 
 " Functions
