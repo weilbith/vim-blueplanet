@@ -16,7 +16,7 @@ endfunction
 " Hook function executed after a plugin was sourced.
 " This is only necessary for lazy plugins, which haven't get loaded their
 " configuration when they were added.
-" 
+"
 function! PostSourceHook() abort
   if g:dein#plugin.lazy
     call LoadConfig()
@@ -27,7 +27,7 @@ endfunction
 " Will be called for an added plugin if it is not lazy,
 " or when a lazy plugin gets sourced.
 " If no configuration is defined, this does nothing.
-" 
+"
 function! LoadConfig() abort
   " Get the configuration file for the current plugin.
   let l:config = s:plugin_configuration_folder . g:dein#plugin.name . '.vim'
@@ -65,53 +65,53 @@ call dein#add('vim-airline/vim-airline', {
 call dein#add('t9md/vim-choosewin', {
       \ 'name': 'choosewin'
       \ })
-  
-  call dein#add('weilbith/vim-cursorword', {
-        \ 'name': 'cursor-word'
-        \ })
-  
-  call dein#add('Raimondi/delimitMate', {
-        \ 'name': 'delimit-mate',
-        \ 'on_event': 'InsertEnter'
-        \ })
 
-  call dein#add('Shougo/denite.nvim', {
-        \ 'name': 'denite',
-        \ 'on_cmd': ['Denite']
-        \ })
-  
-  call dein#add('ryanoasis/vim-devicons', {
-        \ 'name': 'dev-icons'
-        \ })
-  
-  call dein#add('wincent/ferret', {
-        \ 'name': 'ferret',
-        \ 'on_event': 'CursorHold'
-        \ })
-  
-  call dein#add('ludovicchabant/vim-gutentags', {
-        \ 'name': 'gutentags'
-        \ })
-  
-  call dein#add('Yggdroot/indentLine', {
-        \ 'name': 'indent-line'
-        \ })
-  
-  call dein#add('junegunn/goyo.vim')
-  
-  call dein#add('junegunn/limelight.vim', {
-        \ 'name': 'lime-light',
-        \ 'on_event': 'GoyoEnter'
-        \ })
-  
-  call dein#add('andymass/vim-matchup', {
-        \ 'name': 'match-up'
-        \ })
-  
+call dein#add('weilbith/vim-cursorword', {
+      \ 'name': 'cursor-word'
+      \ })
+
+call dein#add('Raimondi/delimitMate', {
+      \ 'name': 'delimit-mate',
+      \ 'on_event': 'InsertEnter'
+      \ })
+
+call dein#add('Shougo/denite.nvim', {
+      \ 'name': 'denite',
+      \ 'on_cmd': ['Denite']
+      \ })
+
+call dein#add('ryanoasis/vim-devicons', {
+      \ 'name': 'dev-icons'
+      \ })
+
+call dein#add('wincent/ferret', {
+      \ 'name': 'ferret',
+      \ 'on_event': 'CursorHold'
+      \ })
+
+call dein#add('ludovicchabant/vim-gutentags', {
+      \ 'name': 'gutentags'
+      \ })
+
+call dein#add('Yggdroot/indentLine', {
+      \ 'name': 'indent-line'
+      \ })
+
+call dein#add('junegunn/goyo.vim')
+
+call dein#add('junegunn/limelight.vim', {
+      \ 'name': 'lime-light',
+      \ 'on_event': 'GoyoEnter'
+      \ })
+
+call dein#add('andymass/vim-matchup', {
+      \ 'name': 'match-up'
+      \ })
+
 call dein#add('Shougo/neosnippet.vim', {
       \ 'name': 'neosnippet'
       \ })
-  
+
 call dein#add('scrooloose/nerdcommenter', {
       \ 'name': 'nerd-commenter'
       \ })
@@ -218,9 +218,9 @@ call dein#add('tommcdo/vim-exchange')
 
 
 " Further plugins without their own configuration:
-"    - fugitive (mapping in git section)
 "    - misc (required for vim-session)
 "    - tabular (especially used in vim-markdown)
+"
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('AddHook'))
@@ -230,10 +230,23 @@ call dein#end()
 call dein#save_state()
 "endif
 
-" Check for updates and install them automatically.
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
-
 " Must be set again, cause dein unset it.
 filetype plugin on
+
+if has('nvim')
+  " Instead of manually call ':UpdateRemotePlugins'
+  call dein#remote_plugins()
+endif
+
+
+" Autocommand to install new plugins or update already existing ones.
+augroup DeinUpdate
+  autocmd!
+
+  " Check for uninstalled plugins.
+  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+
+  " Check for updates and install them.
+  " TODO: Asynchronously not work that good, cause can't work during this.
+  " autocmd VimEnter * call dein#check_update()
+augroup END
