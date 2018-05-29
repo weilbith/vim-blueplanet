@@ -5,4 +5,4 @@ let g:mta_filetypes = {
       \ 'xml' : 1,
       \ 'vue' : 1,
       \ 'jsx' : 1
-\}
+      \ } " Mind that this plugin is loaded on filetype by dein.
