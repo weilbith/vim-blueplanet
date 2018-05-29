@@ -2,6 +2,9 @@
 CLONE_DIR="~/Tools/vim"
 mkdir -pf $CLONE_DIR
 
+# Install NPX for NPM to execute packages installed globally.
+sudo npm install --global npx
+
 # Rip Grep for Ferret
 cd /tmp
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/ripgrep_0.8.1_amd64.deb
@@ -22,3 +25,6 @@ sudo make install
 
 ## Prettier
 sudo npm install --global prettier
+
+## Solium
+sudo npm install --global solium

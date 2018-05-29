@@ -5,3 +5,7 @@ let g:NERDCommentWholeLinesInVMode=2
 let g:NERDSpaceDelims=1
 let g:NERDRemoveExtraSpaces=1
 let g:NERDRemoveExtraSpaces=1
+
+let g:NERDCustomDelimiters = {
+      \ 'solidity': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/'}
+      \ }

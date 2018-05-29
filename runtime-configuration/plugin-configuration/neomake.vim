@@ -6,6 +6,7 @@ let g:neomake_highlight_lines = 1
 " Enabled markers
 let g:neomake_java_enabled_markers = ['ant']
 let g:neomake_vim_enabled_markers = ['vint']
+let g:neomake_solidity_enabled_markers = ['solium']
 
 " Style
 let g:neomake_error_sign = {
