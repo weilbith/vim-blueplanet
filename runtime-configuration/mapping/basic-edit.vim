@@ -44,3 +44,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
 inoremap <expr> <C-cr> pumvisible() ? "\<C-y>" : "\<C-cr>"
 inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<Up>" : "\<C-k>"
+
+
+" Splitjoin plugin mappings.
+nnoremap gJ :SplitjoinJoin<CR>
+nnoremap gS :SplitjoinSplit<CR>

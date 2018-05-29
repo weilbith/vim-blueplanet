@@ -8,6 +8,10 @@ let s:plugin_configuration_folder = g:base_configuration_folder . 'plugin-config
 " configuration.
 "
 function! AddHook() abort
+  let l:config = s:plugin_configuration_folder . g:dein#plugin.normalized_name . '.vim'
+  let l:config = expand(l:config)
+  echom g:dein#plugin.normalized_name . ' - ' . l:config . ': ' . filereadable(l:config)
+
   if !g:dein#plugin.lazy
     call LoadConfig()
   endif
@@ -18,6 +22,7 @@ endfunction
 " configuration when they were added.
 "
 function! PostSourceHook() abort
+  echom 'Post ' . g:dein#plugin.name . ' lazy: ' . g:dein#plugin.lazy
   if g:dein#plugin.lazy
     call LoadConfig()
   endif
@@ -30,7 +35,7 @@ endfunction
 "
 function! LoadConfig() abort
   " Get the configuration file for the current plugin.
-  let l:config = s:plugin_configuration_folder . g:dein#plugin.name . '.vim'
+  let l:config = s:plugin_configuration_folder . g:dein#plugin.normalized_name . '.vim'
   let l:config = expand(l:config)
 
   " Check if the configuration file could been found (not all plugins have one)
@@ -56,153 +61,19 @@ execute 'set runtimepath+=' . s:dein_base_folder . '/repos/github.com/Shougo/dei
 call dein#begin(s:dein_base_folder, s:vimrcs)
 
 call dein#add('Shougo/dein.vim')
-
-call dein#add('vim-airline/vim-airline', {
-      \ 'name': 'airline',
-      \ 'depends': ['neomake', 'gutentags', 'fugitive']
-      \ })
-
-call dein#add('t9md/vim-choosewin', {
-      \ 'name': 'choosewin'
-      \ })
-
-call dein#add('weilbith/vim-cursorword', {
-      \ 'name': 'cursor-word'
-      \ })
-
-call dein#add('Raimondi/delimitMate', {
-      \ 'name': 'delimit-mate',
-      \ 'on_event': 'InsertEnter'
-      \ })
-
-call dein#add('Shougo/denite.nvim', {
-      \ 'name': 'denite',
-      \ 'on_cmd': ['Denite']
-      \ })
-
-call dein#add('ryanoasis/vim-devicons', {
-      \ 'name': 'dev-icons'
-      \ })
-
-call dein#add('wincent/ferret', {
-      \ 'name': 'ferret',
-      \ 'on_event': 'CursorHold'
-      \ })
-
-call dein#add('ludovicchabant/vim-gutentags', {
-      \ 'name': 'gutentags'
-      \ })
-
-call dein#add('Yggdroot/indentLine', {
-      \ 'name': 'indent-line'
-      \ })
-
+call dein#add('ryanoasis/vim-devicons')
+call dein#add('ludovicchabant/vim-gutentags')
+call dein#add('andymass/vim-matchup')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('neomake/neomake')
+call dein#add('tpope/vim-fugitive')
 call dein#add('junegunn/goyo.vim')
-
-call dein#add('junegunn/limelight.vim', {
-      \ 'name': 'lime-light',
-      \ 'on_event': 'GoyoEnter'
-      \ })
-
-call dein#add('andymass/vim-matchup', {
-      \ 'name': 'match-up'
-      \ })
-
-call dein#add('Shougo/neosnippet.vim', {
-      \ 'name': 'neosnippet'
-      \ })
-
-call dein#add('scrooloose/nerdcommenter', {
-      \ 'name': 'nerd-commenter'
-      \ })
-
-call dein#add('scrooloose/nerdtree', {
-      \ 'name': 'nerd-tree',
-      \ 'lazy': 1,
-      \ 'on_cmd:': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
-      \ })
-
-call dein#add('Xuyuanp/nerdtree-git-plugin', {
-      \ 'name': 'nerd-tree_git',
-      \ 'depends': 'nerd-tree'
-      \ })
-
-call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
-      \ 'name': 'nerd-tree_syntax-highlight',
-      \ 'depends': 'nerd-tree'
-      \ })
-
-call dein#add('airblade/vim-rooter', {
-      \ 'name': 'rooter'
-      \ })
-
-call dein#add('mhinz/vim-signify', {
-      \ 'name': 'signify'
-      \ })
-
-call dein#add('kien/tabman.vim', {
-      \ 'name': 'tabman',
-      \ 'on_cmd': ['TMToggle', 'TMFocus']
-      \ })
-
-call dein#add('majutsushi/tagbar', {
-      \ 'name': 'tagbar',
-      \ 'on_cmd': ['TagbarOpen', 'TagbarToggle']
-      \ })
-
-call dein#add('mbbill/undotree', {
-      \ 'name': 'undo-tree',
-      \ 'on_cmd': 'UndoTreeToggle'
-      \ })
-
-call dein#add('vim-scripts/YankRing.vim', {
-      \ 'name': 'yank-ring'
-      \ })
-
-call dein#add('Valloric/MatchTagAlways', {
-      \ 'name': 'match-tag-always'
-      \ })
-
-call dein#add('neomake/neomake', {
-      \ 'name': 'neomake'
-      \ })
-
-call dein#add('tpope/vim-fugitive', {
-      \ 'name': 'fugitive'
-      \ })
-
-call dein#add('tommcdo/vim-lion', {
-      \ 'name': 'lion'
-      \ })
-
-call dein#add('alvan/vim-closetag', {
-      \ 'name': 'close-tag'
-      \ })
-
-call dein#add('AndrewRadev/splitjoin.vim', {
-      \ 'name': 'splitjoin'
-      \ })
-
-call dein#add('cohama/agit.vim', {
-      \ 'name': 'agit',
-      \ 'depends': 'fugitive',
-      \ 'on_cmd': ['Agit', 'AgitFile']
-      \ })
-
-call dein#add('sodapopcan/vim-twiggy', {
-      \ 'name': 'twiggy',
-      \ 'depends': 'fugitive',
-      \ 'on_cmd': 'Twiggy'
-      \ })
-
-call dein#add('kana/vim-submode', {
-      \ 'name': 'submode'
-      \ })
-
-call dein#add('sbdchd/neoformat', {
-      \ 'name': 'neoformat'
-      \ })
-
+call dein#add('kana/vim-submode')
+call dein#add('sbdchd/neoformat') " TODO on function
+call dein#add('tommcdo/vim-lion')
+call dein#add('mhinz/vim-signify')
+call dein#add('weilbith/vim-cursorword')
+call dein#add('airblade/vim-rooter')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
 call dein#add('gko/vim-coloresque')
@@ -210,6 +81,93 @@ call dein#add('tpope/vim-repeat')
 call dein#add('kshenoy/vim-signature')
 call dein#add('wellle/targets.vim')
 call dein#add('tommcdo/vim-exchange')
+
+call dein#add('vim-scripts/YankRing.vim', {
+      \ 'name': 'yankring'
+      \ })
+call dein#add('vim-airline/vim-airline', {
+      \ 'on_source': ['neomake', 'gutentags', 'fugitive']
+      \ })
+
+call dein#add('t9md/vim-choosewin', {
+      \ 'on_cmd': ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay'],
+      \ 'on_func':'choosewin#start'
+      \ })
+
+call dein#add('Raimondi/delimitMate', {
+      \ 'on_event': 'InsertEnter'
+      \ })
+
+" TODO
+call dein#add('Shougo/denite.nvim', {
+      \ 'on_event': 'Denite'
+      \ })
+
+" TODO
+call dein#add('wincent/ferret', {
+      \ 'on_cmd': ['Ack', 'Lack', 'Back', 'Black']
+      \ })
+
+call dein#add('Yggdroot/indentLine', {
+      \ 'name': 'indent-line'
+      \ })
+
+" TODO
+call dein#add('junegunn/limelight.vim', {
+      \ 'on_event': 'GoyoEnter'
+      \ })
+
+" TODO
+call dein#add('Shougo/neosnippet.vim', {
+      \ 'on_event': 'InsertEnter'
+      \ })
+
+call dein#add('scrooloose/nerdtree', {
+      \ 'on_cmd': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
+      \ })
+
+call dein#add('Xuyuanp/nerdtree-git-plugin', {
+      \ 'on_source': 'nerd-tree'
+      \ })
+
+call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
+      \ 'on_source': 'nerd-tree'
+      \ })
+
+call dein#add('kien/tabman.vim', {
+      \ 'on_cmd': ['TMToggle', 'TMFocus']
+      \ })
+
+call dein#add('majutsushi/tagbar', {
+      \ 'on_cmd': ['TagbarOpen', 'TagbarToggle']
+      \ })
+
+call dein#add('mbbill/undotree', {
+      \ 'on_cmd': 'UndoTreeToggle'
+      \ })
+
+call dein#add('Valloric/MatchTagAlways', {
+      \ 'name': 'matchtagalways',
+      \ 'on_ft': ['html', 'xml', 'vue', 'jsx']
+      \ })
+
+call dein#add('alvan/vim-closetag', {
+      \ 'on_ft': ['html', 'xml', 'vue', 'jsx']
+      \ })
+
+call dein#add('AndrewRadev/splitjoin.vim', {
+      \ 'on_cmd': ['SplitjoinJoin', 'SplitjoinSplit']
+      \ })
+
+call dein#add('cohama/agit.vim', {
+      \ 'depends': 'fugitive',
+      \ 'on_cmd': ['Agit', 'AgitFile']
+      \ })
+
+call dein#add('sodapopcan/vim-twiggy', {
+      \ 'depends': 'fugitive',
+      \ 'on_cmd': 'Twiggy'
+      \ })
 
 
 " source $HOME/.vim/runtime-configuration/plugin-configuration/deoplete.vim
@@ -227,7 +185,8 @@ call dein#set_hook([], 'hook_add', function('AddHook'))
 call dein#set_hook([], 'hook_post_source', function('PostSourceHook'))
 
 call dein#end()
-call dein#save_state()
+"call dein#recache_runtimepath()
+"call dein#save_state()
 "endif
 
 " Must be set again, cause dein unset it.
