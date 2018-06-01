@@ -8,10 +8,6 @@ let s:plugin_configuration_folder = g:base_configuration_folder . 'plugin-config
 " configuration.
 "
 function! AddHook() abort
-  let l:config = s:plugin_configuration_folder . g:dein#plugin.normalized_name . '.vim'
-  let l:config = expand(l:config)
-  echom g:dein#plugin.normalized_name . ' - ' . l:config . ': ' . filereadable(l:config)
-
   if !g:dein#plugin.lazy
     call LoadConfig()
   endif
@@ -22,7 +18,6 @@ endfunction
 " configuration when they were added.
 "
 function! PostSourceHook() abort
-  echom 'Post ' . g:dein#plugin.name . ' lazy: ' . g:dein#plugin.lazy
   if g:dein#plugin.lazy
     call LoadConfig()
   endif
@@ -69,7 +64,7 @@ call dein#add('neomake/neomake')
 call dein#add('tpope/vim-fugitive')
 call dein#add('junegunn/goyo.vim')
 call dein#add('kana/vim-submode')
-call dein#add('sbdchd/neoformat') " TODO on function
+call dein#add('sbdchd/neoformat')
 call dein#add('tommcdo/vim-lion')
 call dein#add('mhinz/vim-signify')
 call dein#add('weilbith/vim-cursorword')
@@ -81,12 +76,18 @@ call dein#add('tpope/vim-repeat')
 call dein#add('kshenoy/vim-signature')
 call dein#add('wellle/targets.vim')
 call dein#add('tommcdo/vim-exchange')
+call dein#add('Shougo/neosnippet.vim')
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
       \ })
+
+" Some statusline segments depends on other plugins like fugitive.
+" There this plugins need to be sourced before airline.
+" For some reason the 'on_source' does not work here...
+" Therefore use the VimEnter event, cause the other plugins are loaded then.
 call dein#add('vim-airline/vim-airline', {
-      \ 'on_source': ['neomake', 'gutentags', 'fugitive']
+      \ 'on_event': 'VimEnter'
       \ })
 
 call dein#add('t9md/vim-choosewin', {
@@ -98,9 +99,8 @@ call dein#add('Raimondi/delimitMate', {
       \ 'on_event': 'InsertEnter'
       \ })
 
-" TODO
 call dein#add('Shougo/denite.nvim', {
-      \ 'on_event': 'Denite'
+      \ 'on_cmd': 'Denite'
       \ })
 
 " TODO
@@ -117,21 +117,16 @@ call dein#add('junegunn/limelight.vim', {
       \ 'on_event': 'GoyoEnter'
       \ })
 
-" TODO
-call dein#add('Shougo/neosnippet.vim', {
-      \ 'on_event': 'InsertEnter'
-      \ })
-
 call dein#add('scrooloose/nerdtree', {
       \ 'on_cmd': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
       \ })
 
 call dein#add('Xuyuanp/nerdtree-git-plugin', {
-      \ 'on_source': 'nerd-tree'
+      \ 'on_source': 'nerdtree'
       \ })
 
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
-      \ 'on_source': 'nerd-tree'
+      \ 'on_source': 'nerdtree'
       \ })
 
 call dein#add('kien/tabman.vim', {
@@ -160,12 +155,12 @@ call dein#add('AndrewRadev/splitjoin.vim', {
       \ })
 
 call dein#add('cohama/agit.vim', {
-      \ 'depends': 'fugitive',
+      \ 'depends': 'vim-fugitive',
       \ 'on_cmd': ['Agit', 'AgitFile']
       \ })
 
 call dein#add('sodapopcan/vim-twiggy', {
-      \ 'depends': 'fugitive',
+      \ 'depends': 'vim-fugitive',
       \ 'on_cmd': 'Twiggy'
       \ })
 
@@ -182,6 +177,7 @@ call dein#add('sodapopcan/vim-twiggy', {
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('AddHook'))
+call dein#set_hook([], 'hook_source', function('LoadConfig'))
 call dein#set_hook([], 'hook_post_source', function('PostSourceHook'))
 
 call dein#end()
