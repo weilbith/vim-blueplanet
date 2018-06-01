@@ -77,6 +77,8 @@ call dein#add('kshenoy/vim-signature')
 call dein#add('wellle/targets.vim')
 call dein#add('tommcdo/vim-exchange')
 call dein#add('Shougo/neosnippet.vim')
+call dein#add('romainl/vim-cool')
+call dein#add('mhinz/vim-startify')
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
@@ -124,6 +126,7 @@ call dein#add('scrooloose/nerdtree', {
 call dein#add('Xuyuanp/nerdtree-git-plugin', {
       \ 'on_source': 'nerdtree'
       \ })
+" call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
       \ 'on_source': 'nerdtree'
@@ -136,6 +139,7 @@ call dein#add('kien/tabman.vim', {
 call dein#add('majutsushi/tagbar', {
       \ 'on_cmd': ['TagbarOpen', 'TagbarToggle']
       \ })
+" call dein#add('/home/thore/Projects/vim/tagbar')
 
 call dein#add('mbbill/undotree', {
       \ 'on_cmd': 'UndoTreeToggle'

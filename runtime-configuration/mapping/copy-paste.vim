@@ -6,10 +6,10 @@ xnoremap <C-c> "+y
 
 " Paste from clipboard with auto paste mode.
 nnoremap <C-v> :set paste<CR>"+p:set nopaste<CR>
-inoremap <C-v> <esc>:set paste<CR>"+p:set nopaste<CR>a
+" inoremap <C-v> <esc>:set paste<CR>"+p:set nopaste<CR>a
 
 
-" YankRing 
+" YankRing
 " Insert number of YankRing to paste.
 nnoremap <leader>yy :<C-u>call <SID>getYRElem()<CR>
 
@@ -38,7 +38,7 @@ function! s:getYRElem()
   call win_gotoid(l:current)
 
   " Request for a YankRing entry number and paste it to the current buffer.
-  let l:element_number = input('Element Number: ')  
+  let l:element_number = input('Element Number: ')
   execute('YRGetElem '.l:element_number)
 
   " If the YankRing wasn't visible before, close it again after. Else leave it open.
