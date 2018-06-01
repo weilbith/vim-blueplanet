@@ -168,6 +168,10 @@ call dein#add('sodapopcan/vim-twiggy', {
       \ 'on_cmd': 'Twiggy'
       \ })
 
+call dein#add('brooth/far.vim', {
+      \ 'on_cmd': ['Far', 'Farp']
+      \ })
+
 
 " source $HOME/.vim/runtime-configuration/plugin-configuration/deoplete.vim
 " source $HOME/.vim/runtime-configuration/plugin-configuration/vim-session.vim
