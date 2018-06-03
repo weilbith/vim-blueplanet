@@ -56,7 +56,6 @@ execute 'set runtimepath+=' . s:dein_base_folder . '/repos/github.com/Shougo/dei
 call dein#begin(s:dein_base_folder, s:vimrcs)
 
 call dein#add('Shougo/dein.vim')
-call dein#add('ryanoasis/vim-devicons')
 call dein#add('ludovicchabant/vim-gutentags')
 call dein#add('andymass/vim-matchup')
 call dein#add('scrooloose/nerdcommenter')
@@ -79,6 +78,7 @@ call dein#add('tommcdo/vim-exchange')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('romainl/vim-cool')
 call dein#add('mhinz/vim-startify')
+call dein#add('xolox/vim-misc')
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
@@ -90,6 +90,10 @@ call dein#add('vim-scripts/YankRing.vim', {
 " Therefore use the VimEnter event, cause the other plugins are loaded then.
 call dein#add('vim-airline/vim-airline', {
       \ 'on_event': 'VimEnter'
+      \ })
+
+call dein#add('ryanoasis/vim-devicons', {
+      \ 'on_source': 'vim-airline'
       \ })
 
 call dein#add('t9md/vim-choosewin', {
@@ -172,6 +176,9 @@ call dein#add('brooth/far.vim', {
       \ 'on_cmd': ['Far', 'Farp']
       \ })
 
+call dein#add('xolox/vim-session', {
+      \ 'depends': 'vim-misc'
+      \ })
 
 " source $HOME/.vim/runtime-configuration/plugin-configuration/deoplete.vim
 " source $HOME/.vim/runtime-configuration/plugin-configuration/vim-session.vim

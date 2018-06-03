@@ -1,5 +1,5 @@
 " Options
-let g:startify_session_dir='$HOME/' . g:blueplanet_session_dir
+let g:startify_session_dir = g:data_folder_session
 let g:startify_list_order = [
             \ ['Recently used files:'], 'files',
             \ ['Recently used files in this directory:'], 'dir',
