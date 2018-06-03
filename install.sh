@@ -28,3 +28,6 @@ sudo npm install --global prettier
 
 ## Solium
 sudo npm install --global solium
+
+## FixJSON
+sudo npm install --global fixjson
