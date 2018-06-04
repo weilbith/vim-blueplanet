@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.sol setf solidity
+autocmd BufNewFile,BufRead *.sol setfiletype solidity

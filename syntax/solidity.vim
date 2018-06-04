@@ -1,4 +1,8 @@
-if exists("b:current_syntax")
+" Vim syntax file
+" Language: solidity
+" Source: https://github.com/tomlion/vim-solidity/blob/master/syntax/solidity.vim
+
+if exists('b:current_syntax')
   finish
 endif
 
