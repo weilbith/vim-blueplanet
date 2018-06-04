@@ -7,6 +7,7 @@ let g:neomake_highlight_lines = 1
 let g:neomake_java_enabled_markers = ['ant']
 let g:neomake_vim_enabled_markers = ['vint']
 let g:neomake_solidity_enabled_markers = ['solium']
+let g:neomake_json_enabled_markers = ['jsonlint']
 
 " Style
 let g:neomake_error_sign = {
@@ -31,17 +32,17 @@ let g:neomake_message_sign = {
 
 
 " Highlights
-highlight NeomakeError ctermbg=NONE ctermfg=197 guibg=NONE guifg=#ff005f cterm=reverse gui=reverse
-highlight NeomakeErrorSign ctermbg=NONE ctermfg=197 guibg=NONE guifg=#ff005f cterm=bold gui=bold
+highlight NeomakeError       ctermbg=NONE ctermfg=197 guibg=NONE guifg=#ff005f cterm=reverse gui=reverse
+highlight NeomakeErrorSign   ctermbg=NONE ctermfg=197 guibg=NONE guifg=#ff005f cterm=bold    gui=bold
 
-highlight NeomakeWarning ctermbg=NONE ctermfg=214 guibg=NONE guifg=#F5BB12 cterm=reverse gui=reverse
-highlight NeomakeWarningSign ctermbg=NONE ctermfg=214 guibg=NONE guifg=#F5BB12 cterm=NONE gui=NONE
+highlight NeomakeWarning     ctermbg=NONE ctermfg=214 guibg=NONE guifg=#F5BB12 cterm=reverse gui=reverse
+highlight NeomakeWarningSign ctermbg=NONE ctermfg=214 guibg=NONE guifg=#F5BB12 cterm=NONE    gui=NONE
 
-highlight NeomakeInfo ctermbg=NONE ctermfg=191 guibg=NONE guifg=#d7ff5f cterm=reverse gui=reverse
-highlight NeomakeInfoSign ctermbg=NONE ctermfg=191 guibg=NONE guifg=#d7ff5f cterm=bold gui=bold
+highlight NeomakeInfo        ctermbg=NONE ctermfg=191 guibg=NONE guifg=#d7ff5f cterm=reverse gui=reverse
+highlight NeomakeInfoSign    ctermbg=NONE ctermfg=191 guibg=NONE guifg=#d7ff5f cterm=bold    gui=bold
 
-highlight NeomakeMessage ctermbg=NONE ctermfg=32 guibg=NONE guifg=#0087d7 cterm=reverse gui=reverse
-highlight NeomakeMessageSign ctermbg=NONE ctermfg=32 guibg=NONE guifg=#0087d7 cterm=bold gui=bold
+highlight NeomakeMessage     ctermbg=NONE ctermfg=32  guibg=NONE guifg=#0087d7 cterm=reverse gui=reverse
+highlight NeomakeMessageSign ctermbg=NONE ctermfg=32  guibg=NONE guifg=#0087d7 cterm=bold    gui=bold
 
 
 

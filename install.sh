@@ -10,9 +10,13 @@ cd /tmp
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.8.1/ripgrep_0.8.1_amd64.deb
 dpkg -i ripgrep_0.8.1_amd64.deb
 
+# Use lists for packages to install them at once at the end.
+YARN_LIST=""
+PIP_LIST=""
+
 # Linter/Formatter
 ## Vint
-pip install --user vim-vint
+PIP_LIST=$PIP_LIST + " vim-vint"
 
 ## Uncrustify
 cd ~/Tools
@@ -24,10 +28,16 @@ make
 sudo make install
 
 ## Prettier
-sudo npm install --global prettier
+YARN_LIST=$YARN_LIST + " prettier"
 
 ## Solium
-sudo npm install --global solium
+YARN_LIST=$YARN_LIST + " solium"
 
 ## FixJSON
-sudo npm install --global fixjson
+YARN_LIST=$YARN_LIST + " fixjson"
+
+
+
+# Install package lists.
+yarn global add $YARN_LIST
+pip install --user $PIP_LIST
