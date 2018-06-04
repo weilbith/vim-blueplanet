@@ -4,7 +4,7 @@ scriptencoding utf-8
 let g:airline_theme='blue_planet'
 let g:airline_powerline_fonts=1
 let g:airline_skip_empty_sections=1
-let g:airline_exclude_preview = 0 
+let g:airline_exclude_preview = 0
 let g:airline_inactive_collapse=1
 
 " Tabline
@@ -55,7 +55,7 @@ call airline#parts#define_accent('WindowNumber', 'bold')
 function! WindowNumber(...)
     let l:builder = a:1
     let l:context = a:2
-    call l:builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())} ')
+    call l:builder.add_section('airline_b', '   %{tabpagewinnr(tabpagenr())} ')
     return 0
 endfunction
 
@@ -96,7 +96,7 @@ function! GutentagStatus () abort
   " Check if gutentags plugin is sourced.
   if dein#is_sourced('gutentags')
     return gutentags#statusline('Generating...')
-  else 
+  else
     return ''
   endif
 endfunction
@@ -111,12 +111,12 @@ if !exists('s:arline_window_functions_added')
 endif
 
 " Define the functions per section.
-let g:airline_section_a=airline#section#create(['mode']) 
+let g:airline_section_a=airline#section#create(['mode'])
 let g:airline_section_b=airline#section#create(['branch', ' ( ' , 'hunks', ')'])
-let g:airline_section_c=airline#section#create(['%t %m %{gutentags#statusline("Generating...")}', 'readonly', 'paste', 'tagbar']) 
-let g:airline_section_x=airline#section#create(['spell', '  %{g:airline_right_alt_sep} ', 'filetype']) 
+let g:airline_section_c=airline#section#create(['%t %m %{gutentags#statusline("Generating...")}', 'readonly', 'paste', 'tagbar'])
+let g:airline_section_x=airline#section#create(['spell', '  %{g:airline_right_alt_sep} ', 'filetype'])
 "let g:airline_section_y=airline#section#create(['fileencoding', 'fileformat'])  " Display plain text, for some reason.
-let g:airline_section_z=airline#section#create(['linenr', 'maxlinenr']) 
+let g:airline_section_z=airline#section#create(['linenr', 'maxlinenr'])
 
 " ---
 
