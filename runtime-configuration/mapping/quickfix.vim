@@ -5,7 +5,8 @@ nnoremap <silent> <leader>qq :<C-u>call utils#quickfix#quickfix_jump()<CR>
 " Close the open quickfix window.
 nnoremap <silent> <leader>qc :<C-u>call utils#quickfix#quickfix_close(v:true)<CR>
 
-" Go to next/previous entry in the quickfix list.
+" Go to the current/next/previous entry in the quickfix list.
+nnoremap <leader>q<CR> :cc<CR>
 nnoremap <leader>qn :cnext<CR>
 nnoremap <leader>qN :cprevious<CR>
 

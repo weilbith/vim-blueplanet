@@ -5,7 +5,8 @@ nnoremap <silent> <leader>ll :<C-u>call utils#location#location_jump()<CR>
 " Close the open location window.
 nnoremap <silent> <leader>lc :<C-u>lclose<CR>
 
-" Go to next/previous entry in the location list.
+" Go to the current/next/previous entry in the location list.
+nnoremap <leader>l<CR> :ll<CR>
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lN :lprevious<CR>
 
