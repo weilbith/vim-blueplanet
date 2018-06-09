@@ -79,6 +79,8 @@ call dein#add('Shougo/neosnippet.vim')
 call dein#add('romainl/vim-cool')
 call dein#add('mhinz/vim-startify')
 call dein#add('xolox/vim-misc')
+call dein#add('t9md/vim-choosewin')
+
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
@@ -94,11 +96,6 @@ call dein#add('vim-airline/vim-airline', {
 
 call dein#add('ryanoasis/vim-devicons', {
       \ 'on_source': 'vim-airline'
-      \ })
-
-call dein#add('t9md/vim-choosewin', {
-      \ 'on_cmd': ['ChooseWin', 'ChooseWinSwap', 'ChooseWinSwapStay'],
-      \ 'on_func':'choosewin#start'
       \ })
 
 call dein#add('Raimondi/delimitMate', {
@@ -133,6 +130,10 @@ call dein#add('Xuyuanp/nerdtree-git-plugin', {
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
+      \ 'on_source': 'nerdtree'
+      \ })
+
+call dein#add('weilbith/nerdtree_choosewin-plugin', {
       \ 'on_source': 'nerdtree'
       \ })
 
