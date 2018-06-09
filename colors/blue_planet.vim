@@ -100,7 +100,7 @@ if &t_Co >= 256 || has('gui_running')
     highlight Search        ctermbg=222  ctermfg=16   guibg=#F0C674 guifg=#191B1F cterm=NONE      gui=NONE
 
     highlight Directory     ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#0087d7 cterm=NONE      gui=NONE
-    highlight MatchParen    ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=inverse   gui=inverse
+    highlight MatchParen    ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline   gui=underline
 
     highlight SpellBad      ctermbg=NONE ctermfg=166  guibg=NONE    guifg=NONE    cterm=undercurl gui=undercurl guisp=#ff005f
     highlight SpellCap      ctermbg=NONE ctermfg=68   guibg=NONE    guifg=#3299CC cterm=undercurl gui=undercurl guisp=#3299CC
