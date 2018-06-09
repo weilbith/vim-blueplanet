@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Move lines/selection and auto indent
 " Normal mode
 nnoremap <A-j> :m .+1<CR>==
@@ -39,8 +41,9 @@ xnoremap <expr> @ ":norm @" . nr2char(getchar()) . "<CR>"
 " Use concealed drop down menu for spell correction in normal mode as in
 " insert mode.
 " Add some more key maps for the menu.
+" Make sure to restore the behavior of delimit mate.
 nnoremap z= ea<C-x><C-s>
-inoremap <expr> <CR> pumvisible() ? "\<C-y><Esc>" : "\<CR>"
+imap <expr> <CR> pumvisible() ? "\<C-y>\<CR>" : '<Plug>delimitMateCR'
 inoremap <expr> <C-cr> pumvisible() ? "\<C-y>" : "\<C-cr>"
 inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<Up>" : "\<C-k>"
