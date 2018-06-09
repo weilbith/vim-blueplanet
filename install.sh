@@ -36,6 +36,9 @@ YARN_LIST=$YARN_LIST + " solium"
 ## FixJSON
 YARN_LIST=$YARN_LIST + " fixjson"
 
+## ESLint
+YARN_LIST=$YARN_LIST + " eslint eslint-plugin-import bable-eslint"
+
 
 
 # Install package lists.

@@ -33,7 +33,7 @@ function! s:rename(word)
     execute '%s/' . a:word . '/' . l:replace . '/g'
 
   else
-    call utilities#show_warning_message('No word under the cursor to refactor!')
+    call utils#messages#warning('No word under the cursor to refactor!')
 
   endif
 endfunction

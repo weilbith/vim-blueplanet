@@ -45,7 +45,6 @@ call s:source('location', 'autocommands')
 call s:source('preview_window', 'autocommands')
 call s:source('quickfix', 'autocommands')
 call s:source('tags', 'autocommands')
-call s:source('misc', 'autocommands')
 
 syntax keyword EqualSigns <= conceal cchar='≠'
 highlight link EqualsSign Operator
