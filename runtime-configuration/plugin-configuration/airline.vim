@@ -55,7 +55,7 @@ call airline#parts#define_accent('WindowNumber', 'bold')
 function! WindowNumber(...)
     let l:builder = a:1
     let l:context = a:2
-    call l:builder.add_section('airline_b', '   %{tabpagewinnr(tabpagenr())} ')
+    call l:builder.add_section('airline_b', ' ❖ %{utils#msc#circle_number(tabpagewinnr(tabpagenr()), v:false)} ')
     return 0
 endfunction
 
