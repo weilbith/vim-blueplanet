@@ -4,46 +4,49 @@
 " Only works if the preview window is already open.
 "
 function! utils#tags#preview_word() abort
-  " Only do this if the preview window is open. 
+  " Only do this if the preview window is open.
   if utils#preview_window#is_preview_window_open()
     " Don't do this in the preview window itself or any special buffer
     " (typically not listed).
     if &previewwindow || !&buflisted | return | endif
 
     " Get current word under the cursor.
-    let l:word = expand("<cword>")
+    let l:word = expand('<cword>')
 
     " Only process further, when the word contains a letter.
-    if l:word =~ '\a'
+    if l:word =~? '\a'
+      " Use the word till the dot, cause thats the object of interest.
+      let l:word = split(l:word)[0]
+
       " Jump to preview window (if possible), clear old highlights and jump back.
       silent! wincmd P
       if &previewwindow
         match none
         wincmd p
       endif
-      
+
       " Try displaying a matching tag for the word under the cursor
       try
-        exe "ptag " . l:word
+        exe 'ptag ' . l:word
       catch
         return
       endtry
-      
+
       " Jump to preview window (if possible) and do some nice things.
       silent! wincmd P
       if &previewwindow
         " Open possible folds
-        if has("folding")
+        if has('folding')
           silent! .foldopen
         endif
 
         " Search for this word
-        call search("$", "b")
-        let l:word = substitute(l:word, '\\', '\\\\', "")
-        call search('\<\V' . l:word . '\>')	" position cursor on match
+        call search('$', 'b')
+        let l:word = substitute(l:word, '\\', '\\\\', '')
+        call search('\<\V' . l:word . '\>') " position cursor on match
 
         " Add a match highlight to the word at this position
-        exe 'match previewWord "\%' . line(".") . 'l\%' . col(".") . 'c\k*"'
+        exe 'match previewWord "\%' . line('.') . 'l\%' . col('.') . 'c\k*"'
 
         " Jump back to original window.
         wincmd p
@@ -75,7 +78,7 @@ function! utils#tags#open_preview_match() abort
 
   " Show message that feature is not available.
   else
-    echom "No preview window open!"
+    echom 'No preview window open!'
 
   endif
 endfunction

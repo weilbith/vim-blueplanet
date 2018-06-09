@@ -58,7 +58,7 @@ function! utils#quickfix#show_quickfix_preview() abort
   " Jump to the preview window and remove the old highlighing
   execute s:quickfix_preview_window_nr . 'wincmd w'
   match none
-  
+
   " Open the file from the quickfix entry under the cursor in the opened window for previews.
   silent execute 'edit ' . l:file
 
@@ -109,7 +109,7 @@ endfunction
 
 
 " Check if the current window is the artificial quickfix preview window.
-" 
+"
 function! utils#quickfix#is_quickfix_preview_window()
   if !s:quickfix_preview_window_nr | return v:false | endif
 
@@ -119,11 +119,11 @@ endfunction
 
 " Open the buffer that is currently shown in the preview window into
 " the currently active window.
-" 
+"
 function! utils#quickfix#open_quickfix_preview_file() abort
   " Not possible if no preview window is open for the quickfix list.
   if !s:quickfix_preview_window_nr
-    call messages#warning("No quickfix preview window open!")
+    call utils#messages#warning("No quickfix preview window open!")
     return
   endif
 
@@ -131,10 +131,10 @@ function! utils#quickfix#open_quickfix_preview_file() abort
   if winnr() == s:quickfix_preview_window_nr ||
         \ &filetype == 'qf' ||
         \ !&buflisted
-    call messages#warning("Open preview only possible in regular window!")
+    call utils#messages#warning("Open preview only possible in regular window!")
     return
   endif
-  
+
   " Jump to the preview window to get the buffer number.
   execute s:quickfix_preview_window_nr . 'wincmd w'
   let l:bufnr = bufnr('%')
@@ -150,7 +150,7 @@ endfunction!
 
 
 " Make the scoped variable public available.
-" 
+"
 function! utils#quickfix#get_quickfix_preview_window_nr()
   return s:quickfix_preview_window_nr
 endfunction

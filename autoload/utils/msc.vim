@@ -10,7 +10,7 @@ function! utils#msc#get_visual_selection() abort
 
   " Make sure to not have multiple lines.
   if l:line_end > l:line_start
-    call messages#warning('Refactor multiple lines is not allowed!')
+    call utils#messages#warning('Refactor multiple lines is not allowed!')
     return
   endif
 
