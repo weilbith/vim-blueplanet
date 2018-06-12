@@ -2,12 +2,13 @@ set nocompatible
 filetype plugin indent on
 
 " Do not reset when reload runtime configuration a Vim instance.
-if !exists("g:syntax_on")
+if !exists('g:syntax_on')
     syntax enable
 endif
 
 " Set the encoding and file format to make this sure.
 set encoding=utf-8
+scriptencoding utf-8
 set fileformat=unix
 
 " Increase the number of mod lines.
@@ -29,12 +30,15 @@ nnoremap <Leader>s ea<C-X><C-S>
 set autoread
 
 " Do some GUI specific stuff.
-if has("gui_running")
+if has('gui_running')
   " Set font for Glam
   set guifont=UbuntuMonoDerivativePowerline_N:h11:cDEFAULT
 
   " Start window full maximized.
-  autocmd GUIEnter * simalt ~x
+  augroup GuiEnter
+    autocmd!
+    autocmd GUIEnter * simalt ~x
+  augroup END
 
   " Remove the menu and toolbar of GVim
   set guioptions -=m
@@ -47,8 +51,8 @@ endif
 
 
 " Define the leaders.
-let mapleader = " "
-let maplocalleader = "\\"
+let g:mapleader = ' '
+let g:maplocalleader = '\\'
 
 " Extend the command line history.
 set lazyredraw
@@ -79,7 +83,7 @@ set noshowmode
 set hidden
 
 " Show line number and relative numbers
-set nu
+set number
 set relativenumber
 
 " Wrap text to fit into the window.
@@ -120,9 +124,9 @@ set noerrorbells
 set novisualbell
 
 " Adjust the shells for GVim (windows) and vim in terminal (Unix).
-if has("win32")
+if has('win32')
    set shell=cmd.exe " For working on MS-Windows
-elseif filereadable("/bin/zsh")
+elseif filereadable('/bin/zsh')
    set shell=/bin/zsh " Private use case
 else
    set shell=/bin/bash " Fallback for servers without zsh
@@ -188,17 +192,21 @@ xnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
 xnoremap <silent> # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch(cmdtype)
-  let temp = @s
+  let l:temp = @s
   norm! gv"sy
   let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-  let @s = temp
+  let @s = l:temp
 endfunction"}}}
 " ---
 
 
 " Restore cursor position from last time editing opened file.
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal!  g'\"" | endif
-
+augroup RestoreCursor
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') |
+        \   execute "normal!  g'\"" |
+        \ endif
+augroup END
 
 " Height of the preview window.
 set previewheight=10
@@ -227,3 +235,5 @@ endif
 
 " PUM
 set pumheight=30
+set completeopt=
+set completeopt+=menuone,noinsert

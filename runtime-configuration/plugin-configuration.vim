@@ -80,6 +80,8 @@ call dein#add('romainl/vim-cool')
 call dein#add('mhinz/vim-startify')
 call dein#add('xolox/vim-misc')
 call dein#add('t9md/vim-choosewin')
+call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('Shougo/context_filetype.vim')
 
 
 call dein#add('vim-scripts/YankRing.vim', {
@@ -181,15 +183,20 @@ call dein#add('xolox/vim-session', {
       \ 'depends': 'vim-misc'
       \ })
 
-" source $HOME/.vim/runtime-configuration/plugin-configuration/deoplete.vim
-" source $HOME/.vim/runtime-configuration/plugin-configuration/vim-session.vim
-" source $HOME/.vim/runtime-configuration/plugin-configuration/markdown.vim
+call dein#add('Shougo/deoplete.nvim', {
+      \ 'on_event': 'InsertEnter'
+      \ })
 
+call dein#add('fszymanski/deoplete-emoji', {
+      \ 'on_source': 'deoplete.nvim',
+      \ 'on_ft': ['gitcommit', 'markdown', 'mail', 'text']
+      \ })
 
-" Further plugins without their own configuration:
-"    - misc (required for vim-session)
-"    - tabular (especially used in vim-markdown)
-"
+" Required plugins if not work with NeoVim.
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
+endif
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('AddHook'))
@@ -197,8 +204,8 @@ call dein#set_hook([], 'hook_source', function('LoadConfig'))
 call dein#set_hook([], 'hook_post_source', function('PostSourceHook'))
 
 call dein#end()
-"call dein#recache_runtimepath()
-"call dein#save_state()
+call dein#recache_runtimepath()
+call dein#save_state()
 "endif
 
 " Must be set again, cause dein unset it.
