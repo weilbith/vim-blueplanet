@@ -1,10 +1,10 @@
 " Open recursive search in project directory and use the quickfix list to
 " populate the results.
-nmap <leader>ss :Ack
+nmap <leader>ss :Ack<Space>
 
 " Open recursive search in project directory and use the location list to
 " populate the results.
-nmap <leader>sS :Lack
+nmap <leader>sS :Lack<Space>
 
 " Search recursively in project directory for the word under the cursor.
 nmap <expr> <leader>sw :Ack -w <C-r><C-w><CR>
