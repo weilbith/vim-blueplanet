@@ -83,7 +83,7 @@ if &t_Co >= 256 || has('gui_running')
     highlight VisualNOS     ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline gui=underline
 
     highlight FoldColumn    ctermbg=NONE ctermfg=81   guibg=NONE    guifg=#5fd7ff cterm=NONE      gui=NONE
-    highlight Folded        ctermbg=NONE ctermfg=173  guibg=NONE    guifg=#DE935F cterm=NONE      gui=NONE
+    highlight Folded        ctermbg=NONE ctermfg=81   guibg=NONE    guifg=#5fd7ff cterm=NONE      gui=NONE
 
     highlight VertSplit     ctermbg=24   ctermfg=24   guibg=#005f87 guifg=#005f87 cterm=bold      gui=bold
     highlight WildMenu      ctermbg=24   ctermfg=15   guibg=#005f87 guifg=#FFFFFF cterm=NONE      gui=NONE

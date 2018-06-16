@@ -17,6 +17,7 @@ set modelines=10
 " Design
 colorscheme blue_planet
 set fillchars+=vert:│
+set fillchars+=fold:⎯
 
 " Enable spell check per default.
 set spell
