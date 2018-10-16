@@ -192,6 +192,10 @@ call dein#add('fszymanski/deoplete-emoji', {
       \ 'on_ft': ['gitcommit', 'markdown', 'mail', 'text']
       \ })
 
+call dein#add('mxw/vim-jsx', {
+      \ 'on_ft': ['js', 'jsx']
+      \ })
+
 " Required plugins if not work with NeoVim.
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')
