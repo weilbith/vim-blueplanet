@@ -1,19 +1,9 @@
 scriptencoding utf-8
 
 " Define some global variables which are used by different sources.
-let g:base_folder = '~/Projects/vim/vim-blueplanet/'
+let g:base_folder = '~/Tools/vim-blueplanet/'
 let g:base_configuration_folder = g:base_folder . 'runtime-configuration/'
-let g:blueplanet_session_dir='.vim/session' " For vim-session and startify
-
-" Define folder to place data like backups, viminfo and more.
-if has('nvim')
-  let g:base_data_folder = '~/.nvim'
-else
-  let g:base_data_folder = '~/.vim'
-endif
-
-" Define some folders based on the data directory.
-let g:data_folder_session = g:base_data_folder . '/session'
+let g:data_folder_session = '~/.vim/session'
 
 " Simplify the sourcing by only definining the folder and file name.
 " This makes it independent from the base where the sources are placed.

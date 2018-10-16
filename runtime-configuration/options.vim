@@ -230,7 +230,7 @@ endif
 " For neosnippet
 if has('conceal')
   set conceallevel=2
-  set concealcursor=niv
+  set concealcursor=v
 endif
 
 
