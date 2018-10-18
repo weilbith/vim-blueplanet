@@ -9,9 +9,11 @@ let g:neomake_vim_enabled_markers = ['vint']
 let g:neomake_solidity_enabled_markers = ['solium']
 let g:neomake_json_enabled_markers = ['jsonlint']
 let g:neomake_javascript_enabled_markers = ['eslint']
+let g:neomake_typescript_enabled_markers = ['tslint']
 
 " Define executables.
 let g:neomake_javascript_eslint_exe = 'eslint'
+let g:neomake_typescript_tslint_exe = 'tslint'
 
 
 " Style
@@ -54,8 +56,8 @@ highlight NeomakeMessageSign ctermbg=NONE ctermfg=32  guibg=NONE guifg=#0087d7 c
 augroup NEOMAKE_ESLINT
   autocmd!
 
-  " Switch the ESLinter to projects local configuration.
-  autocmd DirChanged * call <SID>switch_eslint()
+  " Switch the linter(s) to projects local configuration.
+  autocmd DirChanged * call <SID>switch_js_linter()
 augroup END
 
 
@@ -74,34 +76,46 @@ endfunction
 if s:is_on_battery()
   call neomake#configure#automake('w')
 else
-  call neomake#configure#automake('nw', 1000)
+  call neomake#configure#automake('nw', 10000)
 endif
 
 
-" Function to switch the ESLinter executable.
+" List of linters to use for javascript languages.
+" First entry is the variable name for the NeoMake setting.
+" Second entry is the name of the binary.
+" Third entry is used to backup settings between changes.
+let g:js_linter = [
+      \   ['neomake_javascript_eslint_exe', 'eslint', ''],
+      \   ['neomake_typescript_tslint_exe', 'tslint', '']
+      \ ]
+"
+" Function to switch the linter executable for javascript languages.
 " This is necessary to call the project local linter with its configuration.
 " Will be used by an auto command to switch this automatically.
 "
-function! s:switch_eslint()
-  " The theoretically path to the ESLint binary.
-  let l:eslint = getcwd() . '/node_modules/.bin/eslint'
-  let l:readable = filereadable(l:eslint)
-  echom l:eslint
+function! s:switch_js_linter()
+  for l:linter in g:js_linter
+    " The theoretically path to the linter binaries.
+    let l:binaries = getcwd() . '/node_modules/.bin/' . l:linter[1]
+    let l:readable = filereadable(l:binaries)
 
-  " Check if the binary exists and use it then.
-  " if filereadable(l:eslint)
-  if l:readable
-    " Backup the old setting if it exists.
-    if exists('g:neomake_javascript_eslint_exe')
-      let g:neomake_javascript_eslint_exe_backup = g:neomake_javascript_eslint_exe
+    " Check if the binaries exists and use it then.
+    if l:readable
+      let l:current = get(g:, l:linter[0], '')
+
+      " Backup the old setting if it exists.
+      if len(l:current) > 0
+        let l:linter[2] = l:current
+      endif
+
+      " Set the binaries to use as executable.
+      execute 'let g:' . l:linter[0] . ' = "' . l:binaries . '"'
+
+    " Reset the executable to the global one if has been scoped local before.
+    elseif len(l:linter[2]) > 0
+      execute 'let g:' . l:linter[0] . ' = "' . l:linter[2] . '"'
+      let l:linter[2] = ''
+
     endif
-
-    let g:neomake_javascript_eslint_exe = l:eslint
-
-  " Reset the executable to the global one if has been scoped local before.
-  elseif exists('g:neomake_javascript_eslint_exe_backup')
-    let g:neomake_javascript_eslint_exe = g:neomake_javascript_eslint_exe_backup
-    unlet g:neomake_javascript_eslint_exe_backup
-
-  endif
+  endfor
 endfunction
