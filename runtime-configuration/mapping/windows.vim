@@ -17,15 +17,10 @@ nnoremap <silent> <leader>wb :wincmd p<CR>
 nnoremap <silent> <leader>ww :ChooseWin<CR>
 
 " Jump between windows of a split layout.
-" Neighbors and use submode (require submode plugin).
-call submode#enter_with('switch', 'n', '', '<space>wh', '<C-w>h')
-call submode#enter_with('switch', 'n', '', '<space>wj', '<C-w>j')
-call submode#enter_with('switch', 'n', '', '<space>wk', '<C-w>k')
-call submode#enter_with('switch', 'n', '', '<space>wl', '<C-w>l')
-call submode#map('switch', 'n', '', 'h', '<C-w>h')
-call submode#map('switch', 'n', '', 'j', '<C-w>j')
-call submode#map('switch', 'n', '', 'k', '<C-w>k')
-call submode#map('switch', 'n', '', 'l', '<C-w>l')
+nnoremap <silent> <leader>wh :wincmd h<CR>
+nnoremap <silent> <leader>wj :wincmd j<CR>
+nnoremap <silent> <leader>wk :wincmd k<CR>
+nnoremap <silent> <leader>wl :wincmd l<CR>
 
 " By id (works nice with the airline section for the window id)
 nnoremap <silent> <leader>w1 :1wincmd w<CR>
@@ -117,14 +112,14 @@ function! s:toggle_max_window()
     execute("Goyo")
 
   " Minimize window, if any has been maximized before.
-	else
-		let s:window_maximized = v:false
+  else
+    let s:window_maximized = v:false
     let l:line = line(".") " Store line, cause exiting maximized window scroll to the top.
     wincmd q
     call win_gotoid(s:maximized_window_id)
     execute(":" . l:line)
 
-	endif
+  endif
 endfunction
 
 
@@ -132,7 +127,7 @@ endfunction
 " Switching to currently used split results into the equal split.
 " This is between the current window and the one window which is focused, when close the active window.
 " This function does not adjust the windows height after the switch, cause this can't work correctly.
-" 
+"
 " Arguments:
 "   horizontal - Boolean to differ between both layouts.
 "
