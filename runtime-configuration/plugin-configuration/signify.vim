@@ -1,7 +1,6 @@
 scriptencoding utf-8
 
 let g:signify_vcs_list = ['git','svn']
-let g:signify_realtime = 1
 let g:signify_line_highlight = 0
 let g:signify_sign_show_count = 1
 
