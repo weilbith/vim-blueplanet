@@ -3,17 +3,28 @@ scriptencoding utf-8
 let g:neomake_open_list = 2 " Don't jump to the quickfix/location window automatically.
 let g:neomake_highlight_lines = 1
 
-" Enabled markers
-let g:neomake_java_enabled_markers = ['ant']
-let g:neomake_vim_enabled_markers = ['vint']
-let g:neomake_solidity_enabled_markers = ['solium']
-let g:neomake_json_enabled_markers = ['jsonlint']
-let g:neomake_javascript_enabled_markers = ['eslint']
-let g:neomake_typescript_enabled_markers = ['tslint']
+" Enabled makers
+let g:neomake_java_enabled_makers = ['ant']
+let g:neomake_vim_enabled_makers = ['vint']
+let g:neomake_solidity_enabled_makers = ['solium']
+let g:neomake_json_enabled_makers = ['jsonlint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_typescript_enabled_makers = ['tslint']
+let g:neomake_tex_enabled_makers = ['lacheck', 'proselint']
 
-" Define executables.
+" Modify makers.
 let g:neomake_javascript_eslint_exe = 'eslint'
 let g:neomake_typescript_tslint_exe = 'tslint'
+let g:neomake_tex_lacheck_cwd = '%:p:h'
+let g:neomake_tex_pdflatex_cwd = '%:p:h'
+
+" Define own maker.
+" Make pdflatex file-type independent, so it can be used form plaintex as
+" well.
+let g:neomake_pdflatex_maker = {
+      \ 'args': ['-shell-escape', '-file-line-error', '-interaction', 'nonstopmode'],
+      \ 'errorformat': '%E%f:%l: %m'
+      \ }
 
 
 " Style

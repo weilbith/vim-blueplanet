@@ -13,4 +13,4 @@ let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_less = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_json = ['fixjson']
-
+let g:neoformat_enabled_tex = ['latexindent']

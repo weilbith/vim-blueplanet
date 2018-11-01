@@ -53,7 +53,7 @@ endif
 
 " Define the leaders.
 let g:mapleader = ' '
-let g:maplocalleader = '\\'
+let g:maplocalleader = '\'
 
 " Extend the command line history.
 set lazyredraw

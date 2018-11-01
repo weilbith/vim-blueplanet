@@ -73,7 +73,7 @@ call s:source('autocompletion')
 "
 
 
-" Some prefixed are used for plugins by themself. 
+" Some prefixed are used for plugins by themself.
 "
 "  c - nerd commener
 "  double leader - easymotion
@@ -95,8 +95,8 @@ function! s:handleVimrc(edit) abort
   " Get the correct file.
   if has('nvim')
     let l:file = g:base_folder . 'init.vim'
-  else 
-    let l:file = $HOME/.vimrc
+  else
+    let l:file = $HOME . '/.vimrc'
   endif
 
   " Edit or source the file based on the argument.
