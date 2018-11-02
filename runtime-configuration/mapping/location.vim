@@ -14,3 +14,13 @@ nnoremap <leader>lN :lprevious<CR>
 nnoremap <silent> <leader>lb :<C-u>:colder<CR><CR>
 nnoremap <silent> <leader>la :<C-u>:lnewer<CR><CR>
 nnoremap <silent> <leader>lh :<C-u>:history<CR>
+
+" Special mappings for the quickfix buffer.
+augroup LocationMapping
+  autocmd!
+  " Remove the current entry under the cursor from the list.
+  autocmd Filetype quickfix |
+       \ if utils#location#is_location_window(win_getid()) |
+        \   map <buffer> dd :<C-u>call utils#location#remove_current_entry()<CR> |
+        \ endif
+augroup END

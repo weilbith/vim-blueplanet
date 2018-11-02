@@ -1,9 +1,10 @@
 scriptencoding utf-8
 
 " Define some global variables which are used by different sources.
-let g:base_folder = '~/Tools/vim-blueplanet/'
-let g:base_configuration_folder = g:base_folder . 'runtime-configuration/'
-let g:data_folder_session = '~/.vim/session'
+let g:base_folder = $XDG_CONFIG_HOME . '/nvim'
+let g:base_configuration_folder = g:base_folder . '/runtime-configuration'
+let g:data_folder = $XDG_DATA_HOME . '/nvim'
+let g:session_folder = g:data_folder . '/session'
 
 " Simplify the sourcing by only definining the folder and file name.
 " This makes it independent from the base where the sources are placed.
@@ -13,9 +14,9 @@ let g:data_folder_session = '~/.vim/session'
 "   folder  - plain name of the folder as string (optional)
 function! s:source(...) abort
   if (a:0 >= 2)
-    execute 'source ' . g:base_configuration_folder . a:2 . '/' . a:1 . '.vim'
+    execute 'source ' . g:base_configuration_folder . '/' . a:2 . '/' . a:1 . '.vim'
   else
-    execute 'source ' . g:base_configuration_folder . a:1 . '.vim'
+    execute 'source ' . g:base_configuration_folder . '/' . a:1 . '.vim'
   endif
 endfunction
 

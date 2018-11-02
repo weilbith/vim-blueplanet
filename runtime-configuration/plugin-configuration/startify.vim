@@ -1,5 +1,5 @@
 " Options
-let g:startify_session_dir = g:data_folder_session
+let g:startify_session_dir = g:session_folder
 let g:startify_list_order = [
             \ ['Recently used files:'], 'files',
             \ ['Recently used files in this directory:'], 'dir',

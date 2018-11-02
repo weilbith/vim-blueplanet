@@ -1,6 +1,6 @@
 " Some importent folders
 let s:dein_base_folder = '~/.cache/dein'
-let s:plugin_configuration_folder = g:base_configuration_folder . 'plugin-configuration/'
+let s:plugin_configuration_folder = g:base_configuration_folder . '/plugin-configuration'
 
 
 " Hook function executed when a plugins is added.
@@ -30,7 +30,7 @@ endfunction
 "
 function! LoadConfig() abort
   " Get the configuration file for the current plugin.
-  let l:config = s:plugin_configuration_folder . g:dein#plugin.normalized_name . '.vim'
+  let l:config = s:plugin_configuration_folder . '/' . g:dein#plugin.normalized_name . '.vim'
   let l:config = expand(l:config)
 
   " Check if the configuration file could been found (not all plugins have one)
@@ -41,10 +41,10 @@ endfunction
 
 
 " Load dein's configuration itself.
-execute 'source ' . s:plugin_configuration_folder . 'dein.vim'
+execute 'source ' . s:plugin_configuration_folder . '/dein.vim'
 
 " Define list of all configuration files of interest for the caching.
-let s:vimrcs = split(expand(s:plugin_configuration_folder . '*.vim')) " All configurations for each plugin.
+let s:vimrcs = split(expand(s:plugin_configuration_folder . '/*.vim')) " All configurations for each plugin.
 let s:vimrcs = add(s:vimrcs, expand('<sfile>')) " This file itself.
 
 
