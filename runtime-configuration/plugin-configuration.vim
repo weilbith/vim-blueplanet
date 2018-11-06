@@ -199,6 +199,11 @@ call dein#add('mxw/vim-jsx', {
 call dein#add('echuraev/translate-shell.vim', {
       \ 'on_cmd': ['Trans', 'TransSelectDirection', 'TransInteractive', 'TransTerm', 'TransOpenHistoryWindow']
       \ })
+
+call dein#add('mtth/scratch.vim', {
+      \ 'on_cmd': ['Scratch', 'ScratchInsert', 'ScratchSelection', 'ScratchPreview']
+      \ })
+
 " Required plugins if not work with NeoVim.
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')

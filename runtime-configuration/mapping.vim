@@ -33,7 +33,7 @@ nnoremap <leader>vl :<C-u>call <SID>handleVimrc(v:false)<CR>:echom "Vimrc reload
 "   group - name of the group as string
 "
 function! s:source(group) abort
-  execute 'source ' . g:base_configuration_folder . 'mapping/' . a:group . '.vim'
+  execute 'source ' . g:base_configuration_folder . '/mapping/' . a:group . '.vim'
 endfunction
 
 
@@ -62,6 +62,7 @@ call s:source('copy-paste')
 call s:source('save')
 call s:source('toggle')
 call s:source('autocompletion')
+call s:source('scratch')
 
 
 " Further mappings for specific file types are in the 'ftplugin'
