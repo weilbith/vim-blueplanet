@@ -7,7 +7,8 @@ let g:NERDRemoveExtraSpaces=1
 let g:NERDRemoveExtraSpaces=1
 
 let g:NERDCustomDelimiters = {
-      \ 'solidity': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/'}
+      \ 'solidity': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/'},
+      \ 'toml': { 'left': '#' }
       \ }
 
 

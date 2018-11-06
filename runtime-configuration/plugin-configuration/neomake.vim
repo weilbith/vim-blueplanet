@@ -11,6 +11,7 @@ let g:neomake_json_enabled_makers = ['jsonlint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_typescript_enabled_makers = ['tslint']
 let g:neomake_tex_enabled_makers = ['lacheck', 'proselint']
+let g:neomake_toml_enabled_makers = ['tomlcheck']
 
 " Modify makers.
 let g:neomake_javascript_eslint_exe = 'eslint'
