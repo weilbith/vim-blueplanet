@@ -196,6 +196,9 @@ call dein#add('mxw/vim-jsx', {
       \ 'on_ft': ['js', 'jsx']
       \ })
 
+call dein#add('echuraev/translate-shell.vim', {
+      \ 'on_cmd': ['Trans', 'TransSelectDirection', 'TransInteractive', 'TransTerm', 'TransOpenHistoryWindow']
+      \ })
 " Required plugins if not work with NeoVim.
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')
