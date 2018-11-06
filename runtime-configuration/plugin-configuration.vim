@@ -204,6 +204,10 @@ call dein#add('mtth/scratch.vim', {
       \ 'on_cmd': ['Scratch', 'ScratchInsert', 'ScratchSelection', 'ScratchPreview']
       \ })
 
+call dein#add('rhysd/vim-grammarous', {
+      \ 'on_cmd': 'GrammarousCheck'
+      \ })
+
 " Required plugins if not work with NeoVim.
 if !has('nvim')
   call dein#add('roxma/nvim-yarp')
