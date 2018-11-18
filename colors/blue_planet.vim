@@ -91,16 +91,16 @@ if &t_Co >= 256 || has('gui_running')
     highlight SpecialKey    ctermbg=NONE ctermfg=59   guibg=NONE    guifg=#404449 cterm=NONE      gui=NONE
     highlight Title         ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#277BD3 cterm=bold      gui=bold
 
-    highlight DiffAdd       ctermbg=16   ctermfg=NONE guibg=#24272D guifg=NONE    cterm=NONE      gui=NONE
-    highlight DiffChange    ctermbg=59   ctermfg=145  guibg=#373B41 guifg=#BDBDBD cterm=NONE      gui=NONE
-    highlight DiffDelete    ctermbg=16   ctermfg=166  guibg=#191B1F guifg=#D3422E cterm=NONE      gui=NONE
-    highlight DiffText      ctermbg=59   ctermfg=NONE guibg=#373B41 guifg=NONE    cterm=bold      gui=bold,italic
+    highlight DiffAdd       ctermbg=191  ctermfg=16   guibg=#d7ff5f guifg=#000000 cterm=NONE      gui=NONE
+    highlight DiffChange    ctermbg=222  ctermfg=16   guibg=#F0C676 guifg=#000000 cterm=NONE      gui=NONE
+    highlight DiffDelete    ctermbg=197  ctermfg=15   guibg=#ff005f guifg=#ffffff cterm=NONE      gui=NONE
+    highlight DiffText      ctermbg=222  ctermfg=197  guibg=#F0C676 guifg=#ff005f cterm=bold      gui=bold
 
     highlight IncSearch     ctermbg=214  ctermfg=16   guibg=#F5BB12 guifg=#191B1F cterm=NONE      gui=NONE
     highlight Search        ctermbg=222  ctermfg=16   guibg=#F0C674 guifg=#191B1F cterm=NONE      gui=NONE
 
     highlight Directory     ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#0087d7 cterm=NONE      gui=NONE
-    highlight MatchParen    ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline   gui=underline
+    highlight MatchParen    ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline gui=underline
 
     highlight SpellBad      ctermbg=NONE ctermfg=166  guibg=NONE    guifg=NONE    cterm=undercurl gui=undercurl guisp=#ff005f
     highlight SpellCap      ctermbg=NONE ctermfg=68   guibg=NONE    guifg=#3299CC cterm=undercurl gui=undercurl guisp=#3299CC

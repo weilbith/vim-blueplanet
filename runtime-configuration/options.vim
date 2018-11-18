@@ -236,3 +236,6 @@ set concealcursor-=in
 set pumheight=30
 set completeopt=
 set completeopt+=menuone,noinsert
+
+" VimDiff
+set diffopt+=filler,vertical,context:3

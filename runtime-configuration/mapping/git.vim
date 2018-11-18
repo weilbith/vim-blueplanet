@@ -1,11 +1,12 @@
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gd :<C-u>call <SID>toggleDiff()<CR>
 nnoremap <leader>gP :Gpull<CR>
 nnoremap <silent> <leader>gl :<C-u> call <SID>toggleAgit('Agit')<CR>
 nnoremap <silent> <leader>gL :<C-u> call <SID>toggleAgit('AgitFile')<CR>
 nnoremap <leader>gb :Twiggy<CR>
+nnoremap <leader>gB :Gblame<CR>
 
 
 " Functions
@@ -25,5 +26,18 @@ function! s:toggleAgit(cmd) abort
 
   else
     execute a:cmd
+  endif
+endfunction
+
+function! s:toggleDiff() abort
+  " Determine if we are in a diffmode window.
+  if &diff
+    " Turn off the diffmode for all windows in the tab and close current
+    " window, cause else the same file is open in two windows.
+    diffoff!
+    wincmd c
+  else
+    " Open diffmode for Git.
+    Gdiff
   endif
 endfunction
