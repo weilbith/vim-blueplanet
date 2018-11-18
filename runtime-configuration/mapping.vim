@@ -45,7 +45,6 @@ call s:source('buffers')       " b
 call s:source('search')        " s
 call s:source('files')         " f
 call s:source('git')           " g
-call s:source('grammar')       " G
 call s:source('location')      " l
 call s:source('quickfix')      " q
 call s:source('quit')          " Q
@@ -64,6 +63,7 @@ call s:source('save')
 call s:source('toggle')
 call s:source('autocompletion')
 call s:source('scratch')
+call s:source('spelling')
 
 
 " Further mappings for specific file types are in the 'ftplugin'

@@ -217,7 +217,7 @@ set previewheight=10
 set foldmethod=marker
 set foldlevel=0
 set foldminlines=1 " Close folds always.
-set foldclose=all " Always close folds when leave them.
+" set foldclose=all " Always close folds when leave them.
 
 " Use the fold column per default.
 set foldcolumn=3

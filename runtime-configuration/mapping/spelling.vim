@@ -1,3 +1,9 @@
+" Spelling
+" Call suggestions when move to next/previous bad word.
+nnoremap [s [sea<C-X><C-S>
+nnoremap ]s ]sea<C-X><C-S>
+
+" Grammar Plugin
 " Start new check or reset current one.
 nmap <leader>Gg :<C-u>GrammarousCheck<CR>
 nmap <leader>GR <Plug>(grammarous-reset)
