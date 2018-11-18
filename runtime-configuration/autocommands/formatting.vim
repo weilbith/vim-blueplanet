@@ -1,4 +1,4 @@
 augroup Formatting
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre * mkview | undojoin | Neoformat | loadview
 augroup END
