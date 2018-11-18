@@ -20,7 +20,7 @@ function! s:source(...) abort
   endif
 endfunction
 
-" Source basic vim options.
+" Source basic Vim options.
 call s:source('options')
 
 " Plugins
@@ -36,3 +36,6 @@ call s:source('location', 'autocommands')
 call s:source('preview_window', 'autocommands')
 call s:source('quickfix', 'autocommands')
 call s:source('tags', 'autocommands')
+
+" After options.
+call s:source('options-after')

@@ -22,7 +22,7 @@ set fillchars+=fold:⎯
 " Enable spell check per default.
 set spell
 set spelllang=en_us
-set spellfile=$HOME/.vim/spell/en.utf-8.add
+set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " Use the drop down menu for spell correction from the insert mode in normal mode.
 nnoremap <Leader>s ea<C-X><C-S>
@@ -150,21 +150,21 @@ augroup END
 " automatically.
 " Backup
 set backup
-set backupdir=$HOME/.vim/files/backup/
+set backupdir=$XDG_DATA_HOME/nvim/files/backup/
 set backupext=-vimbackup
 
 " Swap
 set updatetime=1000 " Also swapping is not used anymore, this still affects the CursorHold event.
-set directory^=$HOME/.vim/files/swap// " Put on top of the stash and use absolute paths (//), to avoid conflicts for files with the same name.
+set directory^=$XDG_DATA_HOME/nvim/files/swap// " Put on top of the stash and use absolute paths (//), to avoid conflicts for files with the same name.
 set updatecount=0 " Set to zero to don't use swapping, cause it lead to some problems and is not necessary (for me)
 
 " Undo
 set undofile
-set undodir=$HOME/.vim/files/undo/
+set undodir=$XDG_DATA_HOME/nvim/files/undo/
 set undolevels=100
 
 " History
-set viminfo='100,n$HOME/.vim/files/info/viminfo
+set viminfo='100,n$XDG_DATA_HOME/nvim/files/info/viminfo
 
 " ---
 
@@ -227,11 +227,9 @@ if !has('nvim')
   set pyxversion=3
 endif
 
-" For neosnippet
-if has('conceal')
-  set conceallevel=2
-  set concealcursor=v
-endif
+" Concealing
+set conceallevel=2
+set concealcursor-=in
 
 
 " PUM
