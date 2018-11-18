@@ -4,13 +4,13 @@ let s:quickfix_preview_window_nr = ''
 
 " Function to jump/open (to) the quickfix window, if currently outside.
 " Jump back from the quickfix window, if currently inside.
-function! utils#quickfix#quickfix_jump()
+function! utils#quickfix#quickfix_jump() abort
   " Check if current buffer in the window is the quickfixlist.
-  if &filetype == 'qf'
+  if &filetype ==# 'qf'
     wincmd p " Jump back
   else
     " Jump to or open
-    exe "copen"
+    exe 'copen'
   endif
 endfunction
 
@@ -46,7 +46,7 @@ endfunction
 "
 function! utils#quickfix#show_quickfix_preview() abort
   " Do not proceed if no quickfix or preview window is open.
-  if &filetype != 'qf' || !s:quickfix_preview_window_nr | return | endif
+  if &filetype !=# 'qf' || !s:quickfix_preview_window_nr | return | endif
 
   " Get the file for the quickfix entry under the cursor.
   let l:entrynr = line('.') -1 " Mind that a list starts with index zero.
@@ -77,7 +77,7 @@ endfunction
 " Create a new quickfix preview window and show the currently selected entry,
 " if none is open already.
 "
-function! utils#quickfix#toggle_quickfix_preview()
+function! utils#quickfix#toggle_quickfix_preview() abort
   " Close the quickfix preview if it is open.
   if s:quickfix_preview_window_nr
     call utils#quickfix#quickfix_close(v:false)
@@ -87,7 +87,7 @@ function! utils#quickfix#toggle_quickfix_preview()
     call utils#quickfix#open_preview_window()
     call utils#quickfix#show_quickfix_preview()
   endif
-endfunction!
+endfunction
 
 
 " Close the quickfix window and a possible preview window.
@@ -99,7 +99,7 @@ function! utils#quickfix#quickfix_close(all) abort
   " Close the preview window if necessary.
   if s:quickfix_preview_window_nr
     execute s:quickfix_preview_window_nr . 'close'
-    let s:quickfix_preview_window_nr = ""
+    let s:quickfix_preview_window_nr = ''
   endif
 
   if a:all
@@ -110,7 +110,7 @@ endfunction
 
 " Check if the current window is the artificial quickfix preview window.
 "
-function! utils#quickfix#is_quickfix_preview_window()
+function! utils#quickfix#is_quickfix_preview_window() abort
   if !s:quickfix_preview_window_nr | return v:false | endif
 
   if winnr() == s:quickfix_preview_window_nr | return v:true | else | return v:false | endif
@@ -123,15 +123,15 @@ endfunction
 function! utils#quickfix#open_quickfix_preview_file() abort
   " Not possible if no preview window is open for the quickfix list.
   if !s:quickfix_preview_window_nr
-    call utils#messages#warning("No quickfix preview window open!")
+    call utils#messages#warning('No quickfix preview window open!')
     return
   endif
 
   " Only available in a 'regular' window.
   if winnr() == s:quickfix_preview_window_nr ||
-        \ &filetype == 'qf' ||
+        \ &filetype ==# 'qf' ||
         \ !&buflisted
-    call utils#messages#warning("Open preview only possible in regular window!")
+    call utils#messages#warning('Open preview only possible in regular window!')
     return
   endif
 
@@ -146,11 +146,20 @@ function! utils#quickfix#open_quickfix_preview_file() abort
   execute l:bufnr . 'buffer'
   execute l:line
   normal zz
-endfunction!
+endfunction
 
 
 " Make the scoped variable public available.
 "
-function! utils#quickfix#get_quickfix_preview_window_nr()
+function! utils#quickfix#get_quickfix_preview_window_nr() abort
   return s:quickfix_preview_window_nr
+endfunction
+
+" Remove the current entry from the quickfix list.
+"
+function! utils#quickfix#remove_current_entry() abort
+  let l:index = line('.') - 1
+  let l:list = getqflist()
+  call remove(l:list, l:index)
+  call setqflist(l:list, 'r')
 endfunction

@@ -29,3 +29,13 @@ function! utils#location#is_location_window(winid) abort
     return v:false
   endif
 endfunction
+
+" Remove the current entry from the location list.
+" Uses the list of the current window to keep it easy.
+"
+function! utils#location#remove_current_entry() abort
+  let l:index = line('.') - 1
+  let l:list = getloclist(0)
+  call remove(l:list, l:index)
+  call setloclist(0, l:list, 'r')
+endfunction

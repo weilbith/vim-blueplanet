@@ -26,7 +26,7 @@ nnoremap <silent> <leader>qh :<C-u>:chistory<CR>
 augroup QuickfixMapping
   autocmd!
   " Remove the current entry under the cursor from the list.
-  autocmd Filetype quickfix |
+  autocmd Filetype qf |
         \ if !utils#location#is_location_window(win_getid()) |
         \   map <buffer> dd :<C-u>call utils#quickfix#remove_current_entry()<CR> |
         \ endif

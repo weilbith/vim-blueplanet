@@ -19,8 +19,8 @@ nnoremap <silent> <leader>lh :<C-u>:history<CR>
 augroup LocationMapping
   autocmd!
   " Remove the current entry under the cursor from the list.
-  autocmd Filetype quickfix |
-       \ if utils#location#is_location_window(win_getid()) |
+  autocmd Filetype qf |
+        \ if utils#location#is_location_window(win_getid()) |
         \   map <buffer> dd :<C-u>call utils#location#remove_current_entry()<CR> |
         \ endif
 augroup END

@@ -8,3 +8,4 @@ let g:NERDTreeHighlightFoldersFullName=1
 let g:NERDTreeExtensionHighlightColor = {}
 let g:NERDTreeExtensionHighlightColor['sol'] = '#87d7ff'
 let g:NERDTreeExtensionHighlightColor['vue'] = '#8faa54'
+let g:NERDTreeExtensionHighlightColor['tex'] = '#8700af'
