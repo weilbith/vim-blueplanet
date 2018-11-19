@@ -239,3 +239,6 @@ set completeopt+=menuone,noinsert
 
 " VimDiff
 set diffopt+=filler,vertical,context:3
+
+" List Characters
+set listchars=eol:﬋,tab:ﲒ,space:.,trail:.,extends:ﰣ,precedes:﬌,nbsp:.

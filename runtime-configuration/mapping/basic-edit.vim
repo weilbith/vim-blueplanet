@@ -48,3 +48,6 @@ inoremap <exp> <CR> pumvisible() ? "" : '<Plug>delimitMateCR'
 " Splitjoin plugin mappings.
 nnoremap gJ :SplitjoinJoin<CR>
 nnoremap gS :SplitjoinSplit<CR>
+
+" Toggle list characters.
+nnoremap g. :<C-u>set list!<CR>

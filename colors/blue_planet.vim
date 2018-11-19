@@ -52,7 +52,8 @@ if &t_Co >= 256 || has('gui_running')
     highlight Underlined    ctermbg=NONE ctermfg=173  guibg=NONE    guifg=#DE935F cterm=underline gui=underline
 
     highlight LineNr        ctermbg=234  ctermfg=242  guibg=#1C1C1C guifg=#6C6C6C cterm=NONE      gui=NONE
-    highlight NonText       ctermbg=NONE ctermfg=152  guibg=NONE    guifg=#BFD7DB cterm=NONE      gui=NONE
+    highlight NonText       ctermbg=NONE ctermfg=173  guibg=NONE    guifg=#DE935F cterm=bold      gui=bold
+    highlight Whitespace    ctermbg=NONE ctermfg=173  guibg=NONE    guifg=#DE935F cterm=bold      gui=bold
 
     highlight Pmenu         ctermbg=24   ctermfg=15   guibg=#005f87 guifg=#ffffff cterm=NONE      gui=NONE
     highlight PmenuSbar     ctermbg=32   ctermfg=NONE guibg=#0087d7 guifg=NONE    cterm=NONE      gui=NONE
