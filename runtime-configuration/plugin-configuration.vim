@@ -192,6 +192,10 @@ call dein#add('fszymanski/deoplete-emoji', {
       \ 'on_ft': ['gitcommit', 'markdown', 'mail', 'text']
       \ })
 
+call dein#add('Shougo/neco-vim', {
+      \ 'on_source': 'deoplete.nvim'
+      \ })
+
 call dein#add('mxw/vim-jsx', {
       \ 'on_ft': ['js', 'jsx']
       \ })
