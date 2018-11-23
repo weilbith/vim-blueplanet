@@ -5,7 +5,7 @@ nnoremap <leader>gd :<C-u>call <SID>toggleDiff()<CR>
 nnoremap <leader>gP :Gpull<CR>
 nnoremap <silent> <leader>gl :<C-u> call <SID>toggleAgit('Agit')<CR>
 nnoremap <silent> <leader>gL :<C-u> call <SID>toggleAgit('AgitFile')<CR>
-nnoremap <leader>gb :Twiggy<CR>
+nnoremap <leader>gb :<C-u>call utils#windows#switch_site_window({'open': 'Twiggy', 'close': 'Twiggy'})<CR>
 nnoremap <leader>gB :Gblame<CR>
 
 
