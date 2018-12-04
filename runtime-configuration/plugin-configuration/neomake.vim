@@ -5,12 +5,15 @@ let g:neomake_highlight_lines = 1
 
 " Enabled makers
 let g:neomake_java_enabled_makers = ['ant']
+let g:neomake_sh_enabled_makers = ['shellcheck']
+let g:neomake_zsh_enabled_makers = ['shellcheck']
 let g:neomake_vim_enabled_makers = ['vint']
 let g:neomake_solidity_enabled_makers = ['solium']
 let g:neomake_json_enabled_makers = ['jsonlint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_typescript_enabled_makers = ['tslint']
 let g:neomake_tex_enabled_makers = ['lacheck', 'proselint']
+let g:neomake_bib_enabled_makers = ['bibtex']
 let g:neomake_toml_enabled_makers = ['tomlcheck']
 
 " Modify makers.
