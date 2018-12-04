@@ -1,6 +1,6 @@
 " Some importent folders
 let s:dein_base_folder = '~/.cache/dein'
-let s:plugin_configuration_folder = g:base_configuration_folder . '/plugin-configuration'
+let s:plugin_configuration_folder = g:base_folder . '/plugin-configuration'
 
 
 " Hook function executed when a plugins is added.
