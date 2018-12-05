@@ -1,25 +1,3 @@
-" Select whole buffer visually (to copy it then).
-nnoremap <C-a> ggVG
-
-" Copy to clipboard from visual mode.
-xnoremap <C-c> "+y
-
-" Paste from clipboard with auto paste mode.
-nnoremap <C-v> :set paste<CR>"+p:set nopaste<CR>
-" inoremap <C-v> <esc>:set paste<CR>"+p:set nopaste<CR>a
-
-
-" YankRing
-" Insert number of YankRing to paste.
-nnoremap <leader>yy :<C-u>call <SID>getYRElem()<CR>
-
-" Further mappings to circle trough YankRing entries must be defined in the
-" plugin configuration itself.
-
-
-
-" Functions
-
 " Select a entry from the YankRing.
 " Open the YankRing window of not open yet.
 " Request for the id of an entry in the ring.
@@ -27,7 +5,7 @@ nnoremap <leader>yy :<C-u>call <SID>getYRElem()<CR>
 " Close the YankRing window if it wasn't open before.
 " Require the YankRing plugin (obviously).
 "
-function! s:getYRElem()
+function! utils#copy_paste#getYRElem() abort
   let l:current = win_getid() " Get current window id, to jump back if necessary.
   let l:number = bufwinnr('*YankRing*') " Get the window id of the YankRing, if it is open.
 
@@ -45,4 +23,15 @@ function! s:getYRElem()
   if l:number < 0
     execute('YRShow 1')
   endif
+endfunction
+
+
+" Toggle the YankRing window.
+" The extra feature its, that on open the window, it jumps back to the
+" previous one, where the toggle has been invoked.
+"
+function! utils#copy_paste#toggleYRShow() abort
+  let l:current = win_getid()
+  execute('YRShow')
+  call win_gotoid(l:current)
 endfunction
