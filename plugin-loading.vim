@@ -1,50 +1,10 @@
-" Some importent folders
 let s:dein_base_folder = '~/.cache/dein'
-let s:plugin_configuration_folder = g:base_folder . '/plugin-configuration'
-
-
-" Hook function executed when a plugins is added.
-" This checks if the plugin is lazy and only if not, it load its
-" configuration.
-"
-function! AddHook() abort
-  if !g:dein#plugin.lazy
-    call LoadConfig()
-  endif
-endfunction
-
-" Hook function executed after a plugin was sourced.
-" This is only necessary for lazy plugins, which haven't get loaded their
-" configuration when they were added.
-"
-function! PostSourceHook() abort
-  if g:dein#plugin.lazy
-    call LoadConfig()
-  endif
-endfunction
-
-" Simplify the loading of plugin configurations by their name.
-" Will be called for an added plugin if it is not lazy,
-" or when a lazy plugin gets sourced.
-" If no configuration is defined, this does nothing.
-"
-function! LoadConfig() abort
-  " Get the configuration file for the current plugin.
-  let l:config = s:plugin_configuration_folder . '/' . g:dein#plugin.normalized_name . '.vim'
-  let l:config = expand(l:config)
-
-  " Check if the configuration file could been found (not all plugins have one)
-  if filereadable(l:config)
-    execute 'source ' . l:config
-  endif
-endfunction
-
 
 " Load dein's configuration itself.
-execute 'source ' . s:plugin_configuration_folder . '/dein.vim'
+execute 'source ' . g:plugin_configuration_folder . '/dein.vim'
 
 " Define list of all configuration files of interest for the caching.
-let s:vimrcs = split(expand(s:plugin_configuration_folder . '/*.vim')) " All configurations for each plugin.
+let s:vimrcs = split(expand(g:plugin_configuration_folder . '/*.vim')) " All configurations for each plugin.
 let s:vimrcs = add(s:vimrcs, expand('<sfile>')) " This file itself.
 
 
@@ -212,16 +172,11 @@ call dein#add('rhysd/vim-grammarous', {
       \ 'on_cmd': 'GrammarousCheck'
       \ })
 
-" Required plugins if not work with NeoVim.
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
 
 " Add hooks for all plugins.
-call dein#set_hook([], 'hook_add', function('AddHook'))
-call dein#set_hook([], 'hook_source', function('LoadConfig'))
-call dein#set_hook([], 'hook_post_source', function('PostSourceHook'))
+call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
+call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
+call dein#set_hook([], 'hook_post_source', function('plugin#dein#post_source_hook'))
 
 call dein#end()
 call dein#recache_runtimepath()
@@ -235,16 +190,3 @@ if has('nvim')
   " Instead of manually call ':UpdateRemotePlugins'
   call dein#remote_plugins()
 endif
-
-
-" Autocommand to install new plugins or update already existing ones.
-augroup DeinUpdate
-  autocmd!
-
-  " Check for uninstalled plugins.
-  autocmd VimEnter * if dein#check_install() | call dein#install() | endif
-
-  " Check for updates and install them.
-  " TODO: Asynchronously not work that good, cause can't work during this.
-  " autocmd VimEnter * call dein#check_update()
-augroup END
