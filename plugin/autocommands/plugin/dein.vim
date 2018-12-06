@@ -1,4 +1,4 @@
-augroup DeinUpdate
+augroup DeinCustom
   autocmd!
   autocmd VimEnter * call plugin#dein#install()
   " autocmd VimEnter * call dein#check_update()
