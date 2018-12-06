@@ -17,10 +17,10 @@ nnoremap <silent> <leader>wb :wincmd p<CR>
 nnoremap <silent> <leader>ww :ChooseWin<CR>
 
 " Jump between windows of a split layout.
-nnoremap <silent> <leader>wh :wincmd h<CR>
-nnoremap <silent> <leader>wj :wincmd j<CR>
-nnoremap <silent> <leader>wk :wincmd k<CR>
-nnoremap <silent> <leader>wl :wincmd l<CR>
+nnoremap <silent> <leader>wh :<C-u>call utils#windows#jump('h')<CR>
+nnoremap <silent> <leader>wj :<C-u>call utils#windows#jump('j')<CR>
+nnoremap <silent> <leader>wk :<C-u>call utils#windows#jump('k')<CR>
+nnoremap <silent> <leader>wl :<C-u>call utils#windows#jump('l')<CR>
 
 " By id (works nice with the airline section for the window id)
 nnoremap <silent> <leader>w1 :1wincmd w<CR>

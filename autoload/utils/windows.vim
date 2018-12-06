@@ -106,6 +106,19 @@ function! utils#windows#switch_site_window(current) abort
 endfunction
 
 
+" Execute a window command to jump.
+" Repeat the motion if have landed in a location list window.
+"
+function! utils#windows#jump(command) abort
+  let l:win_command = 'wincmd ' . a:command
+  execute l:win_command
+
+  if utils#location#is_location_window(win_getid())
+    execute l:win_command
+  endif
+endfunction
+
+
 " Internal
 
 " Internal utility function to access windows on the stack.
