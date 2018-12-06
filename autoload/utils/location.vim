@@ -1,3 +1,7 @@
+" The maximum height for the location window.
+let s:location_height = 5
+
+
 " Function to jump/open (to) the location window, if currently outside.
 " Jump back from the location window, if currently inside.
 function! utils#location#location_jump() abort
@@ -16,6 +20,7 @@ function! utils#location#location_jump() abort
   endif
 endfunction
 
+
 " Determine if the window with the given id shows the location list.
 "
 " Argumens:
@@ -30,6 +35,7 @@ function! utils#location#is_location_window(winid) abort
   endif
 endfunction
 
+
 " Remove the current entry from the location list.
 " Uses the list of the current window to keep it easy.
 "
@@ -38,4 +44,24 @@ function! utils#location#remove_current_entry() abort
   let l:list = getloclist(0)
   call remove(l:list, l:index)
   call setloclist(0, l:list, 'r')
+endfunction
+
+
+" Shrink the window height of the location window.
+" Use one line higher then entries in the location list, to show one empty
+" line that this is all in the list.
+" If the location list is longer than a configured number, it takes this
+" maximum height.
+"
+function! utils#location#adjust_window_height() abort
+  if utils#location#is_location_window(win_getid())
+    let s:location_length = len(getloclist(0))
+
+    if s:location_length > s:location_height
+      exe 'resize ' . s:location_height
+
+    else
+      exe 'resize ' . (s:location_length + 1)
+    end
+  endif
 endfunction

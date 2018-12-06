@@ -31,6 +31,14 @@ let g:neomake_pdflatex_maker = {
       \ }
 
 
+" Configure neomake depending on the device.
+if plugin#neomake#is_on_battery()
+  call neomake#configure#automake('w')
+else
+  call neomake#configure#automake('nw', 10000)
+endif
+
+
 " Style
 let g:neomake_error_sign = {
       \ 'text': '✖',
@@ -67,70 +75,5 @@ highlight NeomakeMessage     ctermbg=NONE ctermfg=32  guibg=NONE guifg=#0087d7 c
 highlight NeomakeMessageSign ctermbg=NONE ctermfg=32  guibg=NONE guifg=#0087d7 cterm=bold    gui=bold
 
 
-" Autocommands
-augroup NEOMAKE_ESLINT
-  autocmd!
-
-  " Switch the linter(s) to projects local configuration.
-  autocmd DirChanged * call <SID>switch_js_linter()
-augroup END
-
-
-
-
-" Functions
-
-" Determine if the current device is running on battery.
-" Hardy depends on the device and OS!!!
-"
-function! s:is_on_battery()
-  return readfile('/sys/class/power_supply/AC/online') == ['0']
-endfunction
-
-" Configure automake depending on the device.
-if s:is_on_battery()
-  call neomake#configure#automake('w')
-else
-  call neomake#configure#automake('nw', 10000)
-endif
-
-
-" List of linters to use for javascript languages.
-" First entry is the variable name for the NeoMake setting.
-" Second entry is the name of the binary.
-" Third entry is used to backup settings between changes.
-let g:js_linter = [
-      \   ['neomake_javascript_eslint_exe', 'eslint', ''],
-      \   ['neomake_typescript_tslint_exe', 'tslint', '']
-      \ ]
-"
-" Function to switch the linter executable for javascript languages.
-" This is necessary to call the project local linter with its configuration.
-" Will be used by an auto command to switch this automatically.
-"
-function! s:switch_js_linter()
-  for l:linter in g:js_linter
-    " The theoretically path to the linter binaries.
-    let l:binaries = getcwd() . '/node_modules/.bin/' . l:linter[1]
-    let l:readable = filereadable(l:binaries)
-
-    " Check if the binaries exists and use it then.
-    if l:readable
-      let l:current = get(g:, l:linter[0], '')
-
-      " Backup the old setting if it exists.
-      if len(l:current) > 0
-        let l:linter[2] = l:current
-      endif
-
-      " Set the binaries to use as executable.
-      execute 'let g:' . l:linter[0] . ' = "' . l:binaries . '"'
-
-    " Reset the executable to the global one if has been scoped local before.
-    elseif len(l:linter[2]) > 0
-      execute 'let g:' . l:linter[0] . ' = "' . l:linter[2] . '"'
-      let l:linter[2] = ''
-
-    endif
-  endfor
-endfunction
+" There is also neomake related stuff in the autocommands plugin as well as in
+" the autoload class utils#neomake.

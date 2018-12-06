@@ -1,12 +1,4 @@
 augroup Formatting
   autocmd!
-  autocmd BufWritePre * mkview |
-        \ try |
-        \   undojoin |
-        \   Neoformat |
-        \ catch /^Vim\%((\a\+)\)\=:E790/ |
-        \ finally |
-        \   silent Neoformat |
-        \ endtry |
-        \ loadview
+  autocmd BufWritePre * call utils#formatting#format_buffer()
 augroup END

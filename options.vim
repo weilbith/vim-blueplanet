@@ -30,27 +30,6 @@ nnoremap <Leader>s ea<C-X><C-S>
 " Automatically update unchanged buffers, which files have been modified.
 set autoread
 
-" Do some GUI specific stuff.
-if has('gui_running')
-  " Set font for Glam
-  set guifont=UbuntuMonoDerivativePowerline_N:h11:cDEFAULT
-
-  " Start window full maximized.
-  augroup GuiEnter
-    autocmd!
-    autocmd GUIEnter * simalt ~x
-  augroup END
-
-  " Remove the menu and toolbar of GVim
-  set guioptions -=m
-  set guioptions -=T
-
-  " Remove scroll bars in GVim.
-  set guioptions -=r
-  set guioptions -=L
-endif
-
-
 " Define the leaders.
 let g:mapleader = ' '
 let g:maplocalleader = '\'
@@ -136,14 +115,6 @@ endif
 " Let backspace behave like expected (delete over start of insertion and eol).
 set backspace=2
 
-" Mark the active window by adding some special options for it.
-augroup CursorLine
-  autocmd!
-  " Cursor highlighting.
-  autocmd WinEnter * set cursorline
-  autocmd WinLeave * set nocursorline
-augroup END
-
 
 " Storage
 " Be aware, that all these specified folders here have to exist and are not created
@@ -200,14 +171,6 @@ function! s:VSetSearch(cmdtype)
 endfunction"}}}
 " ---
 
-
-" Restore cursor position from last time editing opened file.
-augroup RestoreCursor
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') |
-        \   execute "normal!  g'\"" |
-        \ endif
-augroup END
 
 " Height of the preview window.
 set previewheight=10

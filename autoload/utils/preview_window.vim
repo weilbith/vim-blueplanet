@@ -1,7 +1,11 @@
+" Flag for event composition, if a new buffer has been added into the preview window.
+let s:new_preview_flag = v:true
+
+
 " Check if the preview window is open.
 " Return true if so.
 "
-function! utils#preview_window#is_preview_window_open() 
+function! utils#preview_window#is_preview_window_open() abort
   " Try to jump the preview window.
   " Get an error, if there is none.
   try
@@ -18,8 +22,8 @@ endfunction
 
 " Get the preview windows number.
 " Return nothing in case there is no preview window.
-" 
-function! utils#preview_window#get_preview_window_nr()
+"
+function! utils#preview_window#get_preview_window_nr() abort
   " Do nothing in case no preview window is active.
   if !utils#preview_window#is_preview_window_open() | return | endif
 
@@ -29,6 +33,49 @@ function! utils#preview_window#get_preview_window_nr()
   let l:preview_window = winnr()
   call win_gotoid(l:window)
   return l:preview_window
+endfunction
+
+
+" Set the new preview flag to true.
+" Only if the current buffer is in the preview window.
+"
+function! utils#preview_window#set_flag() abort
+  if &previewwindow
+    let s:new_preview_flag = v:true
+  endif
+endfunction
+
+
+" Add some settings for the preview buffer.
+" Only do something if the new preview flag has been set.
+" This includes to wipe the buffer on getting hidden and don't list the
+" buffer.
+" Mark the buffer for further events as well.
+" By this the new preview flag get been removed again.
+"
+function! utils#preview_window#enable_settings() abort
+  if &previewwindow && s:new_preview_flag
+    let s:new_preview_flag = v:false
+    setlocal nobuflisted
+    setlocal bufhidden=wipe
+    let b:previewonly = v:true
+  endif
+endfunction
+
+
+" Remove some settings for the preview buffer.
+" Only do something if the buffer contains the flag to be such one.
+" The buffer will be unmarked by this.
+"
+function! utils#preview_window#disable_settings() abort
+  try
+    if b:previewonly
+      unlet b:previewonly
+      setlocal buflisted
+      setlocal bufhidden=
+    endif
+  catch
+  endtry
 endfunction
 
 
@@ -48,7 +95,7 @@ function! utils#preview_window#call_wrapper(cmd) abort
   " Remove the preview window flag from the window and cache its id.
   if l:previewOpen
     wincmd P
-    set nopreviewwindow 
+    set nopreviewwindow
     let l:previewWinId = win_getid()
   endif
 

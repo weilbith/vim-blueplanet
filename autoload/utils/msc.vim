@@ -46,3 +46,12 @@ function! utils#msc#circle_number(number, filled) abort
 
   endif
 endfunction
+
+
+" Restore cursor position from last time editing opened file.
+"
+function! utils#msc#restore_cursor_position() abort
+  if line("'\"") > 1 && line("'\"") <= line('$') |
+    execute "normal!  g'\""
+  end
+endfunction
