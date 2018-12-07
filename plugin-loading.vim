@@ -42,6 +42,7 @@ call dein#add('xolox/vim-misc')
 call dein#add('t9md/vim-choosewin')
 call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('Shougo/context_filetype.vim')
+call dein#add('jeetsukumaran/vim-pythonsense')
 
 
 call dein#add('vim-scripts/YankRing.vim', {
@@ -152,6 +153,11 @@ call dein#add('fszymanski/deoplete-emoji', {
       \ 'on_ft': ['gitcommit', 'markdown', 'mail', 'text']
       \ })
 
+call dein#add('zchee/deoplete-jedi', {
+      \ 'on_source': 'deoplete.nvim',
+      \ 'on_ft': ['python']
+      \ })
+
 call dein#add('Shougo/neco-vim', {
       \ 'on_source': 'deoplete.nvim'
       \ })
@@ -172,6 +178,13 @@ call dein#add('rhysd/vim-grammarous', {
       \ 'on_cmd': 'GrammarousCheck'
       \ })
 
+call dein#add('tmhedberg/SimpylFold', {
+      \ 'build': 'rm -rf plugin/'
+      \ })
+
+call dein#add('davidhalter/jedi-vim', {
+      \ 'on_ft': ['python']
+      \ })
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))

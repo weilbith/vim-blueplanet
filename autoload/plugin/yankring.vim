@@ -1,4 +1,4 @@
-function! utils#yankring#fix_window_height() abort
+function! plugin#yankring#fix_window_height() abort
   if @% ==# '[YankRing]'
     set winfixheight
   endif

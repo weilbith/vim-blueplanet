@@ -13,7 +13,6 @@ call deoplete#custom#option({
 
 " General source definitions.
 call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment'])
-call deoplete#custom#source('_', 'disabled_syntaxes', ['Comment'])
 call deoplete#custom#source('_', 'sorters', ['sorter_rank'])
 
 " Source ranking.
@@ -35,5 +34,12 @@ call deoplete#custom#option('ignore_sources', {'_': ['around']}) " Cause it use 
 call deoplete#custom#var('buffer', 'require_same_filetype', v:true)
 call deoplete#custom#var('file', 'require_same_filetype', v:true)
 
+" Configure some resources.
+"" Dictionary
+call deoplete#custom#source('dictionary', 'matchers', ['matcher_head']) " Do no fuzzy search in dictionary.
+call deoplete#custom#source('dictionary', 'sorters', []) " Dictionaries should be sorted already.
+call deoplete#custom#source('dictionary', 'min_pattern_length', 4) " Do not complete to short words.
+
 " Enable sources for specific filetypes.
 call deoplete#custom#source('emoji', 'filetypes', ['gitcommit', 'markdown', 'mail', 'text'])
+call deoplete#custom#source('jedi', 'filetypes', ['python'])

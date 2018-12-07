@@ -15,6 +15,7 @@ let g:neomake_typescript_enabled_makers = ['tslint']
 let g:neomake_tex_enabled_makers = ['lacheck', 'proselint']
 let g:neomake_bib_enabled_makers = ['bibtex']
 let g:neomake_toml_enabled_makers = ['tomlcheck']
+let g:neomake_python_enabled_makers = ['pep8']
 
 " Modify makers.
 let g:neomake_javascript_eslint_exe = 'eslint'
