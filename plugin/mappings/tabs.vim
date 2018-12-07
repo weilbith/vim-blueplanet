@@ -3,6 +3,7 @@ nnoremap <leader>To :tabedit<CR>
 
 " Open new tab with active buffer in it.
 nnoremap <leader>Te :tabedit %<CR>
+nnoremap <leader>TE :tab split<CR>
 
 " Move between tabs by using a submode (require submode plugin).
 call submode#enter_with('switchTabs', 'n', '', '<space>Tn', ':tabnext<cr>')

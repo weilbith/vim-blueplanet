@@ -186,6 +186,10 @@ call dein#add('davidhalter/jedi-vim', {
       \ 'on_ft': ['python']
       \ })
 
+call dein#add('thinca/vim-quickrun', {
+      \ 'on_cmd': ['QuickRun']
+      \ })
+
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
