@@ -25,14 +25,14 @@ let g:tagbar_type_markdown = {
       \ 'sort': 0,
       \ }
 
-" let g:tagbar_type_solidity = {
-"       \ 'ctagstype': 'Solidity',
-"       \ 'kinds': [
-"       \   'c:contract',
-"       \   'f,function',
-"       \   'e,event',
-"       \   'v,variable',
-"       \   'm,mapping'
-"       \ ]}
+let g:tagbar_type_solidity = {
+      \ 'ctagstype': 'solidity',
+      \ 'kinds': [
+      \   'c:contract',
+      \   'f:function',
+      \   'e:event',
+      \   'v:variable',
+      \   'm:mapping'
+      \ ]}
 
 " Has further mappings in the section toggle.
