@@ -40,9 +40,9 @@ call dein#add('romainl/vim-cool')
 call dein#add('mhinz/vim-startify')
 call dein#add('xolox/vim-misc')
 call dein#add('t9md/vim-choosewin')
-call dein#add('christoomey/vim-tmux-navigator')
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('jeetsukumaran/vim-pythonsense')
+call dein#add('zhimsel/vim-stay')
 
 
 call dein#add('vim-scripts/YankRing.vim', {
@@ -159,8 +159,11 @@ call dein#add('zchee/deoplete-jedi', {
       \ })
 
 call dein#add('Shougo/neco-vim', {
-      \ 'on_source': 'deoplete.nvim'
+      \ 'on_source': 'deoplete.nvim',
+      \ 'on_ft': ['vim']
       \ })
+
+call dein#add('tenfyzhong/CompleteParameter.vim')
 
 call dein#add('mxw/vim-jsx', {
       \ 'on_ft': ['js', 'jsx']

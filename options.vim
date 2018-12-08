@@ -176,11 +176,12 @@ endfunction"}}}
 set previewheight=10
 
 
-" Folding
+" Folding/View
 set foldmethod=marker
 set foldlevel=0
-set foldminlines=1 " Close folds always.
-" set foldclose=all " Always close folds when leave them.
+set foldminlines=1
+set viewoptions=cursor,folds,slash,unix
+
 
 " Use the fold column per default.
 set foldcolumn=3
@@ -197,8 +198,7 @@ set concealcursor-=in
 
 " PUM
 set pumheight=30
-set completeopt=
-set completeopt+=menuone,noinsert
+set completeopt=menuone,noinsert
 
 " VimDiff
 set diffopt+=filler,vertical,context:3
