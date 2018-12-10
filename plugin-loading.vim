@@ -44,7 +44,6 @@ call dein#add('Shougo/context_filetype.vim')
 call dein#add('jeetsukumaran/vim-pythonsense')
 call dein#add('zhimsel/vim-stay')
 
-
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
       \ })
@@ -62,6 +61,7 @@ call dein#add('ryanoasis/vim-devicons', {
       \ })
 
 call dein#add('Raimondi/delimitMate', {
+      \ 'name': 'delimit_mate',
       \ 'on_event': 'InsertEnter'
       \ })
 
@@ -75,7 +75,7 @@ call dein#add('wincent/ferret', {
       \ })
 
 call dein#add('Yggdroot/indentLine', {
-      \ 'name': 'indent-line'
+      \ 'name': 'indent_line'
       \ })
 
 " TODO
@@ -88,11 +88,13 @@ call dein#add('scrooloose/nerdtree', {
       \ })
 
 call dein#add('Xuyuanp/nerdtree-git-plugin', {
+      \ 'name': 'nerdtree_git_plugin',
       \ 'on_source': 'nerdtree'
       \ })
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
+      \ 'name': 'nerdtree_syntax_highlight',
       \ 'on_source': 'nerdtree'
       \ })
 
@@ -114,7 +116,7 @@ call dein#add('mbbill/undotree', {
       \ })
 
 call dein#add('Valloric/MatchTagAlways', {
-      \ 'name': 'matchtagalways',
+      \ 'name': 'match_tag_always',
       \ 'on_ft': ['html', 'xml', 'vue', 'jsx']
       \ })
 
@@ -149,12 +151,11 @@ call dein#add('Shougo/deoplete.nvim', {
       \ })
 
 call dein#add('fszymanski/deoplete-emoji', {
-      \ 'on_source': 'deoplete.nvim',
       \ 'on_ft': ['gitcommit', 'markdown', 'mail', 'text']
       \ })
 
 call dein#add('zchee/deoplete-jedi', {
-      \ 'on_source': 'deoplete.nvim',
+      \ 'name': 'deoplete_jedi',
       \ 'on_ft': ['python']
       \ })
 
@@ -163,13 +164,16 @@ call dein#add('Shougo/neco-vim', {
       \ 'on_ft': ['vim']
       \ })
 
-call dein#add('tenfyzhong/CompleteParameter.vim')
+call dein#add('tenfyzhong/CompleteParameter.vim', {
+      \ 'name': 'complete_parameter'
+      \ })
 
 call dein#add('mxw/vim-jsx', {
       \ 'on_ft': ['js', 'jsx']
       \ })
 
 call dein#add('echuraev/translate-shell.vim', {
+      \ 'name': 'translate_shell',
       \ 'on_cmd': ['Trans', 'TransSelectDirection', 'TransInteractive', 'TransTerm', 'TransOpenHistoryWindow']
       \ })
 
@@ -182,6 +186,7 @@ call dein#add('rhysd/vim-grammarous', {
       \ })
 
 call dein#add('tmhedberg/SimpylFold', {
+      \ 'name': 'simpyl_fold',
       \ 'build': 'rm -rf plugin/'
       \ })
 
