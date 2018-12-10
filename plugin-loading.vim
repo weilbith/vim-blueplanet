@@ -198,6 +198,10 @@ call dein#add('thinca/vim-quickrun', {
       \ 'on_cmd': ['QuickRun']
       \ })
 
+call dein#add('Konfekt/FastFold', {
+      \ 'name': 'fast_fold'
+      \ })
+
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))

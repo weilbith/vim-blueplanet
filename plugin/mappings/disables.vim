@@ -18,3 +18,6 @@ vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
+
+" Remove the update fold mapping by plugin FastFold.
+nmap <SID>(DisableFastFoldUpdate) <Plug>(FastFoldUpdate)
