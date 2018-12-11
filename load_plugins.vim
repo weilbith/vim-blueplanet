@@ -198,10 +198,6 @@ call dein#add('thinca/vim-quickrun', {
       \ 'on_cmd': ['QuickRun']
       \ })
 
-call dein#add('Konfekt/FastFold', {
-      \ 'name': 'fast_fold'
-      \ })
-
 call dein#add('dbeniamine/cheat.sh-vim', {
       \ 'name': 'cheat_sheet',
       \ 'on_func': ['cheat#cheat']
