@@ -202,6 +202,11 @@ call dein#add('Konfekt/FastFold', {
       \ 'name': 'fast_fold'
       \ })
 
+call dein#add('dbeniamine/cheat.sh-vim', {
+      \ 'name': 'cheat_sheet',
+      \ 'on_func': ['cheat#cheat']
+      \ })
+
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
