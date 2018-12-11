@@ -3,7 +3,7 @@
 nnoremap <silent> <F2> :<C-u>call utils#windows#switch_site_window({'open': 'NERDTreeToggle', 'close': 'NERDTreeToggle'})<CR>
 
 " The Tagbar window.
-nnoremap <silent> <F3> :TagbarToggle<CR>
+nnoremap <silent> <F3> :<C-u>call plugin#tagbar#toggle()<CR>
 
 " The Tabman window.
 nnoremap <silent> <F4> :<C-u>call utils#windows#switch_site_window({'open': 'TMToggle', 'close': 'TMToggle'})<CR>
