@@ -43,6 +43,7 @@ call dein#add('t9md/vim-choosewin')
 call dein#add('Shougo/context_filetype.vim')
 call dein#add('jeetsukumaran/vim-pythonsense')
 call dein#add('zhimsel/vim-stay')
+call dein#add('editorconfig/editorconfig-vim')
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
