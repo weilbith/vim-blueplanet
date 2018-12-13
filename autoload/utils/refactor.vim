@@ -7,7 +7,10 @@
 function! utils#refactor#rename(word) abort
   if len(a:word) > 0
     " Get a replacement by the user.
-    let l:replace = input('Replacement (' . a:word . '): ')
+    let l:replace = input({
+          \ 'prompt': 'Replacement: ',
+          \ 'default': a:word
+          \ })
 
     " Interrupt if input is empty.
     if len(l:replace) <= 0 | return | endif
