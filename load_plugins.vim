@@ -204,6 +204,16 @@ call dein#add('dbeniamine/cheat.sh-vim', {
       \ 'on_func': ['cheat#cheat']
       \ })
 
+call dein#add('zchee/deoplete-zsh', {
+      \ 'on_ft': ['sh', 'zsh']
+      \ })
+
+call dein#add('ternjs/tern_for_vim', {
+      \ 'name': 'tern',
+      \ 'build': 'yarn install',
+      \ 'on_ft': ['javascript', 'typescript', 'jsx']
+      \ })
+
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
