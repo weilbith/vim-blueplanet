@@ -211,7 +211,11 @@ call dein#add('zchee/deoplete-zsh', {
 call dein#add('ternjs/tern_for_vim', {
       \ 'name': 'tern',
       \ 'build': 'yarn install',
-      \ 'on_ft': ['javascript', 'typescript', 'jsx']
+      \ 'on_ft': ['javascript', 'jsx', 'vue']
+      \ })
+
+call dein#add('carlitux/deoplete-ternjs', {
+      \ 'on_ft': ['javascript', 'jsx', 'vue']
       \ })
 
 " Add hooks for all plugins.
