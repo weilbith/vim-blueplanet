@@ -40,9 +40,7 @@ xnoremap <expr> @ ":norm @" . nr2char(getchar()) . "<CR>"
 
 " Use concealed drop down menu for spell correction in normal mode as in
 " insert mode.
-" Make sure to restore the behavior of delimit mate.
 nnoremap z= ea<C-x><C-s>
-inoremap <exp> <CR> pumvisible() ? "" : '<Plug>delimitMateCR'
 
 
 " Splitjoin plugin mappings.

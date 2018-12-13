@@ -4,6 +4,7 @@ let s:location_height = 5
 
 " Function to jump/open (to) the location window, if currently outside.
 " Jump back from the location window, if currently inside.
+"
 function! utils#location#location_jump() abort
   " Make sure a location list for the current window exit.
   if len(getloclist(0)) == 0
@@ -40,6 +41,8 @@ endfunction
 " Uses the list of the current window to keep it easy.
 "
 function! utils#location#remove_current_entry() abort
+  " if !utils#location#is_location_window(win_getid()) | return | endif
+
   let l:index = line('.') - 1
   let l:list = getloclist(0)
   call remove(l:list, l:index)
@@ -54,14 +57,14 @@ endfunction
 " maximum height.
 "
 function! utils#location#adjust_window_height() abort
-  if utils#location#is_location_window(win_getid())
-    let s:location_length = len(getloclist(0))
+  if !utils#location#is_location_window(win_getid()) | return | endif
 
-    if s:location_length > s:location_height
-      exe 'resize ' . s:location_height
+  let s:location_length = len(getloclist(0))
 
-    else
-      exe 'resize ' . (s:location_length + 1)
-    end
+  if s:location_length > s:location_height
+    exe 'resize ' . s:location_height
+
+  else
+    exe 'resize ' . (s:location_length + 1)
   endif
 endfunction
