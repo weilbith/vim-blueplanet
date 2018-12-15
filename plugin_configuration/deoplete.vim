@@ -43,7 +43,7 @@ call deoplete#custom#var('buffer', 'require_same_filetype', v:true)
 
 " Dictionary
 call deoplete#custom#source('dictionary', 'rank', 50)
-call deoplete#custom#source('buffer', 'mark', '﬜')
+call deoplete#custom#source('dictionary', 'mark', '﬜')
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head']) " Do no fuzzy search in dictionary.
 call deoplete#custom#source('dictionary', 'sorters', []) " Dictionaries should be sorted already.
 call deoplete#custom#source('dictionary', 'min_pattern_length', 4) " Do not complete to short words.

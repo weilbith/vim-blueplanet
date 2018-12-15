@@ -161,7 +161,7 @@ call dein#add('zchee/deoplete-jedi', {
       \ })
 
 call dein#add('Shougo/neco-vim', {
-      \ 'on_source': 'deoplete.nvim',
+      \ 'name': 'deoplete_neco',
       \ 'on_ft': ['vim']
       \ })
 
