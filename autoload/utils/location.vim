@@ -1,6 +1,9 @@
 " The maximum height for the location window.
 let s:location_height = 5
 
+" Dictionary to store location windows related to buffers.
+let s:map_buffer_location_list = {}
+
 
 " Function to jump/open (to) the location window, if currently outside.
 " Jump back from the location window, if currently inside.
@@ -62,9 +65,53 @@ function! utils#location#adjust_window_height() abort
   let s:location_length = len(getloclist(0))
 
   if s:location_length > s:location_height
-    exe 'resize ' . s:location_height
+    execute 'resize ' . s:location_height
 
   else
-    exe 'resize ' . (s:location_length + 1)
+    execute 'resize ' . (s:location_length + 1)
+  endif
+endfunction
+
+
+" Cache a possibly filled location list for a hiding buffer.
+" Check if there is a non-empty list for the current buffer.
+" Stores the list to the cache and empty the original one.
+" The location window will be closed.
+"
+" Arguments:
+"   buffer - buffer to create the cache for
+"
+function! utils#location#cache_location_list(buffer) abort
+  if get(g:, 'dyloc_enable', v:false) | return | endif
+
+  let l:location_list = getloclist(0)
+
+  " Check if something exist to cache.
+  if len(l:location_list) > 0
+    let s:map_buffer_location_list[a:buffer] = l:location_list " Cache the location list for the buffer.
+    call setloclist(0, []) " Remove since else it remains for the next buffer.
+    lclose " Close the empty window (will be possibly reopened on restore for new buffer).
+  endif
+endfunction
+
+
+" Restore a possibly cached location list for a new displayed buffer.
+" Check the cache if a location list has been stored for the buffer.
+" If so it fills the list with the stored one and opens the window.
+" The cache entry will be removed.
+"
+" Arguments:
+"   buffer - buffer to restore the cache for
+"
+function! utils#location#restore_location_list(buffer) abort
+  if get(g:, 'dyloc_enable', v:false) | return | endif
+
+  " Check cache for the entered buffer.
+  if has_key(s:map_buffer_location_list, a:buffer)
+    call setloclist(0, s:map_buffer_location_list[a:buffer]) " Restore the location list from cache.
+    unlet s:map_buffer_location_list[a:buffer] " Remove cache to avoid reloading.
+    lopen " Open the filled window.
+    call utils#location#adjust_window_height() " Resize again, since this event comes after the actual one.
+    wincmd p " Jump back from location list to actual window.
   endif
 endfunction
