@@ -9,18 +9,17 @@ let s:map_buffer_location_list = {}
 " Jump back from the location window, if currently inside.
 "
 function! utils#location#location_jump() abort
-  " Make sure a location list for the current window exit.
-  if len(getloclist(0)) == 0
-    call utils#messages#warning('No location list for the current window!')
-    return
-  endif
-
-  " Check if current buffer in the window is the location or quickfix list.
+  " Jump back if current buffer in the window is the location or quickfix list.
   if &filetype ==? 'qf'
-    wincmd p " Jump back
+    wincmd p
+    
+  " Check is a filled one exists.
+  elseif len(getloclist(0)) <= 0
+    call utils#messages#warning('Current location list is empty! Go back in history or fill a new one.') 
+
+  " Jump to or open
   else
-    " Jump to or open
-    exe 'lopen'
+    execute 'lopen'
   endif
 endfunction
 

@@ -18,8 +18,8 @@ nnoremap <silent> <leader>qp :<C-u>call utils#quickfix#toggle_quickfix_preview()
 nnoremap <silent> <leader>qP :<C-u>call utils#quickfix#open_quickfix_preview_file()<CR>
 
 " Switch to older quickfix lists.
-nnoremap <silent> <leader>qb :<C-u>:colder<CR><CR>
-nnoremap <silent> <leader>qa :<C-u>:cnewer<CR><CR>
+nnoremap <silent> <leader>qb :<C-u>:colder<CR>
+nnoremap <silent> <leader>qa :<C-u>:cnewer<CR>
 nnoremap <silent> <leader>qh :<C-u>:chistory<CR>
 
 " Special mappings for the quickfix buffer are at the related filetype plugin.

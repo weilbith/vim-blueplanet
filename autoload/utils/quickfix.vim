@@ -15,9 +15,14 @@ function! utils#quickfix#quickfix_jump() abort
   " Check if current buffer in the window is the quickfixlist.
   if &filetype ==# 'qf'
     wincmd p " Jump back
+
+  " Check is a filled one exists.
+  elseif len(getqflist()) <= 0
+    call utils#messages#warning('Current quickfix list is empty! Go back in history or fill a new one.') 
+
+  " Jump to or open
   else
-    " Jump to or open
-    exe 'copen'
+    execute 'copen'
   endif
 endfunction
 
