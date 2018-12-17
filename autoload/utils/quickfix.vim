@@ -8,6 +8,9 @@ let s:new_qf_preview_flag = 0
 " Use number instead if id, cause the 'close' command don't understand id's.
 let s:quickfix_preview_window_nr = ''
 
+" List to stored named lists which can be reloaded.
+let s:quickfix_store = {}
+
 
 " Function to jump/open (to) the quickfix window, if currently outside.
 " Jump back from the quickfix window, if currently inside.
@@ -254,4 +257,65 @@ function! utils#quickfix#disable_preview_settings() abort
     endif
   catch
   endtry
+endfunction
+
+
+" Store the current quickfix list with a name.
+" The name is requested with and input by user.
+" If the selection remains empty, the default name is used.
+" If a list with the given name already exists, a confirmation for rewriting is
+" requested.
+" Does nothing if there is no active list.
+"
+function! utils#quickfix#store_current_list() abort
+  let l:list = getqflist()
+  
+  " Only do something if there is a list.
+  if !empty(l:list)
+    " Get a name for list by the user.
+    let l:name = input('Name for list (default): ')
+    if empty(l:name) | let l:name = 'default' | endif
+
+    " Request to confirm overwriting the list.
+    if has_key(s:quickfix_store, l:name)
+      let l:message = "List with name '" . l:name . "' already exist. Overwrite?"
+      let l:confirmed = confirm(l:message, "&Yes\n&No", 2, 'Question')
+
+      " End here if should not overwrite.
+      if l:confirmed != 1 | return | endif
+    endif
+
+    " Store the list and notify user.
+    let s:quickfix_store[l:name] = l:list
+    echo "List with name '" . l:name . "' has been written."
+
+  else
+    call utils#messages#warning('No quickfix list currently exist!')
+  endif
+endfunction
+
+
+" Let the user select from all stored lists with their name to reload.
+" An indicator shows if this entry is already the current list.
+" The list get pushed into the current quickfix list.
+"
+function! utils#quickfix#select_stored_list() abort
+  let l:selection = []
+  let l:index = 0
+  let l:names = sort(keys(s:quickfix_store))
+  let l:active_list = getqflist()
+
+  " Build the selection of named lists to choose from.
+  for name in l:names
+    let l:list = s:quickfix_store[name]
+    let l:current = l:active_list == l:list ? ' > ' : '   ' " Marker if list is the currently shown one.
+    call add(l:selection, l:current . (l:index + 1) . ' - ' . name  . ' (' . len(l:list) . ')')
+    let l:index = l:index + 1
+  endfor
+
+  " Ask for list to load and set quickfix list as result.
+  echo 'Select a list: '
+  let l:choice = inputlist(l:selection)
+  call setqflist(s:quickfix_store[l:names[l:choice - 1]])
+  copen
 endfunction
