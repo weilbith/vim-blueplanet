@@ -11,6 +11,9 @@ let s:quickfix_preview_window_nr = ''
 " List to stored named lists which can be reloaded.
 let s:quickfix_store = {}
 
+" Highlighting for named quickfix lists.
+highlight NamedQuickfixList ctermbg=237 ctermfg=NONE guibg=#3a3a3a guifg=NONE cterm=NONE gui=NONE
+
 
 " Function to jump/open (to) the quickfix window, if currently outside.
 " Jump back from the quickfix window, if currently inside.
@@ -316,6 +319,13 @@ function! utils#quickfix#select_stored_list() abort
   " Ask for list to load and set quickfix list as result.
   echo 'Select a list: '
   let l:choice = inputlist(l:selection)
-  call setqflist(s:quickfix_store[l:names[l:choice - 1]])
+  let l:name = l:names[l:choice - 1]
+  call setqflist(s:quickfix_store[l:name])
+
+  " Open the quickfix window, set the name (useful for other plugins).
   copen
+  let b:quickfix_list_name = l:name
+
+  " Adjust highlighting to show this is an old list.
+  set winhighlight=Normal:NamedQuickfixList
 endfunction
