@@ -11,9 +11,9 @@ let g:signify_sign_delete= '✗'
 let g:signify_sign_delete_first_line = g:signify_sign_delete
 
 " Highlighting
-highlight SignifySignAdd    ctermfg=191 guifg=#d7ff5f ctermbg=NONE guibg=NONE cterm=NONE gui=NONE
-highlight SignifySignChange ctermfg=214 guifg=#f5bb12 ctermbg=NONE guibg=NONE cterm=NONE gui=NONE
-highlight SignifySignDelete ctermfg=197 guifg=#ff005f ctermbg=NONE guibg=NONE cterm=NONE gui=NONE
+highlight SignifySignAdd    ctermfg=191 guifg=#d7ff5f ctermbg=234 guibg=#1c1c1c cterm=NONE gui=NONE
+highlight SignifySignChange ctermfg=214 guifg=#f5bb12 ctermbg=234 guibg=#1c1c1c cterm=NONE gui=NONE
+highlight SignifySignDelete ctermfg=197 guifg=#ff005f ctermbg=234 guibg=#1c1c1c cterm=NONE gui=NONE
 " The rest is linked per default.
 
 highlight LineifyLineAdd    ctermfg=NONE guifg=NONE ctermbg=191 guibg=#d7ff5f cterm=NONE gui=NONE

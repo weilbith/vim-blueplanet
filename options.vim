@@ -1,45 +1,56 @@
+" Feature Enabling 
 set nocompatible
 filetype plugin indent on
+syntax enable
 
-" Do not reset when reload runtime configuration a Vim instance.
-if !exists('g:syntax_on')
-    syntax enable
-endif
 
-" Set the encoding and file format to make this sure.
+" Leaders
+let g:mapleader = ' '
+let g:maplocalleader = '\'
+
+
+" Text
+"" Encoding
 set encoding=utf-8
-scriptencoding utf-8
 set fileformat=unix
+scriptencoding utf-8 " Awkward position, but must be.
 
-" Increase the number of mod lines.
-set modelines=10
 
-" Design
-colorscheme blue_planet
-set fillchars+=vert:│
-set fillchars+=fold:⎯
-
-" Enable spell check per default.
+"" Spelling
 set spell
 set spelllang=en_us
 set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
-" Use the drop down menu for spell correction from the insert mode in normal mode.
-nnoremap <Leader>s ea<C-X><C-S>
+" ---
 
-" Automatically update unchanged buffers, which files have been modified.
-set autoread
 
-" Define the leaders.
-let g:mapleader = ' '
-let g:maplocalleader = '\'
+" Appearance
+colorscheme blue_planet
 
-" Extend the command line history.
-set lazyredraw
-set history=200
+"" Fill Characters
+set fillchars+=vert:│
+set fillchars+=fold:⎯
 
-" Expand '%%' in the command line to the path of the active buffer.
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+"" Numbers
+set number
+set relativenumber
+
+"" Window Sizes
+set winheight=10 " Why necessary?!
+set winminheight=10
+set winwidth=70 " Why necessary?!
+set winminwidth=70
+set previewheight=10
+
+"" Concealing
+set conceallevel=2
+set concealcursor=c
+
+"" Highlighting
+set winhighlight=Normal:NormalActive,NormalNC:NormalInactive
+
+" ---
+
 
 " Indentation
 set tabstop=2
@@ -51,157 +62,102 @@ set autoindent
 set smartindent
 set shiftround
 
-" Adjust autos completion for the command line.
-set wildmenu
-set wildmode=full
-set wildignore+=.git\*,.hg\*,.svn\*
+" ---
 
-" Hide the mode information in the command line.
-set noshowmode
 
-" Allow free buffer switches without have to save changes.
-set hidden
+" Lines
+set formatoptions=j1cql
+set textwidth=80
 
-" Show line number and relative numbers
-set number
-set relativenumber
-
-" Wrap text to fit into the window.
+"" Wrapping
 set wrap
-
-" Break lines nice after full words or sentences.
 set linebreak
-
-" Do not break long lines typed in insert mode by the user.
-set nolist
-
-" Disable the text width and use the wrap margin at the border.
-set textwidth=0
-set wrapmargin=5
-
-" Allow left and right char navigation to jump to next line begin/end.
 set whichwrap+=h,l
 
-" Don't add comment character when hit '<enter>' (r) or 'o' (o).
-set formatoptions-=ro
-
-" Remove comment leader on join lines (j), broke not after single char words, but instead before (1).
-set formatoptions+=j1
+" ---
 
 
-" Faster redrawing and only if necessary.
-set ttyfast
-set lazyredraw
+" Command-line
+set noshowmode
 
-" Always report changed lines.
-set report=0
+"" Completion
+set wildmenu
+set wildmode=full
+set wildignore=".git\*,.hg\*,.svn\*"
 
-" Show matching parenthesis.
+" ---
+
+
+" Search
 set showmatch
+set incsearch
+set hlsearch
+set wrapscan
+set scrolloff=2
 
-" No audible notifications.
-set noerrorbells
-set novisualbell
+"" Cases
+set ignorecase
+set smartcase
 
-" Adjust the shells for GVim (windows) and vim in terminal (Unix).
-if has('win32')
-   set shell=cmd.exe " For working on MS-Windows
-elseif filereadable('/bin/zsh')
-   set shell=/bin/zsh " Private use case
-else
-   set shell=/bin/bash " Fallback for servers without zsh
-endif
-
-" Let backspace behave like expected (delete over start of insertion and eol).
-set backspace=2
+" ---
 
 
 " Storage
-" Be aware, that all these specified folders here have to exist and are not created
-" automatically.
-" Backup
+set viminfo='100,n$XDG_DATA_HOME/nvim/files/info/viminfo
+
+"" Backup
 set backup
 set backupdir=$XDG_DATA_HOME/nvim/files/backup/
 set backupext=-vimbackup
 
-" Swap
+"" Swap
 set updatetime=1000 " Also swapping is not used anymore, this still affects the CursorHold event.
 set directory^=$XDG_DATA_HOME/nvim/files/swap// " Put on top of the stash and use absolute paths (//), to avoid conflicts for files with the same name.
 set updatecount=0 " Set to zero to don't use swapping, cause it lead to some problems and is not necessary (for me)
 
-" Undo
+"" Undo
 set undofile
 set undodir=$XDG_DATA_HOME/nvim/files/undo/
 set undolevels=100
 
-" History
-set viminfo='100,n$XDG_DATA_HOME/nvim/files/info/viminfo
-
 " ---
 
 
-" Searching
-" Jump live to first result while typing.
-set incsearch
-
-" Highlight matching of search (and mapping to remove highlights)
-set hlsearch
-nnoremap <silent> <leader>/ :noh<cr>
-
-" Case insensitive search when type lower case and sensitive when use any
-" uppercase character.
-set ignorecase
-set smartcase
-
-" When found last search result, jump to the beginning of the buffer.
-set wrapscan
-
-" Show at least two lines below or above the current search result.
-set scrolloff=2
-
-" Use current selection to search.
-xnoremap <silent> * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
-xnoremap <silent> # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
-
-function! s:VSetSearch(cmdtype)
-  let l:temp = @s
-  norm! gv"sy
-  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-  let @s = l:temp
-endfunction"}}}
-" ---
-
-
-" Height of the preview window.
-set previewheight=10
-
-
-" Folding/View
+" Folding
 set foldmethod=marker
 set foldlevel=0
 set foldminlines=1
-set viewoptions=cursor,folds,slash,unix
-
-
-" Use the fold column per default.
 set foldcolumn=3
 
-" For deoplete
-if !has('nvim')
-  set pyxversion=3
-endif
-
-" Concealing
-set conceallevel=2
-set concealcursor-=in
+" ---
 
 
-" PUM
+" Misc
+set autoread
+set hidden
+set report=0
+set lazyredraw
+set backspace=2
+set viewoptions=cursor,folds,slash,unix
+execute 'set shell=' . (filereadable('/bin/zsh') ? '/bin/zsh' : 'bin/bash')
+
+"" PUM
 set pumheight=30
 set completeopt=menuone,noinsert
 
-" VimDiff
+" List Characters
+set nolist
+set listchars=eol:﬋,tab:ﲒ,space:.,trail:.,extends:ﰣ,precedes:﬌,nbsp:.
+
+" Expansion
+set modelines=10
+set history=200
+
+" Notification
+set noerrorbells
+set novisualbell
+
+"" VimDiff
 set diffopt+=filler,vertical,context:3
 
-" List Characters
-set listchars=eol:﬋,tab:ﲒ,space:.,trail:.,extends:ﰣ,precedes:﬌,nbsp:.
+" ---

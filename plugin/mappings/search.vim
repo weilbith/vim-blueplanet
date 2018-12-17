@@ -1,3 +1,7 @@
+" Visual selection search with search-word keys.
+xnoremap <silent> * :<C-u>call utils#search#visual_selection('/')<CR>
+xnoremap <silent> # :<C-u>call utils#search#visual_selection('?')<CR>
+
 " Open recursive search in project directory and use the quickfix list to
 " populate the results.
 nmap <leader>ss :Ack<Space>

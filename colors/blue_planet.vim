@@ -31,7 +31,8 @@ set background=dark
 let g:colors_name = 'blue_planet'
 
 if &t_Co >= 256 || has('gui_running')
-    highlight Normal        ctermbg=235  ctermfg=15   guibg=#262626 guifg=#FFFFFF cterm=NONE      gui=NONE
+    highlight NormalActive   ctermbg=235 ctermfg=15 guibg=#262626 guifg=#FFFFFF cterm=NONE gui=NONE
+    highlight NormalInactive ctermbg=234 ctermfg=15 guibg=#1c1c1c guifg=#FFFFFF cterm=NONE gui=NONE
 
     highlight Function      ctermbg=NONE ctermfg=32   guibg=NONE    guifg=#0087d7 cterm=NONE      gui=NONE
     highlight Comment       ctermbg=NONE ctermfg=247  guibg=NONE    guifg=#9e9e9e cterm=NONE      gui=italic
@@ -83,7 +84,7 @@ if &t_Co >= 256 || has('gui_running')
     highlight Visual        ctermbg=222  ctermfg=16   guibg=#F0C674 guifg=#191B1F cterm=NONE      gui=NONE
     highlight VisualNOS     ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline gui=underline
 
-    highlight FoldColumn    ctermbg=NONE ctermfg=81   guibg=NONE    guifg=#5fd7ff cterm=NONE      gui=NONE
+    highlight FoldColumn    ctermbg=234   ctermfg=81   guibg=#1c1c1c    guifg=#5fd7ff cterm=NONE      gui=NONE
     highlight Folded        ctermbg=NONE ctermfg=81   guibg=NONE    guifg=#5fd7ff cterm=NONE      gui=NONE
 
     highlight VertSplit     ctermbg=24   ctermfg=24   guibg=#005f87 guifg=#005f87 cterm=bold      gui=bold
