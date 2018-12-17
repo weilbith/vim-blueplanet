@@ -114,3 +114,14 @@ function! utils#location#restore_location_list(buffer) abort
     wincmd p " Jump back from location list to actual window.
   endif
 endfunction
+
+
+" Close the location window for the current window.
+" Try it only, if the window is not the location window itself.
+" Does nothing if there is no location window open.
+"
+function! utils#location#close_related_location_window() abort
+  if &filetype !=# 'qf'
+    silent! lclose
+  endif
+endfunction
