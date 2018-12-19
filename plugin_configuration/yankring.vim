@@ -1,3 +1,4 @@
+let g:yankring_window_height = 10
 let g:yankring_min_element_length = 2
 let g:yankring_window_auto_close = 0
 let g:yankring_history_dir = '$XDG_DATA_HOME/nvim/files'

@@ -72,3 +72,6 @@ nnoremap <silent> <leader>wL :wincmd L<CR>
 " Switch split layout.
 nnoremap <silent> <leader>wS :<C-u>call utils#windows#switch_window_split(v:true)<CR>
 nnoremap <silent> <leader>wV :<C-u>call utils#windows#switch_window_split(v:false)<CR>
+
+" Fix window layout.
+nnoremap <silent> <leader>wf :<C-u>call utils#layout#reset_fixed_windows()<CR>
