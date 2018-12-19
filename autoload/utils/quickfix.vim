@@ -298,11 +298,43 @@ function! utils#quickfix#store_current_list() abort
 endfunction
 
 
+" Restore a selected list from cache.
+" This includes to open the quickfix window, highlight it and set a special
+" buffer variable.
+"
+function! utils#quickfix#restore_stored_list() abort
+  let l:name = s:select_stored_list()
+
+  " Set the quickfix list and open its window.
+  call setqflist(s:quickfix_store[l:name])
+  copen
+
+  " Set the name (useful for other plugins).
+  let b:quickfix_list_name = l:name
+
+  " Adjust highlighting to show this is an old list.
+  set winhighlight=Normal:NamedQuickfixList
+endfunction
+
+
+" Delete a selected list from the cache.
+"
+function! utils#quickfix#delete_stored_list() abort
+  let l:name = s:select_stored_list()
+  unlet s:quickfix_store[l:name]
+endfunction
+
+
+" Internal
+
 " Let the user select from all stored lists with their name to reload.
 " An indicator shows if this entry is already the current list.
-" The list get pushed into the current quickfix list.
+" The name of the selected list gets returned.
 "
-function! utils#quickfix#select_stored_list() abort
+" Returns:
+"   name - of the selected list in the cache
+"
+function! s:select_stored_list() abort
   let l:selection = []
   let l:index = 0
   let l:names = sort(keys(s:quickfix_store))
@@ -316,16 +348,10 @@ function! utils#quickfix#select_stored_list() abort
     let l:index = l:index + 1
   endfor
 
-  " Ask for list to load and set quickfix list as result.
+  " Ask for list to load and return its name.
   echo 'Select a list: '
   let l:choice = inputlist(l:selection)
   let l:name = l:names[l:choice - 1]
-  call setqflist(s:quickfix_store[l:name])
 
-  " Open the quickfix window, set the name (useful for other plugins).
-  copen
-  let b:quickfix_list_name = l:name
-
-  " Adjust highlighting to show this is an old list.
-  set winhighlight=Normal:NamedQuickfixList
+  return l:name
 endfunction

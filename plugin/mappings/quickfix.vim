@@ -22,9 +22,10 @@ nnoremap <silent> <leader>qb :<C-u>:colder<CR>
 nnoremap <silent> <leader>qa :<C-u>:cnewer<CR>
 nnoremap <silent> <leader>qh :<C-u>:chistory<CR>
 
-" Store/restore quickfix list with name.
+" Store/restore/delete quickfix list with name.
 nnoremap <silent> <leader>qs :<C-u>call utils#quickfix#store_current_list()<CR>
-nnoremap <silent> <leader>ql :<C-u>call utils#quickfix#select_stored_list()<CR>
+nnoremap <silent> <leader>ql :<C-u>call utils#quickfix#restore_stored_list()<CR>
+nnoremap <silent> <leader>qL :<C-u>call utils#quickfix#delete_stored_list()<CR>
 
 
 " Special mappings for the quickfix buffer are at the related filetype plugin.
