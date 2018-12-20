@@ -116,6 +116,9 @@ if &t_Co >= 256 || has('gui_running')
     highlight previewWord   ctermbg=191  ctermfg=0    guibg=#d7ff5f guifg=#000000
     highlight previewLine   ctermbg=197  ctermfg=0    guibg=#ff005f guifg=#ffffff
 
+    " Background highlighting for special buffers.
+    highlight NormalSpecialBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=bold cterm=bold gui=NONE
+
 
 elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
   " Not supported

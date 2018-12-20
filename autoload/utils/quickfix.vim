@@ -313,7 +313,7 @@ function! utils#quickfix#restore_stored_list() abort
   let b:quickfix_list_name = l:name
 
   " Adjust highlighting to show this is an old list.
-  set winhighlight=Normal:NamedQuickfixList
+  setlocal winhighlight=Normal:NamedQuickfixList
 endfunction
 
 
