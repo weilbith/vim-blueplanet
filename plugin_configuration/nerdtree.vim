@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeWindowSize = 20
+let g:NERDTreeWindowSize = 30
 let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeIgnore = ['\.git$[[dir]]']
 let g:NERDTreeWinPos = 'left'

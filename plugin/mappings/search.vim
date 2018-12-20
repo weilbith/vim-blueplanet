@@ -8,7 +8,11 @@ nmap <leader>ss :Ack<Space>
 
 " Open recursive search in project directory and use the location list to
 " populate the results.
-nmap <leader>sS :Lack<Space>
+nmap <leader>sl :Lack<Space>
+
+" Search pattern and open fizzy searching for results.
+nmap <silent> <leader>sS :Denite grep<CR>nmap<CR>
+
 
 " Search recursively in project directory for the word under the cursor.
 nmap <leader>sw :Ack -w <C-r><C-w><CR>

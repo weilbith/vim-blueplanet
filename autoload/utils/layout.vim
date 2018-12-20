@@ -33,6 +33,11 @@ let g:layout_fixed_windows = [
       \     'width': get(g:, 'twiggy_num_columns', s:standard_width)
       \   },
       \   {
+      \     'buffer_name': 'undotree_',
+      \     'position': 'H',
+      \     'width': get(g:, 'undotree_SplitWidth', s:standard_width)
+      \   },
+      \   {
       \     'buffer_name': '__Tagbar__',
       \     'position': 'L',
       \     'width': get(g:, 'tagbar_width', s:standard_width)
