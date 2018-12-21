@@ -35,7 +35,6 @@ call dein#add('tpope/vim-repeat')
 call dein#add('kshenoy/vim-signature')
 call dein#add('wellle/targets.vim')
 call dein#add('tommcdo/vim-exchange')
-call dein#add('Shougo/neosnippet.vim')
 call dein#add('romainl/vim-cool')
 call dein#add('mhinz/vim-startify')
 call dein#add('xolox/vim-misc')
@@ -44,6 +43,11 @@ call dein#add('Shougo/context_filetype.vim')
 call dein#add('jeetsukumaran/vim-pythonsense')
 call dein#add('zhimsel/vim-stay')
 call dein#add('editorconfig/editorconfig-vim')
+
+" call dein#add('SirVer/ultisnips', {
+"       \ 'depends': 'deoplete.nvim'
+"       \ })
+call dein#add('~/Projects/vim/ultisnips')
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
@@ -217,6 +221,7 @@ call dein#add('ternjs/tern_for_vim', {
 call dein#add('carlitux/deoplete-ternjs', {
       \ 'on_ft': ['javascript', 'jsx', 'vue']
       \ })
+
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))

@@ -51,3 +51,10 @@ call deoplete#custom#source('dictionary', 'min_pattern_length', 4) " Do not comp
 
 " Disable sources
 call deoplete#custom#option('ignore_sources', {'_': ['around']}) " Cause it use the deleted words by the change list as well.
+
+
+
+
+" TODO
+call deoplete#custom#source('ultisnips', 'rank', 800)
+call deoplete#custom#source('ultisnips', 'mark', '')
