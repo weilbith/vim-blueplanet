@@ -34,3 +34,6 @@ trizen -S universal-ctags-git
 
 # Interface for Python to NVim
 pip install --user neovim
+
+# Color choose tool.
+trizen -S yad

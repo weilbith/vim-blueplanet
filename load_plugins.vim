@@ -44,10 +44,18 @@ call dein#add('jeetsukumaran/vim-pythonsense')
 call dein#add('zhimsel/vim-stay')
 call dein#add('editorconfig/editorconfig-vim')
 
+call dein#add('KabbAmine/vCoolor.vim', {
+      \ 'name': 'vcoolor',
+      \ 'on_cmd': ['VCoolor', 'VCoolIns']
+      \ })
+
 " call dein#add('SirVer/ultisnips', {
-"       \ 'depends': 'deoplete.nvim'
+"       \ 'depends': 'deoplete'
 "       \ })
-call dein#add('~/Projects/vim/ultisnips')
+
+call dein#add('~/Projects/vim/ultisnips', {
+      \ 'depends': 'deoplete'
+      \ })
 
 call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
