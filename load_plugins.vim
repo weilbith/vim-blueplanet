@@ -53,7 +53,8 @@ call dein#add('KabbAmine/vCoolor.vim', {
 "       \ 'depends': 'deoplete'
 "       \ })
 
-call dein#add('~/Projects/vim/ultisnips', {
+call dein#add('weilbith/ultisnips', {
+      \ 'rev': 'feature/completion-item-property-extension',
       \ 'depends': 'deoplete'
       \ })
 
@@ -82,7 +83,6 @@ call dein#add('Shougo/denite.nvim', {
       \ 'on_cmd': 'Denite'
       \ })
 
-" TODO
 call dein#add('wincent/ferret', {
       \ 'on_cmd': ['Ack', 'Lack', 'Back', 'Black']
       \ })
@@ -91,7 +91,6 @@ call dein#add('Yggdroot/indentLine', {
       \ 'name': 'indent_line'
       \ })
 
-" TODO
 call dein#add('junegunn/limelight.vim', {
       \ 'on_event': 'GoyoEnter'
       \ })
@@ -177,8 +176,9 @@ call dein#add('Shougo/neco-vim', {
       \ 'on_ft': ['vim']
       \ })
 
-call dein#add('tenfyzhong/CompleteParameter.vim', {
-      \ 'name': 'complete_parameter'
+call dein#add('weilbith/CompleteParameter.vim', {
+      \ 'name': 'complete_parameter',
+      \ 'rev': 'feature/support-event-completion'
       \ })
 
 call dein#add('mxw/vim-jsx', {
