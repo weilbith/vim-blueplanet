@@ -8,6 +8,7 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_autopreview  =  0
 let g:tagbar_map_showproto = 'a' " Else my default <leader> doesn't work.
 let g:tagbar_sort = 0
+let g:tagbar_status_func = 'plugin#lightline#tagbar_status'
 
 " Extended filetype support.
 let g:tagbar_type_markdown = {

@@ -21,7 +21,9 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'tabman' ||
           \ &filetype ==# 'twiggy' ||
           \ &filetype ==# 'help' ||
-          \ &filetype ==# 'gitcommit'
+          \ &filetype ==# 'gitcommit' ||
+          \ &filetype ==# 'denite' ||
+          \ &filetype ==# 'agit'
 endfunction
 
 
@@ -33,6 +35,13 @@ function! plugin#lightline#preview_window() abort
 endfunction
 
 
+" Indicates if the current window is the Denite window.
+" Used to differ the segments in such case.
+"
+function! plugin#lightline#denite_window() abort
+  return &filetype ==# 'denite'
+endfunction
+
 " Implementations
 
 " Indicates the current window number.
@@ -41,10 +50,14 @@ function! plugin#lightline#window_number() abort
   return ' ' . winnr()
 endfunction
 
+
 " The current mode or the name of a special buffer.
 "
 function! plugin#lightline#mode() abort
-  if plugin#lightline#special_window()
+  if  plugin#lightline#denite_window()
+    return substitute(denite#get_status_mode(), '-', '', 'g')
+
+  elseif plugin#lightline#special_window()
     return
           \ &filetype ==# 'tagbar' ? 'Tagbar' :
           \ &filetype ==# 'nerdtree' ? 'NERDTree' :
@@ -52,8 +65,9 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'tabman' ? 'TabMan':
           \ &filetype ==# 'twiggy' ? 'Twiggy':
           \ &filetype ==# 'help' ? 'Help' : 
-          \ &filetype ==# 'gitcommit' ? 'Git Commit' : ''
-
+          \ &filetype ==# 'gitcommit' ? 'Git Commit' :
+          \ &filetype ==# 'agit' ? 'Git Log' : ''
+ 
   elseif plugin#lightline#preview_window()
     return 'Preview'
 
@@ -117,22 +131,42 @@ function! plugin#lightline#paste_enabled() abort
   if 
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
-        \ plugin#lightline#preview_window()
+        \ plugin#lightline#preview_window() ||
+        \ !&paste
     
     return ''
   endif
 
-  return &paste ? '' : ''
+  return ''
 endfunction
 
 
+" Indicate if the window is in diff-mode.
+" Empty if window is too narrow, it is a special one,
+" the preview window or no diff mode is disabled.
+"
+function! plugin#lightline#diff_mode() abort
+  if 
+        \ plugin#lightline#tiny_window() ||
+        \ plugin#lightline#special_window() ||
+        \ plugin#lightline#preview_window() ||
+        \ !&diff
+    
+    return ''
+  endif
+
+  return '繁'
+endfunction
 
 
 " Name of the file for active windows.
 " Empty if window is too narrow or it is a special one.
 "
 function! plugin#lightline#file_name_active() abort
-  if plugin#lightline#special_window()
+  if plugin#lightline#denite_window()
+    return denite#get_status_sources()
+
+  elseif plugin#lightline#special_window()
     return ''
 
   else
@@ -145,11 +179,11 @@ endfunction
 " Empty if it is not a special window.
 "
 function! plugin#lightline#file_name_inactive() abort
-  if !plugin#lightline#special_window()
-    return ''
+  if plugin#lightline#special_window()
+    return plugin#lightline#mode()
 
   else
-    return plugin#lightline#mode()
+    return expand('%:t')
   endif
 endfunction
 
@@ -305,4 +339,14 @@ function! plugin#lightline#position() abort
   endif
 
   return line('.') . '/' . line('$') .  ' '
+endfunction
+
+
+" Status lines for other plugins.
+
+" Tagbar window status line.
+"
+function! plugin#lightline#tagbar_status(current, sort, fname, ...) abort
+  let g:lightline#fname = a:fname
+  return lightline#statusline(0)
 endfunction

@@ -32,7 +32,7 @@ let g:lightline.active        = {}
 let g:lightline.active.left   = [
       \   [ 'mode' ],
       \   [ 'git_branch', 'git_changes' ],
-      \   [ 'file_name_active', 'tags_status', 'modified', 'read_only' ]
+      \   [ 'paste_enabled', 'diff_mode', 'file_name_active', 'tags_status', 'modified', 'read_only' ]
       \ ]
 
 let g:lightline.active.right  = [
@@ -44,7 +44,7 @@ let g:lightline.active.right  = [
 
 """ Inactive
 let g:lightline.inactive        = {}
-let g:lightline.inactive.left   = [ [ 'window_number', 'file_name_inactive' ] ]
+let g:lightline.inactive.left   = [ [ 'window_number', 'diff_mode', 'file_name_inactive' ] ]
 let g:lightline.inactive.right  = [ [ 'file_format', 'file_type', 'file_encoding' ] ]
 
 
@@ -63,6 +63,7 @@ let g:lightline.tab.inactive = g:lightline.tab.active
 """ Expands
 let g:lightline.component_expand = {}
 let g:lightline.component_expand.paste_enabled = 'plugin#lightline#paste_enabled'
+let g:lightline.component_expand.diff_mode     = 'plugin#lightline#diff_mode'
 let g:lightline.component_expand.modified      = 'plugin#lightline#modified'
 let g:lightline.component_expand.read_only     = 'plugin#lightline#read_only'
 let g:lightline.component_expand.linter_status = 'plugin#lightline#linter_status'
@@ -70,6 +71,7 @@ let g:lightline.component_expand.linter_status = 'plugin#lightline#linter_status
 """ Type
 let g:lightline.component_type = {}
 let g:lightline.component_type.paste_enabled = 'hint'
+let g:lightline.component_type.diff_mode     = 'hint'
 let g:lightline.component_type.modified      = 'hint'
 let g:lightline.component_type.read_only     = 'warning'
 let g:lightline.component_type.linter_status = 'warning'

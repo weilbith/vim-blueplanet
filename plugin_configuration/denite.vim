@@ -29,7 +29,8 @@ call denite#custom#option('_', {
       \ 'smartcase': v:true,
       \ 'updatetime': 10,
       \ 'unique': v:true,
-      \ 'quit': v:true
+      \ 'quit': v:true,
+      \ 'statusline': 0
       \ })
 
 call denite#custom#option('file', {
