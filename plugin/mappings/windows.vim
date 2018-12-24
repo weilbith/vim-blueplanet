@@ -22,7 +22,7 @@ nnoremap <silent> <leader>wj :<C-u>call utils#windows#jump('j')<CR>
 nnoremap <silent> <leader>wk :<C-u>call utils#windows#jump('k')<CR>
 nnoremap <silent> <leader>wl :<C-u>call utils#windows#jump('l')<CR>
 
-" By id (works nice with the airline section for the window id)
+" By id (works nice with the tabline section for the window id)
 nnoremap <silent> <leader>w1 :1wincmd w<CR>
 nnoremap <silent> <leader>w2 :2wincmd w<CR>
 nnoremap <silent> <leader>w3 :3wincmd w<CR>

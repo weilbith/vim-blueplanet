@@ -43,15 +43,14 @@ call dein#add('Shougo/context_filetype.vim')
 call dein#add('jeetsukumaran/vim-pythonsense')
 call dein#add('zhimsel/vim-stay')
 call dein#add('editorconfig/editorconfig-vim')
+call dein#add('ryanoasis/vim-devicons')
+
+
 
 call dein#add('KabbAmine/vCoolor.vim', {
       \ 'name': 'vcoolor',
       \ 'on_cmd': ['VCoolor', 'VCoolIns']
       \ })
-
-" call dein#add('SirVer/ultisnips', {
-"       \ 'depends': 'deoplete'
-"       \ })
 
 call dein#add('weilbith/ultisnips', {
       \ 'rev': 'feature/completion-item-property-extension',
@@ -62,16 +61,8 @@ call dein#add('vim-scripts/YankRing.vim', {
       \ 'name': 'yankring'
       \ })
 
-" Some statusline segments depends on other plugins like fugitive.
-" There this plugins need to be sourced before airline.
-" For some reason the 'on_source' does not work here...
-" Therefore use the VimEnter event, cause the other plugins are loaded then.
-call dein#add('vim-airline/vim-airline', {
+call dein#add('itchyny/lightline.vim', {
       \ 'on_event': 'VimEnter'
-      \ })
-
-call dein#add('ryanoasis/vim-devicons', {
-      \ 'on_source': 'vim-airline'
       \ })
 
 call dein#add('Raimondi/delimitMate', {
@@ -234,12 +225,13 @@ call dein#add('carlitux/deoplete-ternjs', {
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
-call dein#set_hook([], 'hook_post_source', function('plugin#dein#post_source_hook'))
+call dein#set_hook([], "hook_post_source", function('plugin#dein#post_source_hook'))
 
 call dein#end()
 call dein#recache_runtimepath()
 call dein#save_state()
 "endif
+
 
 " Must be set again, cause dein unset it.
 filetype plugin on

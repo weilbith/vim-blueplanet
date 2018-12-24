@@ -11,7 +11,7 @@
 " Maintainer: Thore Weilbier (thore@weilbier.net)
 "
 " Based on Drew Hays 'adventurous' scheme, cause it basically fits my thoughts how it should look like.
-" Is meant to use with the airline theme 'blue_planet', which base on this theme here. (of cause only when airline is installed)
+" Is meant to use with the lightline theme 'blue_planet', which base on this theme here. (of cause only when lightline is installed)
 "
 " The theme require 256 colors for the terminal version or for Vim run in a " GUI.
 "
