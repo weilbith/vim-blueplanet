@@ -36,4 +36,10 @@ let g:tagbar_type_solidity = {
       \   'm:mapping'
       \ ]}
 
+let g:tagbar_type_snippets = {
+      \ 'ctagstype' : 'snippets',
+      \ 'kinds' : [
+      \   's:snippets',
+      \ ]} 
+
 " Has further mappings in the section toggle.
