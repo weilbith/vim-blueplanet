@@ -7,5 +7,5 @@
 function! utils#search#visual_selection(operator) abort
   let l:selection = utils#msc#get_visual_selection()
   let l:selection = '\V' . substitute(escape(l:selection, a:operator.'\'), '\n', '\\n', 'g')
-  execute 'normal ' . a:operator . l:selection
+  execute a:operator . l:selection
 endfunction
