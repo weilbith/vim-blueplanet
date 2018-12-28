@@ -44,9 +44,18 @@ endfunction
 
 " Use custom fold expression and text.
 setlocal foldmethod=expr
+let b:undo_ftplugin .= '|setlocal foldmethod<'
+
 setlocal foldexpr=FoldExpr()
+let b:undo_ftplugin .= '|setlocal foldexpr<'
+
 setlocal foldtext=FoldText()
+let b:undo_ftplugin .= '|setlocal foldtext<'
+
 
 " Fold everything larger than two lines.
 setlocal foldlevel=0
+let b:undo_ftplugin .= '|setlocal foldlevel<'
+
 setlocal foldminlines=2
+let b:undo_ftplugin .= '|setlocal foldminlines<'

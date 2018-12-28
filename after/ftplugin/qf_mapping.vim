@@ -6,4 +6,7 @@ if !utils#location#is_location_window(win_getid())
 
 else
   map <buffer> dd :<C-u>call utils#location#remove_current_entry()<CR>
+
 endif
+
+let b:undo_ftplugin .= '|unmap <buffer> dd'

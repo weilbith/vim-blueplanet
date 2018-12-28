@@ -1,3 +1,2 @@
 setlocal nospell
-
-" vim: filetype=vim
+let b:undo_ftplugin .= '|setlocal spell<'
