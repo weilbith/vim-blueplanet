@@ -9,7 +9,6 @@ let g:UltiSnipsEnableSnipMate = 0
 let g:UltiSnipsExpandTrigger = '<nop>'
 let g:UltiSnipsListSnippets = '<nop>'
 let g:UltiSnipsJumpForwardTrigger = '<nop>'
-" let g:UltiSnipsJumpForwardTrigger = '<C-space>'
 let g:UltiSnipsJumpBackwardTrigger = '<nop>'
 
 

@@ -1,0 +1,17 @@
+snippet if "if expression" b
+if ${1:condition}
+	${2:${VISUAL:statements}}
+endif
+endsnippet
+
+snippet undoset "reset option for b:undo_ftplugin"
+let b:undo_ftplugin .= '|setlocal ${1:option-name}<'
+endsnippet
+
+snippet undomap "reset mapping for b:undo_ftplugin"
+let b:undo_ftplugin .= '|${1:n}unmap <buffer> ${2:mapping-keys}'
+endsnippet
+
+snippet undovar "reset variable for b:undo_ftplugin"
+let b:undo_ftplugin .= '|unlet ${1:g}:${2:variable-name}'
+endsnippet

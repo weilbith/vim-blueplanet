@@ -10,6 +10,9 @@ inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 " Remark to not overwrite DelimitMate's mapping.
 inoremap <expr> <CR> pumvisible() ? "\<Esc>o" : delimitMate#ExpandReturn()
 
+" Complete snippet from visual mode.
+vnoremap <silent> <Tab> <Esc>:call UltiSnips#SaveLastVisualSelection()<CR>gvs
+
 " Jump to next snippet placeholder.
 inoremap <silent> <C-space> <C-r>=UltiSnips#JumpForwards()<CR>
 snoremap <silent> <C-space> <Esc>:<C-u>call UltiSnips#JumpForwards()<CR>
