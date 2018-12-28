@@ -1,4 +1,4 @@
 augroup LightlineCustom
   autocmd!
-  autocmd OptionSet * call lightline#update()
+  autocmd OptionSet,BufWritePost,TextChanged * call lightline#update()
 augroup END

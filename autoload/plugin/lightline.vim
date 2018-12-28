@@ -182,6 +182,9 @@ function! plugin#lightline#file_name_inactive() abort
   if plugin#lightline#special_window()
     return plugin#lightline#mode()
 
+  elseif plugin#lightline#preview_window()
+    return 'Preview  ' . expand('%:t')
+
   else
     return expand('%:t')
   endif

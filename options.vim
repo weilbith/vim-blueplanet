@@ -78,6 +78,7 @@ set noshowmode
 set wildmenu
 set wildmode=full
 set wildignore=".git\*,.hg\*,.svn\*"
+set completeopt=menuone,noinsert
 
 " ---
 
@@ -133,11 +134,9 @@ set report=0
 set lazyredraw
 set backspace=2
 set viewoptions=cursor,folds,slash,unix
-execute 'set shell=' . (filereadable('/bin/zsh') ? '/bin/zsh' : 'bin/bash')
-
-"" PUM
 set pumheight=30
-set completeopt=menuone,noinsert
+set showtabline=2
+execute 'set shell=' . (filereadable('/bin/zsh') ? '/bin/zsh' : 'bin/bash')
 
 " List Characters
 set nolist

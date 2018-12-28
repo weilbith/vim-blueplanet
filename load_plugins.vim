@@ -62,7 +62,12 @@ call dein#add('vim-scripts/YankRing.vim', {
       \ })
 
 call dein#add('itchyny/lightline.vim', {
-      \ 'on_event': 'VimEnter'
+      \ 'on_event': 'VimEnter',
+      \ 'depends': ['vim-fugitive', 'neomake', 'denite.nvim', 'vim-signify']
+      \ })
+
+call dein#add('mengelbrecht/lightline-bufferline', {
+      \ 'depends': 'lightline.vim'
       \ })
 
 call dein#add('Raimondi/delimitMate', {
@@ -225,7 +230,7 @@ call dein#add('carlitux/deoplete-ternjs', {
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
-call dein#set_hook([], "hook_post_source", function('plugin#dein#post_source_hook'))
+call dein#set_hook([], 'hook_post_source', function('plugin#dein#post_source_hook'))
 
 call dein#end()
 call dein#recache_runtimepath()
