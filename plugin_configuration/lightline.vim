@@ -55,8 +55,8 @@ let g:lightline.tabline.right = [ [ 'tabs' ] ]
 
 """ Buffer
 let g:lightline#bufferline#filename_modifier = ':t'
-let g:lightline#bufferline#modified          = ''
-let g:lightline#bufferline#read_only         = ''
+let g:lightline#bufferline#modified          = ' '
+let g:lightline#bufferline#read_only         = ' '
 let g:lightline#bufferline#unnamed           = 'No Name'
 let g:lightline#bufferline#show_number       = 2
 let g:lightline#bufferline#enable_devicons   = 1
@@ -66,7 +66,7 @@ let g:lightline#bufferline#enable_devicons   = 1
 
 """ Tab
 let g:lightline.tab = {}
-let g:lightline.tab.active   = [ 'tabnum', 'tabname' ]
+let g:lightline.tab.active   = [ 'tabnum', 'tab_name' ]
 let g:lightline.tab.inactive = g:lightline.tab.active
 
 
@@ -98,7 +98,7 @@ let g:lightline.component_function.spell              = 'plugin#lightline#spell'
 let g:lightline.component_function.position           = 'plugin#lightline#position'
 
 let g:lightline.tab_component_function = {}
-let g:lightline.tab_component_function.tabname = 'utils#tabs#get_name'
+let g:lightline.tab_component_function.tab_name = 'plugin#lightline#tab_name'
 
 
 """ Type
