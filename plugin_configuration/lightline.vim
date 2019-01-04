@@ -54,10 +54,11 @@ let g:lightline.tabline.left  = [ [ 'buffers' ] ]
 let g:lightline.tabline.right = [ [ 'tabs' ] ]
 
 """ Buffer
-let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline#bufferline#modified          = ' '
 let g:lightline#bufferline#read_only         = ' '
 let g:lightline#bufferline#unnamed           = 'No Name'
+let g:lightline#bufferline#min_buffer_count  = 2
+let g:lightline#bufferline#shorten_path      = 1
 let g:lightline#bufferline#show_number       = 2
 let g:lightline#bufferline#enable_devicons   = 1
 " let g:lightline#bufferline#number_map = {

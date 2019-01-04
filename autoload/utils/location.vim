@@ -125,3 +125,120 @@ function! utils#location#close_related_location_window() abort
     silent! lclose
   endif
 endfunction
+
+
+" Jump to the next or previous location list entry based on the cursors current
+" position.
+" The location list is grouped by files. Within each group the entries are
+" sorted ascending by their line and column values. The current position is
+" defined by the buffer this is called in and the cursors line and column.
+" Therefore the location list get searched first for the group of entries for
+" the buffers file. If this has been found, the cursor position is taken into
+" account. In case the cursor is before/behind the first/last entry for this
+" buffer, a jump to a different file will be caused. To make this clean, the
+" user has to confirm the jump.
+" If the location list does not contain any entry for the buffers file, a jump
+" to the first entry is requested, which will also switch the buffer.
+"
+"
+function! utils#location#find_entry_by_position(...) abort
+  let l:list = getloclist(0)
+
+  " Abort if there is not location list.
+  if len(l:list) == 0
+    call utils#messages#warning('There is no active location list!')
+    return
+  endif
+
+  let l:backward = get(a:, 1, v:false)
+  let l:current_buffer = v:false
+
+  " Iterate over all entries until we find the next or previous one.
+  for index in range(0, len(l:list) - 1)
+    let l:entry = l:list[index]
+    let l:same_buffer = l:entry.bufnr == bufnr(bufname('%'))
+
+    " Check if we reached the first entry for this buffer in the list since it
+    " is ordered.
+    if !l:current_buffer && l:same_buffer
+      let l:current_buffer = v:true
+
+    " Check if the overreached the last entry for this buffer in the list.
+    elseif l:current_buffer && !l:same_buffer
+      " In this case the last entry was the previous one, since no more entries
+      " are within this buffer.
+      if l:backward
+        execute 'll' . index
+
+      " Next entry is in a new buffer.
+      else
+        call s:jump_to_other_buffer(l:entry, (l:backward ? 'Previous' : 'Next') . ' entry is in another buffer.')
+      endif
+      return
+    endif
+
+    " Search within the entries of the current buffer.
+    if l:current_buffer
+      " Check if this is on the same line but at a more right column
+      " or in a liner under the current one.
+      " In case of backward direction, mention that the cursor could be exactly
+      " on one match. To don't land on the same entry again go back.
+      if
+            \ (l:entry.lnum == line('.') && (l:backward ? l:entry.col >= col('.') : l:entry.col > col('.'))) ||
+            \ l:entry.lnum > line('.')
+
+        " Convert list index (which starts at zero) to location list index.
+        " Mention the direction to select the next or previous entry.
+        let l:real_index = index + (l:backward ? 0 : 1) 
+
+        " Make sure we keep in the bounds.
+        if l:real_index <= 0
+          call utils#messages#warning('Already on the first entry!')
+
+        else
+          execute 'll' . l:real_index
+        endif
+
+        return
+      endif
+    endif
+  endfor
+
+  " Run through the whole list.
+  if l:current_buffer
+    if l:backward
+      " Jump to last entry in list.
+      execute 'll' . len(l:list)
+
+    else
+      " Last entry in list is in current buffer and preceded by cursor position.
+      call utils#messages#warning('Already at/behind the last entry!')
+    endif
+
+  " No entry for the current buffer in the whole list.
+  else
+    call s:jump_to_other_buffer(l:list[0], 'No entry for this buffer in the whole list. Start at lists first entry.')
+  endif
+endfunction
+
+
+" Internal
+
+" Helper function to interactively jump to a buffer which is not the current.
+" The user get requested with a customizable query if he really wants to jump.
+" By the given location list entry, the position in the buffer get defined.
+"
+" Arguments:
+"   entry   - entry of the location list to jump to
+"   message - message to show on confirmation (gets extended)
+"
+function! s:jump_to_other_buffer(entry, message) abort
+  let l:message = a:message . ' Jump to "' . bufname(a:entry.bufnr) . '"?'
+  let l:confirm = confirm(l:message, "yes\n[&no]", 2)
+
+  if l:confirm == 1
+    execute 'buffer' . a:entry.bufnr
+    call cursor(a:entry.lnum, a:entry.col)
+    edit! " 'Enable' the hidden buffer.
+  endif
+endfunction

@@ -6,9 +6,9 @@ nnoremap <silent> <leader>ll :<C-u>call utils#location#location_jump()<CR>
 nnoremap <silent> <leader>lc :<C-u>lclose<CR>
 
 " Go to the current/next/previous entry in the location list.
-nnoremap <leader>l<CR> :ll<CR>
-nnoremap <leader>ln :lnext<CR>
-nnoremap <leader>lN :lprevious<CR>
+nnoremap <silent> <leader>l<CR> :ll<CR>
+nnoremap <silent> <leader>ln :<C-u>call utils#location#find_entry_by_position()<CR>
+nnoremap <silent> <leader>lN :<C-u>call utils#location#find_entry_by_position(v:true)<CR>
 
 " Switch to older location lists.
 nnoremap <silent> <leader>lb :<C-u>:colder<CR><CR>
