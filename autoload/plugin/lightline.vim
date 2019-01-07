@@ -39,7 +39,15 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'help' ||
           \ &filetype ==# 'gitcommit' ||
           \ &filetype ==# 'denite' ||
-          \ &filetype ==# 'agit'
+          \ &filetype ==# 'agit' ||
+          \ &filetype ==# 'startify' ||
+          \ &filetype ==# 'snippets' ||
+          \ &filetype ==# 'trans' ||
+          \ bufname('%') ==# '[YankRing]' ||
+          \ bufname('%') ==# '[Grammarous]' ||
+          \ bufname('%') ==# '__Scratch__' ||
+          \ utils#location#is_location_window(win_getid()) ||
+          \ &filetype ==# 'qf'
 endfunction
 
 
@@ -130,7 +138,15 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'twiggy' ? 'Twiggy':
           \ &filetype ==# 'help' ? 'Help' : 
           \ &filetype ==# 'gitcommit' ? 'Git Commit' :
-          \ &filetype ==# 'agit' ? 'Git Log' : ''
+          \ &filetype ==# 'agit' ? 'Git Log' :
+          \ &filetype ==# 'startify' ? 'Startify' :
+          \ &filetype ==# 'snippets' ? 'Snippet' :
+          \ &filetype ==# 'trans' ? 'Translation' :
+          \ bufname('%') ==# '[YankRing]' ? 'Yank Ring' :
+          \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
+          \ bufname('%') ==# '__Scratch__' ? 'Scratch':
+          \ utils#location#is_location_window(win_getid()) ? 'Location List' :
+          \ &filetype ==# 'qf' ? 'Quickfix List' : ''
  
   elseif plugin#lightline#preview_window()
     return 'Preview'
@@ -450,13 +466,13 @@ endfunction
 
 " Show the current language and indicate if spell check is enabled.
 " Empty if window is too narrow or it is a special one.
-" Help buffers are excluded here.
+" Help, quickfix and location list buffers are excluded here.
 " 
 function! plugin#lightline#position() abort
   if 
         \ plugin#lightline#tiny_window() ||
         \ (plugin#lightline#special_window() &&
-        \ &filetype !=# 'help')
+        \ &filetype !=# 'help' && &filetype !=# 'qf')
     
     return ''
   endif

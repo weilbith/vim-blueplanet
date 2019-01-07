@@ -45,7 +45,7 @@ let g:lightline.active.right = [
 """ Inactive
 let g:lightline.inactive = {}
 let g:lightline.inactive.left  = [ [ 'window_number', 'diff_mode', 'file_name_inactive' ] ]
-let g:lightline.inactive.right = [ [ 'file_format', 'file_type', 'file_encoding' ] ]
+let g:lightline.inactive.right = [ [ 'file_format', 'file_type', 'file_encoding', 'position' ] ]
 
 
 "" Tab Line
