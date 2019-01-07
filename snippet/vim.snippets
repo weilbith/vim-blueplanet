@@ -10,6 +10,13 @@ function! ${1:name}($2) abort
 endfunction
 endsnippet
 
+snippet augroup "autocommand group declaration" b
+augroup ${1:name}
+	autocmd!
+	autocmd $0
+augroup END
+endsnippet
+
 snippet undoset "reset option for b:undo_ftplugin"
 let b:undo_ftplugin .= '|setlocal ${1:option-name}<'
 endsnippet

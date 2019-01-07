@@ -21,7 +21,6 @@ call dein#add('andymass/vim-matchup')
 call dein#add('scrooloose/nerdcommenter')
 call dein#add('neomake/neomake')
 call dein#add('tpope/vim-fugitive')
-call dein#add('junegunn/goyo.vim')
 call dein#add('kana/vim-submode')
 call dein#add('sbdchd/neoformat')
 call dein#add('tommcdo/vim-lion')
@@ -45,7 +44,9 @@ call dein#add('zhimsel/vim-stay')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('ryanoasis/vim-devicons')
 
-
+call dein#add('dhruvasagar/vim-zoom', {
+      \ 'on_func': 'zoom#toggle'
+      \ })
 
 call dein#add('KabbAmine/vCoolor.vim', {
       \ 'name': 'vcoolor',
@@ -85,10 +86,6 @@ call dein#add('wincent/ferret', {
 
 call dein#add('Yggdroot/indentLine', {
       \ 'name': 'indent_line'
-      \ })
-
-call dein#add('junegunn/limelight.vim', {
-      \ 'on_event': 'GoyoEnter'
       \ })
 
 call dein#add('scrooloose/nerdtree', {

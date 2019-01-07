@@ -43,6 +43,7 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'startify' ||
           \ &filetype ==# 'snippets' ||
           \ &filetype ==# 'trans' ||
+          \ &filetype ==# 'far_vim' ||
           \ bufname('%') ==# '[YankRing]' ||
           \ bufname('%') ==# '[Grammarous]' ||
           \ bufname('%') ==# '__Scratch__' ||
@@ -142,6 +143,7 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'startify' ? 'Startify' :
           \ &filetype ==# 'snippets' ? 'Snippet' :
           \ &filetype ==# 'trans' ? 'Translation' :
+          \ &filetype ==# 'far_vim' ? 'Find & Replace' :
           \ bufname('%') ==# '[YankRing]' ? 'Yank Ring' :
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
           \ bufname('%') ==# '__Scratch__' ? 'Scratch':

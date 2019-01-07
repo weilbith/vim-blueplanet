@@ -22,7 +22,7 @@ nnoremap <silent> <leader>wj :<C-u>call utils#windows#jump('j')<CR>
 nnoremap <silent> <leader>wk :<C-u>call utils#windows#jump('k')<CR>
 nnoremap <silent> <leader>wl :<C-u>call utils#windows#jump('l')<CR>
 
-" By id (works nice with the tabline section for the window id)
+" By id (works nice with the tablin   e section for the window id)
 nnoremap <silent> <leader>w1 :1wincmd w<CR>
 nnoremap <silent> <leader>w2 :2wincmd w<CR>
 nnoremap <silent> <leader>w3 :3wincmd w<CR>
@@ -56,8 +56,8 @@ call submode#map('resize', 'n', '', 'L', s:resize_big_step . '<C-w>>')
 noremap <silent> <leader>wrH :<C-u>call utils#windows#windowChangeSize('height')<CR>
 noremap <silent> <leader>wrW :<C-u>call utils#windows#windowChangeSize('width')<CR>
 
-" Maximize current window (with Goyo plugin)
-nnoremap <silent> <leader>wm :<C-u>call utils#windows#toggle_max_window()<CR>
+" Maximize current window.
+nnoremap <silent> <leader>wm :<C-u>call zoom#toggle()<CR>
 
 " Move windows.
 " Swap active window with a selected one.
