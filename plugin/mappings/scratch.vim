@@ -1,2 +1,2 @@
-nnoremap gs :<C-u>Scratch<CR>
-nnoremap gS :<C-u>ScratchPreview<CR>
+nnoremap gss :<C-u>Scratch<CR>
+nnoremap gsS :<C-u>ScratchPreview<CR>

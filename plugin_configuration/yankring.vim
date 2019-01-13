@@ -1,3 +1,4 @@
+let g:yankring_clipboard_monitor = 0 " Lead to awkward error on startup else.
 let g:yankring_window_height = 10
 let g:yankring_min_element_length = 2
 let g:yankring_window_auto_close = 0

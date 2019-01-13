@@ -151,6 +151,6 @@ set noerrorbells
 set novisualbell
 
 "" VimDiff
-set diffopt+=filler,vertical,context:3
+set diffopt+=filler,vertical,context:3,algorithm:patience
 
 " ---
