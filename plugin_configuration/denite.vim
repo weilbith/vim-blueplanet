@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
-      \'.git/', 'node_modules/'
+      \'.git/', 'node_modules/', '!*.fls'
       \ ])
 
 " Use Ripgrep accordingly to the documentations settings.
@@ -14,7 +14,7 @@ call denite#custom#var('grep', 'default_opts',
     \ ['--vimgrep', '--no-heading'])
 
 call denite#custom#var('file/rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git'])
+      \ ['rg', '--files', '--glob', '!.git', '--glob', '!*.fls', '--glob', '!*.fdb_latexmk'])
 
 
 " Use a '_' instead of '-' in option names, as documented.

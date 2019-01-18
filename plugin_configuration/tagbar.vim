@@ -37,9 +37,42 @@ let g:tagbar_type_solidity = {
       \ ]}
 
 let g:tagbar_type_snippets = {
-      \ 'ctagstype' : 'snippets',
-      \ 'kinds' : [
+      \ 'ctagstype': 'snippets',
+      \ 'kinds': [
       \   's:snippets',
       \ ]} 
 
-" Has further mappings in the section toggle.
+let g:tagbar_type_bib = {
+      \ 'ctagstype': 'bib',
+      \ 'kinds': [
+      \   'a:Articles',
+      \   'b:Books',
+      \   'L:Booklets',
+      \   'c:Conferences',
+      \   'B:Inbook',
+      \   'C:Incollection',
+      \   'P:Inproceedings',
+      \   'm:Manuals',
+      \   'T:Masterstheses',
+      \   'M:Misc',
+      \   't:Phdtheses',
+      \   'p:Proceedings',
+      \   'r:Techreports',
+      \   'u:Unpublished',
+      \   'o:Online'
+      \ ]}
+
+let g:tagbar_type_plaintex = {
+      \ 'ctagtype': 'plaintex',
+      \ 'kinds': [
+      \   's:sections',
+      \   'g:graphics',
+      \   'l:labels',
+      \   'r:refs',
+      \   'p:pagerefs',
+      \   'f:footnote',
+      \   'c:citation',
+      \   'i:import'
+      \ ]}
+
+let g:tagbar_type_tex = g:tagbar_type_plaintex

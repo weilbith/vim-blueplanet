@@ -47,8 +47,10 @@ function! plugin#lightline#special_window() abort
           \ bufname('%') ==# '[YankRing]' ||
           \ bufname('%') ==# '[Grammarous]' ||
           \ bufname('%') ==# '__Scratch__' ||
+          \ bufname('%') ==# '_cheat' ||
           \ utils#location#is_location_window(win_getid()) ||
-          \ &filetype ==# 'qf'
+          \ &filetype ==# 'qf' ||
+          \ s:is_diff_window()
 endfunction
 
 
@@ -146,9 +148,11 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'far_vim' ? 'Find & Replace' :
           \ bufname('%') ==# '[YankRing]' ? 'Yank Ring' :
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
-          \ bufname('%') ==# '__Scratch__' ? 'Scratch':
+          \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
+          \ bufname('%') ==# '_cheat' ? 'Cheating' :
           \ utils#location#is_location_window(win_getid()) ? 'Location List' :
-          \ &filetype ==# 'qf' ? 'Quickfix List' : ''
+          \ &filetype ==# 'qf' ? 'Quickfix List' :
+          \ s:is_diff_window() ? s:get_diff_window_name() : ''
  
   elseif plugin#lightline#preview_window()
     return 'Preview'
@@ -282,13 +286,20 @@ endfunction
 " Name of the file for active windows.
 " Empty if window is too narrow or it is a special one.
 " The text gets abbreviated, if the window is small.
+" Shows diff mode window names.
 "
 function! plugin#lightline#file_name_active() abort
   if plugin#lightline#denite_window()
     return denite#get_status_sources()
 
   elseif plugin#lightline#special_window()
-    return ''
+    if s:is_diff_window()
+      return s:get_diff_window_name()
+
+    else
+      return ''
+
+    endif
 
   else
     return plugin#lightline#fancy_file_path()
@@ -307,7 +318,9 @@ function! plugin#lightline#file_name_inactive() abort
     return 'Preview  ' . plugin#lightline#fancy_file_path()
 
   else
-    return plugin#lightline#fancy_file_path()
+    let l:path = plugin#lightline#fancy_file_path()
+    let l:modified = plugin#lightline#modified()
+    return l:path . (len(l:modified) > 0 ? ' ' : '') . l:modified
   endif
 endfunction
 
@@ -501,4 +514,20 @@ endfunction
 function! plugin#lightline#tagbar_status(current, sort, fname, ...) abort
   let g:lightline#fname = a:fname
   return lightline#statusline(0)
+endfunction
+
+
+" Internal
+
+" Determine if the window is part of a fugitive diff.
+function! s:is_diff_window() abort
+  return expand('%') =~? 'fugitive:.*\/\.git'
+endfunction
+
+
+" Return name of the window in the diff.
+" Distinct between the LOCAL and REMOTE window.
+"
+function! s:get_diff_window_name() abort
+  return expand('%') =~? '\/\.git\/\/2' ? 'LOCAL' : 'REMOTE'
 endfunction
