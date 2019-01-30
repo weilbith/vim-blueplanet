@@ -4,6 +4,16 @@ let s:standard_height = 10
 
 let g:layout_fixed_windows = [
       \   {
+      \     'buffer_name': 'Scratch',
+      \     'position': 'K',
+      \     'height': get(g:, 'scratch_height', s:standard_height)
+      \   },
+      \   {
+      \     'buffer_name': 'Translate',
+      \     'position': 'J',
+      \     'height': get(g:, 'trans_win_height', s:standard_height)
+      \   },
+      \   {
       \     'preview': 1,
       \     'position': 'K',
       \     'height': &previewheight
