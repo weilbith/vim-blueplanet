@@ -116,6 +116,19 @@ function! utils#location#restore_location_list(buffer) abort
 endfunction
 
 
+" Check if a location list is cached for this buffer.
+" Remove the cached list in this case.
+"
+" Arguments:
+"   buffer - buffer to delete the cache for
+"
+function! utils#location#remove_cached_location_list(buffer) abort
+  if has_key(s:map_buffer_location_list, a:buffer)
+    unlet s:map_buffer_location_list[a:buffer] " Remove cache to avoid reloading.
+  endif
+endfunction
+
+
 " Close the location window for the current window.
 " Try it only, if the window is not the location window itself.
 " Does nothing if there is no location window open.

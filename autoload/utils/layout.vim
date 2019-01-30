@@ -10,7 +10,7 @@ let g:layout_fixed_windows = [
       \   },
       \   {
       \     'filetype': 'qf',
-      \     'function': 'utils#quickfix#resize_move',
+      \     'function': ['utils#quickfix#resize_move', 'utils#location#adjust_window_height'],
       \   },
       \   {
       \     'buffer_name': 'YankRing',
@@ -20,7 +20,8 @@ let g:layout_fixed_windows = [
       \   {
       \     'buffer_name': 'NERD_tree',
       \     'position': 'H',
-      \     'width': get(g:, 'NERDTreeWindowSize', s:standard_width)
+      \     'width': get(g:, 'NERDTreeWindowSize', s:standard_width),
+      \     'height': 100
       \   },
       \   {
       \     'buffer_name': 'TabManager',
@@ -55,35 +56,37 @@ function! utils#layout#reset_fixed_windows() abort
   let l:window_list = get(g:, 'layout_fixed_windows', [])
 
   for window in l:window_list
-    let l:window_id = s:get_window_id(window)
+    let l:window_ids = s:get_window_ids(window)
 
-    " Apply resizing if window exists.
-    if l:window_id > 0
-      call win_gotoid(l:window_id)
+    for id in l:window_ids
+      " Apply resizing if window exists.
+      if id > 0
+        call win_gotoid(id)
 
-      " Apply function call.
-      if has_key(window, 'function')
-        call s:apply_function(window.function)
+        " Apply function call.
+        if has_key(window, 'function')
+          call s:apply_function(window.function)
+        endif
+
+        " Apply positioning.
+        if has_key(window, 'position')
+          call s:apply_position(window.position)
+        endif
+
+        " Apply window height.
+        if has_key(window, 'height')
+          call s:apply_height(window.height)
+        endif
+
+        " Apply window width.
+        if has_key(window, 'width')
+          call s:apply_width(window.width)
+        endif
+
+        " Jump back to original window.
+        wincmd p
       endif
-
-      " Apply positioning.
-      if has_key(window, 'position')
-        call s:apply_position(window.position)
-      endif
-
-      " Apply window height.
-      if has_key(window, 'height')
-        call s:apply_height(window.height)
-      endif
-
-      " Apply window width.
-      if has_key(window, 'width')
-        call s:apply_width(window.width)
-      endif
-
-      " Jump back to original window.
-      wincmd p
-    endif
+    endfor
   endfor
 endfunction
 
@@ -91,7 +94,7 @@ endfunction
 " Internal
 
 " Search for a fixed window by its preferences.
-" Return the window id if found or zero as non existing wind<F3>ow.
+" Return a list of window ids if found or empty as non could been found.
 " Differ between the three types of 'buffer_name', 'preview' and 'filetype'.
 " The 'filetype' property has just a minimal set of use cases (e.g. quickfix window), but
 " cause the most delay trough this function, cause all open windows have to be checked.
@@ -100,9 +103,8 @@ endfunction
 " Arguments:
 "   preferences - the windows preferences used to detect
 "
-function! s:get_window_id(preferences) abort
-  " Initialize the window id variable with a non existing window per default.
-  let l:window_id = 0
+function! s:get_window_ids(preferences) abort
+  let l:window_ids = []
 
   " Property 'buffer_name'.
   if has_key(a:preferences, 'buffer_name')
@@ -112,7 +114,7 @@ function! s:get_window_id(preferences) abort
     if strlen(l:buffer_name) > 0
       " Retrieve the buffer number and in which window it is displayed.
       let l:buffer_number = bufnr(s:replace_pattern_characters(l:buffer_name))
-      let l:window_id = bufwinid(l:buffer_number)
+      call add(l:window_ids, bufwinid(l:buffer_number))
     endif
   endif
 
@@ -121,7 +123,7 @@ function! s:get_window_id(preferences) abort
     " Try to jump to the preview window and store its id.
     try
       wincmd P
-      let l:window_id = win_getid()
+      call add(l:window_ids, win_getid())
       " Don't jump back here, cause that is useless.
     catch
     endtry
@@ -133,12 +135,12 @@ function! s:get_window_id(preferences) abort
     " If more than one exits, the last one is used.
     for nr in range(1, winnr('$'))
       if getwinvar(nr, '&filetype') == a:preferences['filetype']
-        let l:window_id = win_getid(nr) 
+        call add(l:window_ids, win_getid(nr))
       endif
     endfor
   endif
 
-  return l:window_id
+  return l:window_ids
 endfunction
 
 
@@ -156,20 +158,33 @@ function! s:replace_pattern_characters(string) abort
 endfunction
 
 
-" Apply the given function for the current window.
-" This includes a bunch of sanity checks and a warning message.
+" Apply the given function(s) for the current window.
+" This includes a bunch of sanity checks and a warning messages.
 "
 " Arguments:
-"   function - string as a function reference
+"   function - string as a function reference or a list of such strings
 "
 function! s:apply_function(function) abort
-  if type(a:function) == v:t_string &&
-        \ exists('*' . a:function)
+  let l:function = a:function " Copy argument to be able to overwrite it.
 
-    execute 'call ' . a:function . '()'
-  
+  " Build a list for a single string argument.
+  if type(l:function) == v:t_string
+    let l:function = [l:function]
+  endif
+
+  if type(l:function) == v:t_list
+    for entry in l:function
+      if type(entry) == v:t_string
+        if exists('*' . entry)
+          execute 'call ' . entry . '()'
+        else
+          call utils#messages#warning('Provided function string for layout does not exist: ' . entry)
+        endif
+      endif
+    endfor
+
   else
-    call utils#messages#warning('Could not adjust layout with function: ' . a:function)
+    call utils#messages#warning('Could not adjust layout with argument: ' . a:function)
 
   endif
 endfunction
