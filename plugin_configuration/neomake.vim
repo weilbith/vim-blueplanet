@@ -8,7 +8,7 @@ let g:neomake_virtualtext_prefix = ''
 
 " Enabled makers
 let g:neomake_java_enabled_makers = ['ant']
-let g:neomake_sh_enabled_makers = ['bash', 'shellcheck']
+let g:neomake_sh_enabled_makers = ['shellcheck']
 let g:neomake_zsh_enabled_makers = ['zsh']
 let g:neomake_vim_enabled_makers = ['vint']
 let g:neomake_solidity_enabled_makers = ['solium']

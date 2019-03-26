@@ -6,16 +6,16 @@
 " Don't do a thing if the buffer has set the flag to disable.
 "
 function! plugin#neoformat#format_buffer() abort
-  if !get(b:, 'neoformat_disable', v:false) | return | endif
+  if get(b:, 'neoformat_disable', v:false) | return | endif
 
   mkview
 
   try
     undojoin
     Neoformat
-
+  
   catch /^Vim\%((\a\+)\)\=:E790/
-
+  
   finally
     silent Neoformat
   endtry

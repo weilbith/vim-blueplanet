@@ -27,3 +27,6 @@ nnoremap gT :<C-u>TransSelectDirection<CR>
 " Translate selection with default language or selection.
 vnoremap gt :Trans<CR>
 vnoremap gT :TransSelectDirection<CR>
+
+" Interactive translation by user input.
+nnoremap <leader>gt :<C-u>TransInteractive<CR>

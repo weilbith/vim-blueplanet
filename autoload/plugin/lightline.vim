@@ -1,12 +1,23 @@
 scriptencoding utf-8
 
+" Variables
+
+let s:number_map =
+      \ {
+      \   0: '⓿ ', 1: '❶ ', 2: '❷ ', 3: '❸ ', 4: '❹ ',
+      \   5: '❺ ', 6: '❻ ', 7: '❼ ', 8: '❽ ', 9: '❾ '
+      \ }
+
+let plugin#lightline#number_map = s:number_map
+
+
 " Conditions
 
 " Indicates if the current window is medium width.
 " Used to shrink segments content.
 "
 function! plugin#lightline#medium_window() abort
-  return winwidth(0) < 140 
+  return winwidth(0) < 150
 endfunction
 
 
@@ -120,7 +131,13 @@ endfunction
 " Indicates the current window number.
 "
 function! plugin#lightline#window_number() abort
-  return ' ' . winnr()
+  let l:window_number = winnr()
+
+  if has_key(s:number_map, l:window_number)
+    let l:window_number = s:number_map[l:window_number]
+  endif
+
+  return ' ' . l:window_number
 endfunction
 
 
@@ -343,6 +360,12 @@ function! plugin#lightline#tags_status() abort
   let l:condition = !plugin#lightline#medium_window()
   let l:text      = tagbar#currenttag(' %s', '')
   let l:icon      = ' ' . (!empty(gutentags#statusline('a')) ? '羽' : '')
+
+
+  " Short the file name for small windows if a threshold is exceeded.
+  if plugin#lightline#medium_window()
+    let l:text = plugin#lightline#abbreviate(l:text, 25)
+  endif
 
   return l:icon . (l:condition ? ' ' . l:text : '')
 endfunction

@@ -61,9 +61,7 @@ let g:lightline#bufferline#min_buffer_count  = 2
 let g:lightline#bufferline#shorten_path      = 1
 let g:lightline#bufferline#show_number       = 2
 let g:lightline#bufferline#enable_devicons   = 1
-" let g:lightline#bufferline#number_map = {
-"       \ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
-"       \ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
+let g:lightline#bufferline#number_map        = plugin#lightline#number_map
 
 """ Tab
 let g:lightline.tab = {}

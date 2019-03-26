@@ -14,5 +14,6 @@ let g:neoformat_enabled_less = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_json = ['fixjson']
 let g:neoformat_enabled_tex = ['latexindent']
-let g:neoformat_enabled_python = ['autopep8']
+let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_sh = ['shfmt']
 
