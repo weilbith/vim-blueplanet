@@ -165,8 +165,12 @@ call dein#add('zchee/deoplete-jedi', {
       \ })
 
 call dein#add('Shougo/neco-vim', {
-      \ 'name': 'deoplete-neco',
+      \ 'name': 'deoplete-neco-vim',
       \ 'on_ft': ['vim']
+      \ })
+
+call dein#add('sebastianmarkow/deoplete-rust', {
+      \ 'on_ft': ['rust']
       \ })
 
 call dein#add('weilbith/CompleteParameter.vim', {
@@ -223,6 +227,9 @@ call dein#add('carlitux/deoplete-ternjs', {
       \ 'on_ft': ['javascript', 'jsx', 'vue']
       \ })
 
+call dein#add('Shougo/neco-syntax', {
+      \ 'name': 'deoplete-neco-syntax',
+      \ })
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
