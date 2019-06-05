@@ -28,7 +28,7 @@ function! plugin#lightline#small_window() abort
   return winwidth(0) < 100
 endfunction
 
-  
+
 " Indicates if the current window is super slim.
 " Used to disable segments in such case.
 "
@@ -116,7 +116,7 @@ function! plugin#lightline#fancy_file_path() abort
   let l:path = pathshorten(expand('%:h') . '/')
   let l:file_name = expand('%:t')
   let l:length = 30 - strlen(l:path)
-  
+
   " Short the file name for small windows if a threshold is exceeded.
   if plugin#lightline#medium_window()
     let l:file_name = plugin#lightline#abbreviate(l:file_name, l:length)
@@ -146,6 +146,12 @@ endfunction
 " displayed.
 "
 function! plugin#lightline#mode() abort
+  let l:submode = ''
+
+  if exists('*submode#current')
+    let l:submode = submode#current()
+  endi
+
   if  plugin#lightline#denite_window()
     return substitute(denite#get_status_mode(), '-', '', 'g')
 
@@ -156,7 +162,7 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'undotree' ? 'UndoTree' :
           \ &filetype ==# 'tabman' ? 'TabMan':
           \ &filetype ==# 'twiggy' ? 'Twiggy':
-          \ &filetype ==# 'help' ? 'Help' : 
+          \ &filetype ==# 'help' ? 'Help' :
           \ &filetype ==# 'gitcommit' ? 'Git Commit' :
           \ &filetype ==# 'agit' ? 'Git Log' :
           \ &filetype ==# 'startify' ? 'Startify' :
@@ -170,9 +176,12 @@ function! plugin#lightline#mode() abort
           \ utils#location#is_location_window(win_getid()) ? 'Location List' :
           \ &filetype ==# 'qf' ? 'Quickfix List' :
           \ s:is_diff_window() ? s:get_diff_window_name() : ''
- 
+
   elseif plugin#lightline#preview_window()
     return 'Preview'
+
+  elseif !empty(l:submode)
+    return l:submode
 
   else
     let l:mode = lightline#mode()
@@ -195,12 +204,12 @@ endfunction
 function! plugin#lightline#git_branch() abort
   let l:branch_name = fugitive#head()
 
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
         \ empty(l:branch_name)
-    
+
     return ''
   endif
 
@@ -221,18 +230,18 @@ endfunction
 " If nothing has been adjusted at all, a check mark shows the state.
 "
 function! plugin#lightline#git_changes() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
         \ empty(fugitive#head())
-    
+
     return ''
   endif
 
   let [ l:added_count, l:modified_count, l:deleted_count ] = sy#repo#get_stats()
   let [ l:added_icon, l:modified_icon, l:deleted_icon ] = split(',,', ',')
-  
+
   if l:added_count + l:modified_count + l:deleted_count > 0
     if plugin#lightline#small_window()
       let l:icons = ''
@@ -250,7 +259,7 @@ function! plugin#lightline#git_changes() abort
       return l:icons . ' ' . l:count
 
     else
-      return 
+      return
             \ (l:added_count > 0 ? l:added_icon . ' ' . l:added_count : '') .
             \ (l:added_count > 0 && l:modified_count > 0 ? '  ' : '') .
             \ (l:modified_count > 0 ? l:modified_icon . ' ' . l:modified_count : '') .
@@ -269,12 +278,12 @@ endfunction
 " the preview window or the paste mode is disabled.
 "
 function! plugin#lightline#paste_enabled() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
         \ !&paste
-    
+
     return ''
   endif
 
@@ -287,12 +296,12 @@ endfunction
 " the preview window or no diff mode is disabled.
 "
 function! plugin#lightline#diff_mode() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
         \ !&diff
-    
+
     return ''
   endif
 
@@ -347,13 +356,13 @@ endfunction
 " Empty if window is too narrow, it is a special one
 " or the preview window.
 " Reduces to the icon only, if the window is small.
-" 
+"
 function! plugin#lightline#tags_status() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window()
-    
+
     return ''
   endif
 
@@ -376,12 +385,12 @@ endfunction
 " the preview window or the buffer has not been modified.
 "
 function! plugin#lightline#modified() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
         \ !&modified
-    
+
     return ''
   endif
 
@@ -394,11 +403,11 @@ endfunction
 " or the buffer is editable.
 "
 function! plugin#lightline#read_only() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ !&readonly
-    
+
     return ''
   endif
 
@@ -409,13 +418,13 @@ endfunction
 " Summarize the results of the linter checks.
 " Empty if window is too narrow, it is a special oner,
 " the preview window or all checks were positive.
-" 
+"
 function! plugin#lightline#linter_status() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window()
-    
+
     return ''
   endif
 
@@ -432,10 +441,10 @@ endfunction
 " Reduces to the icon only, if the window is small.
 "
 function! plugin#lightline#file_format() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window()
-    
+
     return ''
   endif
 
@@ -452,10 +461,10 @@ endfunction
 " Reduces to the icon only, if the window is small.
 "
 function! plugin#lightline#file_type() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window()
-    
+
     return ''
   endif
 
@@ -471,10 +480,10 @@ endfunction
 " Empty if window is too narrow or it is a special one.
 "
 function! plugin#lightline#file_encoding() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window()
-    
+
     return ''
   endif
 
@@ -485,12 +494,12 @@ endfunction
 " Show the current language and indicate if spell check is enabled.
 " Empty if window is too narrow or it is a special one.
 " Reduces to the icon only, if the window is small.
-" 
+"
 function! plugin#lightline#spell() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window()
-    
+
     return ''
   endif
 
@@ -505,13 +514,13 @@ endfunction
 " Show the current language and indicate if spell check is enabled.
 " Empty if window is too narrow or it is a special one.
 " Help, quickfix and location list buffers are excluded here.
-" 
+"
 function! plugin#lightline#position() abort
-  if 
+  if
         \ plugin#lightline#tiny_window() ||
         \ (plugin#lightline#special_window() &&
         \ &filetype !=# 'help' && &filetype !=# 'qf')
-    
+
     return ''
   endif
 
@@ -526,7 +535,7 @@ endfunction
 function! plugin#lightline#tab_name(count) abort
   let l:name = utils#tabs#get_name(a:count)
   let l:name = plugin#lightline#abbreviate(l:name, 20)
-  return l:name 
+  return l:name
 endfunction
 
 
