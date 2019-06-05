@@ -19,6 +19,8 @@ let g:neomake_tex_enabled_makers = ['lacheck', 'proselint']
 let g:neomake_bib_enabled_makers = ['bibtex']
 let g:neomake_toml_enabled_makers = ['tomlcheck']
 let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_rust_enabled_makers = ['cargo']
+
 
 " Modify makers.
 let g:neomake_javascript_eslint_exe = 'eslint'
