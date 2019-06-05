@@ -1,21 +1,17 @@
 scriptencoding utf-8
 
 " Move lines/selection and auto indent
-" Normal mode
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 
-" Insert Mode
 inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 
-" Visual Mode
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 
 " Indent visual selection multiple times.
-" TODO: There is a delay when use in normal mode
 vnoremap < <gv
 vnoremap > >gv
 

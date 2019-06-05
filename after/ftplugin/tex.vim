@@ -44,7 +44,6 @@ let b:undo_ftplugin .= '|unlet g:deoplete#omni#input_patterns'
 
 " Shared variable name to access.
 let s:auto_pdf_gen_variable = 'auto_pdf_gen'
-let b:undo_ftplugin .= '|unlet s:auto_pdf_gen_variable'
 
 function! s:setTexPdfRoot() abort
   let g:neomake_pdflatex_cwd = expand('%:p:h')
