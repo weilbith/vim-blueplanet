@@ -33,6 +33,8 @@ call deoplete#custom#source('file', 'mark', '')
 call deoplete#custom#var('file', 'require_same_filetype', v:true)
 
 " Omni
+
+call deoplete#custom#option('omni_patterns', {'gitcommit': ['#', '@']})
 call deoplete#custom#source('omni', 'rank', 300)
 call deoplete#custom#source('omni', 'mark', '')
 

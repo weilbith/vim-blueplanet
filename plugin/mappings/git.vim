@@ -1,6 +1,6 @@
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gp :Gpush<CR>
+nnoremap <silent> <leader>gp :Git push<CR> " SSH key password request does not work with Gpush
 nnoremap <silent> <silent> <leader>gd :<C-u>call utils#git#toggleDiff()<CR>
 nnoremap <silent> <leader>gP :Gpull<CR>
 nnoremap <silent> <silent> <leader>gl :<C-u>call utils#git#toggleAgit('Agit')<CR>
