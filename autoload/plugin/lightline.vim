@@ -50,6 +50,7 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'help' ||
           \ &filetype ==# 'gitcommit' ||
           \ &filetype ==# 'denite' ||
+          \ &filetype ==# 'denite-filter' ||
           \ &filetype ==# 'agit' ||
           \ &filetype ==# 'startify' ||
           \ &filetype ==# 'snippets' ||
@@ -70,14 +71,6 @@ endfunction
 "
 function! plugin#lightline#preview_window() abort
   return &previewwindow
-endfunction
-
-
-" Indicates if the current window is the Denite window.
-" Used to differ the segments in such case.
-"
-function! plugin#lightline#denite_window() abort
-  return &filetype ==# 'denite'
 endfunction
 
 
@@ -152,10 +145,7 @@ function! plugin#lightline#mode() abort
     let l:submode = submode#current()
   endi
 
-  if  plugin#lightline#denite_window()
-    return substitute(denite#get_status_mode(), '-', '', 'g')
-
-  elseif plugin#lightline#special_window()
+  if plugin#lightline#special_window()
     return
           \ &filetype ==# 'tagbar' ? 'Tagbar' :
           \ &filetype ==# 'nerdtree' ? 'NERDTree' :
@@ -168,7 +158,9 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'startify' ? 'Startify' :
           \ &filetype ==# 'snippets' ? 'Snippet' :
           \ &filetype ==# 'trans' ? 'Translation' :
-          \ &filetype ==# 'far_vim' ? 'Find & Replace' :
+          \ &filetype ==# 'far' ? 'Find & Replace' :
+          \ &filetype ==# 'denite' ? 'Denite' :
+          \ &filetype ==# 'denite-filter' ? 'Denite Filter' :
           \ bufname('%') ==# '[YankRing]' ? 'Yank Ring' :
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
           \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
@@ -315,8 +307,8 @@ endfunction
 " Shows diff mode window names.
 "
 function! plugin#lightline#file_name_active() abort
-  if plugin#lightline#denite_window()
-    return denite#get_status_sources()
+  if &filetype ==# 'denite' || &filetype ==# 'denite-filter'
+    return denite#get_status('sources')
 
   elseif plugin#lightline#special_window()
     if s:is_diff_window()
