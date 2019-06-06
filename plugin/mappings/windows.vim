@@ -36,20 +36,20 @@ nnoremap <silent> <leader>w9 :9wincmd w<CR>
 " Resize active window.
 let s:resize_big_step = 5
 " In-/Decrease width/height by using submode (submodes plugin required)
-call submode#enter_with('resize', 'n', '', '<space>wrh', '<C-w><')
-call submode#enter_with('resize', 'n', '', '<space>wrj', '<C-w>-')
-call submode#enter_with('resize', 'n', '', '<space>wrk', '<C-w>+')
-call submode#enter_with('resize', 'n', '', '<space>wrl', '<C-w>>')
+call submode#enter_with('Resize', 'n', '', '<space>wrh', '<C-w><')
+call submode#enter_with('Resize', 'n', '', '<space>wrj', '<C-w>-')
+call submode#enter_with('Resize', 'n', '', '<space>wrk', '<C-w>+')
+call submode#enter_with('Resize', 'n', '', '<space>wrl', '<C-w>>')
 
-call submode#map('resize', 'n', '', 'h', '<C-w><')
-call submode#map('resize', 'n', '', 'j', '<C-w>-')
-call submode#map('resize', 'n', '', 'k', '<C-w>+')
-call submode#map('resize', 'n', '', 'l', '<C-w>>')
+call submode#map('Resize', 'n', '', 'h', '<C-w><')
+call submode#map('Resize', 'n', '', 'j', '<C-w>-')
+call submode#map('Resize', 'n', '', 'k', '<C-w>+')
+call submode#map('Resize', 'n', '', 'l', '<C-w>>')
 
-call submode#map('resize', 'n', '', 'H', s:resize_big_step . '<C-w><')
-call submode#map('resize', 'n', '', 'J', s:resize_big_step . '<C-w>-')
-call submode#map('resize', 'n', '', 'K', s:resize_big_step . '<C-w>+')
-call submode#map('resize', 'n', '', 'L', s:resize_big_step . '<C-w>>')
+call submode#map('Resize', 'n', '', 'H', s:resize_big_step . '<C-w><')
+call submode#map('Resize', 'n', '', 'J', s:resize_big_step . '<C-w>-')
+call submode#map('Resize', 'n', '', 'K', s:resize_big_step . '<C-w>+')
+call submode#map('Resize', 'n', '', 'L', s:resize_big_step . '<C-w>>')
 
 
 " In-/Decrease or set to fixed width/height by user input.

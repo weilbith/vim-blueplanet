@@ -1,8 +1,8 @@
 " Move between buffers in submode requires submode plugin)
-call submode#enter_with('test', 'n', 's', '<space>bn', ':bnext<Cr>')
-call submode#enter_with('test', 'n', 's', '<space>bp', ':bprevious<Cr>')
-call submode#map('test', 'n', 's', 'n', ':bnext<Cr>')
-call submode#map('test', 'n', 's', 'p', ':bprevious<Cr>')
+call submode#enter_with('BufferSwitch', 'n', 's', '<space>bn', ':bnext<Cr>')
+call submode#enter_with('BufferSwitch', 'n', 's', '<space>bp', ':bprevious<Cr>')
+call submode#map('BufferSwitch', 'n', 's', 'n', ':bnext<Cr>')
+call submode#map('BufferSwitch', 'n', 's', 'p', ':bprevious<Cr>')
 
 " Delete buffer and safe it before (without close the window displayed in).
 nnoremap <silent> <leader>bd :<C-u>call utils#buffers#delete_buffer(v:true, v:false)<CR>
