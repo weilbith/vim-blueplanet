@@ -3,23 +3,21 @@ let s:site_window_stack = []
 let s:empty_window = {'open': '', 'close': ''}
 
 " Change the size of the active window by a user input.
-" There are two modes 'height' and 'width', which have to provided as first argument.
+" There are two modes 'height' and 'width', which is selected by the user.
 " The user input is used as set to a fixed width/height by a plain number,
 " or a relative in-/decrease of the current width/height by prefix a '+' or '-'.
 " The procedure can be interrupted by hitting <Esc>.
 " Furthermore it shows the current width or height in brackets.
 "
-" Arguments:
-"   mode - decide if to change the 'width' or 'height'
-"
-function! utils#windows#windowChangeSize(mode) abort
+function! utils#windows#windowChangeSize() abort
+  let l:mode = inputlist(['1 - width', '2 - height']) ==# 1 ? 'width' : 'height'
+
   " Set the vertical parameter if the width should be changed.
-  let l:vertical = ''
-  if a:mode ==# 'width' | let l:vertical = 'vertical ' | endif
+  let l:vertical = l:mode ==# 'width' ? 'vertical ' : ''
 
   " Get the current window width/height.\
   let l:size = winheight('%')
-  if a:mode ==# 'width' | let l:size = winwidth('%') | endif
+  if l:mode ==# 'width' | let l:size = winwidth('%') | endif
 
   " Request user for the adjustment.
   let l:change = input('In-/Decrease by (+/- number) or set to fix width/height (number) [' . l:size .']: ')

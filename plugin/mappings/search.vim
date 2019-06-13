@@ -1,24 +1,25 @@
+if !exists('g:which_key_map') | let g:which_key_map = {} | endif
+let g:which_key_map.s = { 'name': '+search' }
+
+
 " Visual selection search with search-word keys.
 xnoremap <silent> * :<C-u>call utils#search#visual_selection('/')<CR>
 xnoremap <silent> # :<C-u>call utils#search#visual_selection('?')<CR>
 
-" Open recursive search in project directory and use the quickfix list to
-" populate the results.
 nnoremap <leader>ss :Ack<Space>
+let g:which_key_map.s.s = 'recursive search in project directory (populate to quickfix list)'
 
-" Open recursive search in project directory and use the location list to
-" populate the results.
 nnoremap <leader>sl :Lack<Space>
+let g:which_key_map.s.l = 'recursive search in project directory (populate to location list)'
 
-" Search pattern and open fizzy searching for results.
 nnoremap <silent> <leader>sS :Denite grep<CR>
+let g:which_key_map.s.S = 'recursive search in project directory (opens Denite filter)'
 
-" Reload last fuzzy search.
 nnoremap <silent> <leader>sR :Denite grep -resume<CR>
+let g:which_key_map.s.R = 'reload last search to Denite filter'
 
-" Search recursively in project directory for the word under the cursor.
 nnoremap <leader>sw :Ack -w <C-r><C-w><CR>
+let g:which_key_map.s.w = 'recursive search for word under cursor in project directory'
 
-" Define arglist as all files which are currently listed in the quickfix list and open command line with
-" argdo.
 nnoremap <leader>sd :Qargs<CR>:argdo
+let g:which_key_map.s.s = 'add quickfix entries to arglist and opens argdo'

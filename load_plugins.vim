@@ -237,6 +237,12 @@ call dein#add('Shougo/neco-syntax', {
       \ 'name': 'deoplete-neco-syntax',
       \ })
 
+call dein#add('liuchengxu/vim-which-key', {
+      \ 'on_cmd': ['WhichKey', 'WhichKey'],
+      \ })
+
+call dein#add('/home/thore/Projects/vim/vim-yank-history')
+
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
 call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))

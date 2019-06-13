@@ -1,18 +1,24 @@
-" Open empty new tab.
+if !exists('g:which_key_map') | let g:which_key_map = {} | endif
+let g:which_key_map.T = { 'name': '+tabs' }
+
+
 nnoremap <leader>To :tabedit<CR>
+let g:which_key_map.T.o = 'open new empty tab'
 
-" Open new tab with active buffer in it.
 nnoremap <leader>Te :tabedit %<CR>
-nnoremap <leader>TE :tab split<CR>
+let g:which_key_map.T.e = 'open new tab with current buffer'
 
-" Move between tabs by using a submode (require submode plugin).
-call submode#enter_with('TabSwitch', 'n', '', '<space>Tn', ':tabnext<cr>')
-call submode#enter_with('TabSwitch', 'n', '', '<space>Tp', ':tabprevious<cr>')
-call submode#map('TabSwitch', 'n', '', 'n', ':tabnext<cr>')
-call submode#map('TabSwitch', 'n', '', 'n', ':tabprevious<cr>')
+call submode#enter_with('TabSwitch', 'n', '', '<space>Tn', ':tabnext<CR>')
+let g:which_key_map.T.n = 'next tab (enter TabSwitch submode)'
 
-" Close current tab and close all visible buffers in it.
+call submode#enter_with('TabSwitch', 'n', '', '<space>TN', ':tabprevious<CR>')
+let g:which_key_map.T.N = 'previous tab (enter TabSwitch submode)'
+
+call submode#map('TabSwitch', 'n', '', 'n', ':tabnext<CR>')
+call submode#map('TabSwitch', 'n', '', 'N', ':tabprevious<CR>')
+
 nnoremap <leader>Tc :windo bd!<bar>tabclose<CR>
+let g:which_key_map.T.c = 'close tab (includes all visible buffers)'
 
-" Rename current tab.
 nnoremap <silent> <leader>Tr :<C-u>call utils#tabs#set_name()<CR>
+let g:which_key_map.T.r = 'rename tab (enter name)'

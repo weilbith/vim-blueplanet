@@ -36,3 +36,7 @@ imap <C-l> <Plug>(complete_parameter#goto_next_parameter)
 " Previous parameter from completion.
 nmap <C-h> <Plug>(complete_parameter#goto_previous_parameter)
 imap <C-h> <Plug>(complete_parameter#goto_previous_parameter)
+
+" Key mapping completion menus
+nnoremap <silent> <leader> :<C-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<C-u>WhichKey '\'<CR>

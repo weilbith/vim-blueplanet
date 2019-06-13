@@ -1,12 +1,15 @@
-" All actions are based on the vim-session plugin.
-" Save the current session (overwriting).
+if !exists('g:which_key_map') | let g:which_key_map = {} | endif
+let g:which_key_map['$'] = { 'name': '+session' }
+
+
 nnoremap <leader>$s :SaveSession!<CR>
+let g:which_key_map['$'].s = 'save current session (default session if unset)'
 
-" Create a new session.
 nnoremap <leader>$S :<C-u>call utils#sessions#createNewSession()<CR>
+let g:which_key_map['$'].S = 'create new session (enter name)'
 
-" Open a session. Will open a menu to ask which session.
 nnoremap <leader>$o :OpenSession<CR>
+let g:which_key_map['$'].o = 'open saved session (selection opens)'
 
-" Delete a session. Will open a menu to ask which session.
 nnoremap <leader>$d :DeleteSession<CR>
+let g:which_key_map['$'].d = 'delete saved session (selection opens)'

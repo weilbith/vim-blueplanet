@@ -1,11 +1,12 @@
-" Find files in current path with live filter in present list (use Denite plugin).
+if !exists('g:which_key_map') | let g:which_key_map = {} | endif
+let g:which_key_map.f = { 'name': '+files' }
+
+
 nnoremap <silent> <leader>ff :<C-u> call utils#preview_window#call_wrapper('Denite file/rec')<CR>
+let g:which_key_map.f.f = 'fuzzy search files from root recursively (Denite)'
 
-" Same as before but in the folder of the currently active buffer.
 nnoremap <silent> <leader>fb :<C-u> call utils#preview_window#call_wrapper('DeniteBufferDir file/rec')<CR>
+let g:which_key_map.f.b = 'fuzzy search files from current file directory (Denite)'
 
-" Same as before but use the word under the cursor for initial filter.
-nnoremap <silent> <leader>fw :<C-u> call utils#preview_window#call_wrapper('DeniteCursorWord file/rec')<CR>
-
-" Same as before but in the project folder set by 'denite-options-path'.
-nnoremap <silent> <leader>fp :<C-u> call utils#preview_window#call_wrapper('DeniteProjectDir file/rec')<CR>
+nnoremap <silent> <leader>ft :<C-u>NERDTreeFind<CR>
+let g:which_key_map.f.b = 'show current file in file tree window (open it if not already)'

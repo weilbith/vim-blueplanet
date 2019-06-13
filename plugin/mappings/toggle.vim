@@ -1,20 +1,15 @@
-" Plugin Toggles
-" The NERDtree window.
+if !exists('g:which_key_map') | let g:which_key_map = {} | endif
+let g:which_key_map.y = { 'name': '+yank' }
+
+
 nnoremap <silent> <F2> :<C-u>call utils#windows#switch_site_window({'open': 'NERDTreeToggle', 'close': 'NERDTreeToggle'})<CR>
+let g:which_key_map['<F2>'] = 'toggle file tree window on left window switch'
 
-" The Tagbar window.
 nnoremap <silent> <F3> :<C-u>call plugin#tagbar#toggle()<CR>
+let g:which_key_map['<F3>'] = 'toggle outline window'
 
-" The Tabman window.
 nnoremap <silent> <F4> :<C-u>call utils#windows#switch_site_window({'open': 'TMToggle', 'close': 'TMToggle'})<CR>
+let g:which_key_map['<F4>'] = 'toggle tab manager window on left window switch'
 
-" Show Undo Tree. (Close Nerdtree for that cause it resize else)
 nnoremap <silent> <S-u> :<C-u>call utils#windows#switch_site_window({'open': 'UndotreeShow', 'close': 'UndotreeHide'})<CR>
-
-" Show YankRing window.
-nnoremap <silent> <leader>yw :<C-u>call utils#copy_paste#toggleYRShow()<CR>
-
-
-" Other Toggles
-" Spell check (enabled by default).
-nnoremap <silent> <F5> :setlocal spell!<CR>
+let g:which_key_map.U = 'toggle undo history window on left window switch'
