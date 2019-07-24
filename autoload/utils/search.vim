@@ -1,11 +1,8 @@
-" Search for the current visual selection for- or backward.
-" The operator is related to the search keys.
+" Stores the current visual selection to the search register.
+" This applies some minor optimization.
 "
-" Arguments:
-"   operator - search command to use ('/' or '?').
-"
-function! utils#search#visual_selection(operator) abort
+function! utils#search#visual_selection_to_search_register() abort
   let l:selection = utils#msc#get_visual_selection()
-  let l:selection = '\V' . substitute(escape(l:selection, a:operator.'\'), '\n', '\\n', 'g')
-  execute a:operator . l:selection
+  let l:selection = '\V' . substitute(l:selection, '\n', '\\n', 'g')
+  let @/ = l:selection
 endfunction
