@@ -11,5 +11,6 @@ let b:undo_ftplugin .= '|nunmap <buffer> <leader>tl'
 nnoremap <buffer> <silent> <leader>rr viwy:<C-u>call jedi#rename()<CR><C-r>0
 let b:undo_ftplugin .= '|nunmap <buffer> <leader>rr'
 
-nnoremap <buffer> <silent> K :<C-u>call jedi#show_documentation()<CR>
-let b:undo_ftplugin .= '|nunmap <buffer> K'
+command! -nargs=? JediShowDocumentation call jedi#show_documentation()
+setlocal keywordprg=:JediShowDocumentation
+let b:undo_ftplugin .= '|setlocl keywordprg<'

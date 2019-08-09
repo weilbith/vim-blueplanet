@@ -10,11 +10,11 @@ let g:which_key_map.g.c = 'commit changes'
 nnoremap <silent> <leader>gp :Git push<CR> " SSH key password request does not work with Gpush
 let g:which_key_map.g.p = 'push to upstream branch'
 
+nnoremap <silent> <leader>gP :Git push --force-with-lease<CR>
+let g:which_key_map.g.P = 'force push to upstream branch'
+
 nnoremap <silent> <silent> <leader>gd :<C-u>call utils#git#toggleDiff()<CR>
 let g:which_key_map.g.d = 'show diff of current file to HEAD'
-
-nnoremap <silent> <leader>gP :Gpull<CR>
-let g:which_key_map.g.P = 'pull from upstream branch'
 
 nnoremap <silent> <silent> <leader>gl :<C-u>call utils#git#toggleAgit('Agit')<CR>
 let g:which_key_map.g.l= 'show git log in new tab'
