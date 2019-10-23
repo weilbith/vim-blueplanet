@@ -241,7 +241,7 @@ call dein#add('liuchengxu/vim-which-key', {
       \ 'on_cmd': ['WhichKey', 'WhichKey'],
       \ })
 
-call dein#add('/home/thore/Projects/vim/vim-yank-history')
+call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
