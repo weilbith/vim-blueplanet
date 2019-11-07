@@ -26,7 +26,8 @@ call denite#custom#option('_', {
       \ 'updatetime': 100,
       \ 'vertical_preview': v:true,
       \ 'statusline': 0,
-      \ 'highlight_matched_char': 'None'
+      \ 'highlight_matched_char': 'None',
+      \ 'split': 'floating'
       \ })
 
 call denite#custom#option('file', {

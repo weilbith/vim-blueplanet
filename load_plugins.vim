@@ -249,7 +249,7 @@ call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
 call dein#set_hook([], 'hook_post_source', function('plugin#dein#post_source_hook'))
 
 call dein#end()
-call dein#recache_runtimepath()
+" call dein#recache_runtimepath()
 call dein#save_state()
 "endif
 
