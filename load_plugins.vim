@@ -242,6 +242,13 @@ call dein#add('liuchengxu/vim-which-key', {
       \ 'on_cmd': ['WhichKey', 'WhichKey'],
       \ })
 
+call dein#add('rhysd/git-messenger.vim', {
+      \   'lazy' : 1,
+      \   'on_cmd' : 'GitMessenger',
+      \   'on_map' : '<Plug>(git-messenger',
+      \ })
+
+
 call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 
 " Add hooks for all plugins.
