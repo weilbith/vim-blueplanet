@@ -44,6 +44,7 @@ call dein#add('zhimsel/vim-stay')
 call dein#add('editorconfig/editorconfig-vim')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('ncm2/float-preview.nvim')
+call dein#add('psliwka/vim-smoothie')
 
 call dein#add('dhruvasagar/vim-zoom', {
       \ 'on_func': 'zoom#toggle'
