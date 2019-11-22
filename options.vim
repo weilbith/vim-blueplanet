@@ -1,4 +1,4 @@
-" Feature Enabling 
+" Feature Enabling
 set nocompatible
 filetype plugin indent on
 syntax enable
@@ -78,7 +78,9 @@ set noshowmode
 set wildmenu
 set wildmode=full
 set wildignore=".git\*,.hg\*,.svn\*"
-set completeopt=menuone,noinsert
+set completeopt=menuone,noinsert,preview
+set wildoptions=pum
+set pumblend=20
 
 " ---
 
