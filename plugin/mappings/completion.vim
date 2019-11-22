@@ -1,5 +1,4 @@
 " Completion menu key bindings.
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"

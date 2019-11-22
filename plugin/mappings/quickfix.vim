@@ -21,7 +21,7 @@ nnoremap <silent> <leader>qp :<C-u>call utils#quickfix#toggle_quickfix_preview()
 let g:which_key_map.q.p = 'open current selected quickfix entry in horizontal preview window'
 
 nnoremap <silent> <leader>qP :<C-u>call utils#quickfix#open_quickfix_preview_file()<CR>
-let g:which_key_map.q.p = 'edit the current preview quickfix entry'
+let g:which_key_map.q.P = 'edit the current preview quickfix entry'
 
 nnoremap <silent> <leader>qa :<C-u>:cnewer<CR>
 let g:which_key_map.q.a = 'open next quickfix list'

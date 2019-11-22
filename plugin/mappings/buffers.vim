@@ -5,11 +5,11 @@ let g:which_key_map.b = { 'name': '+buffer' }
 call submode#enter_with('BufferSwitch', 'n', 's', '<space>bn', ':bnext<Cr>')
 let g:which_key_map.b.n = 'next buffer (enter BufferSwitch submode)'
 
-call submode#enter_with('BufferSwitch', 'n', 's', '<space>bp', ':bprevious<Cr>')
+call submode#enter_with('BufferSwitch', 'n', 's', '<space>bN', ':bprevious<Cr>')
 let g:which_key_map.b.p = 'previous buffer (enter BufferSwitch submode)'
 
 call submode#map('BufferSwitch', 'n', 's', 'n', ':bnext<Cr>')
-call submode#map('BufferSwitch', 'n', 's', 'p', ':bprevious<Cr>')
+call submode#map('BufferSwitch', 'n', 's', 'N', ':bprevious<Cr>')
 
 nnoremap <silent> <leader>bd :<C-u>call utils#buffers#delete_buffer(v:true, v:false)<CR>
 let g:which_key_map.b.d = 'close buffer and safe (keeps window open)'
