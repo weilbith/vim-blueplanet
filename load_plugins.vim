@@ -254,6 +254,8 @@ call dein#add('rhysd/git-messenger.vim', {
       \   'on_map' : '<Plug>(git-messenger',
       \ })
 
+call dein#add('voldikss/vim-floaterm')
+
 
 call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 
