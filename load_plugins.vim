@@ -46,6 +46,10 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('ncm2/float-preview.nvim')
 call dein#add('psliwka/vim-smoothie')
 
+call dein#add('glacambre/firenvim', {
+      \ 'hook_post_update': 'call firenvim#install(0)'
+      \ })
+
 call dein#add('dhruvasagar/vim-zoom', {
       \ 'on_func': 'zoom#toggle'
       \ })
@@ -99,6 +103,7 @@ call dein#add('Xuyuanp/nerdtree-git-plugin', {
       \ 'on_source': 'nerdtree'
       \ })
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
+call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
       \ 'name': 'nerdtree_syntax_highlight',
