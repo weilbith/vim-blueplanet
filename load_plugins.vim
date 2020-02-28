@@ -45,6 +45,7 @@ call dein#add('editorconfig/editorconfig-vim')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('ncm2/float-preview.nvim')
 call dein#add('psliwka/vim-smoothie')
+call dein#add('junegunn/vim-peekaboo')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
