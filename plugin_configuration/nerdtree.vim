@@ -10,4 +10,4 @@ let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let g:NERDTreeBookmarksFile = $XDG_DATA_HOME . '/nvim/NERDTreeBookmarks'
 let g:NERDTreeIgnore = ['\.git$[[dir]]', '\.aux$[[file]]', '\.bbl$[[file]]', '\.blg$[[file]]', '\.dvi$[[file]]',
-      \ '\.fls$[[file]]', '\.out$[[file]]', '\.log$[[file]]', '\.fdb_latexmk$[[file]]', '\.pdf$[[file]]', '\.tern-port$[[file]']
+      \ '\.fls$[[file]]', '\.out$[[file]]', '\.log$[[file]]', '\.fdb_latexmk$[[file]]', '\.pdf$[[file]]', '\.tern-port$[[file]]', '__pycache__$[[dir]]']

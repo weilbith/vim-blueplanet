@@ -78,7 +78,7 @@ set noshowmode
 set wildmenu
 set wildmode=full
 set wildignore=".git\*,.hg\*,.svn\*"
-set completeopt=menuone,noinsert,preview
+set completeopt=menuone,noinsert
 set wildoptions=pum
 set pumblend=20
 
@@ -138,6 +138,7 @@ set backspace=2
 set viewoptions=cursor,folds,slash,unix
 set pumheight=30
 set showtabline=2
+set nojoinspaces
 execute 'set shell=' . (filereadable('/bin/zsh') ? '/bin/zsh' : 'bin/bash')
 
 " List Characters
