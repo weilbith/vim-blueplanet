@@ -4,7 +4,8 @@
 " Third entry is used to backup settings between changes.
 let s:js_linter = [
       \   ['neomake_javascript_eslint_exe', 'eslint', ''],
-      \   ['neomake_typescript_tslint_exe', 'tslint', '']
+      \   ['neomake_typescript_eslint_exe', 'eslint', ''],
+      \   ['neomake_typescript_tsc_exe', 'tsc', '']
       \ ]
 
 
@@ -36,11 +37,11 @@ function! plugin#neomake#switch_js_linter() abort
       endif
 
       " Set the binaries to use as executable.
-      execute 'let g:' . l:linter[0] . ' = "' . l:binaries . '"'
+      " execute 'let g:' . l:linter[0] . ' = "' . l:binaries . '"'
 
     " Reset the executable to the global one if has been scoped local before.
     elseif len(l:linter[2]) > 0
-      execute 'let g:' . l:linter[0] . ' = "' . l:linter[2] . '"'
+      " execute 'let g:' . l:linter[0] . ' = "' . l:linter[2] . '"'
       let l:linter[2] = ''
 
     endif
