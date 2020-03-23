@@ -20,6 +20,7 @@ let g:neomake_bib_enabled_makers = ['bibtex']
 let g:neomake_toml_enabled_makers = ['tomlcheck']
 let g:neomake_python_enabled_makers = ['flake8', 'mypy']
 let g:neomake_rust_enabled_makers = ['cargo']
+let g:neomake_terraform_enabled_makers = ['tflint']
 
 
 " Modify makers.
@@ -34,6 +35,14 @@ let g:neomake_tex_pdflatex_cwd = '%:p:h'
 let g:neomake_pdflatex_maker = {
       \ 'args': ['-shell-escape', '-file-line-error', '-interaction', 'nonstopmode'],
       \ 'errorformat': '%E%f:%l: %m'
+      \ }
+
+let g:neomake_terraform_tflint_maker = {
+      \ 'exe' : 'tflint',
+      \ 'append_file': 0,
+      \ 'cwd': '%:p:h',
+      \ 'args': [],
+      \ 'errorformat': '%+P%f,%p%t%*[^:]:%l %m,%-Q'
       \ }
 
 
