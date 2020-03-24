@@ -21,6 +21,7 @@ let g:neomake_toml_enabled_makers = ['tomlcheck']
 let g:neomake_python_enabled_makers = ['flake8', 'mypy']
 let g:neomake_rust_enabled_makers = ['cargo']
 let g:neomake_terraform_enabled_makers = ['tflint']
+let g:neomake_packer_enabled_makers = ['packer_validate']
 
 
 " Modify makers.
@@ -39,9 +40,15 @@ let g:neomake_pdflatex_maker = {
 
 let g:neomake_terraform_tflint_maker = {
       \ 'exe' : 'tflint',
-      \ 'append_file': 0,
       \ 'cwd': '%:p:h',
       \ 'args': [],
+      \ 'errorformat': '%+P%f,%p%t%*[^:]:%l %m,%-Q'
+      \ }
+
+let g:neomake_packer_packer_validate_maker = {
+      \ 'exe' : 'packer',
+      \ 'cwd': '%:p:h',
+      \ 'args': ['validate'],
       \ 'errorformat': '%+P%f,%p%t%*[^:]:%l %m,%-Q'
       \ }
 
