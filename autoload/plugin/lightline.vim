@@ -531,6 +531,25 @@ function! plugin#lightline#tab_name(count) abort
 endfunction
 
 
+" Show the status of the AsyncRun plugin.
+" Doesn't show anything if there was never a job.
+"
+function! plugin#lightline#asyncrun_status() abort
+  let l:async_status = get(g:, 'asyncrun_status', '')
+  let l:icon = ' '
+
+  if l:async_status ==# 'running'
+    return l:icon . '羽'
+  elseif l:async_status ==# 'success'
+    return l:icon . ''
+  elseif l:async_status ==# 'failure'
+    return l:icon . ''
+  else
+    return ''
+  endif
+endfunction
+
+
 " Status lines for other plugins.
 
 " Tagbar window status line.

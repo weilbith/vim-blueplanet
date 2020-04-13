@@ -46,6 +46,8 @@ call dein#add('ryanoasis/vim-devicons')
 call dein#add('ncm2/float-preview.nvim')
 call dein#add('psliwka/vim-smoothie')
 call dein#add('junegunn/vim-peekaboo')
+call dein#add('voldikss/vim-floaterm')
+
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -103,8 +105,6 @@ call dein#add('Xuyuanp/nerdtree-git-plugin', {
       \ 'name': 'nerdtree_git_plugin',
       \ 'on_source': 'nerdtree'
       \ })
-" call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
-call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 
 call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
       \ 'name': 'nerdtree_syntax_highlight',
@@ -122,7 +122,6 @@ call dein#add('kien/tabman.vim', {
 call dein#add('majutsushi/tagbar', {
       \ 'on_cmd': ['TagbarOpen', 'TagbarToggle']
       \ })
-" call dein#add('/home/thore/Projects/vim/tagbar')
 
 call dein#add('mbbill/undotree', {
       \ 'on_cmd': 'UndoTreeToggle'
@@ -254,10 +253,13 @@ call dein#add('rhysd/git-messenger.vim', {
       \   'on_map' : '<Plug>(git-messenger',
       \ })
 
-call dein#add('voldikss/vim-floaterm')
+call dein#add('skywind3000/asyncrun.vim', {
+      \ 'on_cmd': ['AsyncRun'],
+      \ })
 
-
-call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
+" call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
+" call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
+" call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
