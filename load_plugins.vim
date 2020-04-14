@@ -257,6 +257,10 @@ call dein#add('skywind3000/asyncrun.vim', {
       \ 'on_cmd': ['AsyncRun'],
       \ })
 
+call dein#add('janko/vim-test', {
+      \ 'on_cmd': ['TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit'],
+      \ })
+
 " call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
