@@ -45,3 +45,6 @@ nnoremap gS :SplitjoinSplit<CR>
 
 " Toggle list characters.
 nnoremap g. :<C-u>set list!<CR>
+
+" Toggle info window for current buffer
+nnoremap <silent> <C-g> :<C-u>call plugin#info_window#toggle()<CR>
