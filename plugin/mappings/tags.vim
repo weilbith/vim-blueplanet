@@ -2,8 +2,14 @@ if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.t = { 'name': '+tags' }
 
 
-nnoremap <leader>to :tag <C-R><C-W><CR>
-let g:which_key_map.t.o = 'open tag under cursor (can be overwritten by language server)'
+nnoremap <leader>to <cmd>call utils#tags#open()<CR>
+let g:which_key_map.t.o = 'jump to definition (LSP or Tag)'
+
+nnoremap <leader>tp <cmd>call utils#tags#preview()<CR>
+let g:which_key_map.t.p = 'preview definition (LSP or Tag)'
+
+nnoremap <leader>tl <cmd>call utils#tags#references()<CR>
+let g:which_key_map.t.l = 'list references (LSP or Tag)'
 
 nnoremap <leader>tb :pop!<CR>
 let g:which_key_map.t.b = 'back in tag history'
@@ -16,9 +22,6 @@ let g:which_key_map.t.h = 'history selection of tags'
 
 nnoremap <leader>tt :TagbarOpen fj<CR>
 let g:which_key_map.t.t = 'show tag in outline window (opens it if not already)'
-
-nnoremap <leader>tp :ptjump <C-R><C-W><CR>
-let g:which_key_map.t.p = 'preview tag under cursor'
 
 nnoremap <leader>tl :tselect <C-R><C-W><CR>
 let g:which_key_map.t.l = 'list of matching tags for word under cursor'

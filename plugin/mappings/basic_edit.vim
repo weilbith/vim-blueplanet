@@ -48,3 +48,6 @@ nnoremap g. :<C-u>set list!<CR>
 
 " Toggle info window for current buffer
 nnoremap <silent> <C-g> :<C-u>call plugin#info_window#toggle()<CR>
+
+" Try to hover or use keyword program else
+nnoremap K <cmd>call utils#tags#hover()<CR>

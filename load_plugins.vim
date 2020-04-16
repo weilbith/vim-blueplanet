@@ -47,6 +47,7 @@ call dein#add('ncm2/float-preview.nvim')
 call dein#add('psliwka/vim-smoothie')
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('voldikss/vim-floaterm')
+call dein#add('neovim/nvim-lsp')
 
 
 call dein#add('glacambre/firenvim', {
@@ -210,10 +211,6 @@ call dein#add('rhysd/vim-grammarous', {
 call dein#add('tmhedberg/SimpylFold', {
       \ 'name': 'simpyl_fold',
       \ 'build': 'rm -rf plugin/'
-      \ })
-
-call dein#add('davidhalter/jedi-vim', {
-      \ 'on_ft': ['python']
       \ })
 
 call dein#add('thinca/vim-quickrun', {

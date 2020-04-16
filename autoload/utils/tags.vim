@@ -1,3 +1,43 @@
+function! utils#tags#open() abort
+  if utils#lsp#is_client_available_for_current_buffer()
+    lua vim.lsp.buf.definition()
+  else
+    execute 'tag ' . expand('<cword>')
+  endif
+endfunction
+
+function! utils#tags#preview() abort
+  if utils#lsp#is_client_available_for_current_buffer()
+    lua vim.lsp.buf.peek_definition()
+  else
+    execute 'ptjump ' . expand('<cword>')
+  endif
+endfunction
+
+function! utils#tags#references() abort
+  if utils#lsp#is_client_available_for_current_buffer()
+    lua vim.lsp.buf.references()
+    echom 'ja lol ey'
+  else
+    execute 'tselect ' . expand('<cword>')
+  endif
+endfunction
+
+function! utils#tags#hover() abort
+  if utils#lsp#is_client_available_for_current_buffer()
+    lua vim.lsp.buf.hover()
+  else
+    execute &keywordprg . ' ' . expand('<cword>')
+  endif
+endfunction
+
+function! utils#tags#signature() abort
+  if utils#lsp#is_client_available_for_current_buffer()
+    lua vim.lsp.buf.signature_help()
+  endif
+endfunction
+
+
 " Function to open the word under the cursor in the preview window.
 " Furthermore it open a possible fold in the preview buffer.
 " At least it highlight the tag in the preview buffer.
@@ -52,33 +92,5 @@ function! utils#tags#preview_word() abort
         wincmd p
       endif
     endif
-  endif
-endfunction
-
-
-" Open the buffer that is currently shown in the preview window
-" and jump to the same position (where the tag is located).
-" Does nothing, if no preview window is open.
-"
-function! utils#tags#open_preview_match() abort
-  " Only works if the preview window is open.
-  if utils#preview_window#is_preview_window_open()
-    " Jump (and back) to the preview window to get the open buffer and the cursor position.
-    wincmd P
-    let l:bufnr = bufnr('%')
-    let l:linenr = line('.')
-    wincmd p
-
-    " Open the buffer in the current window and jump to the specific line.
-    execute 'buffer ' . l:bufnr
-    execute l:linenr
-
-    " Center the current line.
-    normal zz
-
-  " Show message that feature is not available.
-  else
-    echom 'No preview window open!'
-
   endif
 endfunction

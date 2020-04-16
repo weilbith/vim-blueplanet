@@ -1,10 +1,19 @@
+function! utils#refactor#rename() abort
+  if utils#lsp#is_client_available_for_current_buffer()
+    lua vim.lsp.buf.rename()
+  else
+    call utils#refactor#rename_via_substitute(expand('<cword>'))
+  endif
+endfunction
+
+
 " Do a substitution for a given pattern.
 " Interact with the user to get the replacement.
 "
 " Arguments:
 "   word - the pattern to replace
 "
-function! utils#refactor#rename(word) abort
+function! utils#refactor#rename_via_substitute(word) abort
   if len(a:word) > 0
     " Get a replacement by the user.
     let l:replace = input({

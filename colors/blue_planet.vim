@@ -119,6 +119,15 @@ if &t_Co >= 256 || has('gui_running')
     " Background highlighting for special buffers.
     highlight NormalSpecialBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=bold cterm=bold gui=NONE
 
+    " LSP highlights
+    highlight LspDiagnosticsError       ctermbg=NONE ctermfg=197  guibg=NONE    guifg=#ff005f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsWarning     ctermbg=NONE ctermfg=166  guibg=NONE    guifg=#D3422E cterm=NONE   gui=NONE
+    highlight LspDiagnosticsInformation ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsHint        ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
+
+    highlight LspReferenceText  ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=underline gui=underline
+    highlight LspReferenceRead  ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=underline gui=underline
+    highlight LspReferenceWrite ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=reverse   gui=reverse
 
 elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
   " Not supported

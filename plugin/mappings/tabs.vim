@@ -1,7 +1,6 @@
 if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.T = { 'name': '+tabs' }
 
-
 nnoremap <leader>To :tabedit<CR>
 let g:which_key_map.T.o = 'open new empty tab'
 
