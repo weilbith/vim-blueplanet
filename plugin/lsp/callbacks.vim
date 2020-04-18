@@ -1,3 +1,3 @@
-lua require'custom.lsp.callbacks'.extendDefinitionCallback()
-lua require'custom.lsp.callbacks'.extendReferencesCallback()
-lua require'custom.lsp.callbacks'.extendRenameCallback()
+lua require'custom.lsp.callbacks'.customize_lsp_callback("textDocument/definition")
+lua require'custom.lsp.callbacks'.customize_lsp_callback("textDocument/references")
+lua require'custom.lsp.callbacks'.customize_lsp_callback("textDocument/rename")
