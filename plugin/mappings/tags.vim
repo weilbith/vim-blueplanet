@@ -23,9 +23,6 @@ let g:which_key_map.t.h = 'history selection of tags'
 nnoremap <leader>tt :TagbarOpen fj<CR>
 let g:which_key_map.t.t = 'show tag in outline window (opens it if not already)'
 
-nnoremap <leader>tl :tselect <C-R><C-W><CR>
-let g:which_key_map.t.l = 'list of matching tags for word under cursor'
-
 " Open next/previous match.
 nnoremap <leader>t* :tnext<CR>
 let g:which_key_map.t['*'] = 'goto next matching tag'

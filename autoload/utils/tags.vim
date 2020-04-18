@@ -17,7 +17,6 @@ endfunction
 function! utils#tags#references() abort
   if utils#lsp#is_client_available_for_current_buffer()
     lua vim.lsp.buf.references()
-    echom 'ja lol ey'
   else
     execute 'tselect ' . expand('<cword>')
   endif
