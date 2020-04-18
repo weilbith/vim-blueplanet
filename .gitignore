@@ -2,3 +2,4 @@ shada/
 *.log
 spell/
 .netrwhist
+.luacheckcache

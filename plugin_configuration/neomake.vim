@@ -22,6 +22,7 @@ let g:neomake_python_enabled_makers = ['flake8', 'mypy']
 let g:neomake_rust_enabled_makers = ['cargo']
 let g:neomake_terraform_enabled_makers = ['tflint']
 let g:neomake_packer_enabled_makers = ['packer_validate']
+let g:neomake_lua_enabled_makers = ['luacheck']
 
 
 " Modify makers.
