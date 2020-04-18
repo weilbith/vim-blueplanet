@@ -157,10 +157,3 @@ set novisualbell
 set diffopt+=filler,vertical,context:3,algorithm:patience
 
 " ---
-
-
-" LSP
-let g:LspDiagnosticsErrorSign = '✖'
-let g:LspDiagnosticsWarningSign = '⚠'
-let g:LspDiagnosticsInformationSign = ''
-let g:LspDiagnosticsHintSign = ''
