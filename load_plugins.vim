@@ -227,16 +227,6 @@ call dein#add('zchee/deoplete-zsh', {
       \ 'on_ft': ['sh', 'zsh']
       \ })
 
-call dein#add('ternjs/tern_for_vim', {
-      \ 'name': 'tern',
-      \ 'build': 'yarn install',
-      \ 'on_ft': ['javascript', 'jsx', 'vue']
-      \ })
-
-call dein#add('carlitux/deoplete-ternjs', {
-      \ 'on_ft': ['javascript', 'jsx', 'vue']
-      \ })
-
 call dein#add('Shougo/neco-syntax', {
       \ 'name': 'deoplete-neco-syntax',
       \ })
