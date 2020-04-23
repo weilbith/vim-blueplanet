@@ -11,12 +11,6 @@ local function definition(err, method, params, client_id)
     api.nvim_command("silent! .foldopen")
 end
 
-local function references(err, method, params, client_id)
-    lsp_original_callback_backups[lsp_methods.references](err, method, params, client_id)
-    api.nvim_command("copen")
-    api.nvim_command("wincmd p")
-end
-
 local function rename(err, method, params, client_id)
     local original_buffer_list = api.nvim_list_bufs()
 
@@ -40,7 +34,6 @@ end
 
 local custom_callbacks = {}
 custom_callbacks[lsp_methods.definition] = definition
-custom_callbacks[lsp_methods.references] = references
 custom_callbacks[lsp_methods.rename] = rename
 custom_callbacks[lsp_methods.peekDefinition] = peekDefinition
 
