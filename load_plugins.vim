@@ -48,6 +48,7 @@ call dein#add('psliwka/vim-smoothie')
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('voldikss/vim-floaterm')
 call dein#add('neovim/nvim-lsp')
+call dein#add('weilbith/vim-localrc')
 
 
 call dein#add('glacambre/firenvim', {
