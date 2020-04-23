@@ -30,4 +30,30 @@ function M.exclude_lists(list_a, list_b)
     return a_excluded_b
 end
 
+function M.fix_index(list, index)
+    if not index then
+        return 1
+    end
+    if index < 0 then
+        return 0
+    elseif index > #list then
+        return #list
+    else
+        return index
+    end
+end
+
+function M.slice(list, from, to)
+    local sliced = {}
+
+    from = M.fix_index(list, from)
+    to = M.fix_index(list, to)
+
+    for i = from, to, 1 do
+        sliced[#sliced + 1] = list[i]
+    end
+
+    return sliced
+end
+
 return M
