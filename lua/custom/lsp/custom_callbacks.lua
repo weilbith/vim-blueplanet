@@ -32,10 +32,19 @@ local function peekDefinition(err, method, params, client_id)
     end
 end
 
+local function hover(err, method, params, client_id)
+    lsp_original_callback_backups[lsp_methods.hover](err, method, params, client_id)
+    if params["range"] then
+        local buffer_number = api.nvim_get_current_buf()
+        lsp.util.buf_highlight_references(buffer_number, {params})
+    end
+end
+
 local custom_callbacks = {}
 custom_callbacks[lsp_methods.definition] = definition
 custom_callbacks[lsp_methods.rename] = rename
 custom_callbacks[lsp_methods.peekDefinition] = peekDefinition
+custom_callbacks[lsp_methods.hover] = hover
 
 local function customize_lsp_callback(request_name)
     lsp.callbacks[request_name] = custom_callbacks[request_name]
