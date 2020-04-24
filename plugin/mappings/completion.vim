@@ -1,5 +1,4 @@
 " Completion menu key bindings.
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
 inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<Up>" : "\<C-k>"
@@ -22,7 +21,7 @@ inoremap <silent> <C-b> <C-r>=UltiSnips#JumpBackwards()<CR>
 snoremap <silent> <C-b> <Esc>:<C-u>call UltiSnips#JumpBackwards()<CR>
 nnoremap <silent> <C-b> :<C-u>call UltiSnips#JumpBackwards()<CR>
 
-" Complete function with paramter.
+" Complete function with parameter.
 imap <expr> (
             \ pumvisible() ?
             \ cmp#pre_complete('()') :
