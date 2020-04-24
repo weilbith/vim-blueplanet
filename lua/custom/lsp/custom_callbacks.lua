@@ -4,7 +4,6 @@ local lsp = require "vim.lsp"
 local lsp_methods = require "custom.lsp.methods"
 local lsp_original_callback_backups = require "custom.lsp.original_callback_backups"
 local lsp_rename_utils = require "custom.lsp.rename_utils"
-local lsp_peek_definition_utils = require "custom.lsp.peek_definition_utils"
 
 local function definition(err, method, params, client_id)
     lsp_original_callback_backups[lsp_methods.definition](err, method, params, client_id)
@@ -26,12 +25,6 @@ local function rename(err, method, params, client_id)
     print("Rename done. All buffers saved and eventually removed again.")
 end
 
-local function peekDefinition(err, method, params, client_id)
-    if not pcall(lsp_original_callback_backups[lsp_methods.definition], err, method, params, client_id) then
-        lsp_peek_definition_utils.fake_peek_definition_via_plain_definition()
-    end
-end
-
 local function hover(err, method, params, client_id)
     lsp_original_callback_backups[lsp_methods.hover](err, method, params, client_id)
     if params["range"] then
@@ -43,7 +36,6 @@ end
 local custom_callbacks = {}
 custom_callbacks[lsp_methods.definition] = definition
 custom_callbacks[lsp_methods.rename] = rename
-custom_callbacks[lsp_methods.peekDefinition] = peekDefinition
 custom_callbacks[lsp_methods.hover] = hover
 
 local function customize_lsp_callback(request_name)
