@@ -10,8 +10,3 @@ let g:UltiSnipsExpandTrigger = '<nop>'
 let g:UltiSnipsListSnippets = '<nop>'
 let g:UltiSnipsJumpForwardTrigger = '<nop>'
 let g:UltiSnipsJumpBackwardTrigger = '<nop>'
-
-
-" Set custom deoplete related source options.
-" call deoplete#custom#source('ultisnips', 'rank', 650)
-" call deoplete#custom#source('ultisnips', 'mark', '')

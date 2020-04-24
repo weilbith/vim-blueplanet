@@ -66,7 +66,6 @@ call dein#add('KabbAmine/vCoolor.vim', {
 
 call dein#add('weilbith/ultisnips', {
       \ 'rev': 'feature/completion-item-property-extension',
-      \ 'depends': 'deoplete'
       \ })
 
 call dein#add('vim-scripts/YankRing.vim', {
@@ -161,28 +160,6 @@ call dein#add('xolox/vim-session', {
       \ 'depends': 'vim-misc'
       \ })
 
-call dein#add('Shougo/deoplete.nvim', {
-      \ 'on_event': 'InsertEnter'
-      \ })
-
-call dein#add('fszymanski/deoplete-emoji', {
-      \ 'on_ft': ['gitcommit', 'markdown', 'mail', 'text']
-      \ })
-
-call dein#add('zchee/deoplete-jedi', {
-      \ 'name': 'deoplete_jedi',
-      \ 'on_ft': ['python']
-      \ })
-
-call dein#add('Shougo/neco-vim', {
-      \ 'name': 'deoplete-neco-vim',
-      \ 'on_ft': ['vim']
-      \ })
-
-call dein#add('sebastianmarkow/deoplete-rust', {
-      \ 'on_ft': ['rust']
-      \ })
-
 call dein#add('weilbith/CompleteParameter.vim', {
       \ 'name': 'complete_parameter',
       \ 'rev': 'feature/support-event-completion'
@@ -217,14 +194,6 @@ call dein#add('thinca/vim-quickrun', {
 call dein#add('dbeniamine/cheat.sh-vim', {
       \ 'name': 'cheat_sheet',
       \ 'on_func': ['cheat#cheat']
-      \ })
-
-call dein#add('zchee/deoplete-zsh', {
-      \ 'on_ft': ['sh', 'zsh']
-      \ })
-
-call dein#add('Shougo/neco-syntax', {
-      \ 'name': 'deoplete-neco-syntax',
       \ })
 
 call dein#add('liuchengxu/vim-which-key', {
