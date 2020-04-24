@@ -1,42 +1,42 @@
-let s:max_columns = 170
+let s:max_columns = 130
 let s:manual_opened = v:false
 
 
-" Toggle the Tagbar window.
+" Toggle the Vista window.
 " This toggled additionally the local flag that it has been opened or closed.
 " Do not use the default toggle command, since the flag must been set precise.
-" And cause the resize event could close the Tagbar for missing space, but the
+" And cause the resize event could close the Vista for missing space, but the
 " user reopen it manually, the flag would signal it is closed, even though it
 " is open.
 "
-function! plugin#tagbar#toggle() abort
-  windo if &filetype ==# 'tagbar' | let g:tagbar_win_id = win_getid() | endif
+function! plugin#vista#toggle() abort
+  windo if bufname('%') ==# '__vista__' | let g:vista_win_id = win_getid() | endif
 
-  if get(g:, 'tagbar_win_id', -1) > 0
-    call tagbar#CloseWindow()
+  if get(g:, 'vista_win_id', -1) > 0
+    call vista#(1) " 1 means closed
     let s:manual_opened = v:false
-    unlet g:tagbar_win_id
+    unlet g:vista_win_id
 
   else
-    call tagbar#OpenWindow()
+    call vista#(0) " 2 means open
     let s:manual_opened = v:true
   endif
 endfunction
 
 
-" Check the current width of Vim and close or reopen Tagbar window.
+" Check the current width of Vim and close or reopen Vista window.
 " Will only do something if it has been opened before manually.
 "
-function! plugin#tagbar#hide_show() abort
+function! plugin#vista#hide_show() abort
   echom s:manual_opened
 
   if s:manual_opened
     if &columns >= s:max_columns
-      call tagbar#OpenWindow()
+      call vista#(0) " 0 means open
       wincmd p
 
     else
-      call tagbar#CloseWindow()
+      call vista#(1) " 1 means close
     endif
   endif
 endfunction

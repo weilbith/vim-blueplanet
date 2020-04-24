@@ -20,7 +20,7 @@ let g:which_key_map.t.a = 'forward in tag history'
 nnoremap <leader>th :tags<CR>
 let g:which_key_map.t.h = 'history selection of tags'
 
-nnoremap <leader>tt :TagbarOpen fj<CR>
+nnoremap <silent> <leader>tt :Vista show<CR>
 let g:which_key_map.t.t = 'show tag in outline window (opens it if not already)'
 
 " Open next/previous match.

@@ -42,7 +42,6 @@ endfunction
 "
 function! plugin#lightline#special_window() abort
   return
-          \ &filetype ==# 'tagbar' ||
           \ &filetype ==# 'nerdtree' ||
           \ &filetype ==# 'undotree' ||
           \ &filetype ==# 'tabman' ||
@@ -60,6 +59,7 @@ function! plugin#lightline#special_window() abort
           \ bufname('%') ==# '[Grammarous]' ||
           \ bufname('%') ==# '__Scratch__' ||
           \ bufname('%') ==# '_cheat' ||
+          \ bufname('%') ==# '__vista__' ||
           \ utils#location#is_location_window(win_getid()) ||
           \ &filetype ==# 'qf' ||
           \ s:is_diff_window()
@@ -147,7 +147,6 @@ function! plugin#lightline#mode() abort
 
   if plugin#lightline#special_window()
     return
-          \ &filetype ==# 'tagbar' ? 'Tagbar' :
           \ &filetype ==# 'nerdtree' ? 'NERDTree' :
           \ &filetype ==# 'undotree' ? 'UndoTree' :
           \ &filetype ==# 'tabman' ? 'TabMan':
@@ -165,6 +164,7 @@ function! plugin#lightline#mode() abort
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
           \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
           \ bufname('%') ==# '_cheat' ? 'Cheating' :
+          \ bufname('%') ==# '__vista__' ? 'Vista' :
           \ utils#location#is_location_window(win_getid()) ? 'Location List' :
           \ &filetype ==# 'qf' ? 'Quickfix List' :
           \ s:is_diff_window() ? s:get_diff_window_name() : ''
@@ -359,7 +359,7 @@ function! plugin#lightline#tags_status() abort
   endif
 
   let l:condition = !plugin#lightline#medium_window()
-  let l:text      = tagbar#currenttag(' %s', '')
+  let l:text      = get(b:, 'vista_nearest_method_or_function', '')
   let l:icon      = ' ' . (!empty(gutentags#statusline('a')) ? '羽' : '')
 
 
@@ -547,16 +547,6 @@ function! plugin#lightline#asyncrun_status() abort
   else
     return ''
   endif
-endfunction
-
-
-" Status lines for other plugins.
-
-" Tagbar window status line.
-"
-function! plugin#lightline#tagbar_status(current, sort, fname, ...) abort
-  let g:lightline#fname = a:fname
-  return lightline#statusline(0)
 endfunction
 
 

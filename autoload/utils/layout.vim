@@ -49,9 +49,9 @@ let g:layout_fixed_windows = [
       \     'width': get(g:, 'undotree_SplitWidth', s:standard_width)
       \   },
       \   {
-      \     'buffer_name': '__Tagbar__',
+      \     'buffer_name': '__vista__',
       \     'position': 'L',
-      \     'width': get(g:, 'tagbar_width', s:standard_width)
+      \     'width': get(g:, 'vista_sidebar_width', s:standard_width)
       \   }
       \ ]
 
@@ -162,8 +162,8 @@ endfunction
 "   string - pattern string which to adjust
 "
 function! s:replace_pattern_characters(string) abort
-  let l:string = substitute(a:string, '\[', '\\[', 'g') 
-  let l:string = substitute(a:string, '\]', '\\]', 'g') 
+  let l:string = substitute(a:string, '\[', '\\[', 'g')
+  let l:string = substitute(a:string, '\]', '\\]', 'g')
   return l:string
 endfunction
 

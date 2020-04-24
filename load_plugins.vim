@@ -121,10 +121,6 @@ call dein#add('kien/tabman.vim', {
       \ 'on_cmd': ['TMToggle', 'TMFocus']
       \ })
 
-call dein#add('majutsushi/tagbar', {
-      \ 'on_cmd': ['TagbarOpen', 'TagbarToggle']
-      \ })
-
 call dein#add('mbbill/undotree', {
       \ 'on_cmd': 'UndoTreeToggle'
       \ })
@@ -254,6 +250,12 @@ call dein#add('mcchrish/info-window.nvim', {
       \ 'on_func': ['infowindow#toggle']
       \ })
 
+call dein#add('liuchengxu/vista.vim', {
+      \ 'on_cmd': 'Vista',
+      \ 'on_func': ['vista#', 'vista#RunForNearestMethodOrFunction']
+      \ })
+
+" call dein#add('/home/thore/projects/vim-projects/vista.vim')
 " call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
