@@ -16,12 +16,6 @@ inoremap <silent> <C-b> <C-r>=UltiSnips#JumpBackwards()<CR>
 snoremap <silent> <C-b> <Esc>:<C-u>call UltiSnips#JumpBackwards()<CR>
 nnoremap <silent> <C-b> :<C-u>call UltiSnips#JumpBackwards()<CR>
 
-" Complete function with parameter.
-imap <expr> (
-            \ pumvisible() ?
-            \ cmp#pre_complete('()') :
-            \ "\<Plug>delimitMate("
-
 " Next parameter from completion.
 nmap <C-l> <Plug>(complete_parameter#goto_next_parameter)
 imap <C-l> <Plug>(complete_parameter#goto_next_parameter)
