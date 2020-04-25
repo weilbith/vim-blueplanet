@@ -3,13 +3,15 @@ local api = vim.api
 
 local M = {}
 
-local function get_buffer_lsp_client_capabilities()
-    local buffer_number = api.nvim_get_current_buf()
-    return api.nvim_buf_get_var(buffer_number, "language_server_capabilities")
-end
+local capability_buffer_variable_name = "language_server_capabilities"
 
 local function check_provider_value(property_name)
-    local capabilities = get_buffer_lsp_client_capabilities()
+    -- TODO: This is stupid just to catch the error
+    if not pcall(api.nvim_buf_get_var, 0, capability_buffer_variable_name) then
+        return
+    end
+
+    local capabilities = api.nvim_buf_get_var(0, capability_buffer_variable_name)
     local value = capabilities[property_name]
 
     if value == nil then
@@ -24,7 +26,7 @@ end
 
 function M.store_capabilities_to_buffer(client)
     local buffer_number = api.nvim_get_current_buf()
-    api.nvim_buf_set_var(buffer_number, "language_server_capabilities", client.server_capabilities)
+    api.nvim_buf_set_var(buffer_number, capability_buffer_variable_name, client.server_capabilities)
 end
 
 function M.client_available()
