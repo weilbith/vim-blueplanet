@@ -1,5 +1,5 @@
 function! utils#refactor#rename() abort
-  if utils#lsp#is_client_available_for_current_buffer()
+  if luaeval("require'custom.lsp.capabilities'.client_available() and require'custom.lsp.capabilities'.client_provides_rename()")
     lua vim.lsp.buf.rename()
   else
     call utils#refactor#rename_via_substitute(expand('<cword>'))
