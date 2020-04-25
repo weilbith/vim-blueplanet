@@ -1,12 +1,7 @@
 " Completion menu key bindings.
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<Up>" : "\<C-k>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-
-" Open a new line with <CR> but do not except the completion.
-" Remark to not overwrite DelimitMate's mapping.
-inoremap <expr> <CR> pumvisible() ? "\<Esc>o" : delimitMate#ExpandReturn()
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Complete snippet from visual mode.
 vnoremap <silent> <Tab> <Esc>:call UltiSnips#SaveLastVisualSelection()<CR>gvs
