@@ -160,11 +160,6 @@ call dein#add('xolox/vim-session', {
       \ 'depends': 'vim-misc'
       \ })
 
-call dein#add('weilbith/CompleteParameter.vim', {
-      \ 'name': 'complete_parameter',
-      \ 'rev': 'feature/support-event-completion'
-      \ })
-
 call dein#add('mxw/vim-jsx', {
       \ 'on_ft': ['js', 'jsx']
       \ })
