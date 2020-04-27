@@ -1,2 +1,3 @@
+silent! autocmd! filetypedetect BufNewFile,BufRead *.tf " Overwrite default detection
 autocmd BufNewFile,BufRead *.{tf,tfvars} setfiletype terraform
-autocmd BufRead,BufNewFile *.tfstate setfiletype json
+autocmd BufNewFile,BufRead *.{tfstate,ftstate.backup} setfiletype json
