@@ -35,7 +35,6 @@ call dein#add('wellle/targets.vim')
 call dein#add('tommcdo/vim-exchange')
 call dein#add('romainl/vim-cool')
 call dein#add('mhinz/vim-startify')
-call dein#add('xolox/vim-misc')
 call dein#add('t9md/vim-choosewin')
 call dein#add('zhimsel/vim-stay')
 call dein#add('editorconfig/editorconfig-vim')
@@ -144,10 +143,6 @@ call dein#add('sodapopcan/vim-twiggy', {
 
 call dein#add('brooth/far.vim', {
       \ 'on_cmd': ['Far', 'Farp']
-      \ })
-
-call dein#add('xolox/vim-session', {
-      \ 'depends': 'vim-misc'
       \ })
 
 call dein#add('mxw/vim-jsx', {

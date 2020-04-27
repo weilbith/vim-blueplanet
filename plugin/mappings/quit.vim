@@ -7,6 +7,3 @@ let g:which_key_map.Z.z = 'quit disregarding changes'
 
 nnoremap <leader>Zs :xa<CR>
 let g:which_key_map.Z.s = 'quit and save all buffer'
-
-nnoremap <leader>ZS :SaveSession!<CR>:xa<CR>
-let g:which_key_map.Z.S = 'quit and save all buffer and save session'
