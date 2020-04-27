@@ -13,3 +13,7 @@ let b:undo_ftplugin = 'setlocal'
 " Define the comment options.
 setlocal comments=b:#
 let b:undo_ftplugin .= ' comments<'
+
+
+let &cpoptions = s:save_cpoptions
+unlet s:save_cpoptions
