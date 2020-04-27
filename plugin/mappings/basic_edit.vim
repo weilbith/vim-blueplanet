@@ -39,10 +39,6 @@ xnoremap <expr> @ ":norm @" . nr2char(getchar()) . "<CR>"
 nnoremap z= ea<C-x><C-s>
 
 
-" Splitjoin plugin mappings.
-nnoremap gJ :SplitjoinJoin<CR>
-nnoremap gS :SplitjoinSplit<CR>
-
 " Toggle list characters.
 nnoremap g. :<C-u>set list!<CR>
 

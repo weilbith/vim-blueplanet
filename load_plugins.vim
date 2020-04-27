@@ -133,10 +133,6 @@ call dein#add('alvan/vim-closetag', {
       \ 'on_ft': ['html', 'xml', 'vue', 'jsx']
       \ })
 
-call dein#add('AndrewRadev/splitjoin.vim', {
-      \ 'on_cmd': ['SplitjoinJoin', 'SplitjoinSplit']
-      \ })
-
 call dein#add('cohama/agit.vim', {
       \ 'depends': 'vim-fugitive',
       \ 'on_cmd': ['Agit', 'AgitFile']
