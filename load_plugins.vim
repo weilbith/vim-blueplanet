@@ -47,7 +47,7 @@ call dein#add('voldikss/vim-floaterm')
 call dein#add('neovim/nvim-lsp')
 call dein#add('weilbith/vim-localrc')
 call dein#add('haorenW1025/completion-nvim')
-
+call dein#add('SirVer/ultisnips')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -60,10 +60,6 @@ call dein#add('dhruvasagar/vim-zoom', {
 call dein#add('KabbAmine/vCoolor.vim', {
       \ 'name': 'vcoolor',
       \ 'on_cmd': ['VCoolor', 'VCoolIns']
-      \ })
-
-call dein#add('weilbith/ultisnips', {
-      \ 'rev': 'feature/completion-item-property-extension',
       \ })
 
 call dein#add('vim-scripts/YankRing.vim', {
