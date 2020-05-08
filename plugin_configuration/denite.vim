@@ -25,6 +25,7 @@ call denite#custom#option('_', {
       \ 'smartcase': v:true,
       \ 'updatetime': 100,
       \ 'vertical_preview': v:true,
+      \ 'floating_preview': v:true,
       \ 'statusline': 0,
       \ 'highlight_matched_char': 'None',
       \ 'split': 'floating'

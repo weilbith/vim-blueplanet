@@ -17,7 +17,7 @@ let g:which_key_map.t.T = 'jump to type definition (LSP only)'
 nnoremap <leader>tD <cmd>call utils#tags#declaration()<CR>
 let g:which_key_map.t.d = 'jump to declaration (LSP only)'
 
-nnoremap <leader>ts :Denite outline<CR>
+nnoremap <leader>ts <cmd>call utils#tags#symbols()<CR>
 let g:which_key_map.t.s = 'filter and search by name (LSP or Tag)'
 
 " TODO: Peek definition is no LSP command, need plugin

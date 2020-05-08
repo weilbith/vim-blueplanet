@@ -5,3 +5,5 @@ map <buffer> <silent> <expr> a denite#do_map('choose_action')
 map <buffer> <silent> <expr> <Esc> denite#do_map('quit')
 map <buffer> <silent> <expr> p denite#do_map('do_action', 'preview')
 map <buffer> <silent> <expr> <Space> denite#do_map('toggle_select').'j'
+map <buffer> <silent> <expr> V denite#do_map('toggle_select_all')
+map <buffer> <silent> <expr> q denite#do_map('do_action', 'quickfix')

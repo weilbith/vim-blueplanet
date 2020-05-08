@@ -25,7 +25,8 @@ endfunction
 function! utils#tags#references() abort
   if luaeval("require'custom.lsp.capabilities'.client_available()")
     if luaeval("require'custom.lsp.capabilities'.client_provides_references()")
-      lua vim.lsp.buf.references()
+      " lua vim.lsp.buf.references()
+      call denite#start([{'name': 'lsp_references','args': []}])
     else
       call s:message_feature_not_available()
     endif
@@ -68,6 +69,16 @@ function! utils#tags#hover() abort
   else
     execute &keywordprg . ' ' . expand('<cword>')
   endif
+endfunction
+
+function! utils#tags#symbols() abort
+  let l:source_name = 'outline'
+
+  if luaeval("require'custom.lsp.capabilities'.client_available()")
+    let l:source_name = 'lsp_symbols'
+  endif
+
+  call denite#start([{'name': l:source_name, 'args': []}])
 endfunction
 
 function! s:message_feature_not_available() abort
