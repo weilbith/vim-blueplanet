@@ -1,4 +1,23 @@
 let g:gutentags_cache_dir = g:data_folder . '/tags'
 
-" Ant projects
-" call add(g:gutentags_project_info, {'type': 'java', 'file': 'build.xml'})
+" Keep in sync with the configured LSP clients.
+let g:gutentags_exclude_filetypes = [
+      \ 'python',
+      \ 'typescript',
+      \ 'javascript',
+      \ 'sh',
+      \ 'zsh',
+      \ 'css',
+      \ 'scss',
+      \ 'sass',
+      \ 'less',
+      \ 'dockerfile',
+      \ 'html',
+      \ 'rust',
+      \ 'terraform',
+      \ 'tex',
+      \ 'latex',
+      \ 'plaintex',
+      \ 'vue',
+      \ 'yaml'
+      \ ]
