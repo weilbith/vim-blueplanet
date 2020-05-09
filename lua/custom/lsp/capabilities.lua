@@ -65,8 +65,12 @@ function M.client_provides_hover()
     return check_provider_value("hoverProvider")
 end
 
-function M.client_provides_symbols()
+function M.client_provides_document_symbols()
     return check_provider_value("documentSymbolProvider")
+end
+
+function M.client_provides_workspace_symbols()
+    return check_provider_value("workspaceSymbolProvider")
 end
 
 function M.client_provides_action()

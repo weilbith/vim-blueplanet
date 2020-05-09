@@ -46,7 +46,6 @@ call dein#add('neovim/nvim-lsp')
 call dein#add('weilbith/vim-localrc')
 call dein#add('haorenW1025/completion-nvim')
 call dein#add('SirVer/ultisnips')
-call dein#add('weilbith/nvim-lsp-denite')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -202,6 +201,10 @@ call dein#add('mcchrish/info-window.nvim', {
 call dein#add('liuchengxu/vista.vim', {
       \ 'on_cmd': 'Vista',
       \ 'on_func': ['vista#', 'vista#RunForNearestMethodOrFunction']
+      \ })
+
+call dein#add('weilbith/nvim-lsp-denite', {
+      \ 'depends': 'denite.nvim'
       \ })
 
 call dein#add('weilbith/nvim-lsp-diamove', {

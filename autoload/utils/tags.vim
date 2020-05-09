@@ -71,14 +71,30 @@ function! utils#tags#hover() abort
   endif
 endfunction
 
-function! utils#tags#symbols() abort
+function! utils#tags#document_symbols() abort
   let l:source_name = 'outline'
 
   if luaeval("require'custom.lsp.capabilities'.client_available()")
-    let l:source_name = 'lsp_symbols'
+    if luaeval("require'custom.lsp.capabilities'.client_provides_document_symbols()")
+      call denite#start([{'name': 'lsp_symbols', 'args': []}])
+    else
+      call s:message_feature_not_available()
+    endif
+  else
+    call denite#start([{'name': 'outline', 'args': []}])
   endif
+endfunction
 
-  call denite#start([{'name': l:source_name, 'args': []}])
+function! utils#tags#workspace_symbols() abort
+  if luaeval("require'custom.lsp.capabilities'.client_available()")
+    if luaeval("require'custom.lsp.capabilities'.client_provides_workspace_symbols()")
+      call denite#start([{'name': 'lsp_symbols', 'args': ['workspace']}])
+    else
+      call s:message_feature_not_available()
+    endif
+  else
+    call s:message_client_not_available()
+  endif
 endfunction
 
 function! s:message_feature_not_available() abort

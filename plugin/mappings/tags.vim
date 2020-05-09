@@ -17,8 +17,11 @@ let g:which_key_map.t.T = 'jump to type definition (LSP only)'
 nnoremap <leader>tD <cmd>call utils#tags#declaration()<CR>
 let g:which_key_map.t.d = 'jump to declaration (LSP only)'
 
-nnoremap <leader>ts <cmd>call utils#tags#symbols()<CR>
-let g:which_key_map.t.s = 'filter and search by name (LSP or Tag)'
+nnoremap <leader>ts <cmd>call utils#tags#document_symbols()<CR>
+let g:which_key_map.t.s = 'filter and search by name for current buffer (LSP or Tag)'
+
+nnoremap <leader>tS <cmd>call utils#tags#workspace_symbols()<CR>
+let g:which_key_map.t.S = 'filter and search by name for whole workspace (LSP)'
 
 " TODO: Peek definition is no LSP command, need plugin
 " nnoremap <leader>tp <cmd>call utils#tags#preview()<CR>
