@@ -204,11 +204,16 @@ call dein#add('liuchengxu/vista.vim', {
       \ 'on_func': ['vista#', 'vista#RunForNearestMethodOrFunction']
       \ })
 
+call dein#add('weilbith/nvim-lsp-diamove', {
+      \ 'on_cmd': ['Dabove', 'Dbelow'],
+      \ })
+
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
 " call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-denite')
+" call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
