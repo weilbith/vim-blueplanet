@@ -1,5 +1,5 @@
-lua require'nvim_lsp'.pyls.setup({on_attach = require'custom.lsp.capabilities'.store_capabilities_to_buffer})
-lua require'nvim_lsp'.tsserver.setup{on_attach = require'custom.lsp.capabilities'.store_capabilities_to_buffer}
+lua require'nvim_lsp'.pyls.setup{}
+lua require'nvim_lsp'.tsserver.setup{}
 lua require'nvim_lsp'.bashls.setup{filetypes = {"sh", "zsh"}}
 lua require'nvim_lsp'.cssls.setup{filetypes = {"css", "scss", "sass", "less"}}
 lua require'nvim_lsp'.dockerls.setup{}

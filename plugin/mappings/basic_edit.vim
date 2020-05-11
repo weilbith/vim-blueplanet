@@ -46,4 +46,5 @@ nnoremap g. :<C-u>set list!<CR>
 nnoremap <silent> <C-g> :<C-u>call plugin#info_window#toggle()<CR>
 
 " Try to hover or use keyword program else
-nnoremap K <cmd>call utils#tags#hover()<CR>
+nnoremap K <cmd>LspBacomp hoverProvider lua\ vim.lsp.buf.hover()
+      \ execute\ &keywordprg.'\ '.expand('<cword>')<CR>

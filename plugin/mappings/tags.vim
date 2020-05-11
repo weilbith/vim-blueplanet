@@ -2,46 +2,46 @@ if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.t = { 'name': '+tags' }
 
 
-nnoremap <leader>td <cmd>call utils#tags#definition()<CR>
-let g:which_key_map.t.o = 'jump to definition (LSP or Tag)'
+let g:which_key_map.t.d = 'jump to definition (LSP or Tag)'
+nnoremap <leader>td <cmd>LspBacomp definitionProvider lua\ vim.lsp.buf.definition()
+      \ execute\ 'tjump\ '.expand('<cword>')<CR>
 
-nnoremap <leader>ti <cmd>call utils#tags#implementation()<CR>
 let g:which_key_map.t.i = 'jump to implementation (LSP only)'
+nnoremap <leader>ti <cmd>LspBacomp implementationProvider lua\ vim.lsp.buf.implementation()<CR>
 
-nnoremap <leader>tr <cmd>call utils#tags#references()<CR>
-let g:which_key_map.t.l = 'list references (LSP or Tag)'
+let g:which_key_map.t.r = 'list references (LSP or Tag)'
+nnoremap <leader>tr <cmd>LspBacomp referencesProvider Denite\ lsp_references
+      \ execute\ 'tselect\ '.expand('<cword>')<CR>
 
-nnoremap <leader>tT <cmd>call utils#tags#type_definition()<CR>
+" TODO: Use LsBacomp, but there is no check for type definition provider
 let g:which_key_map.t.T = 'jump to type definition (LSP only)'
+nnoremap <leader>tT <cmd>lua vim.lsp.buf.type_definition()
 
-nnoremap <leader>tD <cmd>call utils#tags#declaration()<CR>
-let g:which_key_map.t.d = 'jump to declaration (LSP only)'
+" TODO: Use LsBacomp, but there is no check for declaration provider
+let g:which_key_map.t.D = 'jump to declaration (LSP only)'
+nnoremap <leader>tD <cmd>lua vim.lsp.buf.declaration()
 
-nnoremap <leader>ts <cmd>call utils#tags#document_symbols()<CR>
 let g:which_key_map.t.s = 'filter and search by name for current buffer (LSP or Tag)'
+nnoremap <leader>ts <cmd>LspBacomp documentSymbolProvider Denite\ lsp_symbols:document
+      \ Denite\ outline<CR>
 
-nnoremap <leader>tS <cmd>call utils#tags#workspace_symbols()<CR>
 let g:which_key_map.t.S = 'filter and search by name for whole workspace (LSP)'
-
-" TODO: Peek definition is no LSP command, need plugin
-" nnoremap <leader>tp <cmd>call utils#tags#preview()<CR>
-" let g:which_key_map.t.p = 'preview definition (LSP or Tag)'
+nnoremap <leader>tS <cmd>LspBacomp documentSymbolProvider Denite\ lsp_symbols:workspace<CR>
 
 nnoremap <leader>tb :pop!<CR>
-let g:which_key_map.t.b = 'back in tag history'
+let g:which_key_map.t.b = 'back in tag history (Tag only)'
 
 nnoremap <leader>ta :tag!<CR>
-let g:which_key_map.t.a = 'forward in tag history'
+let g:which_key_map.t.a = 'forward in tag history (Tag only)'
 
 nnoremap <leader>th :tags<CR>
-let g:which_key_map.t.h = 'history selection of tags'
+let g:which_key_map.t.h = 'history selection of tags (Tag only)'
 
 nnoremap <silent> <leader>tt :Vista show<CR>
 let g:which_key_map.t.t = 'show tag in outline window (opens it if not already)'
 
-" Open next/previous match.
 nnoremap <leader>tn :tnext<CR>
-let g:which_key_map.t['*'] = 'goto next matching tag'
+let g:which_key_map.t['*'] = 'goto next matching tag (Tag only)'
 
 nnoremap <leader>tN :tprevious<CR>
-let g:which_key_map.t['#'] = 'goto previous matching tag'
+let g:which_key_map.t['#'] = 'goto previous matching tag (Tag only)'

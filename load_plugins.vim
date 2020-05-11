@@ -46,6 +46,7 @@ call dein#add('neovim/nvim-lsp')
 call dein#add('weilbith/vim-localrc')
 call dein#add('haorenW1025/completion-nvim')
 call dein#add('SirVer/ultisnips')
+call dein#add('weilbith/nvim-lsp-bacomp')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -217,6 +218,7 @@ call dein#add('weilbith/nvim-lsp-diamove', {
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-denite')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
+" call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
