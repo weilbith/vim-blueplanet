@@ -8,14 +8,14 @@ nnoremap <silent> <C-v> :set paste<CR>"+p:set nopaste<CR>
 " Paste in visual mode from unnamed register does not overwrite it.
 vnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
 
-nnoremap <silent> <leader>yy :<C-u>call utils#copy_paste#getYRElem()<CR>
+nnoremap <silent> <leader>yy <cmd>call utils#copy_paste#getYRElem()<CR>
 let g:which_key_map.y.y = 'paste entry from yank history'
 
-nnoremap <silent> <leader>yw :<C-u>call utils#copy_paste#toggleYRShow()<CR>
+nnoremap <silent> <leader>yw <cmd>call utils#copy_paste#toggleYRShow()<CR>
 let g:which_key_map.y.w = 'toggle yank history window'
 
-nnoremap <silent> <leader>yn :<C-u>YRReplace '1', P<CR>
+nnoremap <silent> <leader>yn <cmd>YRReplace '1', P<CR>
 let g:which_key_map.y.n = 'paste next yank history entry'
 
-nnoremap <silent> <leader>yN :<C-u>YRReplace '-1', P<CR>
+nnoremap <silent> <leader>yN <cmd>YRReplace '-1', P<CR>
 let g:which_key_map.y.N = 'paste previous yank history entry'

@@ -9,7 +9,7 @@ let g:which_key_map.G = { 'name': '+grammar' }
 nnoremap [s [sea<C-X><C-S>
 nnoremap ]s ]sea<C-X><C-S>
 
-nmap <leader>Gg :<C-u>GrammarousCheck<CR>
+nmap <leader>Gg <cmd>GrammarousCheck<CR>
 let g:which_key_map.G.g = 'start to check grammer'
 
 nmap <leader>GR <Plug>(grammarous-reset)
@@ -34,14 +34,14 @@ nmap <leader>Gr <Plug>(grammarous-remove-error)<Plug>(grammarous-move-to-next-er
 let g:which_key_map.G.r = 'remove/ignore current error and jump to next'
 
 
-nnoremap gt :<C-u>Trans <C-r><C-w><CR>
+nnoremap gt <cmd>Trans <C-r><C-w><CR>
 let g:which_key_map.g.t = 'translate word under cursor (default language)'
 
-nnoremap gT :<C-u>TransSelectDirection<CR>
+nnoremap gT <cmd>TransSelectDirection<CR>
 let g:which_key_map.g.t = 'translate word under cursor (select language)'
 
 vnoremap gt :Trans<CR>
 vnoremap gT :TransSelectDirection<CR>
 
-nnoremap <localleader>gt :<C-u>TransInteractive<CR>
+nnoremap <localleader>gt <cmd>TransInteractive<CR>
 let g:which_key_map_local.g.t = 'open interactive translation menu'

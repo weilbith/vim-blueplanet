@@ -19,5 +19,5 @@ call submode#map('TabSwitch', 'n', '', 'N', ':tabprevious<CR>')
 nnoremap <leader>Tc :windo bd!<bar>tabclose<CR>
 let g:which_key_map.T.c = 'close tab (includes all visible buffers)'
 
-nnoremap <silent> <leader>Tr :<C-u>call utils#tabs#set_name()<CR>
+nnoremap <silent> <leader>Tr <cmd>call utils#tabs#set_name()<CR>
 let g:which_key_map.T.r = 'rename tab (enter name)'

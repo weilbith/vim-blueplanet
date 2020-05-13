@@ -24,10 +24,10 @@ let g:which_key_map.w.z = 'close preview window'
 nnoremap <silent> <leader>ww :ChooseWin<CR>
 let g:which_key_map.w.w = 'jump to window via selection'
 
-nnoremap <silent> <leader>wh :<C-u>call utils#windows#jump('h')<CR>
-nnoremap <silent> <leader>wj :<C-u>call utils#windows#jump('j')<CR>
-nnoremap <silent> <leader>wk :<C-u>call utils#windows#jump('k')<CR>
-nnoremap <silent> <leader>wl :<C-u>call utils#windows#jump('l')<CR>
+nnoremap <silent> <leader>wh <cmd>call utils#windows#jump('h')<CR>
+nnoremap <silent> <leader>wj <cmd>call utils#windows#jump('j')<CR>
+nnoremap <silent> <leader>wk <cmd>call utils#windows#jump('k')<CR>
+nnoremap <silent> <leader>wl <cmd>call utils#windows#jump('l')<CR>
 let g:which_key_map.w.h = 'which_key_ignore'
 let g:which_key_map.w.j = 'which_key_ignore'
 let g:which_key_map.w.k = 'which_key_ignore'
@@ -89,10 +89,10 @@ call submode#map('Resize', 'n', '', 'J', s:resize_big_step . '<C-w>-')
 call submode#map('Resize', 'n', '', 'K', s:resize_big_step . '<C-w>+')
 call submode#map('Resize', 'n', '', 'L', s:resize_big_step . '<C-w>>')
 
-noremap <silent> <leader>wrW :<C-u>call utils#windows#windowChangeSize()<CR>
+noremap <silent> <leader>wrW <cmd>call utils#windows#windowChangeSize()<CR>
 let g:which_key_map.w.r.W = 'increase/shrink/set window width/height by input'
 
-nnoremap <silent> <leader>wm :<C-u>call zoom#toggle()<CR>
+nnoremap <silent> <leader>wm <cmd>call zoom#toggle()<CR>
 let g:which_key_map.w.m = 'maximize current window size'
 
 
@@ -109,11 +109,11 @@ let g:which_key_map.w.K = 'which_key_ignore'
 let g:which_key_map.w.L = 'which_key_ignore'
 let g:which_key_map.w['HJWKL'] = 'move window to the left/bottom/top/right screen edge'
 
-nnoremap <silent> <leader>wS :<C-u>call utils#windows#switch_window_split(v:true)<CR>
+nnoremap <silent> <leader>wS <cmd>call utils#windows#switch_window_split(v:true)<CR>
 let g:which_key_map.w.S = 'switch to horizontal split'
 
-nnoremap <silent> <leader>wV :<C-u>call utils#windows#switch_window_split(v:false)<CR>
+nnoremap <silent> <leader>wV <cmd>call utils#windows#switch_window_split(v:false)<CR>
 let g:which_key_map.w.V = 'switch to vertical split'
 
-nnoremap <silent> <leader>wf :<C-u>call utils#layout#reset_fixed_windows()<CR>
+nnoremap <silent> <leader>wf <cmd>call utils#layout#reset_fixed_windows()<CR>
 let g:which_key_map.w.f = 'fix window layout'

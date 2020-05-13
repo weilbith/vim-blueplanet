@@ -6,6 +6,6 @@ if exists('g:started_by_firenvim')
   set nonumber
   set norelativenumber
   call sy#disable()
-  nnoremap <silent> <Esc><Esc> :<C-u>call firenvim#focus_page()<CR>
-  nnoremap <silent> <leader>Zz :<C-u>call firenvim#hide_frame()<CR>
+  nnoremap <silent> <Esc><Esc> <cmd>call firenvim#focus_page()<CR>
+  nnoremap <silent> <leader>Zz <cmd>call firenvim#hide_frame()<CR>
 endif

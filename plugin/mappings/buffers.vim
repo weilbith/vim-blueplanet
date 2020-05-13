@@ -11,10 +11,10 @@ let g:which_key_map.b.p = 'previous buffer (enter BufferSwitch submode)'
 call submode#map('BufferSwitch', 'n', 's', 'n', ':bnext<Cr>')
 call submode#map('BufferSwitch', 'n', 's', 'N', ':bprevious<Cr>')
 
-nnoremap <silent> <leader>bd :<C-u>call utils#buffers#delete_buffer(v:true, v:false)<CR>
+nnoremap <silent> <leader>bd <cmd>call utils#buffers#delete_buffer(v:true, v:false)<CR>
 let g:which_key_map.b.d = 'close buffer and safe (keeps window open)'
 
-nnoremap <silent> <leader>bD :<C-u>call utils#buffers#delete_buffer(v:false, v:true)<CR>
+nnoremap <silent> <leader>bD <cmd>call utils#buffers#delete_buffer(v:false, v:true)<CR>
 let g:which_key_map.b.D = 'close buffer disregarding changes (keeps window open)'
 
 nnoremap <leader>bb :Denite buffer<CR>

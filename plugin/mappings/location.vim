@@ -2,26 +2,26 @@ if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.l = { 'name': '+location list' }
 
 
-nnoremap <silent> <leader>ll :<C-u>call utils#location#location_jump()<CR>
+nnoremap <silent> <leader>ll <cmd>call utils#location#location_jump()<CR>
 let g:which_key_map.l.l = 'jump to location window (jump back if already inside)'
 
-nnoremap <silent> <leader>lc :<C-u>lclose<CR>
+nnoremap <silent> <leader>lc <cmd>lclose<CR>
 let g:which_key_map.l.c = 'close location window'
 
-nnoremap <silent> <leader>l<CR> :ll<CR>
+nnoremap <silent> <leader>l<CR> <cmd>ll<CR>
 let g:which_key_map.l['<CR>'] = 'goto current selected location list entry'
 
-nnoremap <silent> <leader>la :<C-u>labove<CR>
+nnoremap <silent> <leader>la <cmd>labove<CR>
 let g:which_key_map.l.a = 'next location list entry above current cursor position'
 
-nnoremap <silent> <leader>lb :<C-u>lbelow<CR>
+nnoremap <silent> <leader>lb <cmd>lbelow<CR>
 let g:which_key_map.l.b = 'next location list entry below current cursor positon'
 
-nnoremap <silent> <leader>ln :<C-u>:lnewer<CR><CR>
+nnoremap <silent> <leader>ln <cmd>lnewer<CR>
 let g:which_key_map.l.n = 'open next location list'
 
-nnoremap <silent> <leader>lN:<C-u>:colder<CR><CR>
+nnoremap <silent> <leader>lN <cmd>colder<CR>
 let g:which_key_map.l.N = 'open previous location list'
 
-nnoremap <silent> <leader>lh :<C-u>:history<CR>
+nnoremap <silent> <leader>lh <cmd>history<CR>
 let g:which_key_map.l.h = 'open location list by history (opens selection window)'

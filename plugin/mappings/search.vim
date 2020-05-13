@@ -3,8 +3,8 @@ let g:which_key_map.s = { 'name': '+search' }
 
 
 " Visual selection search with search-word keys.
-xnoremap <silent> * :<C-u>call utils#search#visual_selection_to_search_register()<CR>/<CR>
-xnoremap <silent> # :<C-u>call utils#search#visual_selection_to_search_register()<CR>?<CR>
+xnoremap <silent> * <cmd>call utils#search#visual_selection_to_search_register()<CR>/<CR>
+xnoremap <silent> # <cmd>call utils#search#visual_selection_to_search_register()<CR>?<CR>
 
 nnoremap <leader>ss :Ack<Space>
 let g:which_key_map.s.s = 'recursive search in project directory (populate to quickfix list)'

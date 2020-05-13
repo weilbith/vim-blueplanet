@@ -40,10 +40,10 @@ nnoremap z= ea<C-x><C-s>
 
 
 " Toggle list characters.
-nnoremap g. :<C-u>set list!<CR>
+nnoremap g. <cmd>set list!<CR>
 
 " Toggle info window for current buffer
-nnoremap <silent> <C-g> :<C-u>call plugin#info_window#toggle()<CR>
+nnoremap <silent> <C-g> <cmd>call plugin#info_window#toggle()<CR>
 
 " Try to hover or use keyword program else
 nnoremap K <cmd>LspBacomp hoverProvider lua\ vim.lsp.buf.hover()

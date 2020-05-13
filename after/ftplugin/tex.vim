@@ -1,15 +1,15 @@
 " Mappings
 " Define current buffer as root file for PDF generation.
-nnoremap <buffer> <silent> <localleader>r :<C-u>call <SID>setTexPdfRoot()<CR>
+nnoremap <buffer> <silent> <localleader>r <cmd>call <SID>setTexPdfRoot()<CR>
 let b:undo_ftplugin .= '|nunmap <buffer> <localleader>r'
 
 " Generate PDF document based on the defined root or the current buffer no
 " such root exists.
-nnoremap <buffer> <silent> <localleader>p :<C-u>Neomake pdflatex<CR>
+nnoremap <buffer> <silent> <localleader>p <cmd>Neomake pdflatex<CR>
 let b:undo_ftplugin .= '|nunmap <buffer> <localleader>p'
 
 " Toggle automatically PDF generation on buffer save.
-nnoremap <buffer> <silent> <localleader>P :<C-u>call <SID>toggleAutoPdfGen()<CR>
+nnoremap <buffer> <silent> <localleader>P <cmd>call <SID>toggleAutoPdfGen()<CR>
 let b:undo_ftplugin .= '|nunmap <buffer> <localleader>P'
 
 

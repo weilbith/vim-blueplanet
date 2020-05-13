@@ -8,7 +8,7 @@ function! plugin#cheat_sheet#add_mappings() abort
     nmap <buffer> q :close<CR>
 
     " Go to next/previous hint.
-    nmap <buffer> <leader>n :<C-u>:call cheat#navigate(1,'S')<CR>
-    nmap <buffer> <leader>N :<C-u>:call cheat#navigate(-1,'S')<CR>
+    nmap <buffer> <leader>n <cmd>call cheat#navigate(1,'S')<CR>
+    nmap <buffer> <leader>N <cmd>call cheat#navigate(-1,'S')<CR>
   endif
 endfunction
