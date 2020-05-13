@@ -3,7 +3,7 @@ let g:which_key_map.t = { 'name': '+tags' }
 
 
 let g:which_key_map.t.d = 'jump to (type) definition/declaration/implementation (LSP or Tag)'
-nnoremap <leader>td <cmd>tjump expand('<cword>')<CR>
+nnoremap <leader>td <cmd>execute 'tjump ' . expand('<cword>')<CR>
 
 let g:which_key_map.t.r = 'list references (LSP or Tag)'
 nnoremap <leader>tr <cmd>LspBacomp referencesProvider Denite\ lsp_references

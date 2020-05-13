@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
-      \'.git/', 'node_modules/', '!*.fls'
+      \'.git/', 'node_modules/', '!*.fls', 'dictionaries/'
       \ ])
 
 " Use Ripgrep accordingly to the documentations settings.
@@ -19,7 +19,6 @@ call denite#custom#var('file/rec', 'command',
 
 " Use a '_' instead of '-' in option names, as documented.
 call denite#custom#option('_', {
-      \ 'start_filter': v:true,
       \ 'prompt': '➭',
       \ 'winheight': '10',
       \ 'smartcase': v:true,
@@ -28,7 +27,10 @@ call denite#custom#option('_', {
       \ 'floating_preview': v:true,
       \ 'statusline': 0,
       \ 'highlight_matched_char': 'None',
-      \ 'split': 'floating'
+      \ 'split': 'floating',
+      \ 'preview_width': 70,
+      \ 'refresh': v:true,
+      \ 'empty': v:false,
       \ })
 
 call denite#custom#option('file', {

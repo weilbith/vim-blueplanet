@@ -85,10 +85,6 @@ call dein#add('Shougo/denite.nvim', {
       \ 'on_cmd': 'Denite'
       \ })
 
-call dein#add('wincent/ferret', {
-      \ 'on_cmd': ['Ack', 'Lack', 'Back', 'Black']
-      \ })
-
 call dein#add('Yggdroot/indentLine', {
       \ 'name': 'indent_line'
       \ })
