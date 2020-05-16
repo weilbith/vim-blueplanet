@@ -5,7 +5,7 @@ let g:which_key_map.q = { 'name': '+quickfix list' }
 nnoremap <silent> <leader>qq <cmd>call utils#quickfix#quickfix_jump()<CR>
 let g:which_key_map.q.q = 'jump to quickfix window (jump back if already inside)'
 
-nnoremap <silent> <leader>qc <cmd>call utils#quickfix#quickfix_close(v:true)<CR>
+nnoremap <silent> <leader>qc <cmd>cclose<CR>
 let g:which_key_map.q.c = 'close quickfix window'
 
 nnoremap <leader>q<CR> :cc<CR>
