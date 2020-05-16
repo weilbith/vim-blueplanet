@@ -20,7 +20,7 @@ let g:layout_fixed_windows = [
       \   },
       \   {
       \     'filetype': 'qf',
-      \     'function': ['utils#quickfix#resize_move', 'utils#location#adjust_window_height'],
+      \     'function': ['utils#quickfix#resize_move', 'qfloc_tailor#adjust_window_height'],
       \   },
       \   {
       \     'buffer_name': 'YankRing',

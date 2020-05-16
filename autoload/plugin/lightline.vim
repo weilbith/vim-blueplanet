@@ -166,7 +166,7 @@ function! plugin#lightline#mode() abort
           \ bufname('%') ==# '_cheat' ? 'Cheating' :
           \ bufname('%') ==# '__vista__' ? 'Vista' :
           \ utils#location#is_location_window(win_getid()) ? 'Location List' :
-          \ &filetype ==# 'qf' ? 'Quickfix List' :
+          \ &filetype ==# 'qf' ? ('Quickfix List ' . get(g:, 'quickname_current_list', '')) :
           \ s:is_diff_window() ? s:get_diff_window_name() : ''
 
   elseif plugin#lightline#preview_window()

@@ -49,6 +49,8 @@ call dein#add('SirVer/ultisnips')
 call dein#add('weilbith/nvim-lsp-diamove')
 call dein#add('weilbith/nvim-lsp-bacomp')
 call dein#add('weilbith/nvim-lsp-smag')
+call dein#add('weilbith/vim-loche')
+call dein#add('weilbith/vim-qfloc-tailor')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -206,6 +208,10 @@ call dein#add('weilbith/nvim-lsp-denite', {
       \ 'depends': 'denite.nvim'
       \ })
 
+call dein#add('weilbith/vim-quickname', {
+      \ 'on_cmd': ['QuicknameSave', 'QuicknameLoad', 'QuicknameRemove']
+      \ })
+
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
 " call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
@@ -214,6 +220,10 @@ call dein#add('weilbith/nvim-lsp-denite', {
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-smag')
+" call dein#add('/home/thore/projects/vim-projects/vim-loche')
+" call dein#add('/home/thore/projects/vim-projects/vim-qfloc-tailor')
+" call dein#add('/home/thore/projects/vim-projects/vim-quickname')
+" call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
