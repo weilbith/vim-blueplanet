@@ -112,6 +112,8 @@ if &t_Co >= 256 || has('gui_running')
     highlight ColorColumn   ctermbg=16   ctermfg=NONE guibg=#24272D guifg=NONE    cterm=NONE      gui=NONE
     highlight SignColumn    ctermbg=234  ctermfg=242  guibg=#1C1C1C guifg=#6C6C6C cterm=NONE      gui=NONE
 
+    highlight QuickFixLine  ctermbg=81   ctermfg=235  guibg=#00afd7 guifg=#262626 cterm=NONE      gui=NONE
+
     "         Highlighting  for          results      in            preview       window(s).
     highlight previewWord   ctermbg=191  ctermfg=0    guibg=#d7ff5f guifg=#000000
     highlight previewLine   ctermbg=197  ctermfg=0    guibg=#ff005f guifg=#ffffff

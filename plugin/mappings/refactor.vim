@@ -1,8 +1,8 @@
 if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.r = { 'name': '+refactor' }
 
-
-" TODO: the provider is not correct because not supported yet
+" TODO: missing LSP provider checks (because not existing)
+nnoremap <silent> <leader>ra <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <leader>rr <cmd>LspBacomp definitionProvider lua\ vim.lsp.buf.rename()
       \ call\ utils#refactor#rename_via_substitution(expand(('<cword')))<CR>
 let g:which_key_map.r.r = 'rename object under cursor (LSP or Substitue)'

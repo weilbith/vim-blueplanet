@@ -223,7 +223,7 @@ call dein#add('weilbith/vim-quickname', {
 " call dein#add('/home/thore/projects/vim-projects/vim-loche')
 " call dein#add('/home/thore/projects/vim-projects/vim-qfloc-tailor')
 " call dein#add('/home/thore/projects/vim-projects/vim-quickname')
-" call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
+call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))

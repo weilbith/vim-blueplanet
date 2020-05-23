@@ -9,12 +9,12 @@ let g:which_key_map.t.r = 'list references (LSP or Tag)'
 nnoremap <leader>tr <cmd>LspBacomp referencesProvider Denite\ lsp_references
       \ execute\ 'tselect\ '.expand('<cword>')<CR>
 
-let g:which_key_map.t.s = 'filter and search by name for current buffer (LSP or Tag)'
-nnoremap <leader>ts <cmd>LspBacomp documentSymbolProvider Denite\ lsp_symbols:document
+let g:which_key_map.t.f = 'filter and search by name for current buffer (LSP or Tag)'
+nnoremap <leader>tf <cmd>LspBacomp documentSymbolProvider Denite\ lsp_symbols:document
       \ Denite\ outline<CR>
 
-let g:which_key_map.t.S = 'filter and search by name for whole workspace (LSP)'
-nnoremap <leader>tS <cmd>LspBacomp documentSymbolProvider Denite\ lsp_symbols:workspace<CR>
+let g:which_key_map.t.F = 'filter and search by name for whole workspace (LSP)'
+nnoremap <leader>tF <cmd>LspBacomp documentSymbolProvider Denite\ lsp_symbols:workspace<CR>
 
 nnoremap <leader>tb :pop!<CR>
 let g:which_key_map.t.b = 'back in tag history (Tag only)'
