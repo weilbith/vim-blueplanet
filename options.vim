@@ -80,7 +80,6 @@ set wildmode=full
 set wildignore=".git\*,.hg\*,.svn\*"
 set completeopt=menuone,noinsert,noselect
 set wildoptions=pum
-set pumblend=20
 set shortmess+=c
 
 " ---
