@@ -122,10 +122,14 @@ if &t_Co >= 256 || has('gui_running')
     highlight NormalSpecialBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=bold cterm=bold gui=NONE
 
     " LSP highlights
-    highlight LspDiagnosticsError       ctermbg=NONE ctermfg=197  guibg=NONE    guifg=#ff005f cterm=NONE   gui=NONE
-    highlight LspDiagnosticsWarning     ctermbg=NONE ctermfg=166  guibg=NONE    guifg=#D3422E cterm=NONE   gui=NONE
-    highlight LspDiagnosticsInformation ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
-    highlight LspDiagnosticsHint        ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsError               ctermbg=NONE ctermfg=197  guibg=NONE    guifg=#ff005f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsErrorFloating       ctermbg=NONE ctermfg=197  guibg=NONE    guifg=#ff005f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsWarning             ctermbg=NONE ctermfg=166  guibg=NONE    guifg=#D3422E cterm=NONE   gui=NONE
+    highlight LspDiagnosticsWarningFloating     ctermbg=NONE ctermfg=166  guibg=NONE    guifg=#D3422E cterm=NONE   gui=NONE
+    highlight LspDiagnosticsInformation         ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsInformationFloating ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsHintSign            ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
+    highlight LspDiagnosticsHintFloating        ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=NONE   gui=NONE
 
     highlight LspReferenceText  ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=underline gui=underline
     highlight LspReferenceRead  ctermbg=NONE ctermfg=191  guibg=NONE    guifg=#d7ff5f cterm=underline gui=underline
