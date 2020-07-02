@@ -20,7 +20,7 @@
 " Similar themes exist for i3, tmux, powerstatus10k, powerlevel9k, midnight commander, weechat, cmus, ...
 
 
-hi clear
+highlight clear
 
 if exists('syntax_on')
     syntax reset
