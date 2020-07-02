@@ -139,6 +139,7 @@ set viewoptions=cursor,folds,slash,unix
 set pumheight=30
 set showtabline=2
 set nojoinspaces
+set inccommand=split
 execute 'set shell=' . (filereadable('/bin/zsh') ? '/bin/zsh' : 'bin/bash')
 
 " List Characters
