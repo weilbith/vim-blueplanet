@@ -51,6 +51,7 @@ call dein#add('weilbith/nvim-lsp-bacomp')
 call dein#add('weilbith/nvim-lsp-smag')
 call dein#add('weilbith/vim-loche')
 call dein#add('weilbith/vim-qfloc-tailor')
+call dein#add('haya14busa/vim-asterisk')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -217,7 +218,7 @@ call dein#add('weilbith/vim-quickname', {
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-denite')
-" call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
+call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-smag')
 " call dein#add('/home/thore/projects/vim-projects/vim-loche')

@@ -1,10 +1,16 @@
+" Improved standard search commands (e.g. search visual selection)
+map *   <Plug>(asterisk-*)
+map #   <Plug>(asterisk-#)
+map g*  <Plug>(asterisk-g*)
+map g#  <Plug>(asterisk-g#)
+map z*  <Plug>(asterisk-z*)
+map gz* <Plug>(asterisk-gz*)
+map z#  <Plug>(asterisk-z#)
+map gz# <Plug>(asterisk-gz#)
+
+
 if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.s = { 'name': '+search' }
-
-
-" Visual selection search with search-word keys.
-xnoremap <silent> * :<C-u>call utils#search#visual_selection_to_search_register()<CR>/<CR>
-xnoremap <silent> # :<C-u>call utils#search#visual_selection_to_search_register()<CR>?<CR>
 
 nnoremap <silent> <leader>ss <cmd>Denite grep<CR>
 let g:which_key_map.s.s = 'recursive search in project directory (opens Denite filter)'
