@@ -1,0 +1,33 @@
+snippet scaffold "basic vue file strucure" b
+<template>
+	<div></div>
+</template>
+
+<script>
+export default {
+	${0}
+}
+</script>
+
+<style ${1:lang="${2:scss}"}>
+
+</style>
+endsnippet
+
+snippet scaffold-ts "basic vue file strucure for class component with TS" b
+<template>
+	<div></div>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+
+@Component
+export default class ${0:Name} extends Vue {}
+</script>
+
+<style lang="scss">
+
+</style>
+endsnippet

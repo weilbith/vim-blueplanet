@@ -1,0 +1,12 @@
+# ExpressJS
+snippet expu "ExpressJS middleware function plain"
+function (request: Request, response: Response, next: NextFunction) {
+	${0:next()}
+}
+endsnippet
+
+snippet expm "ExpressJS middleware function controller"
+function ${1:name}(request: Request, response: Response, next: NextFunction) {
+	${0:next()}
+}
+endsnippet
