@@ -19,4 +19,7 @@ let g:completion_chain_complete_list = {
       \         {'mode': '<c-k>'},
       \     ],
       \   },
+      \   'denite-filter': {
+      \     'default': []
+      \   }
       \ }
