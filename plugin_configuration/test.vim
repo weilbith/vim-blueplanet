@@ -5,9 +5,9 @@ let test#strategy = {
       \ 'suite': 'asyncrun_background'
       \ }
 
-let test#enabled_runners = ['python#pytest', 'typescript#mocha']
+let test#enabled_runners = ['python#pytest', 'typescript#mocha', 'typescript#jest']
 let g:test#custom_runners = {
-      \ 'TypeScript': ['Mocha']
+      \ 'TypeScript': ['Mocha', 'Jest']
       \ }
 let test#python#runner = 'pytest'  " Adjust for projects via localrc
 let test#python#pytest#options = {'nearest': '--capture=no'}
