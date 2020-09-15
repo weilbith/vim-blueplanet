@@ -67,10 +67,6 @@ call dein#add('KabbAmine/vCoolor.vim', {
       \ 'on_cmd': ['VCoolor', 'VCoolIns']
       \ })
 
-call dein#add('vim-scripts/YankRing.vim', {
-      \ 'name': 'yankring'
-      \ })
-
 call dein#add('itchyny/lightline.vim', {
       \ 'on_event': 'VimEnter',
       \ 'depends': ['vim-fugitive', 'neomake', 'denite.nvim', 'vim-signify']
@@ -212,6 +208,10 @@ call dein#add('weilbith/nvim-lsp-denite', {
 
 call dein#add('weilbith/vim-quickname', {
       \ 'on_cmd': ['QuicknameSave', 'QuicknameLoad', 'QuicknameRemove']
+      \ })
+
+call dein#add('Shougo/neoyank.vim', {
+      \ 'depends': 'denite.nvim'
       \ })
 
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')

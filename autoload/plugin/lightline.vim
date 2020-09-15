@@ -55,7 +55,6 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'snippets' ||
           \ &filetype ==# 'trans' ||
           \ &filetype ==# 'far_vim' ||
-          \ bufname('%') ==# '[YankRing]' ||
           \ bufname('%') ==# '[Grammarous]' ||
           \ bufname('%') ==# '__Scratch__' ||
           \ bufname('%') ==# '_cheat' ||
@@ -160,7 +159,6 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'far' ? 'Find & Replace' :
           \ &filetype ==# 'denite' ? 'Denite' :
           \ &filetype ==# 'denite-filter' ? 'Denite Filter' :
-          \ bufname('%') ==# '[YankRing]' ? 'Yank Ring' :
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
           \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
           \ bufname('%') ==# '_cheat' ? 'Cheating' :

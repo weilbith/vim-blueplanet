@@ -23,11 +23,6 @@ let g:layout_fixed_windows = [
       \     'function': ['utils#quickfix#resize_move', 'qfloc_tailor#adjust_window_height'],
       \   },
       \   {
-      \     'buffer_name': 'YankRing',
-      \     'position': 'J',
-      \     'height': get(g:, 'yankring_window_height', s:standard_height)
-      \   },
-      \   {
       \     'buffer_name': 'NERD_tree',
       \     'position': 'H',
       \     'width': get(g:, 'NERDTreeWindowSize', s:standard_width),
