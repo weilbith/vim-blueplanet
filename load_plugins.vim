@@ -228,9 +228,9 @@ call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
 
 " Add hooks for all plugins.
-call dein#set_hook([], 'hook_add', function('plugin#dein#add_hook'))
-call dein#set_hook([], 'hook_source', function('plugin#dein#load_config'))
-call dein#set_hook([], 'hook_post_source', function('plugin#dein#post_source_hook'))
+call dein#set_hook([], 'hook_add', 'call plugin#dein#add_hook()')
+call dein#set_hook([], 'hook_source', 'call plugin#dein#load_config()')
+call dein#set_hook([], 'hook_post_source', 'call plugin#dein#post_source_hook()')
 
 call dein#end()
 " call dein#recache_runtimepath()
