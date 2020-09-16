@@ -1,4 +1,3 @@
-let g:test#custom_strategies = {'floaterm': function({cmd -> plugin#test#floaterm_strategy(cmd)})}
 let test#strategy = {
       \ 'nearest': 'floaterm',
       \ 'file': 'floaterm',
