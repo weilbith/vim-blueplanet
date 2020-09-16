@@ -84,19 +84,19 @@ endfunction
 
 
 " Use custom fold expression and text.
-setlocal foldmethod=expr
-let b:undo_ftplugin .= '|setlocal foldmethod<'
-
-setlocal foldexpr=FoldExpr()
-let b:undo_ftplugin .= '|setlocal foldexpr<'
-
-setlocal foldtext=FoldText()
-let b:undo_ftplugin .= '|setlocal foldtext<'
-
-" Fold inside the main tags per default.
-setlocal foldlevel=0
-let b:undo_ftplugin .= '|setlocal foldlevel<'
-
-" Avoid to fold Vue properties with single lines.
-setlocal foldminlines=2
-let b:undo_ftplugin .= '|setlocal foldminlines<'
+" setlocal foldmethod=expr
+" let b:undo_ftplugin .= '|setlocal foldmethod<'
+"
+" setlocal foldexpr=FoldExpr()
+" let b:undo_ftplugin .= '|setlocal foldexpr<'
+"
+" setlocal foldtext=FoldText()
+" let b:undo_ftplugin .= '|setlocal foldtext<'
+"
+" " Fold inside the main tags per default.
+" setlocal foldlevel=0
+" let b:undo_ftplugin .= '|setlocal foldlevel<'
+"
+" " Avoid to fold Vue properties with single lines.
+" setlocal foldminlines=2
+" let b:undo_ftplugin .= '|setlocal foldminlines<'
