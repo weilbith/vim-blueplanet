@@ -46,7 +46,7 @@ call dein#add('neovim/nvim-lsp')
 call dein#add('weilbith/vim-localrc')
 call dein#add('haorenW1025/completion-nvim')
 call dein#add('SirVer/ultisnips')
-call dein#add('weilbith/nvim-lsp-diamove')
+" call dein#add('weilbith/nvim-lsp-diamove')
 call dein#add('weilbith/nvim-lsp-bacomp')
 call dein#add('weilbith/nvim-lsp-smag')
 call dein#add('weilbith/vim-loche')
@@ -169,11 +169,6 @@ call dein#add('thinca/vim-quickrun', {
       \ 'on_cmd': ['QuickRun']
       \ })
 
-call dein#add('dbeniamine/cheat.sh-vim', {
-      \ 'name': 'cheat_sheet',
-      \ 'on_func': ['cheat#cheat']
-      \ })
-
 call dein#add('liuchengxu/vim-which-key', {
       \ 'on_cmd': ['WhichKey', 'WhichKeyVisual'],
       \ })
@@ -219,7 +214,7 @@ call dein#add('Shougo/neoyank.vim', {
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-denite')
-" call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
+call dein#add('/home/thore/projects/vim-projects/nvim-lsp-diamove')
 call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-smag')
 " call dein#add('/home/thore/projects/vim-projects/vim-loche')

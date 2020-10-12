@@ -57,7 +57,6 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'far_vim' ||
           \ bufname('%') ==# '[Grammarous]' ||
           \ bufname('%') ==# '__Scratch__' ||
-          \ bufname('%') ==# '_cheat' ||
           \ bufname('%') ==# '__vista__' ||
           \ utils#location#is_location_window(win_getid()) ||
           \ &filetype ==# 'qf' ||
@@ -161,7 +160,6 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'denite-filter' ? 'Denite Filter' :
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
           \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
-          \ bufname('%') ==# '_cheat' ? 'Cheating' :
           \ bufname('%') ==# '__vista__' ? 'Vista' :
           \ utils#location#is_location_window(win_getid()) ? 'Location List' :
           \ &filetype ==# 'qf' ? ('Quickfix List ' . get(g:, 'quickname_current_list', '')) :
