@@ -12,45 +12,26 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        ["ip"] = "@parameter.inner",
-        ["ap"] = "@parameter.outer",
-      },
-    },
-    move = {
-      enable = true,
-      goto_next_start = {
-        ["]f"] = "@function.outer",
-        ["]c"] = "@class.outer",
-      },
-      goto_next_end = {
-        ["]F"] = "@function.outer",
-        ["]C"] = "@class.outer",
-      },
-      goto_previous_start = {
-        ["[f"] = "@function.outer",
-        ["[c"] = "@class.outer",
-      },
-      goto_previous_end = {
-        ["[F"] = "@function.outer",
-        ["[C"] = "@class.outer",
-      },
-    },
     swap = {
       enable = true,
       swap_next = {
+        ["cxf"] = "@function.outer",
         ["cxp"] = "@parameter.inner",
       },
       swap_previous = {
-        ["cxP"] = "@parameter.inner",
+        ["cxf"] = "@function.outer",
+        ["cxp"] = "@parameter.inner",
       },
     },
   },
+}
+
+require'nvim-treesitter'.define_modules {
+  set_folding = {
+    enable = true,
+    attach = function(bufnr, lang)
+      vim.api.nvim_out_write("foo\n")
+    end,
+  }
 }
 EOF
