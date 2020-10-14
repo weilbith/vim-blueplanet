@@ -127,10 +127,6 @@ call dein#add('brooth/far.vim', {
       \ 'on_cmd': ['Far', 'Farp']
       \ })
 
-call dein#add('mxw/vim-jsx', {
-      \ 'on_ft': ['js', 'jsx']
-      \ })
-
 call dein#add('echuraev/translate-shell.vim', {
       \ 'name': 'translate_shell',
       \ 'on_cmd': ['Trans', 'TransSelectDirection', 'TransInteractive', 'TransTerm', 'TransOpenHistoryWindow']
