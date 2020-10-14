@@ -92,10 +92,6 @@ call submode#map('Resize', 'n', '', 'L', s:resize_big_step . '<C-w>>')
 noremap <silent> <leader>wrW <cmd>call utils#windows#windowChangeSize()<CR>
 let g:which_key_map.w.r.W = 'increase/shrink/set window width/height by input'
 
-nnoremap <silent> <leader>wm <cmd>call zoom#toggle()<CR>
-let g:which_key_map.w.m = 'maximize current window size'
-
-
 nnoremap <leader>w<Tab> :ChooseWinSwap<CR>
 let g:which_key_map.w['<Tab>'] = 'swap current window with window of selection'
 

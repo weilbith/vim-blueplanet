@@ -56,10 +56,6 @@ call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
       \ })
 
-call dein#add('dhruvasagar/vim-zoom', {
-      \ 'on_func': 'zoom#toggle'
-      \ })
-
 call dein#add('KabbAmine/vCoolor.vim', {
       \ 'name': 'vcoolor',
       \ 'on_cmd': ['VCoolor', 'VCoolIns']
