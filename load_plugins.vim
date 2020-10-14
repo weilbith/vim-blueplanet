@@ -140,11 +140,6 @@ call dein#add('rhysd/vim-grammarous', {
       \ 'on_cmd': 'GrammarousCheck'
       \ })
 
-call dein#add('tmhedberg/SimpylFold', {
-      \ 'name': 'simpyl_fold',
-      \ 'build': 'rm -rf plugin/'
-      \ })
-
 call dein#add('thinca/vim-quickrun', {
       \ 'on_cmd': ['QuickRun']
       \ })
