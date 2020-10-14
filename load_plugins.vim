@@ -118,11 +118,6 @@ call dein#add('cohama/agit.vim', {
       \ 'on_cmd': ['Agit', 'AgitFile']
       \ })
 
-call dein#add('weilbith/vim-rhubarb', {
-      \ 'depends': 'vim-fugitive',
-      \ 'on_ft': ['gitcommit']
-      \ })
-
 call dein#add('sodapopcan/vim-twiggy', {
       \ 'depends': 'vim-fugitive',
       \ 'on_cmd': 'Twiggy'
