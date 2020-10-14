@@ -56,11 +56,6 @@ call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
       \ })
 
-call dein#add('KabbAmine/vCoolor.vim', {
-      \ 'name': 'vcoolor',
-      \ 'on_cmd': ['VCoolor', 'VCoolIns']
-      \ })
-
 call dein#add('itchyny/lightline.vim', {
       \ 'on_event': 'VimEnter',
       \ 'depends': ['vim-fugitive', 'neomake', 'denite.nvim', 'vim-signify']
