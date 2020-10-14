@@ -176,10 +176,6 @@ call dein#add('weilbith/nvim-lsp-denite', {
       \ 'depends': 'denite.nvim'
       \ })
 
-call dein#add('weilbith/vim-quickname', {
-      \ 'on_cmd': ['QuicknameSave', 'QuicknameLoad', 'QuicknameRemove']
-      \ })
-
 call dein#add('Shougo/neoyank.vim', {
       \ 'depends': 'denite.nvim'
       \ })
@@ -194,7 +190,6 @@ call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-smag')
 " call dein#add('/home/thore/projects/vim-projects/vim-loche')
 " call dein#add('/home/thore/projects/vim-projects/vim-qfloc-tailor')
-" call dein#add('/home/thore/projects/vim-projects/vim-quickname')
 " call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
 
 " Add hooks for all plugins.

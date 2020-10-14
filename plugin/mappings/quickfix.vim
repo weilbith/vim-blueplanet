@@ -28,12 +28,3 @@ let g:which_key_map.q.b = 'open previous quickfix list'
 
 nnoremap <silent> <leader>qh <cmd>chistory<CR>
 let g:which_key_map.q.h = 'open quickfix list by history (opens selection window)'
-
-nnoremap <silent> <leader>qs <cmd>QuicknameSave<CR>
-let g:which_key_map.q.s = 'store current quickfix list with a name'
-
-nnoremap <silent> <leader>ql <cmd>QuicknameLoad<CR>
-let g:which_key_map.q.l = 'reload saved quickfix list (opens selection window)'
-
-nnoremap <silent> <leader>qr <cmd>QuicknameRemove<CR>
-let g:which_key_map.q.r = 'remove saved quickfix list (opens selection window)'

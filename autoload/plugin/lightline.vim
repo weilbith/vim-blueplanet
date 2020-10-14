@@ -162,7 +162,7 @@ function! plugin#lightline#mode() abort
           \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
           \ bufname('%') ==# '__vista__' ? 'Vista' :
           \ utils#location#is_location_window(win_getid()) ? 'Location List' :
-          \ &filetype ==# 'qf' ? ('Quickfix List ' . get(g:, 'quickname_current_list', '')) :
+          \ &filetype ==# 'qf' ? 'Quickfix List' :
           \ s:is_diff_window() ? s:get_diff_window_name() : ''
 
   elseif plugin#lightline#preview_window()
