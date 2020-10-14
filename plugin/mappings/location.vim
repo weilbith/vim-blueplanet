@@ -2,7 +2,7 @@ if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.l = { 'name': '+location list' }
 
 
-nnoremap <silent> <leader>ll <cmd>call utils#location#location_jump()<CR>
+nnoremap <silent> <leader>ll <cmd>Lopen<CR>
 let g:which_key_map.l.l = 'jump to location window (jump back if already inside)'
 
 nnoremap <silent> <leader>lc <cmd>lclose<CR>

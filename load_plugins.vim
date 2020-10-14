@@ -180,6 +180,10 @@ call dein#add('Shougo/neoyank.vim', {
       \ 'depends': 'denite.nvim'
       \ })
 
+call dein#add('weilbith/vim-qfloc-moves', {
+      \ 'on_cmd': ['Copen', 'Lopen', 'Wincmd']
+      \ })
+
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
 " call dein#add('/home/thore/projects/vim-projects/vim-yank-history')
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')

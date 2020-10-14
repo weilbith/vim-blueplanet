@@ -24,10 +24,10 @@ let g:which_key_map.w.z = 'close preview window'
 nnoremap <silent> <leader>ww :ChooseWin<CR>
 let g:which_key_map.w.w = 'jump to window via selection'
 
-nnoremap <silent> <leader>wh <cmd>call utils#windows#jump('h')<CR>
-nnoremap <silent> <leader>wj <cmd>call utils#windows#jump('j')<CR>
-nnoremap <silent> <leader>wk <cmd>call utils#windows#jump('k')<CR>
-nnoremap <silent> <leader>wl <cmd>call utils#windows#jump('l')<CR>
+nnoremap <silent> <leader>wh <cmd>Wincmd h<CR>
+nnoremap <silent> <leader>wj <cmd>Wincmd j<CR>
+nnoremap <silent> <leader>wk <cmd>Wincmd k<CR>
+nnoremap <silent> <leader>wl <cmd>Wincmd l<CR>
 let g:which_key_map.w.h = 'which_key_ignore'
 let g:which_key_map.w.j = 'which_key_ignore'
 let g:which_key_map.w.k = 'which_key_ignore'

@@ -2,7 +2,7 @@ if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.q = { 'name': '+quickfix list' }
 
 
-nnoremap <silent> <leader>qq <cmd>call utils#quickfix#quickfix_jump()<CR>
+nnoremap <silent> <leader>qq <cmd>Copen<CR>
 let g:which_key_map.q.q = 'jump to quickfix window (jump back if already inside)'
 
 nnoremap <silent> <leader>qc <cmd>cclose<CR>

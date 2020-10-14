@@ -1,22 +1,3 @@
-" Function to jump/open (to) the location window, if currently outside.
-" Jump back from the location window, if currently inside.
-"
-function! utils#location#location_jump() abort
-  " Jump back if current buffer in the window is the location or quickfix list.
-  if &filetype ==? 'qf'
-    wincmd p
-
-  " Check is a filled one exists.
-  elseif len(getloclist(0)) <= 0
-    call utils#messages#warning('Current location list is empty! Go back in history or fill a new one.')
-
-  " Jump to or open
-  else
-    execute 'lopen'
-  endif
-endfunction
-
-
 " Determine if the window with the given id shows the location list.
 "
 " Argumens:

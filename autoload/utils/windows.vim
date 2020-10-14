@@ -30,29 +30,6 @@ function! utils#windows#windowChangeSize() abort
 endfunction
 
 
-" Toggle a window between maximized and normal.
-" Use the Goyo plugin to maximize the window.
-" Functions restore the line position that has been used within the maximized window.
-"
-function! utils#windows#toggle_max_window() abort
-  " Maximize the window if its the first time, or if no window is currently maximized.
-  if !exists('s:window_maximized') || !s:window_maximized
-    let s:maximized_window_id = win_getid() " Store window, cause exiting maximized land in different window
-    let s:window_maximized = v:true
-    execute('Goyo')
-
-  " Minimize window, if any has been maximized before.
-  else
-    let s:window_maximized = v:false
-    let l:line = line('.') " Store line, cause exiting maximized window scroll to the top.
-    wincmd q
-    call win_gotoid(s:maximized_window_id)
-    execute(':' . l:line)
-
-  endif
-endfunction
-
-
 " Switch to a vertical or horizontal split between two windows.
 " Switching to currently used split results into the equal split.
 " This is between the current window and the one window which is focused, when close the active window.
@@ -102,20 +79,6 @@ function! utils#windows#switch_site_window(current) abort
     call add(s:site_window_stack, a:current)
   endif
 endfunction
-
-
-" Execute a window command to jump.
-" Repeat the motion if have landed in a location list window.
-"
-function! utils#windows#jump(command) abort
-  let l:win_command = 'wincmd ' . a:command
-  execute l:win_command
-
-  if utils#location#is_location_window(win_getid())
-    execute l:win_command
-  endif
-endfunction
-
 
 " Internal
 
