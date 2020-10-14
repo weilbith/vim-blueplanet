@@ -16,7 +16,7 @@ nnoremap <silent> <leader>ss <cmd>Denite grep<CR>
 let g:which_key_map.s.s = 'recursive search in project directory (opens Denite filter)'
 
 nnoremap <silent> <leader>sS <cmd>DeniteBufferDir grep<CR>
-let g:which_key_map.s.s = 'recursive search in from current buffer directory (opens Denite filter)'
+let g:which_key_map.s.S = 'recursive search in from current buffer directory (opens Denite filter)'
 
 nnoremap <silent> <leader>sr <cmd>Denite -resume -cursor-pos=+1<CR>
 let g:which_key_map.s.r = 'reload last Denite filter on next entry'
