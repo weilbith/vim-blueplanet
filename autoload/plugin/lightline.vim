@@ -209,54 +209,19 @@ function! plugin#lightline#git_branch() abort
 endfunction
 
 
-" Indicates how many lines have been added_count, adjusted and deleted.
-" Empty if not being in a git repository, a too narrow window,
-" a special window or the preview window.
-" The indicator for each stat is displayed only if it has a value above zero.
-" For small windows all stats are added to one number and the icons are mixed
-" up.
-" If nothing has been adjusted at all, a check mark shows the state.
-"
 function! plugin#lightline#git_changes() abort
+  let [ l:added_count, l:modified_count, l:deleted_count ] = sy#repo#get_stats()
+  let l:sum_of_changes = l:added_count + l:modified_count + l:deleted_count
+
   if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
-        \ empty(fugitive#head())
-
+        \ empty(fugitive#head()) ||
+        \ l:sum_of_changes <= 0
     return ''
-  endif
-
-  let [ l:added_count, l:modified_count, l:deleted_count ] = sy#repo#get_stats()
-  let [ l:added_icon, l:modified_icon, l:deleted_icon ] = split(',,', ',')
-
-  if l:added_count + l:modified_count + l:deleted_count > 0
-    if plugin#lightline#small_window()
-      let l:icons = ''
-      let l:count = 0
-
-      let l:icons .= l:added_count > 0 ? l:added_icon : ''
-      let l:count += l:added_count
-
-      let l:icons .= l:modified_count > 0 ? l:modified_icon : ''
-      let l:count += l:modified_count
-
-      let l:icons .= l:deleted_count > 0 ? l:deleted_icon : ''
-      let l:count += l:deleted_count
-
-      return l:icons . ' ' . l:count
-
-    else
-      return
-            \ (l:added_count > 0 ? l:added_icon . ' ' . l:added_count : '') .
-            \ (l:added_count > 0 && l:modified_count > 0 ? '  ' : '') .
-            \ (l:modified_count > 0 ? l:modified_icon . ' ' . l:modified_count : '') .
-            \ (l:modified_count > 0 && l:deleted_count > 0 ? '  ' : '') .
-            \ (l:deleted_count > 0 ? l:deleted_icon . ' ' . l:deleted_count : '')
-    endif
-
   else
-    return ''
+    return ' ' . l:sum_of_changes
   endif
 endfunction
 
