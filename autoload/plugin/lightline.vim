@@ -314,8 +314,8 @@ function! plugin#lightline#tags_status() abort
   if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
-        \ plugin#lightline#preview_window()
-
+        \ plugin#lightline#preview_window() ||
+        \ g:gutentags_enabled == 0
     return ''
   endif
 
