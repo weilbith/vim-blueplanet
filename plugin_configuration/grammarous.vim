@@ -1,3 +1,4 @@
+let g:grammarous#languagetool_cmd = 'languagetool'
 let g:grammarous#info_window_height = 10
 let g:grammarous#info_window_direction = 'botleft'
 let g:grammarous#use_vim_spelllang = 1
