@@ -45,12 +45,15 @@ call dein#add('weilbith/vim-localrc')
 call dein#add('haorenW1025/completion-nvim')
 call dein#add('SirVer/ultisnips')
 " call dein#add('weilbith/nvim-lsp-diamove')
-call dein#add('weilbith/nvim-lsp-bacomp')
+" call dein#add('weilbith/nvim-lsp-bacomp')
 call dein#add('weilbith/nvim-lsp-smag')
 call dein#add('weilbith/vim-loche')
 call dein#add('weilbith/vim-qfloc-tailor')
 call dein#add('haya14busa/vim-asterisk')
 call dein#add('nvim-treesitter/nvim-treesitter')
+call dein#add('nvim-treesitter/nvim-treesitter-textobjects')
+call dein#add('nvim-treesitter/nvim-treesitter-refactor')
+call dein#add('romgrk/nvim-treesitter-context')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -195,6 +198,7 @@ call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/vim-loche')
 " call dein#add('/home/thore/projects/vim-projects/vim-qfloc-tailor')
 " call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
+call dein#add('/home/thore/projects/vim-projects/nvim-lsp-dialoc')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', 'call plugin#dein#add_hook()')
