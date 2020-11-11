@@ -134,7 +134,6 @@ set autoread
 set hidden
 set report=0
 set lazyredraw
-set backspace=2
 set viewoptions=cursor,folds,slash,unix
 set pumheight=30
 set showtabline=2
