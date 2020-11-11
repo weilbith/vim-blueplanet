@@ -15,10 +15,10 @@ tnoremap <buffer> <Esc><Esc> <C-\><C-n>
 let b:undo_ftplugin .= '|tunmap <buffer> <Esc><Esc>'
 
 " Close terminal directly
-tnoremap <buffer> <C-q> <C-\><C-n>:close<CR>
+tnoremap <buffer> <C-q> <C-\><C-n>:FloatermKill<CR>
 let b:undo_ftplugin .= '|tunmap <buffer> <C-q>'
 
-nnoremap <C-q> :close<CR>
+nnoremap <C-q> :FloatermKill<CR>
 let b:undo_ftplugin .= '|nunmap <buffer> <C-q>'
 
 
