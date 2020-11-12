@@ -54,6 +54,7 @@ call dein#add('nvim-treesitter/nvim-treesitter')
 call dein#add('nvim-treesitter/nvim-treesitter-textobjects')
 call dein#add('nvim-treesitter/nvim-treesitter-refactor')
 call dein#add('romgrk/nvim-treesitter-context')
+call dein#add('unblevable/quick-scope')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
