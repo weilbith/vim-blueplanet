@@ -14,6 +14,9 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+  indent = {
+    enable = true
+  },
 }
 
 require'nvim-treesitter'.define_modules {
@@ -25,3 +28,7 @@ require'nvim-treesitter'.define_modules {
   }
 }
 EOF
+
+" TODO: only if parser gets attached (define-module not working)
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
