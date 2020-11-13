@@ -1,7 +1,6 @@
 let test#strategy = {
       \ 'nearest': 'floaterm',
       \ 'file': 'floaterm',
-      \ 'suite': 'asyncrun_background'
       \ }
 
 let test#enabled_runners = ['python#pytest', 'typescript#mocha', 'typescript#jest']

@@ -368,24 +368,14 @@ function! plugin#lightline#read_only() abort
 endfunction
 
 
-" Summarize the results of the linter checks.
-" Empty if window is too narrow, it is a special oner,
-" the preview window or all checks were positive.
-"
-function! plugin#lightline#linter_status() abort
-  if
-        \ plugin#lightline#tiny_window() ||
-        \ plugin#lightline#special_window() ||
-        \ plugin#lightline#preview_window()
+function! plugin#lightline#location_list() abort
+  let l:list_length = len(getloclist(0))
 
+  if l:list_length > 0
+    return '裸' . l:list_length
+  else
     return ''
   endif
-
-  let l:numbers = neomake#statusline#LoclistCounts()
-  let l:errors   = has_key(l:numbers, 'E') ? ' ' . l:numbers['E'] : ''
-  let l:warnings = has_key(l:numbers, 'W') ? ' ' . l:numbers['W'] : ''
-  let l:ignore   = has_key(l:numbers, 'x') ? ' ' . l:numbers['x'] : ''
-  return l:errors . ( l:errors && l:warnings ? '  ' : '' ) . l:warnings . ( l:warnings && l:ignore ? '  ' : '' ) . l:ignore
 endfunction
 
 
@@ -489,25 +479,6 @@ function! plugin#lightline#tab_name(count) abort
   let l:name = utils#tabs#get_name(a:count)
   let l:name = plugin#lightline#abbreviate(l:name, 20)
   return l:name
-endfunction
-
-
-" Show the status of the AsyncRun plugin.
-" Doesn't show anything if there was never a job.
-"
-function! plugin#lightline#asyncrun_status() abort
-  let l:async_status = get(g:, 'asyncrun_status', '')
-  let l:icon = ' '
-
-  if l:async_status ==# 'running'
-    return l:icon . '羽'
-  elseif l:async_status ==# 'success'
-    return l:icon . ''
-  elseif l:async_status ==# 'failure'
-    return l:icon . ''
-  else
-    return ''
-  endif
 endfunction
 
 

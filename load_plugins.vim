@@ -157,10 +157,6 @@ call dein#add('rhysd/git-messenger.vim', {
       \   'on_map' : '<Plug>(git-messenger',
       \ })
 
-call dein#add('skywind3000/asyncrun.vim', {
-      \ 'on_cmd': ['AsyncRun'],
-      \ })
-
 call dein#add('janko/vim-test', {
       \ 'on_cmd': ['TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit'],
       \ })

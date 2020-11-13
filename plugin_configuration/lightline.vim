@@ -32,14 +32,14 @@ let g:lightline.active = {}
 let g:lightline.active.left = [
       \   [ 'mode' ],
       \   [ 'git_branch', 'git_changes' ],
-      \   [ 'paste_enabled', 'diff_mode', 'file_name_active', 'tags_status', 'asyncrun_status', 'modified', 'read_only' ]
+      \   [ 'paste_enabled', 'diff_mode', 'file_name_active', 'tags_status', 'modified', 'read_only' ]
       \ ]
 
 let g:lightline.active.right = [
       \   [ 'position' ],
       \   [ 'spell' ],
       \   [ 'file_format', 'file_type', 'file_encoding'],
-      \   [ 'linter_status' ]
+      \   [ 'location_list' ]
       \ ]
 
 """ Inactive
@@ -78,7 +78,7 @@ let g:lightline.component_expand.paste_enabled = 'plugin#lightline#paste_enabled
 let g:lightline.component_expand.diff_mode     = 'plugin#lightline#diff_mode'
 let g:lightline.component_expand.modified      = 'plugin#lightline#modified'
 let g:lightline.component_expand.read_only     = 'plugin#lightline#read_only'
-let g:lightline.component_expand.linter_status = 'plugin#lightline#linter_status'
+let g:lightline.component_expand.location_list = 'plugin#lightline#location_list'
 let g:lightline.component_expand.buffers       = 'lightline#bufferline#buffers'
 
 "" Function Components
@@ -95,7 +95,6 @@ let g:lightline.component_function.file_type          = 'plugin#lightline#file_t
 let g:lightline.component_function.file_encoding      = 'plugin#lightline#file_encoding'
 let g:lightline.component_function.spell              = 'plugin#lightline#spell'
 let g:lightline.component_function.position           = 'plugin#lightline#position'
-let g:lightline.component_function.asyncrun_status    = 'plugin#lightline#asyncrun_status'
 
 let g:lightline.tab_component_function = {}
 let g:lightline.tab_component_function.tab_name = 'plugin#lightline#tab_name'
@@ -107,7 +106,7 @@ let g:lightline.component_type.paste_enabled = 'hint'
 let g:lightline.component_type.diff_mode     = 'hint'
 let g:lightline.component_type.modified      = 'hint'
 let g:lightline.component_type.read_only     = 'warning'
-let g:lightline.component_type.linter_status = 'warning'
+let g:lightline.component_type.location_list = 'warning'
 let g:lightline.component_type.buffers       = 'tabsel'
 
 """ Conditions
@@ -124,4 +123,3 @@ let g:lightline.component_visible_condition.file_type          = '!empty(plugin#
 let g:lightline.component_visible_condition.file_encoding      = '!empty(plugin#lightline#file_encoding)'
 let g:lightline.component_visible_condition.spell              = '!empty(plugin#lightline#spell)'
 let g:lightline.component_visible_condition.position           = '!empty(plugin#lightline#position)'
-let g:lightline.component_visible_condition.asyncrun_status    = '!empty(plugin#lightline#asyncrun_status)'
