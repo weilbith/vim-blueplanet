@@ -106,7 +106,7 @@ let g:lightline.component_type.paste_enabled = 'hint'
 let g:lightline.component_type.diff_mode     = 'hint'
 let g:lightline.component_type.modified      = 'hint'
 let g:lightline.component_type.read_only     = 'warning'
-let g:lightline.component_type.location_list = 'warning'
+let g:lightline.component_type.location_list = 'hint'
 let g:lightline.component_type.buffers       = 'tabsel'
 
 """ Conditions

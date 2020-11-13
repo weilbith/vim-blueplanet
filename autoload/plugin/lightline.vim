@@ -369,10 +369,8 @@ endfunction
 
 
 function! plugin#lightline#location_list() abort
-  let l:list_length = len(getloclist(0))
-
-  if l:list_length > 0
-    return '裸' . l:list_length
+  if len(getloclist(0)) > 0
+    return ' 裸'
   else
     return ''
   endif
