@@ -68,7 +68,7 @@ highlight TabLine       ctermbg=NONE ctermfg=NONE
 
 highlight Cursor        ctermbg=9    ctermfg=15
 highlight CursorColumn  ctermbg=9    ctermfg=15
-highlight CursorLine    ctermbg=240  ctermfg=NONE
+highlight CursorLine    ctermbg=240  ctermfg=NONE cterm=NONE
 highlight CursorLineNr  ctermbg=238  ctermfg=249
 
 highlight helpLeadBlank ctermbg=NONE ctermfg=NONE
@@ -114,9 +114,13 @@ highlight previewWord   ctermbg=191  ctermfg=0
 highlight previewLine   ctermbg=197  ctermfg=0
 
 highlight LspDiagnosticsDefaultError        ctermfg=197
+highlight LspDiagnosticsSignError           ctermfg=197 ctermbg=233
 highlight LspDiagnosticsDefaultWarning      ctermfg=166
+highlight LspDiagnosticsSignWarning         ctermfg=166 ctermbg=233
 highlight LspDiagnosticsDefaultInformation  ctermfg=191
+highlight LspDiagnosticsSignInformation     ctermfg=191 ctermbg=233
 highlight LspDiagnosticsDefaultHint         ctermfg=191
+highlight LspDiagnosticsSignHint            ctermfg=191 ctermbg=233
 
 highlight LspReferenceText  ctermfg=191 cterm=underline
 highlight LspReferenceRead  ctermfg=191 cterm=underline

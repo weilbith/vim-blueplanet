@@ -94,10 +94,17 @@ local function avoid_nvim_lsp_plugin_issues()
     vim.api.nvim_command("sleep 100m")
 end
 
-return {
-    check_if_rename_leaves_workspace_inconsistent = check_if_rename_leaves_workspace_inconsistent,
-    attempt_to_clean_workspace = attempt_to_clean_workspace,
-    save_buffers_affected_by_rename = save_buffers_affected_by_rename,
-    avoid_nvim_lsp_plugin_issues = avoid_nvim_lsp_plugin_issues,
-    wipe_buffers_loaded_for_rename = wipe_buffers_loaded_for_rename
-}
+return function(_, _, result)
+    local original_buffer_list = api.nvim_list_bufs()
+
+    if check_if_rename_leaves_workspace_inconsistent(result) then
+        attempt_to_clean_workspace(original_buffer_list, result)
+        return
+    end
+
+    lsp.utils.util.apply_workspace_edit(result)
+    save_buffers_affected_by_rename(result)
+    avoid_nvim_lsp_plugin_issues()
+    wipe_buffers_loaded_for_rename(original_buffer_list, result)
+    print("Rename done. All buffers saved and eventually removed again.")
+end
