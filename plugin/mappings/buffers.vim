@@ -6,7 +6,7 @@ call submode#enter_with('BufferSwitch', 'n', 's', '<space>bn', ':bnext<Cr>')
 let g:which_key_map.b.n = 'next buffer (enter BufferSwitch submode)'
 
 call submode#enter_with('BufferSwitch', 'n', 's', '<space>bN', ':bprevious<Cr>')
-let g:which_key_map.b.p = 'previous buffer (enter BufferSwitch submode)'
+let g:which_key_map.b.N = 'previous buffer (enter BufferSwitch submode)'
 
 call submode#map('BufferSwitch', 'n', 's', 'n', ':bnext<Cr>')
 call submode#map('BufferSwitch', 'n', 's', 'N', ':bprevious<Cr>')

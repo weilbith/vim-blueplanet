@@ -1,14 +1,14 @@
 scriptencoding utf-8
 
 " Move lines/selection and auto indent
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
+nnoremap <C-j> :move .+1<CR>==
+nnoremap <C-k> :move .-2<CR>==
 
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
+inoremap <C-j> <Esc>:move .+1<CR>==gi
+inoremap <C-k> <Esc>:move .-2<CR>==gi
 
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+vnoremap <C-j> :move '>+1<CR>gv=gv
+vnoremap <C-k> :move '<-2<CR>gv=gv
 
 
 " Indent visual selection multiple times.
