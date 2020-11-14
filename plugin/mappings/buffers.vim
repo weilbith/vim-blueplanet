@@ -2,14 +2,14 @@ if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.b = { 'name': '+buffer' }
 
 
-call submode#enter_with('BufferSwitch', 'n', 's', '<space>bn', ':bnext<Cr>')
+call submode#enter_with('BufferSwitch', 'n', 's', '<space>bn', '<cmd>bnext<CR>')
 let g:which_key_map.b.n = 'next buffer (enter BufferSwitch submode)'
 
-call submode#enter_with('BufferSwitch', 'n', 's', '<space>bN', ':bprevious<Cr>')
+call submode#enter_with('BufferSwitch', 'n', 's', '<space>bN', '<cmd>bprevious<CR>')
 let g:which_key_map.b.N = 'previous buffer (enter BufferSwitch submode)'
 
-call submode#map('BufferSwitch', 'n', 's', 'n', ':bnext<Cr>')
-call submode#map('BufferSwitch', 'n', 's', 'N', ':bprevious<Cr>')
+call submode#map('BufferSwitch', 'n', 's', 'n', '<cmd>bnext<CR>')
+call submode#map('BufferSwitch', 'n', 's', 'N', '<cmd>bprevious<CR>')
 
 nnoremap <silent> <leader>bd <cmd>call utils#buffers#delete_buffer(v:true, v:false)<CR>
 let g:which_key_map.b.d = 'close buffer and safe (keeps window open)'

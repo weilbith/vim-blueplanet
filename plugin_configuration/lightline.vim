@@ -38,8 +38,7 @@ let g:lightline.active.left = [
 let g:lightline.active.right = [
       \   [ 'position' ],
       \   [ 'spell' ],
-      \   [ 'file_format', 'file_type', 'file_encoding'],
-      \   [ 'location_list' ]
+      \   [ 'file_format', 'file_type', 'file_encoding', 'diagnostics'],
       \ ]
 
 """ Inactive
@@ -77,7 +76,7 @@ let g:lightline.component_expand = {}
 let g:lightline.component_expand.diff_mode     = 'plugin#lightline#diff_mode'
 let g:lightline.component_expand.modified      = 'plugin#lightline#modified'
 let g:lightline.component_expand.read_only     = 'plugin#lightline#read_only'
-let g:lightline.component_expand.location_list = 'plugin#lightline#location_list'
+let g:lightline.component_expand.diagnostics   = 'plugin#lightline#diagnostics'
 let g:lightline.component_expand.buffers       = 'lightline#bufferline#buffers'
 
 "" Function Components
@@ -106,7 +105,7 @@ let g:lightline.component_type.diff_mode     = 'hint'
 let g:lightline.component_type.modified      = 'hint'
 let g:lightline.component_type.read_only     = 'warning'
 let g:lightline.component_type.tags_status   = 'hint'
-let g:lightline.component_type.location_list = 'hint'
+let g:lightline.component_type.diagnostics   = 'warning'
 let g:lightline.component_type.buffers       = 'tabsel'
 
 """ Conditions
@@ -119,6 +118,7 @@ let g:lightline.component_visible_condition.file_name_active   = '!empty(plugin#
 let g:lightline.component_visible_condition.file_name_inactive = '!empty(plugin#lightline#file_name_inactive)'
 let g:lightline.component_visible_condition.tags_status        = '!empty(plugin#lightline#tags_status)'
 let g:lightline.component_visible_condition.treesitter         = '!empty(plugin#lightline#treesitter)'
+let g:lightline.component_visible_condition.diagnostics        = '!empty(plugin#lightline#diagnostics)'
 let g:lightline.component_visible_condition.file_format        = '!empty(plugin#lightline#file_format)'
 let g:lightline.component_visible_condition.file_type          = '!empty(plugin#lightline#file_type)'
 let g:lightline.component_visible_condition.file_encoding      = '!empty(plugin#lightline#file_encoding)'

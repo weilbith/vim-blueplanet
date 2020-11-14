@@ -334,13 +334,6 @@ function! plugin#lightline#read_only() abort
 endfunction
 
 function! plugin#lightline#treesitter() abort
-  if
-        \ plugin#lightline#tiny_window() ||
-        \ plugin#lightline#special_window() ||
-        \ plugin#lightline#preview_window()
-    return ''
-  endif
-
   let l:location = nvim_treesitter#statusline()
 
   if l:location ==# 'null'
@@ -354,6 +347,14 @@ function! plugin#lightline#treesitter() abort
   endif
 
   return ' ' . l:location
+endfunction
+
+function! plugin#lightline#diagnostics() abort
+  let l:error_count = luaeval('vim.lsp.diagnostic.get_count(0, "Error")')
+  let l:warning_count = luaeval('vim.lsp.diagnostic.get_count(0, "Warning")')
+  let l:absolute_count = l:error_count + l:warning_count
+
+  return l:absolute_count > 0 ? l:absolute_count . ' ' : ''
 endfunction
 
 
