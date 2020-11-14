@@ -341,17 +341,19 @@ function! plugin#lightline#treesitter() abort
     return ''
   endif
 
-  let l:length = plugin#lightline#small_window() ? 20 : plugin#lightline#medium_window() ? 50 : 80
-  return ' ' . nvim_treesitter#statusline(l:length)
-endfunction
+  let l:location = nvim_treesitter#statusline()
 
-
-function! plugin#lightline#location_list() abort
-  if len(getloclist(0)) > 0
-    return ' 裸'
-  else
+  if l:location ==# 'null'
     return ''
   endif
+
+  let l:length = plugin#lightline#small_window() ? 20 : plugin#lightline#medium_window() ? 50 : 80
+
+  if strlen(l:location) > l:length
+    let l:location = l:location[:l:length -2] . ' '
+  endif
+
+  return ' ' . l:location
 endfunction
 
 
