@@ -13,14 +13,14 @@ let g:lightline.tabline_subseparator = { 'left': '', 'right': '' }
 
 " Mode Map
 let g:lightline.mode_map = {}
-let g:lightline.mode_map['n']      = 'Normal'
-let g:lightline.mode_map['i']      = 'Insert'
-let g:lightline.mode_map['R']      = 'Replace'
-let g:lightline.mode_map['v']      = 'Visual'
-let g:lightline.mode_map['V']      = 'V-Line'
-let g:lightline.mode_map['\<C-v>'] = 'V-Block'
+let g:lightline.mode_map['n']      = '  '
+let g:lightline.mode_map['i']      = '  '
+let g:lightline.mode_map['R']      = '  '
+let g:lightline.mode_map['v']      = '  '
+let g:lightline.mode_map['V']      = '  '
+let g:lightline.mode_map['\<C-v>'] = '  '
 let g:lightline.mode_map['c']      = 'Command'
-let g:lightline.mode_map['s']      = 'Select'
+let g:lightline.mode_map['s']      = '  '
 let g:lightline.mode_map['S']      = 'S-Line'
 let g:lightline.mode_map['\<C-s>'] = 'S-Block'
 let g:lightline.mode_map['t']      = 'Terminal'
@@ -32,7 +32,7 @@ let g:lightline.active = {}
 let g:lightline.active.left = [
       \   [ 'mode' ],
       \   [ 'git_branch', 'git_changes' ],
-      \   [ 'paste_enabled', 'diff_mode', 'file_name_active', 'tags_status', 'modified', 'read_only' ]
+      \   [ 'diff_mode', 'file_name_active', 'tags_status', 'modified', 'read_only' ]
       \ ]
 
 let g:lightline.active.right = [
@@ -45,7 +45,7 @@ let g:lightline.active.right = [
 """ Inactive
 let g:lightline.inactive = {}
 let g:lightline.inactive.left  = [ [ 'window_number', 'diff_mode', 'file_name_inactive' ] ]
-let g:lightline.inactive.right = [ [ 'file_format', 'file_type', 'file_encoding', 'position' ] ]
+let g:lightline.inactive.right = [ ]
 
 
 "" Tab Line
@@ -74,7 +74,6 @@ let g:lightline.tab.inactive = g:lightline.tab.active
 
 """ Expand Components
 let g:lightline.component_expand = {}
-let g:lightline.component_expand.paste_enabled = 'plugin#lightline#paste_enabled'
 let g:lightline.component_expand.diff_mode     = 'plugin#lightline#diff_mode'
 let g:lightline.component_expand.modified      = 'plugin#lightline#modified'
 let g:lightline.component_expand.read_only     = 'plugin#lightline#read_only'
@@ -102,10 +101,10 @@ let g:lightline.tab_component_function.tab_name = 'plugin#lightline#tab_name'
 
 """ Type
 let g:lightline.component_type = {}
-let g:lightline.component_type.paste_enabled = 'hint'
 let g:lightline.component_type.diff_mode     = 'hint'
 let g:lightline.component_type.modified      = 'hint'
 let g:lightline.component_type.read_only     = 'warning'
+let g:lightline.component_type.tags_status   = 'hint'
 let g:lightline.component_type.location_list = 'hint'
 let g:lightline.component_type.buffers       = 'tabsel'
 

@@ -226,24 +226,6 @@ function! plugin#lightline#git_changes() abort
 endfunction
 
 
-" Indicate if the paste mode is enabled.
-" Empty if window is too narrow, it is a special one,
-" the preview window or the paste mode is disabled.
-"
-function! plugin#lightline#paste_enabled() abort
-  if
-        \ plugin#lightline#tiny_window() ||
-        \ plugin#lightline#special_window() ||
-        \ plugin#lightline#preview_window() ||
-        \ !&paste
-
-    return ''
-  endif
-
-  return ''
-endfunction
-
-
 " Indicate if the window is in diff-mode.
 " Empty if window is too narrow, it is a special one,
 " the preview window or no diff mode is disabled.
@@ -304,32 +286,16 @@ function! plugin#lightline#file_name_inactive() abort
 endfunction
 
 
-" Shows the status of the tag generation.
-" Moreover the tag for the current cursor position is displayed if any.
-" Empty if window is too narrow, it is a special one
-" or the preview window.
-" Reduces to the icon only, if the window is small.
-"
 function! plugin#lightline#tags_status() abort
   if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
-        \ g:gutentags_enabled == 0
+        \ g:gutentags_enabled != 1
     return ''
   endif
 
-  let l:condition = !plugin#lightline#medium_window()
-  let l:text      = get(b:, 'vista_nearest_method_or_function', '')
-  let l:icon      = ' ' . (!empty(gutentags#statusline('a')) ? '羽' : '')
-
-
-  " Short the file name for small windows if a threshold is exceeded.
-  if plugin#lightline#medium_window()
-    let l:text = plugin#lightline#abbreviate(l:text, 25)
-  endif
-
-  return l:icon . (l:condition ? ' ' . l:text : '')
+  return !empty(gutentags#statusline('a')) ? ' 羽' : ''
 endfunction
 
 
@@ -377,10 +343,6 @@ function! plugin#lightline#location_list() abort
 endfunction
 
 
-" Indicate the set file format with an additional icon.
-" Empty if window is too narrow or it is a special one.
-" Reduces to the icon only, if the window is small.
-"
 function! plugin#lightline#file_format() abort
   if
         \ plugin#lightline#tiny_window() ||
@@ -389,18 +351,10 @@ function! plugin#lightline#file_format() abort
     return ''
   endif
 
-  let l:condition = !plugin#lightline#medium_window()
-  let l:text      = &fileformat
-  let l:icon      = WebDevIconsGetFileFormatSymbol()
-
-  return (l:condition ? l:text . ' ' : '') . l:icon
+  return WebDevIconsGetFileFormatSymbol()
 endfunction
 
 
-" Indicate the files type with an additional icon.
-" Empty if window is too narrow or it is a special one.
-" Reduces to the icon only, if the window is small.
-"
 function! plugin#lightline#file_type() abort
   if
         \ plugin#lightline#tiny_window() ||
@@ -409,11 +363,7 @@ function! plugin#lightline#file_type() abort
     return ''
   endif
 
-  let l:condition = !plugin#lightline#medium_window()
-  let l:text      = &filetype
-  let l:icon      = WebDevIconsGetFileTypeSymbol()
-
-  return (l:condition ? l:text . ' ' : '') . l:icon
+  return WebDevIconsGetFileTypeSymbol()
 endfunction
 
 
@@ -445,8 +395,8 @@ function! plugin#lightline#spell() abort
   endif
 
   let l:condition = !plugin#lightline#medium_window()
-  let l:text      = $spelllang
-  let l:icon      = '﬜' . (&spell ? ' ' : ' ')
+  let l:text      = &spelllang
+  let l:icon      = &spell ? '' : ''
 
   return (l:condition ? l:text . ' ' : '') . l:icon
 endfunction
