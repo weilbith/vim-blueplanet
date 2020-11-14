@@ -263,7 +263,7 @@ function! plugin#lightline#file_name_active() abort
     endif
 
   else
-    return plugin#lightline#fancy_file_path()
+    return ' ' . plugin#lightline#fancy_file_path()
   endif
 endfunction
 
@@ -331,6 +331,18 @@ function! plugin#lightline#read_only() abort
   endif
 
   return ''
+endfunction
+
+function! plugin#lightline#treesitter() abort
+  if
+        \ plugin#lightline#tiny_window() ||
+        \ plugin#lightline#special_window() ||
+        \ plugin#lightline#preview_window()
+    return ''
+  endif
+
+  let l:length = plugin#lightline#small_window() ? 20 : plugin#lightline#medium_window() ? 50 : 80
+  return ' ' . nvim_treesitter#statusline(l:length)
 endfunction
 
 

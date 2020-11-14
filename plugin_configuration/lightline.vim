@@ -32,7 +32,7 @@ let g:lightline.active = {}
 let g:lightline.active.left = [
       \   [ 'mode' ],
       \   [ 'git_branch', 'git_changes' ],
-      \   [ 'diff_mode', 'file_name_active', 'tags_status', 'modified', 'read_only' ]
+      \   [ 'diff_mode', 'file_name_active', 'treesitter', 'tags_status', 'modified', 'read_only' ],
       \ ]
 
 let g:lightline.active.right = [
@@ -89,6 +89,7 @@ let g:lightline.component_function.git_changes        = 'plugin#lightline#git_ch
 let g:lightline.component_function.file_name_active   = 'plugin#lightline#file_name_active'
 let g:lightline.component_function.file_name_inactive = 'plugin#lightline#file_name_inactive'
 let g:lightline.component_function.tags_status        = 'plugin#lightline#tags_status'
+let g:lightline.component_function.treesitter         = 'plugin#lightline#treesitter'
 let g:lightline.component_function.file_format        = 'plugin#lightline#file_format'
 let g:lightline.component_function.file_type          = 'plugin#lightline#file_type'
 let g:lightline.component_function.file_encoding      = 'plugin#lightline#file_encoding'
@@ -117,6 +118,7 @@ let g:lightline.component_visible_condition.git_changes        = '!empty(plugin#
 let g:lightline.component_visible_condition.file_name_active   = '!empty(plugin#lightline#file_name_active)'
 let g:lightline.component_visible_condition.file_name_inactive = '!empty(plugin#lightline#file_name_inactive)'
 let g:lightline.component_visible_condition.tags_status        = '!empty(plugin#lightline#tags_status)'
+let g:lightline.component_visible_condition.treesitter         = '!empty(plugin#lightline#treesitter)'
 let g:lightline.component_visible_condition.file_format        = '!empty(plugin#lightline#file_format)'
 let g:lightline.component_visible_condition.file_type          = '!empty(plugin#lightline#file_type)'
 let g:lightline.component_visible_condition.file_encoding      = '!empty(plugin#lightline#file_encoding)'
