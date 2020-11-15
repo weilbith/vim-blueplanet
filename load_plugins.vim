@@ -80,6 +80,11 @@ call dein#add('Yggdroot/indentLine', {
       \ 'name': 'indent_line'
       \ })
 
+" call dein#add('kyazdani42/nvim-tree.lua', {
+"       \ 'on_cmd': ['LuaTreeOpen', 'LuaTreeClose', 'LuaTreeToggle', 'LuaTreeFindFile'],
+"       \ 'depends': ['nvim-web-devicons'],
+"       \ })
+
 call dein#add('scrooloose/nerdtree', {
       \ 'on_cmd': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
       \ })
@@ -96,10 +101,6 @@ call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
 
 call dein#add('weilbith/nerdtree_choosewin-plugin', {
       \ 'on_source': 'nerdtree'
-      \ })
-
-call dein#add('kien/tabman.vim', {
-      \ 'on_cmd': ['TMToggle', 'TMFocus']
       \ })
 
 call dein#add('mbbill/undotree', {

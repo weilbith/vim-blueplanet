@@ -29,11 +29,6 @@ let g:layout_fixed_windows = [
       \     'height': 100
       \   },
       \   {
-      \     'buffer_name': 'TabManager',
-      \     'position': 'H',
-      \     'width': get(g:, 'tabman_width', s:standard_width)
-      \   },
-      \   {
       \     'filetype': 'twiggy',
       \     'position': 'H',
       \     'width': get(g:, 'twiggy_num_columns', s:standard_width)

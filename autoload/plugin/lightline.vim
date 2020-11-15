@@ -44,7 +44,6 @@ function! plugin#lightline#special_window() abort
   return
           \ &filetype ==# 'nerdtree' ||
           \ &filetype ==# 'undotree' ||
-          \ &filetype ==# 'tabman' ||
           \ &filetype ==# 'twiggy' ||
           \ &filetype ==# 'help' ||
           \ &filetype ==# 'gitcommit' ||
@@ -147,7 +146,6 @@ function! plugin#lightline#mode() abort
     return
           \ &filetype ==# 'nerdtree' ? 'NERDTree' :
           \ &filetype ==# 'undotree' ? 'UndoTree' :
-          \ &filetype ==# 'tabman' ? 'TabMan':
           \ &filetype ==# 'twiggy' ? 'Twiggy':
           \ &filetype ==# 'help' ? 'Help' :
           \ &filetype ==# 'gitcommit' ? 'Git Commit' :
