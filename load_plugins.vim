@@ -60,11 +60,7 @@ call dein#add('glacambre/firenvim', {
 
 call dein#add('itchyny/lightline.vim', {
       \ 'on_event': 'VimEnter',
-      \ 'depends': ['vim-fugitive', 'neomake', 'denite.nvim', 'vim-signify']
-      \ })
-
-call dein#add('mengelbrecht/lightline-bufferline', {
-      \ 'depends': 'lightline.vim'
+      \ 'depends': ['vim-fugitive', 'vim-signify']
       \ })
 
 call dein#add('Raimondi/delimitMate', {

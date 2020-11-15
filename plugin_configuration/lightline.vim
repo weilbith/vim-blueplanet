@@ -2,14 +2,12 @@ scriptencoding utf-8
 
 let g:lightline = {}
 
-let g:lightline.enable = { 'statusline': 1, 'tabline': 1 }
+let g:lightline.enable = { 'statusline': 1 }
 
 " Style
 let g:lightline.colorscheme          = 'blue_planet'
 let g:lightline.separator            = { 'left': '', 'right': '' }
 let g:lightline.subseparator         = { 'left': '', 'right': '' }
-let g:lightline.tabline_separator    = { 'left': '', 'right': '' }
-let g:lightline.tabline_subseparator = { 'left': '', 'right': '' }
 
 " Mode Map
 let g:lightline.mode_map = {}
@@ -47,11 +45,6 @@ let g:lightline.inactive.left  = [ [ 'window_number', 'diff_mode', 'file_name_in
 let g:lightline.inactive.right = [ ]
 
 
-"" Tab Line
-let g:lightline.tabline = {}
-let g:lightline.tabline.left  = [ [ 'buffers' ] ]
-let g:lightline.tabline.right = [ [ 'tabs' ] ]
-
 """ Buffer
 let g:lightline#bufferline#modified          = ' '
 let g:lightline#bufferline#read_only         = ' '
@@ -61,12 +54,6 @@ let g:lightline#bufferline#shorten_path      = 1
 let g:lightline#bufferline#show_number       = 2
 let g:lightline#bufferline#enable_devicons   = 1
 let g:lightline#bufferline#number_map        = plugin#lightline#number_map
-
-""" Tab
-let g:lightline.tab = {}
-let g:lightline.tab.active   = [ 'tabnum', 'tab_name' ]
-let g:lightline.tab.inactive = g:lightline.tab.active
-
 
 " Segment Definitions
 """ Components
@@ -95,9 +82,6 @@ let g:lightline.component_function.file_encoding      = 'plugin#lightline#file_e
 let g:lightline.component_function.spell              = 'plugin#lightline#spell'
 let g:lightline.component_function.position           = 'plugin#lightline#position'
 
-let g:lightline.tab_component_function = {}
-let g:lightline.tab_component_function.tab_name = 'plugin#lightline#tab_name'
-
 
 """ Type
 let g:lightline.component_type = {}
@@ -106,7 +90,6 @@ let g:lightline.component_type.modified      = 'hint'
 let g:lightline.component_type.read_only     = 'warning'
 let g:lightline.component_type.tags_status   = 'hint'
 let g:lightline.component_type.diagnostics   = 'warning'
-let g:lightline.component_type.buffers       = 'tabsel'
 
 """ Conditions
 let g:lightline.component_visible_condition = {}
