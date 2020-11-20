@@ -83,53 +83,53 @@ syn match i3Color1st "#[0-9a-fA-F]\{6\}" contained nextgroup=i3Color2nd skipwhit
 syn match i3ColorDef1 "client\.background\|statusline\|background\|separator\|statusline" nextgroup=i3ColorLast skipwhite
 syn match i3ColorDef3 "client\.\(focused_inactive\|focused\|unfocused\|urgent\)\|inactive_workspace\|urgent_workspace\|focused_workspace\|active_workspace" nextgroup=i3Color1st skipwhite
 
-highlight link i3ChainDelimiter       Operator
-highlight link i3Operators            Operator
+highlight! link i3ChainDelimiter       Operator
+highlight! link i3Operators            Operator
 
-highlight link i3ExecCommand          Special
-highlight link i3QuotedExecCommand    Special
-highlight link i3StatusCommand        Special
+highlight! link i3ExecCommand          Special
+highlight! link i3QuotedExecCommand    Special
+highlight! link i3StatusCommand        Special
 
-highlight link i3Param                Constant
-highlight link i3PseudoParam          Constant
-highlight link i3DashedParam          Constant
-highlight link i3NoStartupId          Constant
-highlight link i3Color1st             Constant
-highlight link i3Color2nd             Constant
-highlight link i3ColorLast            Constant
-highlight link i3WsSpecialParam       Constant
-highlight link i3BordersSpecialParam  Constant
-highlight link i3ModeParam            Constant
-highlight link i3GapsParam            Constant
+highlight! link i3Param                Constant
+highlight! link i3PseudoParam          Constant
+highlight! link i3DashedParam          Constant
+highlight! link i3NoStartupId          Constant
+highlight! link i3Color1st             Constant
+highlight! link i3Color2nd             Constant
+highlight! link i3ColorLast            Constant
+highlight! link i3WsSpecialParam       Constant
+highlight! link i3BordersSpecialParam  Constant
+highlight! link i3ModeParam            Constant
+highlight! link i3GapsParam            Constant
 
-highlight link i3Var                  Identifier
-highlight link i3SetVar               Identifier
+highlight! link i3Var                  Identifier
+highlight! link i3SetVar               Identifier
 
-highlight link i3KeyModifier          Function
+highlight! link i3KeyModifier          Function
 
-highlight link i3SimpleString         String
-highlight link i3QuotedString         String
-highlight link i3WsName               String
-highlight link i3QuotedWsName         String
-highlight link i3SetValue             String
-highlight link i3Font                 String
+highlight! link i3SimpleString         String
+highlight! link i3QuotedString         String
+highlight! link i3WsName               String
+highlight! link i3QuotedWsName         String
+highlight! link i3SetValue             String
+highlight! link i3Font                 String
 
-highlight link i3ExecKeyword          Keyword
-highlight link i3Command              Keyword
-highlight link i3WsKeyword            Keyword
-highlight link i3GapsCommand          Keyword
+highlight! link i3ExecKeyword          Keyword
+highlight! link i3Command              Keyword
+highlight! link i3WsKeyword            Keyword
+highlight! link i3GapsCommand          Keyword
 
-highlight link i3ColorDef1            Define
-highlight link i3ColorDef3            Define
-highlight link i3ConfigCommand        Define
-highlight link i3IpcSocket            Define
-highlight link i3SetKeyword           Define
-highlight link i3ModeKeyword          Define
-highlight link i3FontStatement        Define
-highlight link i3SeparatorSymbol      Define
-highlight link i3StatusCommandKeyword Define
-highlight link i3BordersConfigCommand Define
+highlight! link i3ColorDef1            Define
+highlight! link i3ColorDef3            Define
+highlight! link i3ConfigCommand        Define
+highlight! link i3IpcSocket            Define
+highlight! link i3SetKeyword           Define
+highlight! link i3ModeKeyword          Define
+highlight! link i3FontStatement        Define
+highlight! link i3SeparatorSymbol      Define
+highlight! link i3StatusCommandKeyword Define
+highlight! link i3BordersConfigCommand Define
 
-highlight link i3Todo                 Todo
-highlight link i3Comment              Comment
-highlight link i3Error                Error
+highlight! link i3Todo                 Todo
+highlight! link i3Comment              Comment
+highlight! link i3Error                Error

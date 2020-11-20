@@ -5,26 +5,25 @@ let g:startify_list_order = [
             \ ['Bookmarks:'], 'bookmarks']
 
 let g:startify_custom_header = [
-      \ ' /$$$$$$$  /$$                           /$$$$$$$  /$$                                 /$$    ',
-      \ '| $$__  $$| $$                          | $$__  $$| $$                                | $$    ',
-      \ '| $$  \ $$| $$ /$$   /$$  /$$$$$$       | $$  \ $$| $$  /$$$$$$  /$$$$$$$   /$$$$$$  /$$$$$$  ',
-      \ '| $$$$$$$ | $$| $$  | $$ /$$__  $$      | $$$$$$$/| $$ |____  $$| $$__  $$ /$$__  $$|_  $$_/  ',
-      \ '| $$__  $$| $$| $$  | $$| $$$$$$$$      | $$____/ | $$  /$$$$$$$| $$  \ $$| $$$$$$$$  | $$    ',
-      \ '| $$  \ $$| $$| $$  | $$| $$_____/      | $$      | $$ /$$__  $$| $$  | $$| $$_____/  | $$ /$$',
-      \ '| $$$$$$$/| $$|  $$$$$$/|  $$$$$$$      | $$      | $$|  $$$$$$$| $$  | $$|  $$$$$$$  |  $$$$/',
-      \ '|_______/ |__/ \______/  \_______/      |__/      |__/ \_______/|__/  |__/ \_______/   \___/  ']
+      \ '     /$$   /$$                     /$$    /$$ /$$              ',
+      \ '    | $$$ | $$                    | $$   | $$|__/              ',
+      \ '    | $$$$| $$  /$$$$$$   /$$$$$$ | $$   | $$ /$$ /$$$$$$/$$$$ ',
+      \ '    | $$ $$ $$ /$$__  $$ /$$__  $$|  $$ / $$/| $$| $$_  $$_  $$',
+      \ '    | $$  $$$$| $$$$$$$$| $$  \ $$ \  $$ $$/ | $$| $$ \ $$ \ $$',
+      \ '    | $$\  $$$| $$_____/| $$  | $$  \  $$$/  | $$| $$ | $$ | $$',
+      \ '    | $$ \  $$|  $$$$$$$|  $$$$$$/   \  $/   | $$| $$ | $$ | $$',
+      \ '    |__/  \__/ \_______/ \______/     \_/    |__/|__/ |__/ |__/',
+      \ ]
 
 
-" Colors
-highlight StartifyHeader  ctermfg=24 guifg=#005f87
-highlight StartifyFooter  ctermfg=24 guifg=#005f87
-highlight StartifySection ctermfg=24 guifg=#005f87
-highlight StartifyNumber  ctermfg=38 guifg=#00afd7
-highlight StartifyBracket ctermfg=24 guifg=#005f87
-highlight StartifyPath    ctermfg=32 guifg=#0087d7
-highlight StartifySlash   ctermfg=38 guifg=#00afd7
-highlight StartifyFile    ctermfg=81 guifg=#5fd7ff
-highlight StartifySpecial ctermfg=197 guifg=#ff005f
+highlight! link StartifyBracket Grey
+highlight! link StartifyFile Green
+highlight! link StartifyNumber Orange
+highlight! link StartifyPath Blue
+highlight! link StartifySlash Blue
+highlight! link StartifySection Purple
+highlight! link StartifyHeader Red
+highlight! link StartifySpecial Orange
 
 
 " Use Dev-Icons

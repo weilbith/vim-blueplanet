@@ -28,16 +28,16 @@ syntax region dockerfileComment start="#" end="\n" contains=dockerfileTodo
 syntax region dockerfileEnvWithComment start="^\s*ENV\>" end="\n" contains=dockerfileEnv
 syntax match dockerfileEnv contained /\<ENV\>/
 
-" Highlighting
-highlight link dockerfileKeywords  Keyword
-highlight link dockerfileEnv       Keyword
-highlight link dockerfileString    String
-highlight link dockerfileString1   String
-highlight link dockerfileComment   Comment
-highlight link dockerfileEmail     Identifier
-highlight link dockerfileUrl       Identifier
-highlight link dockerfileTodo      Todo
-highlight link bashStatement       Function
+" highlight!ing
+highlight! link dockerfileKeywords  Keyword
+highlight! link dockerfileEnv       Keyword
+highlight! link dockerfileString    String
+highlight! link dockerfileString1   String
+highlight! link dockerfileComment   Comment
+highlight! link dockerfileEmail     Identifier
+highlight! link dockerfileUrl       Identifier
+highlight! link dockerfileTodo      Todo
+highlight! link bashStatement       Function
 
 
 " vim: filetype=vim
