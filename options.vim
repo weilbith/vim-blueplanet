@@ -25,8 +25,9 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 
 " Appearance
-colorscheme blue_planet
 set previewheight=10
+set termguicolors
+colorscheme sonokia
 
 "" Fill Characters
 set fillchars+=vert:│
