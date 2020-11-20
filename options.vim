@@ -26,12 +26,16 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 
 " Appearance
 set previewheight=10
+set cursorline
 set termguicolors
 colorscheme sonokia
 
 "" Fill Characters
 set fillchars+=vert:│
+set fillchars+=diff:⎯
 set fillchars+=fold:⎯
+set fillchars+=foldclose:
+set fillchars+=foldopen:
 
 "" Numbers
 set number
