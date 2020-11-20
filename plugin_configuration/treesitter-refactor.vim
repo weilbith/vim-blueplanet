@@ -1,4 +1,4 @@
-highlight TSCurrentScope ctermbg=234
+highlight! link TSCurrentScope NormalInactive
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {

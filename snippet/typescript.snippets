@@ -13,22 +13,28 @@ endsnippet
 
 
 # Jest
-snippet test "Jest test case"
+snippet test( "Jest test case" bA
 test('${1:description}',${2: async}() => {
 	${0:expect(true).toBe(true)};
 });
 endsnippet
 
-snippet beforeAll "Jest hook to run once before all test cases"
+snippet beforeAll( "Jest hook to run once before all test cases" bA
 beforeAll(() => {
 	${0}
 });
 endsnippet
 
-snippet beforeEach "Jest hook to run before each single test case"
+snippet beforeEach( "Jest hook to run before each single test case" bA
 beforeEach(() => {
 	${0}
 });
+endsnippet
+
+snippet async "Async arrow function" A
+async (${1}): Promise<${2:void}> => {
+	${0}
+}
 endsnippet
 
 
