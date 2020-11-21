@@ -11,11 +11,8 @@ let g:which_key_map.b.N = 'previous buffer (enter BufferSwitch submode)'
 call submode#map('BufferSwitch', 'n', 's', 'n', '<cmd>bnext<CR>')
 call submode#map('BufferSwitch', 'n', 's', 'N', '<cmd>bprevious<CR>')
 
-nnoremap <silent> <leader>bd <cmd>call utils#buffers#delete_buffer(v:true, v:false)<CR>
-let g:which_key_map.b.d = 'close buffer and safe (keeps window open)'
-
-nnoremap <silent> <leader>bD <cmd>call utils#buffers#delete_buffer(v:false, v:true)<CR>
-let g:which_key_map.b.D = 'close buffer disregarding changes (keeps window open)'
+nnoremap <silent> <leader>bd <cmd>Sayonara!<CR>
+let g:which_key_map.b.d = 'close buffer but keep window'
 
 nnoremap <leader>bb <cmd>Telescope buffers<CR>
 let g:which_key_map.b.b = 'fuzzy search open buffers'

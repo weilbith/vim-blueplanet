@@ -55,6 +55,11 @@ call dein#add('romgrk/nvim-treesitter-context')
 call dein#add('unblevable/quick-scope')
 call dein#add('nvim-lua/popup.nvim')
 call dein#add('nvim-lua/plenary.nvim')
+
+call dein#add('mhinz/vim-sayonara', {
+      \ 'on_cmd': 'Sayonara',
+      \ })
+
 call dein#add('norcalli/nvim-colorizer.lua', {
       \ 'name': 'colorizer',
       \ })
