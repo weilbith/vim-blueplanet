@@ -27,7 +27,6 @@ call dein#add('mhinz/vim-signify')
 call dein#add('airblade/vim-rooter')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
-call dein#add('gko/vim-coloresque')
 call dein#add('tpope/vim-repeat')
 call dein#add('kshenoy/vim-signature')
 call dein#add('wellle/targets.vim')
@@ -56,6 +55,9 @@ call dein#add('romgrk/nvim-treesitter-context')
 call dein#add('unblevable/quick-scope')
 call dein#add('nvim-lua/popup.nvim')
 call dein#add('nvim-lua/plenary.nvim')
+call dein#add('norcalli/nvim-colorizer.lua', {
+      \ 'name': 'colorizer',
+      \ })
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
