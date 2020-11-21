@@ -1,5 +1,5 @@
 augroup Options
   autocmd!
   autocmd WinEnter * set cursorline
-  autocmd WinLeave * if &filetype !=# 'denite' | set nocursorline | endif
+  autocmd WinLeave * set nocursorline
 augroup END

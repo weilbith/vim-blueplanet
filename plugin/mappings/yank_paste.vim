@@ -7,6 +7,3 @@ nnoremap <silent> <C-v> :set paste<CR>"+p:set nopaste<CR>
 
 " Paste in visual mode from unnamed register does not overwrite it.
 vnoremap <silent> p p:if v:register == '"'<Bar>let @@=@0<Bar>endif<cr>
-
-nnoremap <silent> <leader>yy <cmd>Denite neoyank<CR>
-let g:which_key_map.y.y = 'paste entry from yank history'

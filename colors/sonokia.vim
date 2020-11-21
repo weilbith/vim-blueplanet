@@ -110,9 +110,9 @@ highlight! TabLine            guifg=#f1f1f2 guibg=#414550
 highlight! TabLineFill        guifg=#7f8490 guibg=#3d3f47
 highlight! link TabLineSel    RedBackground
 highlight! VertSplit          guifg=#3d3f47 guibg=#3d3f47
-highlight! Visual             guifg=NONE    guibg=#3b3e48
-highlight! VisualNOS          guifg=NONE    guibg=#3b3e48  gui=underline
-highlight! link QuickFixLine  BlueBold
+highlight! link Visual        BlueBackground
+highlight! link VisualNOS     RedBackground
+highlight! link QuickFixLine  OrangeBackground
 highlight! link TermCursor    Cursor
 
 highlight! link Debug             Yellow

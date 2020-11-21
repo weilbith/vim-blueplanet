@@ -17,8 +17,8 @@ let g:which_key_map.b.d = 'close buffer and safe (keeps window open)'
 nnoremap <silent> <leader>bD <cmd>call utils#buffers#delete_buffer(v:false, v:true)<CR>
 let g:which_key_map.b.D = 'close buffer disregarding changes (keeps window open)'
 
-nnoremap <leader>bb :Denite -start-filter buffer<CR>
-let g:which_key_map.b.b = 'fuzzy search open buffers (Denite)'
+nnoremap <leader>bb <cmd>Telescope buffers<CR>
+let g:which_key_map.b.b = 'fuzzy search open buffers'
 
 " Do no use the [N]b(uffer) command, cause it does not relate with the visual tab bar ids.
 nmap <leader>b1 <Plug>lightline#bufferline#go(1)

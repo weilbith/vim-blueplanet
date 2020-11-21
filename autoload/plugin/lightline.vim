@@ -47,8 +47,6 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'twiggy' ||
           \ &filetype ==# 'help' ||
           \ &filetype ==# 'gitcommit' ||
-          \ &filetype ==# 'denite' ||
-          \ &filetype ==# 'denite-filter' ||
           \ &filetype ==# 'agit' ||
           \ &filetype ==# 'startify' ||
           \ &filetype ==# 'snippets' ||
@@ -154,8 +152,6 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'snippets' ? 'Snippet' :
           \ &filetype ==# 'trans' ? 'Translation' :
           \ &filetype ==# 'far' ? 'Find & Replace' :
-          \ &filetype ==# 'denite' ? 'Denite' :
-          \ &filetype ==# 'denite-filter' ? 'Denite Filter' :
           \ bufname('%') ==# '[Grammarous]' ? 'Grammarous' :
           \ bufname('%') ==# '__Scratch__' ? 'Scratch' :
           \ bufname('%') ==# '__vista__' ? 'Vista' :
@@ -248,10 +244,7 @@ endfunction
 " Shows diff mode window names.
 "
 function! plugin#lightline#file_name_active() abort
-  if &filetype ==# 'denite' || &filetype ==# 'denite-filter'
-    return denite#get_status('sources')
-
-  elseif plugin#lightline#special_window()
+  if plugin#lightline#special_window()
     if s:is_diff_window()
       return s:get_diff_window_name()
 

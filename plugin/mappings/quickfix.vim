@@ -17,8 +17,8 @@ let g:which_key_map.q.n = 'next quickfix list entry'
 nnoremap <leader>qN <cmd>cprevious<CR>
 let g:which_key_map.q.N = 'previous quickfix list entry'
 
-nnoremap <leader>qf <cmd>Denite quickfix_list<CR>
-let g:which_key_map.q.f = 'filter current quickfix list with Denite'
+nnoremap <leader>qf <cmd>Telescope quickfix<CR>
+let g:which_key_map.q.f = 'filter current quickfix list'
 
 nnoremap <silent> <leader>qa <cmd>cnewer<CR>
 let g:which_key_map.q.a = 'open next quickfix list'

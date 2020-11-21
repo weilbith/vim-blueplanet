@@ -37,6 +37,7 @@ call dein#add('mhinz/vim-startify')
 call dein#add('t9md/vim-choosewin')
 call dein#add('zhimsel/vim-stay')
 call dein#add('ryanoasis/vim-devicons')
+call dein#add('kyazdani42/nvim-web-devicons')
 call dein#add('psliwka/vim-smoothie')
 call dein#add('junegunn/vim-peekaboo')
 call dein#add('voldikss/vim-floaterm')
@@ -53,6 +54,8 @@ call dein#add('nvim-treesitter/nvim-treesitter-textobjects')
 call dein#add('nvim-treesitter/nvim-treesitter-refactor')
 call dein#add('romgrk/nvim-treesitter-context')
 call dein#add('unblevable/quick-scope')
+call dein#add('nvim-lua/popup.nvim')
+call dein#add('nvim-lua/plenary.nvim')
 
 call dein#add('glacambre/firenvim', {
       \ 'hook_post_update': 'call firenvim#install(0)'
@@ -68,18 +71,9 @@ call dein#add('Raimondi/delimitMate', {
       \ 'on_event': 'InsertEnter'
       \ })
 
-call dein#add('Shougo/denite.nvim', {
-      \ 'on_cmd': 'Denite'
-      \ })
-
 call dein#add('Yggdroot/indentLine', {
       \ 'name': 'indent_line'
       \ })
-
-" call dein#add('kyazdani42/nvim-tree.lua', {
-"       \ 'on_cmd': ['LuaTreeOpen', 'LuaTreeClose', 'LuaTreeToggle', 'LuaTreeFindFile'],
-"       \ 'depends': ['nvim-web-devicons'],
-"       \ })
 
 call dein#add('scrooloose/nerdtree', {
       \ 'on_cmd': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
@@ -167,27 +161,22 @@ call dein#add('liuchengxu/vista.vim', {
       \ 'on_func': ['vista#', 'vista#RunForNearestMethodOrFunction']
       \ })
 
-call dein#add('weilbith/nvim-lsp-denite', {
-      \ 'depends': 'denite.nvim'
-      \ })
-
-call dein#add('Shougo/neoyank.vim', {
-      \ 'depends': 'denite.nvim'
-      \ })
-
 call dein#add('weilbith/vim-qfloc-moves', {
       \ 'on_cmd': ['Copen', 'Lopen', 'Wincmd']
+      \ })
+
+call dein#add('nvim-telescope/telescope.nvim', {
+      \ 'depends': ['popup.nvim', 'plenary.nvim', 'nvim-web-devicons'],
+      \ 'on_cmd': 'Telescope',
       \ })
 
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
 " call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
-" call dein#add('/home/thore/projects/vim-projects/nvim-lsp-denite')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-smag')
 " call dein#add('/home/thore/projects/vim-projects/vim-loche')
 " call dein#add('/home/thore/projects/vim-projects/vim-qfloc-tailor')
-" call dein#add('/home/thore/projects/vim-projects/vim-denite-qfloc')
 
 " Add hooks for all plugins.
 call dein#set_hook([], 'hook_add', 'call plugin#dein#add_hook()')

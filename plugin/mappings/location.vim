@@ -11,8 +11,8 @@ let g:which_key_map.l.c = 'close location window'
 nnoremap <silent> <leader>l<CR> <cmd>ll<CR>
 let g:which_key_map.l['<CR>'] = 'goto current selected location list entry'
 
-nnoremap <leader>lf <cmd>Denite location_list<CR>
-let g:which_key_map.l.f = 'filter location list of current window with Denite'
+nnoremap <leader>lf <cmd>Telescope loclist<CR>
+let g:which_key_map.l.f = 'filter location list of current window'
 
 nnoremap <silent> <leader>la <cmd>labove<CR>
 let g:which_key_map.l.a = 'next location list entry above current cursor position'

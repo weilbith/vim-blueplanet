@@ -137,7 +137,6 @@ set foldcolumn=3
 " Misc
 set autoread
 set hidden
-set report=0
 set lazyredraw
 set viewoptions=cursor,folds,slash,unix
 set pumheight=30
