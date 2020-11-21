@@ -56,6 +56,10 @@ call dein#add('unblevable/quick-scope')
 call dein#add('nvim-lua/popup.nvim')
 call dein#add('nvim-lua/plenary.nvim')
 
+call dein#add('tweekmonster/exception.vim', {
+      \ 'on_func': ['exception#trace'],
+      \ })
+
 call dein#add('mhinz/vim-sayonara', {
       \ 'on_cmd': 'Sayonara',
       \ })
