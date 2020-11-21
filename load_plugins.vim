@@ -55,6 +55,7 @@ call dein#add('romgrk/nvim-treesitter-context')
 call dein#add('unblevable/quick-scope')
 call dein#add('nvim-lua/popup.nvim')
 call dein#add('nvim-lua/plenary.nvim')
+call dein#add('gelguy/wilder.nvim' )
 
 call dein#add('tweekmonster/exception.vim', {
       \ 'on_func': ['exception#trace'],
