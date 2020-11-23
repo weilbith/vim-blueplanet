@@ -135,8 +135,8 @@ highlight! link LspDiagnosticsSignWarning     OrangeBold
 highlight! link LspDiagnosticsSignInformation YellowBold
 highlight! link LspDiagnosticsSignHint        BlueBold
 
-highlight! link LspReferenceText  Reversed
-highlight! link LspReferenceRead  Reversed
+highlight! link LspReferenceText  Underlined
+highlight! link LspReferenceRead  Underlined
 highlight! link LspReferenceWrite Reversed
 
 highlight! clear ErrorLine

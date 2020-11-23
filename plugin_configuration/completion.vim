@@ -20,7 +20,4 @@ let g:completion_chain_complete_list = {
       \         {'mode': 'dict'},
       \     ],
       \   },
-      \   'denite-filter': {
-      \     'default': []
-      \   }
       \ }
