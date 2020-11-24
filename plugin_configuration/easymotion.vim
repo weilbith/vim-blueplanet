@@ -1,4 +1,4 @@
-highlight! link EasyMotionTarget        Search
-highlight! link EasyMotionTarget2First  IncSearch
-highlight! link EasyMotionTarget2Second IncSearch
+highlight! link EasyMotionTarget        GreenBold
+highlight! link EasyMotionTarget2First  BlueBold
+highlight! link EasyMotionTarget2Second BlueBold
 highlight! link EasyMotionShade         Grey
