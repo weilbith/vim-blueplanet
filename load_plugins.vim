@@ -185,6 +185,10 @@ call dein#add('weilbith/vim-qfloc-moves', {
       \ 'on_cmd': ['Copen', 'Lopen', 'Wincmd']
       \ })
 
+call dein#add('telescope-fzy-native.nvim', {
+      \ 'on_source': 'telescrope.nvim'
+      \ })
+
 call dein#add('nvim-telescope/telescope.nvim', {
       \ 'depends': ['popup.nvim', 'plenary.nvim', 'nvim-web-devicons'],
       \ 'on_cmd': 'Telescope',
