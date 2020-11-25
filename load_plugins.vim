@@ -91,6 +91,10 @@ call dein#add('Yggdroot/indentLine', {
       \ 'name': 'indent_line'
       \ })
 
+call dein#add('nvim-treesitter/playground', {
+      \ 'on_cmd': 'TSPlaygroundToggle',
+      \ })
+
 call dein#add('scrooloose/nerdtree', {
       \ 'on_cmd': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
       \ })
