@@ -82,6 +82,10 @@ call dein#add('itchyny/lightline.vim', {
       \ 'depends': ['vim-fugitive', 'vim-signify']
       \ })
 
+call dein#add('romgrk/barbar.nvim', {
+      \ 'depends': ['nvim-web-devicons']
+      \ })
+
 call dein#add('Raimondi/delimitMate', {
       \ 'name': 'delimit_mate',
       \ 'on_event': 'InsertEnter'
