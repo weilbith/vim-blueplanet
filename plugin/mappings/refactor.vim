@@ -1,8 +1,10 @@
 if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.r = { 'name': '+refactor' }
 
-" TODO: missing LSP provider checks (because not existing)
-nnoremap <silent> <leader>ra <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> <leader>ra <cmd>lua require'telescope.builtin.lsp'.code_actions()<CR>
+vnoremap <silent> <leader>ra <cmd>lua require'telescope.builtin.lsp'.range_code_actions()<CR>
+let g:which_key_map.r.a = 'ask for code actions/quickfix by LSP'
+
 nnoremap <silent> <leader>rr <cmd>lua vim.lsp.buf.rename()<CR>
 let g:which_key_map.r.r = 'rename object under cursor (LSP or Substitue)'
 
