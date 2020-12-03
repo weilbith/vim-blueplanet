@@ -18,6 +18,9 @@ call wilder#set_option('renderer', wilder#float_renderer({
       \           ' COMMAND ',
       \           ' SEARCH '
       \         ),
+      \         wilder#spinner({
+      \           'frames': ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
+      \         }),
       \         '',
       \       ],
       \       'hl': 'RedBackground',
