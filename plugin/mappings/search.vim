@@ -12,11 +12,11 @@ map gz# <Plug>(asterisk-gz#)
 if !exists('g:which_key_map') | let g:which_key_map = {} | endif
 let g:which_key_map.s = { 'name': '+search' }
 
-nnoremap <silent> <leader>ss <cmd>Telescope live_grep<CR>
+nnoremap <silent> <leader>ss <cmd>lua require'telescope.builtin.files'.live_grep()<CR>
 let g:which_key_map.s.s = 'recursive search in project directory'
 
-" nnoremap <silent> <leader>sS <cmd>Telescope live_grep --pwd<CR>
-" let g:which_key_map.s.S = 'recursive search in from current buffer directory'
+nnoremap <silent> <leader>sS <cmd>lua require'telescope.builtin.files'.live_grep({ cwd = vim.fn.expand('%:p:h') })<CR>
+let g:which_key_map.s.S = 'recursive search in from current buffer directory'
 
 " nnoremap <silent> <leader>sr <cmd>Telescope TODO<CR>
 " let g:which_key_map.s.r = 'reload last filter on next entry'
