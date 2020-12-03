@@ -7,6 +7,19 @@ let g:completion_auto_change_source = 1
 let g:completion_confirm_key = ''
 let g:completion_trigger_on_delete = 1
 let g:completion_matching_strategy_list = ['exact', 'fuzzy']
+let g:completion_customize_lsp_label = {
+      \ 'Function': '',
+      \ 'Method': '',
+      \ 'Field': '笠',
+      \ 'Variable': '',
+      \ 'Constant': '',
+      \ 'Module': '',
+      \ 'Keyword': '',
+      \ 'UltiSnips': '',
+      \ 'Folder': '',
+      \ 'File': '',
+      \ }
+
 let g:completion_chain_complete_list = {
       \   'default': {
       \     'default': [
