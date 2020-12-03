@@ -325,7 +325,13 @@ function! plugin#lightline#read_only() abort
 endfunction
 
 function! plugin#lightline#treesitter() abort
-  let l:location = nvim_treesitter#statusline()
+  let l:location = 'null'
+
+  try
+    let l:location = nvim_treesitter#statusline()
+  catch
+    echom 'Failed to get status line content by tree sitter'
+  endtry
 
   if l:location ==# 'null'
     return ''
