@@ -139,11 +139,6 @@ call dein#add('alvan/vim-closetag', {
       \ 'on_ft': ['html', 'xml', 'vue', 'jsx']
       \ })
 
-call dein#add('cohama/agit.vim', {
-      \ 'depends': 'vim-fugitive',
-      \ 'on_cmd': ['Agit', 'AgitFile']
-      \ })
-
 call dein#add('sodapopcan/vim-twiggy', {
       \ 'depends': 'vim-fugitive',
       \ 'on_cmd': 'Twiggy'

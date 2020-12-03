@@ -47,7 +47,6 @@ function! plugin#lightline#special_window() abort
           \ &filetype ==# 'twiggy' ||
           \ &filetype ==# 'help' ||
           \ &filetype ==# 'gitcommit' ||
-          \ &filetype ==# 'agit' ||
           \ &filetype ==# 'startify' ||
           \ &filetype ==# 'snippets' ||
           \ &filetype ==# 'trans' ||
@@ -147,7 +146,6 @@ function! plugin#lightline#mode() abort
           \ &filetype ==# 'twiggy' ? 'Twiggy':
           \ &filetype ==# 'help' ? 'Help' :
           \ &filetype ==# 'gitcommit' ? 'Git Commit' :
-          \ &filetype ==# 'agit' ? 'Git Log' :
           \ &filetype ==# 'startify' ? 'Startify' :
           \ &filetype ==# 'snippets' ? 'Snippet' :
           \ &filetype ==# 'trans' ? 'Translation' :
