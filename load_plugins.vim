@@ -48,14 +48,23 @@ call dein#add('weilbith/nvim-lsp-smag')
 call dein#add('weilbith/vim-loche')
 call dein#add('weilbith/vim-qfloc-tailor')
 call dein#add('haya14busa/vim-asterisk')
-call dein#add('nvim-treesitter/nvim-treesitter')
-call dein#add('nvim-treesitter/nvim-treesitter-textobjects')
-call dein#add('nvim-treesitter/nvim-treesitter-refactor')
-call dein#add('romgrk/nvim-treesitter-context')
 call dein#add('unblevable/quick-scope')
 call dein#add('nvim-lua/popup.nvim')
 call dein#add('nvim-lua/plenary.nvim')
 call dein#add('gelguy/wilder.nvim')
+
+call dein#add('nvim-treesitter/nvim-treesitter')
+call dein#add('nvim-treesitter/nvim-treesitter-textobjects', {
+      \ 'depends': 'nvim-treesitter',
+      \ })
+
+call dein#add('nvim-treesitter/nvim-treesitter-refactor', {
+      \ 'depends': 'nvim-treesitter',
+      \ })
+
+call dein#add('romgrk/nvim-treesitter-context', {
+      \ 'depends': 'nvim-treesitter',
+      \ })
 
 call dein#add('ncm2/float-preview.nvim', {
       \ 'on_event': 'InsertEnter'
@@ -189,13 +198,12 @@ call dein#add('weilbith/vim-qfloc-moves', {
       \ 'on_cmd': ['Copen', 'Lopen', 'Wincmd']
       \ })
 
-call dein#add('telescope-fzy-native.nvim', {
-      \ 'on_source': 'telescrope.nvim'
+call dein#add('nvim-telescope/telescope-fzy-native.nvim', {
+      \ 'on_source': 'telescope.nvim'
       \ })
 
 call dein#add('nvim-telescope/telescope.nvim', {
       \ 'depends': ['popup.nvim', 'plenary.nvim', 'nvim-web-devicons'],
-      \ 'on_cmd': 'Telescope',
       \ })
 
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
