@@ -19,8 +19,8 @@ let g:which_key_map.g.l= 'show git log'
 nnoremap <silent> <silent> <leader>gL <cmd>lua require'telescope.builtin.git'.bcommits()<CR>
 let g:which_key_map.g.L = 'show git log for current file'
 
-nnoremap <silent> <silent> <leader>gc <cmd>call utils#windows#switch_site_window({'open': 'Twiggy', 'close': 'Twiggy'})<CR>
-let g:which_key_map.g.c = 'open git branch selection window (checkout)'
+nnoremap <silent> <silent> <leader>gs <cmd>lua require'telescope.builtin.git'.branches()<CR>
+let g:which_key_map.g.c = 'open git switch branch'
 
 nnoremap <silent> <leader>gb <cmd>GitMessenger<CR>
 let g:which_key_map.g.b = 'show git blame for current line in floating window'
