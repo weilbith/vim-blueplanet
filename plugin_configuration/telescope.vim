@@ -4,7 +4,6 @@ lua << EOF
 require('telescope').setup{
   defaults = {
     prompt_prefix = "➭ ",
-    file_ignore_patterns = { "%.fls", "%.fdb_latexmk" },
     winblend = 10,
   }
 }
