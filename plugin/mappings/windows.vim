@@ -110,6 +110,3 @@ let g:which_key_map.w.S = 'switch to horizontal split'
 
 nnoremap <silent> <leader>wV <cmd>call utils#windows#switch_window_split(v:false)<CR>
 let g:which_key_map.w.V = 'switch to vertical split'
-
-nnoremap <silent> <leader>wf <cmd>call utils#layout#reset_fixed_windows()<CR>
-let g:which_key_map.w.f = 'fix window layout'
