@@ -8,9 +8,11 @@ vnoremap <silent> if :<C-u>TSTextobjectSelect @function.inner<CR>
 vnoremap <silent> ac :<C-u>TSTextobjectSelect @class.outer<CR>
 vnoremap <silent> ic :<C-u>TSTextobjectSelect @class.inner<CR>
 
-vnoremap <silent> ap :<C-u>TSTextobjectSelect @parameter.outer<CR>
-vnoremap <silent> ip :<C-u>TSTextobjectSelect @parameter.inner<CR>
+" 'a' for 'argument' instead of 'p' that is associated with paragraph per default
+vnoremap <silent> aa :<C-u>TSTextobjectSelect @parameter.outer<CR>
+vnoremap <silent> ia :<C-u>TSTextobjectSelect @parameter.inner<CR>
 
+" '/' since many languages use '//' as comment prefix and 'c' is used for 'class'
 vnoremap <silent> a/ :<C-u>TSTextobjectSelect @comment.outer<CR>
 vnoremap <silent> i/ :<C-u>TSTextobjectSelect @comment.outer<CR>
 
@@ -33,3 +35,17 @@ nnoremap <silent> [c :<C-u>TSTextobjectGotoPreviousStart @class.outer<CR>
 onoremap <silent> [c :<C-u>TSTextobjectGotoPreviousStart @class.outer<CR>
 nnoremap <silent> [C :<C-u>TSTextobjectGotoPreviousEnd @class.outer<CR>
 onoremap <silent> [C :<C-u>TSTextobjectGotoPreviousEnd @class.outer<CR>
+
+nnoremap <silent> ]a :<C-u>TSTextobjectGotoNextStart @parameter.outer<CR>
+onoremap <silent> ]a :<C-u>TSTextobjectGotoNextStart @parameter.outer<CR>
+nnoremap <silent> ]A :<C-u>TSTextobjectGotoNextEnd @parameter.outer<CR>
+onoremap <silent> ]A :<C-u>TSTextobjectGotoNextEnd @parameter.outer<CR>
+nnoremap <silent> [a :<C-u>TSTextobjectGotoPreviousStart @parameter.outer<CR>
+onoremap <silent> [a :<C-u>TSTextobjectGotoPreviousStart @parameter.outer<CR>
+nnoremap <silent> [A :<C-u>TSTextobjectGotoPreviousEnd @parameter.outer<CR>
+onoremap <silent> [A :<C-u>TSTextobjectGotoPreviousEnd @parameter.outer<CR>
+
+nnoremap <silent> ]/ :<c-u>tstextobjectgotonextstart @comment.outer<cr>
+onoremap <silent> ]/ :<c-u>tstextobjectgotonextstart @comment.outer<cr>
+nnoremap <silent> [/ :<c-u>tstextobjectgotopreviousstart @comment.outer<cr>
+onoremap <silent> [/ :<c-u>tstextobjectgotopreviousstart @comment.outer<cr>
