@@ -52,6 +52,8 @@ call dein#add('unblevable/quick-scope')
 call dein#add('nvim-lua/popup.nvim')
 call dein#add('nvim-lua/plenary.nvim')
 call dein#add('gelguy/wilder.nvim')
+call dein#add('rktjmp/lush.nvim')
+
 
 call dein#add('nvim-treesitter/nvim-treesitter')
 call dein#add('nvim-treesitter/nvim-treesitter-textobjects', {

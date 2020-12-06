@@ -28,7 +28,6 @@ set spellfile=$XDG_DATA_HOME/nvim/spell/en.utf-8.add
 set previewheight=10
 set cursorline
 set termguicolors
-colorscheme sonokia
 
 "" Fill Characters
 set fillchars+=vert:│
