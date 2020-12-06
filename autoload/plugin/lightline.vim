@@ -200,18 +200,18 @@ endfunction
 
 
 function! plugin#lightline#git_changes() abort
-  let [ l:added_count, l:modified_count, l:deleted_count ] = sy#repo#get_stats()
-  let l:sum_of_changes = l:added_count + l:modified_count + l:deleted_count
+  let changes_dict = get(b:, 'gitsigns_status_dict', {'added': 0, 'changed': 0, 'removed': 0})
+  let sum_of_changes = changes_dict.added + changes_dict.changed + changes_dict.removed
 
   if
         \ plugin#lightline#tiny_window() ||
         \ plugin#lightline#special_window() ||
         \ plugin#lightline#preview_window() ||
         \ empty(fugitive#head()) ||
-        \ l:sum_of_changes <= 0
+        \ sum_of_changes <= 0
     return ''
   else
-    return ' ' . l:sum_of_changes
+    return ' ' . sum_of_changes
   endif
 endfunction
 

@@ -13,6 +13,9 @@ let g:which_key_map.g.P = 'force push to upstream branch'
 nnoremap <silent> <silent> <leader>gd <cmd>call utils#git#toggleDiff()<CR>
 let g:which_key_map.g.d = 'show diff of current file to HEAD'
 
+nnoremap <silent> <silent> <leader>gD <cmd>lua require"gitsigns".preview_hunk()<CR>
+let g:which_key_map.g.d = 'show diff of current hunk in floating window'
+
 nnoremap <silent> <silent> <leader>gl <cmd>lua require'telescope.builtin.git'.commits()<CR>
 let g:which_key_map.g.l= 'show git log'
 

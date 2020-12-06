@@ -23,7 +23,6 @@ call dein#add('neomake/neomake')
 call dein#add('tpope/vim-fugitive')
 call dein#add('kana/vim-submode')
 call dein#add('sbdchd/neoformat')
-call dein#add('mhinz/vim-signify')
 call dein#add('airblade/vim-rooter')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
@@ -90,7 +89,7 @@ call dein#add('glacambre/firenvim', {
 
 call dein#add('itchyny/lightline.vim', {
       \ 'on_event': 'VimEnter',
-      \ 'depends': ['vim-fugitive', 'vim-signify']
+      \ 'depends': ['vim-fugitive']
       \ })
 
 call dein#add('romgrk/barbar.nvim', {
@@ -196,6 +195,10 @@ call dein#add('nvim-telescope/telescope-fzy-native.nvim', {
 
 call dein#add('nvim-telescope/telescope.nvim', {
       \ 'depends': ['popup.nvim', 'plenary.nvim', 'nvim-web-devicons'],
+      \ })
+
+call dein#add('lewis6991/gitsigns.nvim', {
+      \ 'depends': ['plenary.nvim'],
       \ })
 
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
