@@ -5,6 +5,7 @@ require('telescope').setup{
   defaults = {
     prompt_prefix = "➭ ",
     winblend = 10,
+    file_ignore_patterns = { "%.fls", "%.fdb_latexmk" }
   }
 }
 EOF
