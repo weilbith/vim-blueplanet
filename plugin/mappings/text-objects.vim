@@ -2,31 +2,34 @@
 onoremap <expr> il '<cmd>norm! `['.strpart(getregtype(), 0, 1).'`]<cr>'
 
 " Selection
-vnoremap <silent> af :<C-u>lua require'nvim-treesitter.textobjects.select'.select_textobject('@function.outer')<CR>
-vnoremap <silent> if :<C-u>lua require'nvim-treesitter.textobjects.select'.select_textobject('@function.inner')<CR>
+vnoremap <silent> af :<C-u>TSTextobjectSelect @function.outer<CR>
+vnoremap <silent> if :<C-u>TSTextobjectSelect @function.inner<CR>
 
-vnoremap <silent> ac :<C-u>lua require'nvim-treesitter.textobjects.select'.select_textobject('@class.outer')<CR>
-vnoremap <silent> ic :<C-u>lua require'nvim-treesitter.textobjects.select'.select_textobject('@class.inner')<CR>
+vnoremap <silent> ac :<C-u>TSTextobjectSelect @class.outer<CR>
+vnoremap <silent> ic :<C-u>TSTextobjectSelect @class.inner<CR>
 
-vnoremap <silent> ap :<C-u>lua require'nvim-treesitter.textobjects.select'.select_textobject('@parameter.outer')<CR>
-vnoremap <silent> ip :<C-u>lua require'nvim-treesitter.textobjects.select'.select_textobject('@parameter.inner')<CR>
+vnoremap <silent> ap :<C-u>TSTextobjectSelect @parameter.outer<CR>
+vnoremap <silent> ip :<C-u>TSTextobjectSelect @parameter.inner<CR>
+
+vnoremap <silent> a/ :<C-u>TSTextobjectSelect @comment.outer<CR>
+vnoremap <silent> i/ :<C-u>TSTextobjectSelect @comment.outer<CR>
 
 
 " Move
-nnoremap <silent> ]f :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_start("@function.outer")<CR>
-onoremap <silent> ]f :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_start("@function.outer")<CR>
-nnoremap <silent> ]F :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_end("@function.outer")<CR>
-onoremap <silent> ]F :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_end("@function.outer")<CR>
-nnoremap <silent> [f :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_start("@function.outer")<CR>
-onoremap <silent> [f :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_start("@function.outer")<CR>
-nnoremap <silent> [F :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_end("@function.outer")<CR>
-onoremap <silent> [F :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_end("@function.outer")<CR>
+nnoremap <silent> ]f :<C-u>TSTextobjectGotoNextStart @function.outer<CR>
+onoremap <silent> ]f :<C-u>TSTextobjectGotoNextStart @function.outer<CR>
+nnoremap <silent> ]F :<C-u>TSTextobjectGotoNextEnd @function.outer<CR>
+onoremap <silent> ]F :<C-u>TSTextobjectGotoNextEnd @function.outer<CR>
+nnoremap <silent> [f :<C-u>TSTextobjectGotoPreviousStart @function.outer<CR>
+onoremap <silent> [f :<C-u>TSTextobjectGotoPreviousStart @function.outer<CR>
+nnoremap <silent> [F :<C-u>TSTextobjectGotoPreviousEnd @function.outer<CR>
+onoremap <silent> [F :<C-u>TSTextobjectGotoPreviousEnd @function.outer<CR>
 
-nnoremap <silent> ]c :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_start("@class.outer")<CR>
-onoremap <silent> ]c :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_start("@class.outer")<CR>
-nnoremap <silent> ]C :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_end("@class.outer")<CR>
-onoremap <silent> ]C :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_next_end("@class.outer")<CR>
-nnoremap <silent> [c :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_start("@class.outer")<CR>
-onoremap <silent> [c :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_start("@class.outer")<CR>
-nnoremap <silent> [C :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_end("@class.outer")<CR>
-onoremap <silent> [C :<C-u>lua require'nvim-treesitter.textobjects.move'.goto_previous_end("@class.outer")<CR>
+nnoremap <silent> ]c :<C-u>TSTextobjectGotoNextStart @class.outer<CR>
+onoremap <silent> ]c :<C-u>TSTextobjectGotoNextStart @class.outer<CR>
+nnoremap <silent> ]C :<C-u>TSTextobjectGotoNextEnd @class.outer<CR>
+onoremap <silent> ]C :<C-u>TSTextobjectGotoNextEnd @class.outer<CR>
+nnoremap <silent> [c :<C-u>TSTextobjectGotoPreviousStart @class.outer<CR>
+onoremap <silent> [c :<C-u>TSTextobjectGotoPreviousStart @class.outer<CR>
+nnoremap <silent> [C :<C-u>TSTextobjectGotoPreviousEnd @class.outer<CR>
+onoremap <silent> [C :<C-u>TSTextobjectGotoPreviousEnd @class.outer<CR>

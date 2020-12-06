@@ -1,6 +1,6 @@
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-   ensure_installed = {
+  ensure_installed = {
     "bash",
     "c",
     "c_sharp",
@@ -13,7 +13,6 @@ require'nvim-treesitter.configs'.setup {
     "jsdoc",
     "json",
     "lua",
-    -- "markdown",
     "python",
     "query",
     "rst",
