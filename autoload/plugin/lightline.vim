@@ -42,7 +42,7 @@ endfunction
 "
 function! plugin#lightline#special_window() abort
   return
-          \ &filetype ==# 'nerdtree' ||
+          \ &filetype ==# 'LuaTree' ||
           \ &filetype ==# 'undotree' ||
           \ &filetype ==# 'help' ||
           \ &filetype ==# 'gitcommit' ||
@@ -140,7 +140,7 @@ function! plugin#lightline#mode() abort
 
   if plugin#lightline#special_window()
     return
-          \ &filetype ==# 'nerdtree' ? 'NERDTree' :
+          \ &filetype ==# 'LuaTree' ? 'LuaTree' :
           \ &filetype ==# 'undotree' ? 'UndoTree' :
           \ &filetype ==# 'help' ? 'Help' :
           \ &filetype ==# 'gitcommit' ? 'Git Commit' :

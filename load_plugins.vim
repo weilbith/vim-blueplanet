@@ -109,24 +109,6 @@ call dein#add('nvim-treesitter/playground', {
       \ 'on_cmd': 'TSPlaygroundToggle',
       \ })
 
-call dein#add('scrooloose/nerdtree', {
-      \ 'on_cmd': ['NERDTree', 'NERDTreeToggle', 'NERDTreeFromBookmark', 'NERDTreeFocus']
-      \ })
-
-call dein#add('Xuyuanp/nerdtree-git-plugin', {
-      \ 'name': 'nerdtree_git_plugin',
-      \ 'on_source': 'nerdtree'
-      \ })
-
-call dein#add('tiagofumo/vim-nerdtree-syntax-highlight', {
-      \ 'name': 'nerdtree_syntax_highlight',
-      \ 'on_source': 'nerdtree'
-      \ })
-
-call dein#add('weilbith/nerdtree_choosewin-plugin', {
-      \ 'on_source': 'nerdtree'
-      \ })
-
 call dein#add('mbbill/undotree', {
       \ 'on_cmd': 'UndoTreeToggle'
       \ })
@@ -201,8 +183,13 @@ call dein#add('lewis6991/gitsigns.nvim', {
       \ 'depends': ['plenary.nvim'],
       \ })
 
+call dein#add('kyazdani42/nvim-tree.lua', {
+      \ 'name': 'lua_tree',
+      \ 'depends': ['nvim-web-devicons'],
+      \ 'on_cmd': ['LuaTreeOpen', 'LuaTreeToggle', 'LuaTreeFindFile'],
+      \ })
+
 " call dein#add('/home/thore/projects/vim-projects/vista.vim')
-" call dein#add('/home/thore/Projects/vim/nerdtree-git-plugin')
 " call dein#add('/home/thore/projects/vim-projects/vim-localrc')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-bacomp')
 " call dein#add('/home/thore/projects/vim-projects/nvim-lsp-smag')

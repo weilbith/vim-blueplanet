@@ -2,7 +2,7 @@ let g:choosewin_blink_on_land=1
 let g:choosewin_statusline_replace=1
 let g:choosewin_hook = {}
 
-let s:ignore_filtype = ["help", "nerdtree"]
+let s:ignore_filtype = ['help', 'LuaTree', 'vista_kind']
 
 
 " Functions
