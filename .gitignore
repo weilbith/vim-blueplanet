@@ -1,5 +1,1 @@
-shada/
-*.log
-spell/
-.netrwhist
-.luacheckcache
+plugin/packer_compiled.vim
