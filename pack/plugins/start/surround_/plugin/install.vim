@@ -1,5 +1,5 @@
 lua packer.use({
     \   'tpope/vim-surround',
-    \   keys = {'cs', 'ds', {'x', 'S'}},
+    \   keys = {'<Plug>Dsurround', '<Plug>Csurround', {'x', '<Plug>VSurround'}},
     \   config = 'vim.cmd("packadd surround")',
     \ })
