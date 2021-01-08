@@ -3,18 +3,26 @@ nnoremap gK <cmd>TSTextobjectPeekDefinitionCode @function.outer<CR>
 
 
 " Selection
+onoremap <silent> af <cmd>TSTextobjectSelect @function.outer<CR>
 vnoremap <silent> af <cmd>TSTextobjectSelect @function.outer<CR>
+onoremap <silent> if <cmd>TSTextobjectSelect @function.inner<CR>
 vnoremap <silent> if <cmd>TSTextobjectSelect @function.inner<CR>
 
+onoremap <silent> ac <cmd>TSTextobjectSelect @class.outer<CR>
 vnoremap <silent> ac <cmd>TSTextobjectSelect @class.outer<CR>
+onoremap <silent> ic <cmd>TSTextobjectSelect @class.inner<CR>
 vnoremap <silent> ic <cmd>TSTextobjectSelect @class.inner<CR>
 
 " 'a' for 'argument' instead of 'p' that is associated with paragraph per default
+onoremap <silent> aa <cmd>TSTextobjectSelect @parameter.outer<CR>
 vnoremap <silent> aa <cmd>TSTextobjectSelect @parameter.outer<CR>
+onoremap <silent> ia <cmd>TSTextobjectSelect @parameter.inner<CR>
 vnoremap <silent> ia <cmd>TSTextobjectSelect @parameter.inner<CR>
 
 " '/' since many languages use '//' as comment prefix and 'c' is used for 'class'
+onoremap <silent> a/ <cmd>TSTextobjectSelect @comment.outer<CR>
 vnoremap <silent> a/ <cmd>TSTextobjectSelect @comment.outer<CR>
+onoremap <silent> i/ <cmd>TSTextobjectSelect @comment.outer<CR>
 vnoremap <silent> i/ <cmd>TSTextobjectSelect @comment.outer<CR>
 
 
