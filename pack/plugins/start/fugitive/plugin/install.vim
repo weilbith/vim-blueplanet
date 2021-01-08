@@ -3,4 +3,3 @@ lua packer.use({
     \   cmd = 'Git',
     \   config = 'vim.cmd("packadd fugitive")',
     \ })
-
