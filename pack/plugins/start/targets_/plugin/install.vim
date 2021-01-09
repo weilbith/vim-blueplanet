@@ -1,6 +1,6 @@
 lua packer.use({
     \   'wellle/targets.vim',
-    \   event = 'BufEnter',
+    \   event = 'BufEnter *',
     \ })
 
 " Note: There are way too many operator mappings to lazy load this based on
