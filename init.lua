@@ -49,3 +49,5 @@ vim.o.joinspaces = false
 vim.o.inccommand = 'split'
 vim.o.listchars = 'eol:﬋,tab:ﲒ,space:.,trail:.,extends:ﰣ,precedes:﬌,nbsp:.'
 vim.o.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
+vim.o.viewoptions = 'cursor,folds,slash,unix'
+vim.g.netrw_home = vim.fn.stdpath('data') .. '/netrwhist'
