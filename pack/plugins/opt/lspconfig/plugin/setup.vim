@@ -1,4 +1,4 @@
-" lua require('lspconfig').bashls.setup({filetypes = {"sh", "zsh"}})
+lua require('lspconfig').bashls.setup({filetypes = {"sh", "zsh"}})
 lua require('lspconfig').cssls.setup({ filetypes = { "css", "scss", "sass", "less" }})
 lua require('lspconfig').dockerls.setup({})
 lua require('lspconfig').html.setup({})
@@ -22,10 +22,15 @@ lua require('lspconfig').efm.setup({
     \   settings = {
     \     rootMarkers = { "package.json", "pyproject.toml", "Cargo.toml", ".git/" },
     \     languages = {
-    \       sh = { require('efm_config.linting').shellcheck },
+    \       sh = {
+    \         require('efm_config.linting').shellcheck,
+    \         require('efm_config.formatting').shfmt,
+    \	    }
     \     },
     \   }
     \ })
+
+lua require('lsp_handlers.formatting')
 
 
 " Note: Putting the setup calls into ftplugins saves 0.5ms per call during
