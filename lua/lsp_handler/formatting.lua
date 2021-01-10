@@ -1,5 +1,4 @@
-vim.lsp.handlers["textDocument/formatting"] = function(error, _, result, _, buffer_number)
-  print("Got formatting response")
+local function handle_format_response(error, _, result, _, buffer_number)
   if result == nil then return end
 
   if error ~= nil then
@@ -16,3 +15,11 @@ vim.lsp.handlers["textDocument/formatting"] = function(error, _, result, _, buff
     vim.fn.winrestview(preserved_view)
   end
 end
+
+local function setup()
+  vim.lsp.handlers["textDocument/formatting"] = handle_format_response
+end
+
+return {
+  setup = setup
+}

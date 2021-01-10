@@ -30,8 +30,6 @@ lua require('lspconfig').efm.setup({
     \   }
     \ })
 
-lua require('lsp_handlers.formatting')
-
 
 " Note: Putting the setup calls into ftplugins saves 0.5ms per call during
 " startup. At the moment it is not worth to write that many sudpid ftplugins.
