@@ -14,6 +14,9 @@ highlight! link LspDiagnosticsSignWarning         OrangeBold
 highlight! link LspDiagnosticsSignInformation     YellowBold
 highlight! link LspDiagnosticsSignHint            BlueBold
 
+nnoremap ]d <cmd>lua vim.lsp.diagnostic.goto_next({ wrap = false })<CR>
+nnoremap [d <cmd>lua vim.lsp.diagnostic.goto_prev({ wrap = false })<CR>
+
 augroup Diagnostics
   autocmd!
   autocmd User LspDiagnosticsChanged lua vim.lsp.diagnostic.set_loclist({ open_loclist = false})
