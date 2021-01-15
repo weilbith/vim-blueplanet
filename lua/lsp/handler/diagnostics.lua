@@ -1,4 +1,4 @@
-local function handle_diagnostics_response = vim.lsp.with(
+local handle_diagnostics_response = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = false,
     update_in_insert = true,
