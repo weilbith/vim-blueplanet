@@ -28,3 +28,9 @@ nnoremap <leader>wrk <C-w>+
 nnoremap <leader>wrl <C-w>>
 
 " Gets extended by a couple of plugin specific mappings.
+
+augroup Windows
+  autocmd!
+  autocmd WinEnter * set cursorline
+  autocmd WinLeave * set nocursorline
+augroup END
