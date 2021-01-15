@@ -2,8 +2,9 @@ local function handle_format_response(error, _, result, _, buffer_number)
   if result == nil then return end
 
   if error ~= nil then
-    print(vim.inspect(error))
-    print("Formatting has failed!")
+    -- Do not use print to avoid blocking by require user to confirm message.
+    -- vim.cmd("echom '" .. vim.inspect(error) .. "'")
+    vim.cmd("echom 'Formatting has failed!'")
     return
   end
   
