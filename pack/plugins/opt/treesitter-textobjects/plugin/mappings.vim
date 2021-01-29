@@ -1,7 +1,3 @@
-" Peek Definition
-nnoremap gK <cmd>TSTextobjectPeekDefinitionCode @function.outer<CR>
-
-
 " Selection
 onoremap <silent> af <cmd>TSTextobjectSelect @function.outer<CR>
 vnoremap <silent> af <cmd>TSTextobjectSelect @function.outer<CR>

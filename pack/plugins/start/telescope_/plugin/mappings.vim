@@ -11,11 +11,8 @@ nnoremap <leader>sS <cmd>Telescope live_grep cwd=expand('%:p:h')<CR>
 nnoremap <leader>sw <cmd>Telescope grep_string<CR>
 
 " LSP
-nnoremap <leader>tr <cmd>Telescope lsp_references<CR>
 nnoremap <leader>tf <cmd>Telescope lsp_document_symbols<CR>
 nnoremap <leader>tF <cmd>Telescope lsp_workspace_symbols<CR>
-nnoremap <leader>ra <cmd>Telescope code_actions theme=get_dropdown<CR>
-vnoremap <leader>ra <cmd>Telescope range_code_actions theme=get_dropdown<CR>
 
 " Git
 nnoremap <leader>gl <cmd>Telescope git_commits<CR>
