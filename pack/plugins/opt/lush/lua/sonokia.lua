@@ -12,8 +12,10 @@ return lush(
     function()
         return {
             -- Base
+						Bold {gui = "bold"},
             Underlined {gui = "underline"},
             Reversed {gui = "reverse"},
+						UnderlinedBold  {gui = "underline,bold"},
             White {fg = hsl("#f1f1f2")},
             Black {fg = hsl("#131416")},
             Grey {fg = hsl("#7f8490")},
