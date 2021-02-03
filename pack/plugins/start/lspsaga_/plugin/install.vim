@@ -1,15 +1,6 @@
 lua packer.use({
     \   'glepnir/lspsaga.nvim',
-    \   cmd = {
-		\     'LspSagaDefPreview',
-		\     'LspSagaFinder',
-		\     'LspRename',
-		\     'LspSagaCodeAction',
-		\     'LspSagaRangeCodeAction',
-		\			'LspSagaShowLineDiags',
-		\     'LspSagaDiagJumpNext',
-		\     'LspSagaDiagJumpPrev',
-		\   },
+    \   cmd = 'Lspsaga',
     \   config = 'vim.cmd("packadd lspsaga")',
     \ })
 
