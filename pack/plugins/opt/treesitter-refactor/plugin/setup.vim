@@ -8,6 +8,7 @@ lua require('nvim-treesitter.configs').setup({
     \     },
     \     navigation = {
     \       enable = true,
+    \       keymaps = {},
     \     },
     \   },
     \ })
