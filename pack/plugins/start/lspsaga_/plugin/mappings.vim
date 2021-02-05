@@ -1,5 +1,5 @@
 nnoremap K          <cmd>Lspsaga hover_doc<CR>
-nnoremap gD         <cmd>Lspsaga preview_definition<CR>
+nnoremap <leader>tp <cmd>Lspsaga preview_definition<CR>
 nnoremap <leader>tr	<cmd>Lspsaga lsp_finder<CR>
 nnoremap <leader>rr <cmd>Lspsaga rename<CR>
 nnoremap <leader>ra <cmd>Lspsaga code_action<CR>
