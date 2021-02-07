@@ -20,8 +20,8 @@ nnoremap <leader>gL <cmd>Telescope git_bcommits<CR>
 nnoremap <leader>gc <cmd>Telescope git_branches<CR>
 
 " Lists
-nnoremap <leader>qq <cmd>Telescope quickfix<CR>
-nnoremap <leader>ll <cmd>Telescope loclist<CR>
+nnoremap <leader>qf <cmd>Telescope quickfix<CR>
+nnoremap <leader>lf <cmd>Telescope loclist<CR>
 
 " Commandline
 cnoremap <expr> he getcmdtype() ==# ':' && getcmdpos() == 1 ? 'Telescope help_tags<CR>' : 'he'
