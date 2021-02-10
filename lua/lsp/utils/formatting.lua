@@ -8,9 +8,15 @@ local function doesAnyClientSupportFormatting()
   return false
 end
 
+local function formattingIsDisabledByUser()
+	return vim.b.formatting_disabled or false
+end
+
 local function formatBufferIfPossible()
   if doesAnyClientSupportFormatting() then
-    vim.lsp.buf.formatting({})
+		if not formattingIsDisabledByUser() then
+			vim.lsp.buf.formatting({})
+		end
   else
     print("No formatting available") -- As indicator to add support
   end
