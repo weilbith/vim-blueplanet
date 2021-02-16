@@ -102,7 +102,7 @@ return lush(
             SpellCap {GreenUnderline},
             SpellLocal {BlueUnderline},
             SpellRare {PurpleUnderline},
-            StatusLine {White, bg = hsl("#3d3f47")},
+            StatusLine {White, bg = hsl("#3d3f47"), gui='bold'},
             StatusLineTerm {StatusLine},
             StatusLineNC {White, bg = hsl("#3d3f47")},
             StatusLineTermNC {StatusLineNC},
