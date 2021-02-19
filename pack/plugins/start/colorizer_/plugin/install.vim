@@ -1,5 +1,5 @@
 lua packer.use({
       \   'norcalli/nvim-colorizer.lua',
-      \   event = 'BufReadPost *',
+      \   event = 'BufRead *',
       \   config = 'vim.cmd("packadd colorizer | ColorizerReloadAllBuffers")',
       \ })
