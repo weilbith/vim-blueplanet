@@ -3,5 +3,3 @@ lua packer.use({
     \   cmd = 'Lspsaga',
     \   config = 'vim.cmd("packadd lspsaga")',
     \ })
-
-" TODO: Add lazy loading once PR is merged.
