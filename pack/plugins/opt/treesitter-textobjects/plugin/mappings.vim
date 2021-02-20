@@ -25,32 +25,46 @@ vnoremap <silent> i/ <cmd>TSTextobjectSelect @comment.outer<CR>
 " Move
 nnoremap <silent> ]f <cmd>TSTextobjectGotoNextStart @function.outer<CR>
 onoremap <silent> ]f <cmd>TSTextobjectGotoNextStart @function.outer<CR>
+vnoremap <silent> ]f <cmd>TSTextobjectGotoNextStart @function.outer<CR>
 nnoremap <silent> ]F <cmd>TSTextobjectGotoNextEnd @function.outer<CR>
 onoremap <silent> ]F <cmd>TSTextobjectGotoNextEnd @function.outer<CR>
+vnoremap <silent> ]F <cmd>TSTextobjectGotoNextEnd @function.outer<CR>
 nnoremap <silent> [f <cmd>TSTextobjectGotoPreviousStart @function.outer<CR>
 onoremap <silent> [f <cmd>TSTextobjectGotoPreviousStart @function.outer<CR>
+vnoremap <silent> [f <cmd>TSTextobjectGotoPreviousStart @function.outer<CR>
 nnoremap <silent> [F <cmd>TSTextobjectGotoPreviousEnd @function.outer<CR>
 onoremap <silent> [F <cmd>TSTextobjectGotoPreviousEnd @function.outer<CR>
+vnoremap <silent> [F <cmd>TSTextobjectGotoPreviousEnd @function.outer<CR>
 
 nnoremap <silent> ]c <cmd>TSTextobjectGotoNextStart @class.outer<CR>
 onoremap <silent> ]c <cmd>TSTextobjectGotoNextStart @class.outer<CR>
+vnoremap <silent> ]c <cmd>TSTextobjectGotoNextStart @class.outer<CR>
 nnoremap <silent> ]C <cmd>TSTextobjectGotoNextEnd @class.outer<CR>
 onoremap <silent> ]C <cmd>TSTextobjectGotoNextEnd @class.outer<CR>
+vnoremap <silent> ]C <cmd>TSTextobjectGotoNextEnd @class.outer<CR>
 nnoremap <silent> [c <cmd>TSTextobjectGotoPreviousStart @class.outer<CR>
 onoremap <silent> [c <cmd>TSTextobjectGotoPreviousStart @class.outer<CR>
+vnoremap <silent> [c <cmd>TSTextobjectGotoPreviousStart @class.outer<CR>
 nnoremap <silent> [C <cmd>TSTextobjectGotoPreviousEnd @class.outer<CR>
 onoremap <silent> [C <cmd>TSTextobjectGotoPreviousEnd @class.outer<CR>
+vnoremap <silent> [C <cmd>TSTextobjectGotoPreviousEnd @class.outer<CR>
 
 nnoremap <silent> ]a <cmd>TSTextobjectGotoNextStart @parameter.outer<CR>
 onoremap <silent> ]a <cmd>TSTextobjectGotoNextStart @parameter.outer<CR>
+vnoremap <silent> ]a <cmd>TSTextobjectGotoNextStart @parameter.outer<CR>
 nnoremap <silent> ]A <cmd>TSTextobjectGotoNextEnd @parameter.outer<CR>
 onoremap <silent> ]A <cmd>TSTextobjectGotoNextEnd @parameter.outer<CR>
+vnoremap <silent> ]A <cmd>TSTextobjectGotoNextEnd @parameter.outer<CR>
 nnoremap <silent> [a <cmd>TSTextobjectGotoPreviousStart @parameter.outer<CR>
 onoremap <silent> [a <cmd>TSTextobjectGotoPreviousStart @parameter.outer<CR>
+vnoremap <silent> [a <cmd>TSTextobjectGotoPreviousStart @parameter.outer<CR>
 nnoremap <silent> [A <cmd>TSTextobjectGotoPreviousEnd @parameter.outer<CR>
 onoremap <silent> [A <cmd>TSTextobjectGotoPreviousEnd @parameter.outer<CR>
+vnoremap <silent> [A <cmd>TSTextobjectGotoPreviousEnd @parameter.outer<CR>
 
-nnoremap <silent> ]/ :<c-u>tstextobjectgotonextstart @comment.outer<cr>
-onoremap <silent> ]/ :<c-u>tstextobjectgotonextstart @comment.outer<cr>
-nnoremap <silent> [/ :<c-u>tstextobjectgotopreviousstart @comment.outer<cr>
-onoremap <silent> [/ :<c-u>tstextobjectgotopreviousstart @comment.outer<cr>
+nnoremap <silent> ]/ :<c-u>TSTextobjectGotoNextStart @comment.outer<cr>
+onoremap <silent> ]/ :<c-u>TSTextobjectGotonextStart @comment.outer<cr>
+vnoremap <silent> ]/ :<c-u>TSTextobjectGotonextStart @comment.outer<cr>
+nnoremap <silent> [/ :<c-u>TSTextobjectGotoPreviousStart @comment.outer<cr>
+onoremap <silent> [/ :<c-u>TSTextobjectGotoPreviousStart @comment.outer<cr>
+vnoremap <silent> [/ :<c-u>TSTextobjectGotoPreviousStart @comment.outer<cr>
