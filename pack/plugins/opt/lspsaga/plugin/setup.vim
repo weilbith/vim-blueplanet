@@ -7,6 +7,7 @@ lua require('lspsaga').init_lsp_saga({
       \   finder_definition_icon = '  ',
       \   finder_reference_icon = '  ',
       \   definition_preview_icon = '  ',
+      \   dianostic_header_icon = '  ',
       \   rename_prompt_prefix = '➭ ',
       \   rename_prompt_prefix = '➭ ',
       \   code_action_keys = {
