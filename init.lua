@@ -1,4 +1,4 @@
-require('init_packer')
+vim.cmd("packadd plugin_manager") -- Must be sourced before all other start packages
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
