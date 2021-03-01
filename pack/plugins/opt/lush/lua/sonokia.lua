@@ -62,8 +62,8 @@ return lush(
             BlueUnderline {Blue, gui = "underline"},
             PurpleUnderline {Purple, gui = "underline"},
             -- UI
-            Normal {White, bg = BlackBackground.bg.lighten(5)},
-            NormalInactive {White, bg = BlackBackground.bg},
+            Normal {White, bg = BlackBackground.bg},
+            NormalInactive {White, bg = BlackBackground.bg.lighten(5)},
             NormalFloat {White, bg = hsl("#363944")},
             Terminal {NormalFloat},
             Folded {GreyBold},
