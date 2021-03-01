@@ -1,4 +1,5 @@
-nnoremap <leader>gh <cmd>lua require('gitsigns').reset_hunk()<CR>
+nnoremap <leader>gh <cmd>lua require('gitsigns').preview_hunk()<CR>
+nnoremap <leader>gH <cmd>lua require('gitsigns').reset_hunk()<CR>
 
 nnoremap ]gh <cmd>lua require('gitsigns').next_hunk()<CR>
 nnoremap [gh <cmd>lua require('gitsigns').prev_hunk()<CR>
