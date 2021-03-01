@@ -112,7 +112,7 @@ return lush(
             VertSplit {fg = hsl("#3d3f47"), bg = hsl("#3d3f47")},
             Visual {Black, bg = BlueBackground.bg},
             VisualNOS {White, bg = RedBackground.bg},
-            QuickFixLine {OrangeBackground},
+            QuickFixLine {Black, bg = OrangeBackground.bg},
             TermCursor {Cursor},
             -- Special
             Debug {Yellow},
