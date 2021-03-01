@@ -1,1 +1,1 @@
-nnoremap <silent> <leader>gb <cmd>GitMessenger<CR>
+nnoremap <leader>gb <cmd>GitMessenger<CR>

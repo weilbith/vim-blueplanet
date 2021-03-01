@@ -13,7 +13,7 @@ let b:undo_ftplugin = 'setlocal'
 tnoremap <buffer> <Esc><Esc> <C-\><C-n>
 let b:undo_ftplugin .= '|tunmap <buffer> <Esc><Esc>'
 
-tnoremap <silent><buffer> <C-q> <C-\><C-n>:FloatermKill<CR>
+tnoremap <buffer> <C-q> <cmd>FloatermKill<CR>
 let b:undo_ftplugin .= '|tunmap <buffer> <C-q>'
 
 nnoremap <C-q> <cmd>FloatermKill<CR>
