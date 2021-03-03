@@ -41,7 +41,8 @@ local function formatBufferIfPossible()
 			vim.lsp.buf.formatting({})
 		end
   else
-    print("No formatting available") -- As indicator to add support
+    -- As indicator to add support
+    vim.api.nvim_echo({{"No formatting available", "Normal"}}, false, {})
   end
 end
 
