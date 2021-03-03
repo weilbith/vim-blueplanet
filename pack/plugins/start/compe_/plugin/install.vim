@@ -1,5 +1,6 @@
 lua packer.use({
 		\   'hrsh7th/nvim-compe',
+    \   requires = {'hrsh7th/vim-vsnip'},
 		\   config = 'vim.cmd("packadd compe")',
 		\ })
 
