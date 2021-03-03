@@ -4,13 +4,25 @@ lua require('lspconfig').dockerls.setup({})
 lua require('lspconfig').html.setup({})
 lua require('lspconfig').jsonls.setup({ cmd = { 'json-languageserver', '--stdio' }})
 lua require('lspconfig').pyls.setup({})
-lua require('lspconfig').rust_analyzer.setup({})
 lua require('lspconfig').terraformls.setup({ cmd = { 'terraform-lsp', 'serve' }})
 lua require('lspconfig').texlab.setup({})
 lua require('lspconfig').tsserver.setup({})
 lua require('lspconfig').vimls.setup({})
 lua require('lspconfig').vuels.setup({})
 lua require('lspconfig').yamlls.setup({})
+lua require('lspconfig').rust_analyzer.setup({
+      \   capabilities = require("lsp_capabilities").construct_custom_capabilities({
+      \     snippetSupport = true,
+      \   }),
+			\   settings = {
+			\			["rust-analyzer"] = {
+			\				completion = {
+			\					autoimport = { enable = true},
+			\				},
+			\     },
+			\		},
+      \ })
+
 lua require('lspconfig').efm.setup({
     \   init_options = {
     \     documentFormatting = true,
