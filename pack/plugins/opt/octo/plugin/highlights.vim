@@ -9,9 +9,11 @@ highlight! link OctoNvimMissingDetails Grey
 
 highlight! link OctoNvimDirty OrangeBold
 highlight! link OctoNvimFloat NormalFloat
-highlight! link OctoNvimUser OrangeItalic
 highlight! link OctoNvimSymbol White
 highlight! link OctoNvimDate OctoNvimSymbol
 highlight! link OctoNvimTimelineItemHeading OrangeBold
 highlight! link OctoNvimEditable NormalInactive
-highlight! OctoNvimOwned guibg=#536682
+highlight! link OctoNvimBubble GreyBackgroundContrast
+highlight! link OctoNvimBubbleAuthor BlueBackgroundContrast
+highlight! link OctoNvimBubbleGreen GreenBackgroundContrast
+highlight! link OctoNvimBubbleRed RedBackgroundContrast
