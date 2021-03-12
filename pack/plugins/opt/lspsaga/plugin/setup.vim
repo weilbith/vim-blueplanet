@@ -3,7 +3,7 @@ scriptencoding utf-8
 lua require('lspsaga').init_lsp_saga({
       \   use_saga_diagnostic_sign = false,
       \   border_style = 3,
-      \   code_action_icon = '  ',
+      \   code_action_icon = '',
       \   finder_definition_icon = '  ',
       \   finder_reference_icon = '  ',
       \   definition_preview_icon = '  ',
@@ -21,5 +21,8 @@ lua require('lspsaga').init_lsp_saga({
       \   finder_action_keys = {
       \     quit = '<Esc>',
       \     open = '<CR>',
+      \   },
+      \   code_action_prompt = {
+      \     enable = false,
       \   },
       \ })
