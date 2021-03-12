@@ -42,7 +42,7 @@ return lush(
             YellowBackgroundContrast {YellowBackground, fg = Black.fg},
             GreenBackgroundContrast {GreenBackground, fg = Black.fg},
             BlueBackgroundContrast {BlueBackground, fg = Black.fg},
-            PurpleBackgroundContrast {PurpleBackground, fg = White.fg},
+            PurpleBackgroundContrast {PurpleBackground, fg = Black.fg},
             WhiteBold {White, gui = "bold"},
             BlackBold {Black, gui = "bold"},
             GreyBold {Grey, gui = "bold"},
