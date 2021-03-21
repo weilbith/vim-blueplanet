@@ -9,7 +9,7 @@ lua require('lspconfig').texlab.setup({})
 lua require('lspconfig').tsserver.setup({})
 lua require('lspconfig').vimls.setup({})
 lua require('lspconfig').vuels.setup({})
-lua require('lspconfig').yamlls.setup({})
+" lua require('lspconfig').yamlls.setup({})
 lua require('lspconfig').rust_analyzer.setup({
       \   capabilities = require("lsp_capabilities").construct_custom_capabilities({
       \     snippetSupport = true,
@@ -24,23 +24,26 @@ lua require('lspconfig').rust_analyzer.setup({
       \ })
 
 lua require('lspconfig').efm.setup({
-    \   init_options = {
-    \     documentFormatting = true,
-    \     hover = false,
-    \     documentSymbol = false,
-    \     codeAction = false,
-    \     completion = false,
-    \   },
-    \   settings = {
-    \     rootMarkers = { "package.json", "pyproject.toml", "Cargo.toml", ".git/" },
-    \     languages = {
-    \       sh = {
-    \         require('efm_config.linting').shellcheck,
-    \         require('efm_config.formatting').shfmt,
-    \	    }
-    \     },
-    \   }
-    \ })
+      \   init_options = {
+      \     documentFormatting = true,
+      \     hover = false,
+      \     documentSymbol = false,
+      \     codeAction = false,
+      \     completion = false,
+      \   },
+      \   settings = {
+      \     rootMarkers = { "package.json", "pyproject.toml", "Cargo.toml", ".git/" },
+      \     languages = {
+      \       sh = {
+      \         require('efm_config.linting').shellcheck,
+      \         require('efm_config.formatting').shfmt,
+      \	    },
+      \       json = {
+      \         require('efm_config.linting').jsonlint,
+      \       },
+      \     },
+      \   }
+      \ })
 
 
 " Note: Putting the setup calls into ftplugins saves 0.5ms per call during
