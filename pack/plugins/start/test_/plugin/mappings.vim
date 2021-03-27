@@ -1,5 +1,4 @@
-nnoremap <localleader>tt <cmd>TestLast<CR>
-nnoremap <localleader>tf <cmd>TestFile<CR>
-nnoremap <localleader>tn <cmd>TestNearest<CR>
-nnoremap <localleader>ts <cmd>TestSuite<CR>
-nnoremap <localleader>to <cmd>TestVisit<CR>
+nnoremap <localleader>tL <cmd>TestLast<CR>
+nnoremap <localleader>tF <cmd>TestFile<CR>
+nnoremap <localleader>tN <cmd>TestNearest<CR>
+nnoremap <localleader>tg <cmd>TestVisit<CR>
