@@ -2,6 +2,10 @@ if !exists('g:test#typescript#mocha#file_pattern')
   let g:test#typescript#mocha#file_pattern = '.test\.ts$'
 endif
 
+if !exists('g:test#typescript#patterns')
+  let g:test#typescript#patterns = g:test#javascript#patterns
+endif
+
 function! test#typescript#mocha#test_file(file) abort
   return a:file =~# g:test#typescript#mocha#file_pattern
     \ && test#javascript#has_package('mocha')

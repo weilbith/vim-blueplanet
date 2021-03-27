@@ -2,6 +2,10 @@ if !exists('g:test#typescript#jest#file_pattern')
   let g:test#typescript#jest#file_pattern = '.spec\.ts$'
 endif
 
+if !exists('g:test#typescript#patterns')
+  let g:test#typescript#patterns = g:test#javascript#patterns
+endif
+
 function! test#typescript#jest#test_file(file) abort
   return a:file =~# g:test#typescript#jest#file_pattern
     \ && test#javascript#has_package('jest')
