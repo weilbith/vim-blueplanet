@@ -1,3 +1,4 @@
+lua require('lspconfig').cmake.setup({})
 lua require('lspconfig').bashls.setup({filetypes = {"sh", "zsh"}})
 lua require('lspconfig').cssls.setup({ filetypes = { "css", "scss", "sass", "less" }})
 lua require('lspconfig').dockerls.setup({})
@@ -9,6 +10,7 @@ lua require('lspconfig').texlab.setup({})
 lua require('lspconfig').tsserver.setup({})
 lua require('lspconfig').vimls.setup({})
 lua require('lspconfig').vuels.setup({})
+lua require('lspconfig').solargraph.setup({})
 " lua require('lspconfig').yamlls.setup({})
 lua require('lspconfig').rust_analyzer.setup({
       \   capabilities = require("lsp_capabilities").construct_custom_capabilities({
