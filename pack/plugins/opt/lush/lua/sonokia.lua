@@ -100,6 +100,7 @@ return lush(
             MatchParen {Search},
             Whitespace {fg = hsl("#414550")},
             NonSpace {Whitespace},
+            NonText {Whitespace},
             SpecialKey {Whitespace},
             Pmenu {White, bg = hsl("#363944")},
             PmenuSbar {bg = hsl("#363944")},
