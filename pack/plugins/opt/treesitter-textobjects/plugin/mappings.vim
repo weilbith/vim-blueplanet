@@ -1,24 +1,25 @@
 " Selection
-onoremap am <cmd>TSTextobjectSelect @function.outer<CR>
-vnoremap am <cmd>TSTextobjectSelect @function.outer<CR>
-onoremap im <cmd>TSTextobjectSelect @function.inner<CR>
-vnoremap im <cmd>TSTextobjectSelect @function.inner<CR>
+" For some reason the prefered <cmd> mappings do not work here. Issue is open.
+onoremap <silent> am :<C-u>TSTextobjectSelect @function.outer<CR>
+vnoremap <silent> am :<C-u>TSTextobjectSelect @function.outer<CR>
+onoremap <silent> im :<C-u>TSTextobjectSelect @function.inner<CR>
+vnoremap <silent> im :<C-u>TSTextobjectSelect @function.inner<CR>
 
-onoremap ac <cmd>TSTextobjectSelect @class.outer<CR>
-vnoremap ac <cmd>TSTextobjectSelect @class.outer<CR>
-onoremap ic <cmd>TSTextobjectSelect @class.inner<CR>
-vnoremap ic <cmd>TSTextobjectSelect @class.inner<CR>
+onoremap <silent> ac :<C-u>TSTextobjectSelect @class.outer<CR>
+vnoremap <silent> ac :<C-u>TSTextobjectSelect @class.outer<CR>
+onoremap <silent> ic :<C-u>TSTextobjectSelect @class.inner<CR>
+vnoremap <silent> ic :<C-u>TSTextobjectSelect @class.inner<CR>
 
 " 'a' for 'argument' instead of 'p' that is associated with paragraph per default
-onoremap aa <cmd>TSTextobjectSelect @parameter.outer<CR>
-vnoremap aa <cmd>TSTextobjectSelect @parameter.outer<CR>
-onoremap ia <cmd>TSTextobjectSelect @parameter.inner<CR>
-vnoremap ia <cmd>TSTextobjectSelect @parameter.inner<CR>
+onoremap <silent> aa :<C-u>TSTextobjectSelect @parameter.outer<CR>
+vnoremap <silent> aa :<C-u>TSTextobjectSelect @parameter.outer<CR>
+onoremap <silent> ia :<C-u>TSTextobjectSelect @parameter.inner<CR>
+vnoremap <silent> ia :<C-u>TSTextobjectSelect @parameter.inner<CR>
 
-onoremap a/ <cmd>TSTextobjectSelect @comment.outer<CR>
-vnoremap a/ <cmd>TSTextobjectSelect @comment.outer<CR>
-onoremap i/ <cmd>TSTextobjectSelect @comment.outer<CR>
-vnoremap i/ <cmd>TSTextobjectSelect @comment.outer<CR>
+onoremap <silent> a/ :<C-u>TSTextobjectSelect @comment.outer<CR>
+vnoremap <silent> a/ :<C-u>TSTextobjectSelect @comment.outer<CR>
+onoremap <silent> i/ :<C-u>TSTextobjectSelect @comment.outer<CR>
+vnoremap <silent> i/ :<C-u>TSTextobjectSelect @comment.outer<CR>
 
 
 " Move
