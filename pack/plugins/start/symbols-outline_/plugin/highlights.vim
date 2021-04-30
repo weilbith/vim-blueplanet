@@ -1,0 +1,1 @@
+highlight! link FocusedSymbol OrangeBackgroundContrast
