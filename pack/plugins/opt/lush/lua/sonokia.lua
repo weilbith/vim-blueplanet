@@ -73,7 +73,8 @@ return lush(
             -- UI
             Normal {fg = BlackBackgroundContrast.fg, bg = BlackBackgroundContrast.bg},
             NormalInactive { bg = BlackBackground.bg.lighten(5)},
-            NormalFloat {White, bg = hsl("#363944")},
+            NormalFloat {NormalInactive},
+            FloatBorder {BlueBold},
             Terminal {NormalFloat},
             Folded {GreyBold},
             ToolbarLine {NormalInactive},
@@ -84,7 +85,7 @@ return lush(
             IncSearch {BlueBackgroundContrast, gui = "bold", blend = 0},
             Conceal {Grey},
             Cursor {Reversed},
-            CursorColumn {bg = hsl("#3d3f47")},
+            CursorColumn {bg = Normal.bg.lighten(7)},
             ColorColumn {CursorColumn},
             CursorLine {CursorColumn},
             CursorLineNr {White},
