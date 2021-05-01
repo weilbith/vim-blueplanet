@@ -1,1 +1,1 @@
-nnoremap <F3> <cmd>SymbolsOutline<CR>
+nnoremap gO <cmd>SymbolsOutline<CR>
