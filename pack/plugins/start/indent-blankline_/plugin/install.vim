@@ -1,5 +1,5 @@
 lua packer.use({
       \   'lukas-reineke/indent-blankline.nvim',
-      \   after = 'indentLine',
+      \   branch = 'lua',
       \   setup = 'vim.cmd("packadd indent-blankline")',
       \ })
