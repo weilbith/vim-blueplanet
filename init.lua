@@ -50,3 +50,10 @@ vim.o.listchars = 'eol:﬋,tab:ﲒ,space:.,trail:.,extends:ﰣ,precedes:﬌,n
 vim.o.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
 vim.o.viewoptions = 'cursor,folds,slash,unix'
 vim.g.netrw_home = vim.fn.stdpath('data') .. '/netrwhist'
+
+-- TODO: Remove when PR with `vim.opt` got merged.
+vim.api.nvim_set_option("tabstop", 2)
+vim.api.nvim_set_option("softtabstop", 2)
+vim.api.nvim_set_option("shiftwidth", 2)
+vim.api.nvim_set_option("expandtab", true)
+vim.api.nvim_set_option("shiftround", true)
