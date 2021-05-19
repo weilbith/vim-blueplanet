@@ -12,7 +12,7 @@ highlight! link OctoNvimFloat NormalFloat
 highlight! link OctoNvimSymbol White
 highlight! link OctoNvimDate OctoNvimSymbol
 highlight! link OctoNvimTimelineItemHeading OrangeBold
-highlight! link OctoNvimEditable NormalInactive
+highlight! link OctoNvimEditable NormalNC
 highlight! link OctoNvimBubble GreyBackgroundContrast
 highlight! link OctoNvimBubbleAuthor BlueBackgroundContrast
 highlight! link OctoNvimBubbleGreen GreenBackgroundContrast
