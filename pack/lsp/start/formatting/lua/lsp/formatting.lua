@@ -16,12 +16,10 @@ local function handle_format_response(error, _, result, _, buffer_number)
   if result == nil then return end
 
   if error ~= nil then
-    -- Do not use print to avoid blocking by require user to confirm message.
-    -- vim.cmd("echom '" .. vim.inspect(error) .. "'")
-    vim.cmd("echom 'Formatting has failed!'")
+    vim.api.nvim_notify('Formatting has failed!', 4, {})
     return
   end
-  
+
   local buffer_modified = vim.api.nvim_buf_get_option(buffer_number, "modified")
 
   if not buffer_modified then
@@ -40,9 +38,6 @@ local function formatBufferIfPossible()
 		if not formattingIsDisabledByUser() then
 			vim.lsp.buf.formatting({})
 		end
-  else
-    -- As indicator to add support
-    vim.api.nvim_echo({{"No formatting available", "Normal"}}, false, {})
   end
 end
 
