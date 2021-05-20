@@ -26,6 +26,7 @@ lua require('lspconfig').rust_analyzer.setup({
       \ })
 
 lua require('lspconfig').efm.setup({
+      \   filetypes = { "sh", "json"},
       \   init_options = {
       \     documentFormatting = true,
       \     hover = false,
