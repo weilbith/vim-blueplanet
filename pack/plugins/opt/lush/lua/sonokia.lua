@@ -8,6 +8,7 @@
 local lush = require("lush")
 local hsl = lush.hsl
 
+---@diagnostic disable
 return lush(
     function()
         return {
