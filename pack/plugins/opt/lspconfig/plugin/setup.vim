@@ -12,6 +12,7 @@ lua require('lspconfig').vimls.setup({})
 lua require('lspconfig').vuels.setup({})
 lua require('lspconfig').solargraph.setup({})
 " lua require('lspconfig').yamlls.setup({})
+
 lua require('lspconfig').rust_analyzer.setup({
       \   capabilities = require("lsp_capabilities").construct_custom_capabilities({
       \     snippetSupport = true,
@@ -48,6 +49,29 @@ lua require('lspconfig').efm.setup({
       \   }
       \ })
 
+lua require('lspconfig').sumneko_lua.setup({
+      \   cmd = { 'lua-language-server' },
+      \   settings = {
+      \     Lua = {
+      \       runtime = {
+      \         version = 'LuaJIT',
+      \         path = vim.split(package.path, ';'),
+      \       },
+      \       diagnostics = {
+      \         globals = {'vim'},
+      \       },
+      \       workspace = {
+      \         library = {
+      \           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+      \           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+      \         },
+      \       },
+      \       telemetry = {
+      \         enable = false,
+      \       },
+      \     },
+      \   },
+      \ })
 
 " Note: Putting the setup calls into ftplugins saves 0.5ms per call during
 " startup. At the moment it is not worth to write that many sudpid ftplugins.
