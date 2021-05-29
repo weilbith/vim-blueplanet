@@ -13,7 +13,7 @@ nnoremap <leader>wK <cmd>wincmd K<CR>
 nnoremap <leader>wL <cmd>wincmd L<CR>
 
 nnoremap <leader>wP <cmd>wincmd P<CR>
-nnoremap <leader>wP <cmd>wincmd z<CR>
+nnoremap <leader>wz <cmd>wincmd z<CR>
 
 nnoremap <leader>w1 <cmd>1wincmd w<CR>
 nnoremap <leader>w2 <cmd>2wincmd w<CR>
