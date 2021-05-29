@@ -49,29 +49,13 @@ lua require('lspconfig').efm.setup({
       \   }
       \ })
 
-lua require('lspconfig').sumneko_lua.setup({
-      \   cmd = { 'lua-language-server' },
-      \   settings = {
-      \     Lua = {
-      \       runtime = {
-      \         version = 'LuaJIT',
-      \         path = vim.split(package.path, ';'),
-      \       },
-      \       diagnostics = {
-      \         globals = {'vim'},
-      \       },
-      \       workspace = {
-      \         library = {
-      \           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-      \           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-      \         },
-      \       },
-      \       telemetry = {
-      \         enable = false,
-      \       },
-      \     },
-      \   },
-      \ })
+lua require('lspconfig').sumneko_lua.setup(
+      \   require("lua-dev").setup({
+      \     lspconfig = {
+      \       cmd = { "lua-language-server" },
+      \     }
+      \   })
+      \ )
 
 " Note: Putting the setup calls into ftplugins saves 0.5ms per call during
 " startup. At the moment it is not worth to write that many sudpid ftplugins.
