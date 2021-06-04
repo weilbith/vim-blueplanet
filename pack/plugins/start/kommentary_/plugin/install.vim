@@ -5,7 +5,7 @@ lua packer.use({
       \     '<Plug>kommentary_line_default',
       \     '<Plug>kommentary_visual_default',
       \   },
-      \   setup = 'vim.cmd("packadd kommentary_config")',
+      \   config = 'vim.cmd("packadd kommentary_config")',
       \ })
 
 " Note: Unfortunately the plugin itself is using its pure name without a pre-
