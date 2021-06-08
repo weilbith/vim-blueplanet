@@ -4,7 +4,7 @@ lua require('lspconfig').cssls.setup({ filetypes = { "css", "scss", "sass", "les
 lua require('lspconfig').dockerls.setup({})
 lua require('lspconfig').html.setup({})
 lua require('lspconfig').jsonls.setup({ cmd = { 'json-languageserver', '--stdio' }})
-lua require('lspconfig').pyls.setup({})
+lua require('lspconfig').pylsp.setup({})
 lua require('lspconfig').terraformls.setup({ cmd = { 'terraform-lsp', 'serve' }})
 lua require('lspconfig').texlab.setup({})
 lua require('lspconfig').tsserver.setup({})
