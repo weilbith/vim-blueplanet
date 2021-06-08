@@ -1,5 +1,6 @@
 " Most LSP related mappings are defined in the 'lsp' packages.
 
-nnoremap <leader>tr	<cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <leader>rr	<cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>ra	<cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <unique> <leader>tr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <unique> <leader>rr <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <unique> <leader>ra <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <unique> <leader>ts <cmd>lua vim.lsp.buf.signature_help()<CR>
