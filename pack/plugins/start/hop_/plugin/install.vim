@@ -1,12 +1,12 @@
 lua packer.use({
       \   'phaazon/hop.nvim',
       \   cmd = {
-      \     'HopWord',
-      \     'HopWordVisual',
-      \     'HopChar1',
-      \     'HopChar1Visual',
-      \     'HopLine',
-      \     'HopLineVisual',
+      \     'HopWordAC',
+      \     'HopWordBC',
+      \     'HopLineAC',
+      \     'HopLineBC',
+      \     'HopChar1AC',
+      \     'HopChar1BC',
       \   },
       \   config = 'vim.cmd("packadd hop")',
       \ })
