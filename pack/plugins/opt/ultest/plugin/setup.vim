@@ -1,2 +1,9 @@
 let g:ultest_max_threads = 4
-" let g:ultest_virtual_text = 1
+let g:ultest_pass_sign = ""
+let g:ultest_pass_text = ""
+let g:ultest_fail_sign = ""
+let g:ultest_fail_text = ""
+let g:ultest_running_sign = ""
+let g:ultest_running_text = ""
+let g:ultest_not_run_sign = ""
+let g:ultest_virtual_text = 1
