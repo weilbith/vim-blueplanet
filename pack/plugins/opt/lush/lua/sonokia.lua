@@ -171,7 +171,7 @@ return lush(
             Delimiter {White},
             Comment {GreyItalic},
             SpecialComment {GreyBold},
-            Todo {BlueItalic},
+            Todo {YellowBackgroundContrast},
             Ignore {Grey},
             CurrentWord {bg = hsl("#363944"), gui = "bold,underline"},
             -- Improve some built-in supported file-types that don't use tree sitter.
