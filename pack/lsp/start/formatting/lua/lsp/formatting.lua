@@ -12,14 +12,15 @@ local function formattingIsDisabledByUser()
 	return vim.b.formatting_disabled or false
 end
 
-local function handle_format_response(error, _, result, _, buffer_number)
+local function handle_format_response(error, result, context)
   if result == nil then return end
 
   if error ~= nil then
     vim.api.nvim_notify('Formatting has failed!', 4, {})
     return
   end
-
+  
+  local buffer_number = context.bufnr
   local buffer_modified = vim.api.nvim_buf_get_option(buffer_number, "modified")
 
   if not buffer_modified then

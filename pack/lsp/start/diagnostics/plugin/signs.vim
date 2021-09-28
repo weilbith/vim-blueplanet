@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-sign define LspDiagnosticsSignError       text= texthl=LspDiagnosticsSignError
-sign define LspDiagnosticsSignWarning     text= texthl=LspDiagnosticsSignWarning
-sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation
-sign define LspDiagnosticsSignHint        text= texthl=LspDiagnosticsSignHint
+sign define DiagnosticSignError text= texthl=DiagnosticSignError
+sign define DiagnosticSignWarn  text= texthl=DiagnosticSignWarn
+sign define DiagnosticSignInfo  text= texthl=DiagnosticSignInfo
+sign define DiagnosticSignHint  text= texthl=DiagnosticSignHint
