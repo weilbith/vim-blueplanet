@@ -27,4 +27,7 @@ let g:nvim_tree_ignore = [
       \   '.egg-info'
       \ ]
 
+
 if exists('g:indentLine_fileTypeExclude') | call add(g:indentLine_fileTypeExclude, 'NvimTree') | endif
+
+lua require('nvim-tree').setup()
