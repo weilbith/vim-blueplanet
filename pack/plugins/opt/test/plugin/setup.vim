@@ -3,7 +3,7 @@ let test#strategy = {
       \ 'file': 'floaterm',
       \ }
 
-let test#enabled_runners = ['python#pytest', 'typescript#mocha', 'typescript#jest', 'rust#cargotest']
+let test#enabled_runners = ['python#pytest', 'typescript#mocha', 'typescript#jest', 'rust#cargotest', 'lua#busted']
 let g:test#custom_runners = {
       \ 'TypeScript': ['Mocha', 'Jest']
       \ }
