@@ -9,6 +9,7 @@ nnoremap <leader>bb <cmd>Telescope buffers<CR>
 nnoremap <leader>ss <cmd>Telescope live_grep<CR>
 nnoremap <leader>sS <cmd>Telescope live_grep cwd=expand('%:p:h')<CR>
 nnoremap <leader>sw <cmd>Telescope grep_string<CR>
+nnoremap <leader>sr <cmd>Telescope resume<CR>
 
 " LSP
 nnoremap <leader>tf <cmd>Telescope lsp_document_symbols<CR>
