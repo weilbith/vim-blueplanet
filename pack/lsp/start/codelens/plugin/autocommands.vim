@@ -1,1 +1,1 @@
-autocmd BufEnter,CursorHold,InsertLeave lua vim.lsp.codelens.refresh()
+autocmd BufEnter,CursorHold,InsertLeave <buffer> lua pcall(vim.lsp.codelens.refresh)
