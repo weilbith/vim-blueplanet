@@ -24,6 +24,12 @@ local function setup(package_path)
   packer.use({ 'wbthomason/packer.nvim', opt = true }) -- Else Packer wants to remove itself.
 end
 
+local function update()
+  vim.cmd('runtime! OPT register_plugin.lua')
+  packer.sync()
+end
+
 return {
-  setup = setup
+  setup = setup,
+  update = update,
 }
