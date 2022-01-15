@@ -30,6 +30,9 @@ nnoremap <unique> <leader>wrj <C-w>-
 nnoremap <unique> <leader>wrk <C-w>+
 nnoremap <unique> <leader>wrl <C-w>>
 
+nnoremap <unique> <leader>wS <cmd>execute('wincmd c \| sbuffer ' . bufnr('%'))<CR>
+nnoremap <unique> <leader>wV <cmd>execute('wincmd c \| vert sbuffer ' . bufnr('%'))<CR>
+
 " Gets extended by a couple of plugin specific mappings.
 
 augroup Windows
