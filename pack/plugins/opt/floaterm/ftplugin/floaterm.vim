@@ -7,17 +7,17 @@ let b:did_ftplugin = 1
 let s:save_cpoptions = &cpoptions
 set cpoptions&vim
 
-let b:undo_ftplugin = 'setlocal'
+let b:undo_ftplugin = ''
 
 
 tnoremap <buffer> <Esc><Esc> <C-\><C-n>
-let b:undo_ftplugin .= '|tunmap <buffer> <Esc><Esc>'
+let b:undo_ftplugin .= '| tunmap <buffer> <Esc><Esc>'
 
 tnoremap <buffer> <C-q> <cmd>FloatermKill<CR>
-let b:undo_ftplugin .= '|tunmap <buffer> <C-q>'
+let b:undo_ftplugin .= '| tunmap <buffer> <C-q>'
 
 nnoremap <C-q> <cmd>FloatermKill<CR>
-let b:undo_ftplugin .= '|nunmap <buffer> <C-q>'
+let b:undo_ftplugin .= '| nunmap <buffer> <C-q>'
 
 
 let &cpoptions = s:save_cpoptions
