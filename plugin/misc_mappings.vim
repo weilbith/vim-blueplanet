@@ -5,3 +5,6 @@ nnoremap ZQ <cmd>confirm qall<CR>
 
 " Because in web-browsers <C-W> closes the tab and I get crazy.
 inoremap <C-BS> <C-\><C-o>db
+
+xnoremap < <gv
+xnoremap > >gv
