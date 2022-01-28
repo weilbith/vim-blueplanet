@@ -1,34 +1,77 @@
+local base_capabilities = vim.tbl_deep_extend(
+  "force",
+  vim.lsp.protocol.make_client_capabilities(),
+  {
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = true,
+          preselectSupport = true,
+          insertReplaceSupport = true,
+          labelDetailsSupport = true,
+          depractedSupport = true,
+          commitCharactersSupport = true,
+          tagSupport = true,
+          resolveSupport = {
+            properties = {
+              'documentation', 'details', 'additionalTextEdits'
+            },
+          }
+        }
+      }
+    }
+  }
+)
+
+local base_configuration = {
+  capabilities = base_capabilities,
+}
+
 local lsp_config = require('lspconfig')
 
-lsp_config.cmake.setup({})
-lsp_config.flow.setup({})
-lsp_config.dockerls.setup({})
-lsp_config.pylsp.setup({})
-lsp_config.texlab.setup({})
-lsp_config.tsserver.setup({})
-lsp_config.vimls.setup({})
-lsp_config.vuels.setup({})
-lsp_config.solargraph.setup({})
-lsp_config.rnix.setup({})
-lsp_config.yamlls.setup({})
+lsp_config.cmake.setup(base_configuration)
+lsp_config.flow.setup(base_configuration)
+lsp_config.dockerls.setup(base_configuration)
+lsp_config.pylsp.setup(base_configuration)
+lsp_config.texlab.setup(base_configuration)
+lsp_config.vimls.setup(base_configuration)
+lsp_config.vuels.setup(base_configuration)
+lsp_config.solargraph.setup(base_configuration)
+lsp_config.rnix.setup(base_configuration)
+lsp_config.yamlls.setup(base_configuration)
+lsp_config.sumneko_lua.setup(base_capabilities)
+
+lsp_config.tsserver.setup({
+  capabilities = base_capabilities,
+  settings = {
+    completions = {
+      completeFunctionCalls = true,
+    },
+  },
+})
 
 lsp_config.html.setup({
+  capabilities = base_capabilities,
   cmd = { 'vscode-html-languageserver', '--stdio' },
 })
 
 lsp_config.jsonls.setup({
+  capabilities = base_capabilities,
   cmd = { 'vscode-json-languageserver', '--stdio' },
 })
 
 lsp_config.terraformls.setup({
+  capabilities = base_capabilities,
   cmd = { 'terraform-lsp', 'serve' },
 })
 
 lsp_config.bashls.setup({
+  capabilities = base_capabilities,
   filetypes = { 'sh', 'zsh' },
 })
 
 lsp_config.cssls.setup({
+  capabilities = base_capabilities,
   filetypes = { "css", "scss", "sass", "less" },
   cmd = { 'vscode-html-languageserver', '--stdio' },
 })
@@ -36,18 +79,8 @@ lsp_config.cssls.setup({
 lsp_config.rust_analyzer.setup({
   capabilities = vim.tbl_deep_extend(
     "force",
-    vim.lsp.protocol.make_client_capabilities(),
+    base_capabilities,
     {
-      textDocument = {
-        completion = {
-          completionItem = {
-            snippetSupport = true,
-            resolveSupport = {
-              properties = { "documentation", "detail", "additionalTextEdits" },
-            }
-          }
-        },
-      },
       experimental = {
         hoverActions = true,
         hoverRange = true,
@@ -96,13 +129,5 @@ lsp_config.efm.setup({
   },
 })
 
-lsp_config.sumneko_lua.setup(
-  require("lua-dev").setup({
-    lspconfig = {
-      cmd = { "lua-language-server" },
-    }
-  })
-)
-
--- Note: Putting the setup calls into ftplugins saves 0.5ms per call during
+-- Note: Putting the setup calls into ftplggins saves 0.5ms per call during
 -- startup. At the moment it is not worth to write that many sudpid ftplugins.

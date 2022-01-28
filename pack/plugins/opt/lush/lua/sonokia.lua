@@ -104,7 +104,7 @@ return lush(
             NonSpace {Whitespace},
             NonText {Whitespace},
             SpecialKey {Whitespace},
-            Pmenu {White, bg = hsl("#363944")},
+            Pmenu {fg = hsl('#d9d9d9'), bg = hsl("#363944")},
             PmenuSbar {bg = hsl("#363944")},
             PmenuSel {GreenBackgroundContrast},
             PmenuThumb {GreyBackgroundContrast},
