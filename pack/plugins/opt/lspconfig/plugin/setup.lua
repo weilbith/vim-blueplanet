@@ -32,14 +32,42 @@ local lsp_config = require('lspconfig')
 lsp_config.cmake.setup(base_configuration)
 lsp_config.flow.setup(base_configuration)
 lsp_config.dockerls.setup(base_configuration)
-lsp_config.pylsp.setup(base_configuration)
+lsp_config.pylsp.setup({
+  capabilities = base_capabilities,
+  cmd = { 'pyls' },
+  settings ={
+    pyls = {
+      plugins = {
+        pycodestyle = {
+          enabled = false,
+        },
+        pyls_mypy = {
+          enabled = true,
+        }
+      },
+    },
+  },
+})
 lsp_config.texlab.setup(base_configuration)
 lsp_config.vimls.setup(base_configuration)
 lsp_config.vuels.setup(base_configuration)
 lsp_config.solargraph.setup(base_configuration)
 lsp_config.rnix.setup(base_configuration)
 lsp_config.yamlls.setup(base_configuration)
-lsp_config.sumneko_lua.setup(base_capabilities)
+lsp_config.solidity_ls.setup(base_configuration)
+lsp_config.sumneko_lua.setup({
+  capabilities = base_capabilities,
+  settings = {
+    Lua = {
+      workspace = {
+        library = { "/home/thore/projects/nvim-outline/lua_modules/lib/luarocks/rocks-5.4/busted/2.0.0-1" },
+      },
+      runtime = {
+        path = { "?.lua", "?/init.lua" }
+      }
+    },
+  },
+})
 
 lsp_config.tsserver.setup({
   capabilities = base_capabilities,
