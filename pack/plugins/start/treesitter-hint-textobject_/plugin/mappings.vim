@@ -1,2 +1,2 @@
-onoremap o <cmd>lua require('tsht').nodes()<CR>
-vnoremap o <cmd>lua require('tsht').nodes()<CR>
+omap     <space> :<C-U>lua require('tsht').nodes()<CR>
+vnoremap <space> :lua require('tsht').nodes()<CR>
