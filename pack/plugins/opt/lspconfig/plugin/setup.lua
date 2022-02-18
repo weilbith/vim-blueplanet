@@ -32,6 +32,7 @@ local lsp_config = require('lspconfig')
 lsp_config.cmake.setup(base_configuration)
 lsp_config.flow.setup(base_configuration)
 lsp_config.dockerls.setup(base_configuration)
+lsp_config.solc.setup(base_configuration)
 lsp_config.pylsp.setup({
   capabilities = base_capabilities,
   cmd = { 'pyls' },
