@@ -1,5 +1,7 @@
 packer.use({
-  'IndianBoy42/hop.nvim',
+  'phaazon/hop.nvim',
+  requires = { 'IndianBoy42/hop-extensions' },
+  wants = { 'telescope.nvim', 'hop-extensions' },
   cmd = {
     'HopWordAC',
     'HopWordBC',
@@ -7,7 +9,11 @@ packer.use({
     'HopLineBC',
     'HopChar1AC',
     'HopChar1BC',
-    'HopFunctions'
+    'HopFunctions',
+    'HopObjects',
+    'HopDiagnostics',
+    'HopParameters',
+    'HopComments',
   },
   config = 'vim.cmd("packadd hop")',
 })

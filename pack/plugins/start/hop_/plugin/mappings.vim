@@ -19,4 +19,16 @@ vnoremap <leader><leader>F <cmd>HopChar1BC<CR>
 nnoremap <leader><leader>m <cmd>HopFunctions<CR>
 vnoremap <leader><leader>m <cmd>HopFunctions<CR>
 
+nnoremap <leader><leader>o <cmd>HopObjects<CR>
+vnoremap <leader><leader>o <cmd>HopObjects<CR>
+
+nnoremap <leader><leader>d <cmd>HopDiagnostics<CR>
+vnoremap <leader><leader>d <cmd>HopDiagnostics<CR>
+
+nnoremap <leader><leader>p <cmd>HopParameters<CR>
+vnoremap <leader><leader>p <cmd>HopParameters<CR>
+
+nnoremap <leader><leader>c <cmd>HopComments<CR>
+vnoremap <leader><leader>c <cmd>HopComments<CR>
+
 " TODO: open PR for `e` and `t` movements
