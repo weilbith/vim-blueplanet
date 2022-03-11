@@ -11,8 +11,7 @@ packer.use({
     'andersevenrud/cmp-tmux',
     'petertriho/cmp-git',
     'lukas-reineke/cmp-under-comparator',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
+    'saadparwaiz1/cmp_luasnip',
   },
 	config = 'vim.cmd("packadd cmp")',
 })

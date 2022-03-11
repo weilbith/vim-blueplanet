@@ -5,7 +5,7 @@ local under_comparators = require('cmp-under-comparator')
 require('cmp').setup({
   sources = sources(
     {
-      { name = 'vsnip' },
+      { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
       { name = 'treesitter' },
@@ -19,7 +19,11 @@ require('cmp').setup({
   ),
   snippet = {
     expand = function(arguments)
-      vim.fn['vsnip#anonymous'](arguments.body)
+      local ok, luasnip = pcall(require, 'luasnip')
+
+      if ok then
+        luasnip.lsp_expand(arguments.body)
+      end
     end,
   },
   experimental = {
