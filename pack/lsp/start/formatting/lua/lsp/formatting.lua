@@ -37,7 +37,7 @@ end
 local function formatBufferIfPossible()
   if doesAnyClientSupportFormatting() then
 		if not formattingIsDisabledByUser() then
-			vim.lsp.buf.formatting({})
+			vim.lsp.buf.formatting_seq_sync()
 		end
   end
 end

@@ -1,4 +1,4 @@
 augroup Formatting
   autocmd!
-  autocmd BufWritePost * lua require('lsp.formatting').formatBufferIfPossible()
+  autocmd BufWritePre * lua require('lsp.formatting').formatBufferIfPossible()
 augroup END
