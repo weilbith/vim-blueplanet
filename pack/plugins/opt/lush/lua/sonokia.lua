@@ -93,7 +93,7 @@ return lush(
             DiffAdd {GreenBold},
             DiffChange {Blue},
             DiffText {DiffChange, gui = "bold"},
-            DiffDelete {Red, bg = RedBackground.bg},
+            DiffDelete {Red},
             Directory {Green},
             ErrorMsg {RedBackgroundContrast, gui = "bold,underline"},
             WarningMsg {OrangeBold},
@@ -220,7 +220,7 @@ return lush(
             makeIdent {Purple},
             makeSpecTarget {Blue},
             makeTarget {Orange},
-            gitcommitFile {Green}
+            gitcommitFile {Green},
         }
     end
 )
