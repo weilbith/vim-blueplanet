@@ -25,10 +25,15 @@ nnoremap <unique> <leader>w7 <cmd>7wincmd w<CR>
 nnoremap <unique> <leader>w8 <cmd>8wincmd w<CR>
 nnoremap <unique> <leader>w9 <cmd>9wincmd w<CR>
 
-nnoremap <unique> <leader>wrh <C-w><
-nnoremap <unique> <leader>wrj <C-w>-
-nnoremap <unique> <leader>wrk <C-w>+
-nnoremap <unique> <leader>wrl <C-w>>
+nnoremap <Plug>(WindowResizeLeft)   <C-w><
+nnoremap <Plug>(WindowResizeDown)   <C-w>-
+nnoremap <Plug>(WindowResizeUp)     <C-w>+
+nnoremap <Plug>(WindowResizeRight)  <C-w>>
+
+nmap <unique> <leader>wrh <Plug>(WindowResizeLeft)
+nmap <unique> <leader>wrj <Plug>(WindowResizeDown)
+nmap <unique> <leader>wrk <Plug>(WindowResizeUp)
+nmap <unique> <leader>wrl <Plug>(WindowResizeRigt)
 
 nnoremap <unique> <leader>wS <cmd>execute('wincmd c \| sbuffer ' . bufnr('%'))<CR>
 nnoremap <unique> <leader>wV <cmd>execute('wincmd c \| vert sbuffer ' . bufnr('%'))<CR>
