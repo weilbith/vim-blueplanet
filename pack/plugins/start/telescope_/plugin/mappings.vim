@@ -10,10 +10,12 @@ nnoremap <leader>ss <cmd>Telescope live_grep<CR>
 nnoremap <leader>sS <cmd>Telescope live_grep cwd=expand('%:p:h')<CR>
 nnoremap <leader>sw <cmd>Telescope grep_string<CR>
 nnoremap <leader>sr <cmd>Telescope resume<CR>
+nnoremap <leader>sR <cmd>Telescope pickers<CR>
 
 " LSP
 nnoremap <leader>tf <cmd>Telescope lsp_document_symbols<CR>
 nnoremap <leader>tF <cmd>Telescope lsp_workspace_symbols<CR>
+nnoremap <leader>tr <cmd>Telescope lsp_references<CR>
 
 " Git
 nnoremap <leader>gl <cmd>Telescope git_commits<CR>
