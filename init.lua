@@ -8,7 +8,7 @@ vim.cmd("filetype indent on")
 vim.cmd("syntax on")
 
 vim.opt.encoding = 'utf-8'
-vim.opt.spell = false -- TODO: treesitter is annoying atm.
+vim.opt.spell = true
 vim.opt.spelloptions = 'camel'
 vim.opt.spellfile = vim.fn.stdpath('data') .. '/spell/en.utf-8.add'
 vim.opt.cursorline = true
