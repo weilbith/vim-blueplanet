@@ -10,7 +10,7 @@ set cpoptions&vim
 let b:undo_ftplugin = 'setlocal'
 
 
-setlocal spell
+setlocal nospell
 let b:undo_ftplugin .= 'spell<'
 
 
