@@ -5,3 +5,11 @@
 function! completion_menu#is_open() abort
   return luaeval('require("completion_menu").is_open()')
 endfunction
+
+function! completion_menu#entry_is_selected() abort
+  return luaeval('require("completion_menu").entry_is_selected()')
+endfunction
+
+function! completion_menu#is_open_and_entry_selected() abort
+  return luaeval('require("completion_menu").is_open_and_entry_selected()')
+endfunction
