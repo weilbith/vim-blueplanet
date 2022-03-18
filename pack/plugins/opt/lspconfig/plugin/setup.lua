@@ -60,8 +60,15 @@ lsp_config.sumneko_lua.setup({
   capabilities = base_capabilities,
   settings = {
     Lua = {
-      workspace = {
-        library = { "/home/thore/projects/nvim-outline/lua_modules/lib/luarocks/rocks-5.4/busted/2.0.0-1" },
+      diagnostics = {
+        globals = {
+          'vim',
+          -- Busted - why does it not pick it up from the library?
+          'insulate',
+          'describe',
+          'it',
+          'assert',
+        },
       },
       runtime = {
         path = { "?.lua", "?/init.lua" }
