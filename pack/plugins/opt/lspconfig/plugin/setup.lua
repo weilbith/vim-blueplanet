@@ -76,6 +76,15 @@ lsp_config.sumneko_lua.setup({
       format = {
         enable = false,
       },
+      hint = {
+        enable = true,
+      },
+      IntelliSense = {
+        traceLocalSet = true,
+        traceReturn = true,
+        traceBeSetted = true,
+        traceFieldInject = true,
+      },
     },
   },
 })
