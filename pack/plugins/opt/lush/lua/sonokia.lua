@@ -79,7 +79,7 @@ return lush(
             PurpleUnderline {Purple, gui = "underline"},
             -- UI
             Normal {fg = BlackBackgroundContrast.fg, bg = BlackBackgroundContrast.bg},
-            NormalNC { bg = BlackBackground.bg.lighten(3)},
+            NormalNC {Normal},
             NormalFloat {NormalNC},
             FloatBorder {BlueBold},
             Terminal {NormalFloat},
@@ -127,7 +127,7 @@ return lush(
             TabLine {White, bg = RedBackground.bg},
             TabLineFill {StatusLineNC},
             TabLineSel {RedBackgroundContrast},
-            VertSplit {fg = StatusLineNC.bg, bg = StatusLineNC.bg},
+            WinSeparator {GreyBold},
             Visual {BlueBackgroundContrast},
             VisualNOS {RedBackgroundContrast},
             QuickFixLine {OrangeBackgroundContrast},
