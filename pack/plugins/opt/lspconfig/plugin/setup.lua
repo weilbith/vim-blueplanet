@@ -150,6 +150,9 @@ lsp_config.rust_analyzer.setup({
 	    completion = {
 			  autoimport = { enable = true},
 			},
+      inlayHints = {
+        enable = true,
+      },
 		},
 	},
 })
