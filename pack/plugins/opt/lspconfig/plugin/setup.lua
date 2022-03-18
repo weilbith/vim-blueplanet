@@ -65,7 +65,10 @@ lsp_config.sumneko_lua.setup({
       },
       runtime = {
         path = { "?.lua", "?/init.lua" }
-      }
+      },
+      format = {
+        enable = false,
+      },
     },
   },
 })
