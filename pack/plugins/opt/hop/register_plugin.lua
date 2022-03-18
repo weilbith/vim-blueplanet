@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'phaazon/hop.nvim',
   requires = { 'IndianBoy42/hop-extensions' },
   wants = { 'telescope.nvim', 'hop-extensions' },

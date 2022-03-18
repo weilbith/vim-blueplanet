@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'vim-scripts/vim-asterisk',
   keys = {
     '<Plug>(asterisk-*)',

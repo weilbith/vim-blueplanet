@@ -1,5 +1,5 @@
-packer.use({
+require('require').use({
   'Raimondi/delimitMate',
   event = 'InsertEnter',
-	config = 'vim.cmd("packadd delimitmate")',
+  config = 'vim.cmd("packadd delimitmate")',
 })

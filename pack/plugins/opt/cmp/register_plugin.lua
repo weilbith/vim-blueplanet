@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'hrsh7th/nvim-cmp',
   requires = {
     'hrsh7th/cmp-nvim-lsp',
@@ -13,7 +13,7 @@ packer.use({
     'lukas-reineke/cmp-under-comparator',
     'saadparwaiz1/cmp_luasnip',
   },
-	config = 'vim.cmd("packadd cmp")',
+  config = 'vim.cmd("packadd cmp")',
 })
 -- add vcard for mails
 -- add signature help

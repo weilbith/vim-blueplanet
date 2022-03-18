@@ -1,7 +1,5 @@
-local base_capabilities = vim.tbl_deep_extend(
-  "force",
-  vim.lsp.protocol.make_client_capabilities(),
-  {
+local base_capabilities =
+  vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), {
     textDocument = {
       completion = {
         completionItem = {
@@ -14,14 +12,15 @@ local base_capabilities = vim.tbl_deep_extend(
           tagSupport = true,
           resolveSupport = {
             properties = {
-              'documentation', 'details', 'additionalTextEdits'
+              'documentation',
+              'details',
+              'additionalTextEdits',
             },
-          }
-        }
-      }
-    }
-  }
-)
+          },
+        },
+      },
+    },
+  })
 
 local base_configuration = {
   capabilities = base_capabilities,
@@ -36,7 +35,7 @@ lsp_config.solc.setup(base_configuration)
 lsp_config.pylsp.setup({
   capabilities = base_capabilities,
   cmd = { 'pyls' },
-  settings ={
+  settings = {
     pyls = {
       plugins = {
         pycodestyle = {
@@ -44,7 +43,7 @@ lsp_config.pylsp.setup({
         },
         pyls_mypy = {
           enabled = true,
-        }
+        },
       },
     },
   },
@@ -71,7 +70,7 @@ lsp_config.sumneko_lua.setup({
         },
       },
       runtime = {
-        path = { "?.lua", "?/init.lua" }
+        path = { '?.lua', '?/init.lua' },
       },
       format = {
         enable = false,
@@ -120,45 +119,41 @@ lsp_config.bashls.setup({
 
 lsp_config.cssls.setup({
   capabilities = base_capabilities,
-  filetypes = { "css", "scss", "sass", "less" },
+  filetypes = { 'css', 'scss', 'sass', 'less' },
   cmd = { 'vscode-html-languageserver', '--stdio' },
 })
 
 lsp_config.rust_analyzer.setup({
-  capabilities = vim.tbl_deep_extend(
-    "force",
-    base_capabilities,
-    {
-      experimental = {
-        hoverActions = true,
-        hoverRange = true,
-        serverStatusNotification = true,
-        snippetTextEdit = true,
-        codeActionGroup = true,
-        commands = {
-          "rust-analyzer.runSingle",
-          "rust-analyzer.debugSingle",
-          "rust-analyzer.showReferences",
-          "rust-analyzer.gotoLocation",
-          "editor.action.triggerParameterHints",
-        },
+  capabilities = vim.tbl_deep_extend('force', base_capabilities, {
+    experimental = {
+      hoverActions = true,
+      hoverRange = true,
+      serverStatusNotification = true,
+      snippetTextEdit = true,
+      codeActionGroup = true,
+      commands = {
+        'rust-analyzer.runSingle',
+        'rust-analyzer.debugSingle',
+        'rust-analyzer.showReferences',
+        'rust-analyzer.gotoLocation',
+        'editor.action.triggerParameterHints',
       },
-    }
-  ),
-	settings = {
-	  ["rust-analyzer"] = {
-	    completion = {
-			  autoimport = { enable = true},
-			},
+    },
+  }),
+  settings = {
+    ['rust-analyzer'] = {
+      completion = {
+        autoimport = { enable = true },
+      },
       inlayHints = {
         enable = true,
       },
-		},
-	},
+    },
+  },
 })
 
 lsp_config.efm.setup({
-  filetypes = { "sh", "json"},
+  filetypes = { 'sh', 'json' },
   init_options = {
     documentFormatting = true,
     hover = false,
@@ -167,7 +162,7 @@ lsp_config.efm.setup({
     completion = false,
   },
   settings = {
-    rootMarkers = { "package.json", "pyproject.toml", "Cargo.toml", ".git/" },
+    rootMarkers = { 'package.json', 'pyproject.toml', 'Cargo.toml', '.git/' },
     languages = {
       sh = {
         require('efm_config.linting').shellcheck,

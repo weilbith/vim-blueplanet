@@ -1,11 +1,11 @@
-vim.cmd("packadd plugin_manager") -- Must be sourced before all other start packages
+vim.cmd('packadd plugin_manager') -- Must be sourced before all other start packages
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
-vim.cmd("filetype plugin on")
-vim.cmd("filetype indent on")
-vim.cmd("syntax on")
+vim.cmd('filetype plugin on')
+vim.cmd('filetype indent on')
+vim.cmd('syntax on')
 
 vim.opt.encoding = 'utf-8'
 vim.opt.spell = true
@@ -39,7 +39,6 @@ vim.opt.updatetime = 1000
 vim.opt.updatecount = 0
 vim.opt.foldlevel = 1
 vim.opt.foldcolumn = 'auto:5'
-vim.opt.foldtext = 'repeat(" ", indent(v:foldstart)) .. " " .. trim(getline(v:foldstart)) . ".. " . (v:foldend - v:foldstart) . " lines .." . trim(getline(v:foldend))'
 vim.opt.hidden = true
 vim.opt.pumheight = 30
 vim.opt.joinspaces = false

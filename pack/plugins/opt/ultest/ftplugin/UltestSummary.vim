@@ -1,7 +1,7 @@
 if !exists('b:undo_ftplugin')
   let b:undo_ftplugin = 'setlocal'
 else
-  let b:undo_ftplugin .= '| setlocal' 
+  let b:undo_ftplugin .= '| setlocal'
 endif
 
 setlocal foldcolumn=0

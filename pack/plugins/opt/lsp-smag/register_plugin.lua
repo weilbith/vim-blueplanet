@@ -1,1 +1,1 @@
-packer.use({ 'weilbith/nvim-lsp-smag' })
+require('packer').use({ 'weilbith/nvim-lsp-smag' })

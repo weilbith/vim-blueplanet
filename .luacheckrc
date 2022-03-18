@@ -1,5 +1,5 @@
-read_globals = {
-  "vim",
+globals = {
+  'vim',
 }
 
 -- vim: filetype=lua

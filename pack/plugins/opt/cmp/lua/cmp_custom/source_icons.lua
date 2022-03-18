@@ -5,5 +5,5 @@ return {
   path = '',
   cmp_git = '',
   tmux = '',
-  emoji = ''
+  emoji = '',
 }

@@ -1,1 +1,1 @@
-packer.use('weilbith/vim-localrc')
+require('packer').use('weilbith/vim-localrc')

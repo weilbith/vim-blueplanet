@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'rcarriga/vim-ultest',
   run = ':UpdateRemotePlugins',
   wants = { 'vim-test' },

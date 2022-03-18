@@ -1,4 +1,4 @@
-local circular_numbers = { '❶', '❷', '❸', '❹', '❺', '❻', '❼' , '❽', '❾' }
+local circular_numbers = { '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽', '❾' }
 
 local function number_to_circular_number(_, index)
   return (circular_numbers[index] or index) .. ' '
@@ -14,5 +14,5 @@ require('vim.diagnostic').config({
     show_header = true,
     source = 'if_many',
     prefix = number_to_circular_number,
-  }
+  },
 })

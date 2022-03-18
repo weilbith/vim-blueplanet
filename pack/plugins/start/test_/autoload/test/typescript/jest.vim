@@ -10,7 +10,7 @@ function! test#typescript#jest#test_file(file) abort
   let l:has_jest = test#javascript#has_package('jest')
         \ && test#javascript#has_package('ts-jest')
   let l:has_vue_jest = test#javascript#has_package('vue-jest')
-  return a:file =~# g:test#typescript#jest#file_pattern 
+  return a:file =~# g:test#typescript#jest#file_pattern
     \ && (l:has_jest || l:has_vue_jest)
 endfunction
 

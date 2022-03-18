@@ -1,1 +1,1 @@
-packer.use('zhimsel/vim-stay')
+require('packer').use('zhimsel/vim-stay')

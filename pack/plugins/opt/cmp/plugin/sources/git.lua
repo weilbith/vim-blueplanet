@@ -1,3 +1,3 @@
-require("cmp_git").setup({
+require('cmp_git').setup({
   filetypes = { 'gitcommit', 'NeogitCommitMessage' },
 })

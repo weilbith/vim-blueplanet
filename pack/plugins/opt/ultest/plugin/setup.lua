@@ -1,0 +1,9 @@
+vim.g.ultest_max_threads = 4
+vim.g.ultest_pass_sign = ''
+vim.g.ultest_pass_text = ''
+vim.g.ultest_fail_sign = ''
+vim.g.ultest_fail_text = ''
+vim.g.ultest_running_sign = ''
+vim.g.ultest_running_text = ''
+vim.g.ultest_not_run_sign = ''
+vim.g.ultest_virtual_text = 1

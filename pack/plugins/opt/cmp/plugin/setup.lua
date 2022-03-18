@@ -3,20 +3,17 @@ local base_comparators = require('cmp.config.compare')
 local under_comparators = require('cmp-under-comparator')
 
 require('cmp').setup({
-  sources = sources(
-    {
-      { name = 'luasnip' },
-      { name = 'nvim_lsp' },
-      { name = 'nvim_lua' },
-      { name = 'treesitter' },
-      { name = 'path' },
-    },
-    {
-      { name = 'cmp_git' },
-      { name = 'emoji', option = { insert = true } },
-      { name = 'tmux', keyword_length = 5 },
-    }
-  ),
+  sources = sources({
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
+    { name = 'treesitter' },
+    { name = 'path' },
+  }, {
+    { name = 'cmp_git' },
+    { name = 'emoji', option = { insert = true } },
+    { name = 'tmux', keyword_length = 5 },
+  }),
   snippet = {
     expand = function(arguments)
       local ok, luasnip = pcall(require, 'luasnip')
@@ -42,6 +39,6 @@ require('cmp').setup({
       base_comparators.sort_text,
       base_comparators.length,
       base_comparators.order,
-    }
+    },
   },
 })

@@ -7,6 +7,6 @@ require('nvim-lightbulb').setup({
     text = '',
     win_opts = {
       winblend = 60,
-    }
-  }
+    },
+  },
 })

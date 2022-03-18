@@ -1,1 +1,1 @@
-packer.use('weilbith/vim-loche')
+require('packer').use('weilbith/vim-loche')

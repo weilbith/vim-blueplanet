@@ -1,9 +1,9 @@
 require('fidget').setup({
   text = {
-    spinner = "arc",
-    done = "",
+    spinner = 'arc',
+    done = '',
   },
   align = {
     top = true,
-  }
+  },
 })

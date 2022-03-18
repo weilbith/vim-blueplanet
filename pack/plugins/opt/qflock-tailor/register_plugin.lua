@@ -1,1 +1,1 @@
-packer.use('weilbith/vim-qfloc-tailor')
+require('packer').use('weilbith/vim-qfloc-tailor')

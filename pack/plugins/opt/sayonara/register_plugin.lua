@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'mhinz/vim-sayonara',
   cmd = 'Sayonara',
 })

@@ -14,7 +14,7 @@ function SnippetLibrary:new(kind)
 end
 
 function SnippetLibrary:__index(language)
-  local module_path = "snippets.filetypes." .. language
+  local module_path = 'snippets.filetypes.' .. language
   local ok, snippets_or_error = pcall(require, module_path)
 
   if not ok and not is_module_not_found_error(snippets_or_error) then

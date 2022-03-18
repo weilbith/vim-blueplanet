@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'matze/vim-move',
   keys = {
     '<Plug>MoveLineUp',

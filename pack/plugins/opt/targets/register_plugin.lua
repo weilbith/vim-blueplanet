@@ -1,4 +1,4 @@
-packer.use({
+require('packer').use({
   'wellle/targets.vim',
   event = 'BufEnter',
   config = 'vim.cmd("packadd targets")',

@@ -1,5 +1,5 @@
 if vim.g.indentLine_fileTypeExclude ~= nil then
-    table.insert(vim.g.indentLine_fileTypeExclude, 'NvimTree')
+  table.insert(vim.g.indentLine_fileTypeExclude, 'NvimTree')
 end
 
 -- TODO: check when these options get available in the setup function.
@@ -21,7 +21,7 @@ vim.g.nvim_tree_icons = {
     renamed = '',
     untracked = '',
     deleted = '',
-  }
+  },
 }
 
 require('nvim-tree').setup({
@@ -61,6 +61,6 @@ require('nvim-tree').setup({
       '.mypy_cache',
       '.pytest_cache',
       '.egg-info',
-    }
-  }
+    },
+  },
 })

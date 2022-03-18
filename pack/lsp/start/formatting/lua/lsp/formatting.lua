@@ -9,19 +9,21 @@ local function doesAnyClientSupportFormatting()
 end
 
 local function formattingIsDisabledByUser()
-	return vim.b.formatting_disabled or false
+  return vim.b.formatting_disabled or false
 end
 
 local function handle_format_response(error, result, context)
-  if result == nil then return end
+  if result == nil then
+    return
+  end
 
   if error ~= nil then
     vim.api.nvim_notify('Formatting has failed!', 4, {})
     return
   end
-  
+
   local buffer_number = context.bufnr
-  local buffer_modified = vim.api.nvim_buf_get_option(buffer_number, "modified")
+  local buffer_modified = vim.api.nvim_buf_get_option(buffer_number, 'modified')
 
   if not buffer_modified then
     local preserved_view = vim.fn.winsaveview()
@@ -31,18 +33,18 @@ local function handle_format_response(error, result, context)
 end
 
 local function setup()
-  vim.lsp.handlers["textDocument/formatting"] = handle_format_response
+  vim.lsp.handlers['textDocument/formatting'] = handle_format_response
 end
 
 local function formatBufferIfPossible()
   if doesAnyClientSupportFormatting() then
-		if not formattingIsDisabledByUser() then
-			vim.lsp.buf.formatting_seq_sync()
-		end
+    if not formattingIsDisabledByUser() then
+      vim.lsp.buf.formatting_seq_sync()
+    end
   end
 end
 
 return {
   setup = setup,
-  formatBufferIfPossible = formatBufferIfPossible
+  formatBufferIfPossible = formatBufferIfPossible,
 }

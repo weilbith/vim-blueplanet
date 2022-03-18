@@ -11,9 +11,8 @@ end
 local function setup(package_path)
   install_packer(package_path)
   vim.o.packpath = vim.o.packpath .. ',' .. package_path
-  vim.cmd("packadd packer.nvim")
-  packer = require('packer')
-  packer.init({
+  vim.cmd('packadd packer.nvim')
+  require('packer').init({
     package_root = package_path .. '/pack',
     display = {
       open_fn = require('packer.util').float,
@@ -21,12 +20,12 @@ local function setup(package_path)
     },
   })
 
-  packer.use({ 'wbthomason/packer.nvim', opt = true }) -- Else Packer wants to remove itself.
+  require('packer').use({ 'wbthomason/packer.nvim', opt = true }) -- Else Packer wants to remove itself.
 end
 
 local function update()
   vim.cmd('runtime! OPT register_plugin.lua')
-  packer.sync()
+  require('packer').sync()
 end
 
 return {
