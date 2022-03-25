@@ -12,3 +12,6 @@ let b:undo_ftplugin .= 'foldlevel<'
 
 setlocal nowrap
 let b:undo_ftplugin .= 'wrap<'
+
+setlocal nospell
+let b:undo_ftplugin .= 'spell<'
