@@ -3,7 +3,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<CR>
 nnoremap <leader>fb <cmd>Telescope find_files cwd=expand('%:p:h')<CR>
 
 " Buffers
-nnoremap <leader>bb <cmd>Telescope buffers<CR>
+" nnoremap <leader>bb <cmd>Telescope buffers<CR>
 
 " Search
 nnoremap <leader>ss <cmd>Telescope live_grep<CR>
