@@ -1,1 +1,1 @@
-highlight! link GitSignsCurrentLineBlame GreyItalic
+highlight! link GitSignsCurrentLineBlame LightGreyItalic
