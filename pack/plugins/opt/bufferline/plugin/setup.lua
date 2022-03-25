@@ -50,5 +50,20 @@ require('bufferline').setup({
         },
       },
     },
+    custom_areas = {
+      right = function()
+        local all_buffer_numbers = vim.api.nvim_list_bufs()
+        local number_of_loaded_buffers = 0
+
+        for _, buffer_number in ipairs(all_buffer_numbers) do
+          if vim.api.nvim_buf_get_option(buffer_number, 'buflisted') then
+            number_of_loaded_buffers = number_of_loaded_buffers + 1
+          end
+        end
+
+        local text = '' .. number_of_loaded_buffers
+        return { { text = text, gui = 'bold' } }
+      end,
+    },
   },
 })
