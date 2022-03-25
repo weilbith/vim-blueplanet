@@ -1,21 +1,17 @@
-lua require('nvim-treesitter.configs').setup({
-    \   ensure_installed = 'maintained',
-    \   highlight = {
-    \     enable = true,
-    \   },
-    \   indent = {
-    \     enable = true
-    \   },
-    \ })
-
-lua <<EOF
-local define_modules = require('nvim-treesitter').define_modules
-local query = require('nvim-treesitter.query')
+require('nvim-treesitter.configs').setup({
+  ensure_installed = 'maintained',
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+})
 
 local foldmethod_backups = {}
 local foldexpr_backups = {}
 
-define_modules({
+require('nvim-treesitter').define_modules({
   folding = {
     enable = true,
     attach = function(bufnr)
@@ -31,7 +27,6 @@ define_modules({
       foldmethod_backups[bufnr] = nil
       foldexpr_backups[bufnr] = nil
     end,
-    is_supported = query.has_folds
-  }
+    is_supported = require('nvim-treesitter.query').has_folds,
+  },
 })
-EOF
