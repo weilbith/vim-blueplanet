@@ -9,6 +9,8 @@ vim.g['test#enabled_runners'] = {
   'typescript#jest',
   'rust#cargotest',
   'lua#busted',
+  'java#maventest',
+  'java#gradletest',
 }
 
 vim.g['test#custom_runners'] = {
