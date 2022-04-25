@@ -103,6 +103,6 @@ return {
       else_node,
       { callbacks = fix_closing_character_callbacks }
     ),
-    snippet(' switch ', switch_case_node),
+    snippet({ trig = ' switch[%( ]', regTrig = true }, switch_case_node),
   },
 }

@@ -5,7 +5,7 @@ local SnippetLibrary = require('snippets.SnippetLibrary')
 require('luasnip.config').setup({
   enable_autosnippets = true,
   updateevents = 'TextChanged,TextChangedI',
-  delete_check_events = 'TextChanged',
+  delete_check_events = 'TextChanged,InsertEnter',
   ft_func = require('luasnip.extras.filetype_functions').from_pos_or_filetype,
   ext_opts = {
     [snippet_types.insertNode] = {
@@ -13,7 +13,7 @@ require('luasnip.config').setup({
         virt_text = { { '● insert', 'GreenBold' } },
       },
       passive = {
-        virt_text = { { '● insert', 'BlueBold' } },
+        virt_text = { { '● insert', 'BlueItalic' } },
       },
     },
     [snippet_types.choiceNode] = {
@@ -21,7 +21,7 @@ require('luasnip.config').setup({
         virt_text = { { '● choice', 'GreenBold' } },
       },
       passive = {
-        virt_text = { { '● choice', 'PurpleBold' } },
+        virt_text = { { '● choice', 'PurpleItalic' } },
       },
     },
   },
