@@ -12,7 +12,7 @@ require('vim.diagnostic').config({
   },
   float = {
     show_header = true,
-    source = 'if_many',
+    source = true,
     prefix = number_to_circular_number,
   },
 })
