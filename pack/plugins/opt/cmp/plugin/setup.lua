@@ -1,5 +1,6 @@
 local sources = require('cmp.config.sources')
 local base_comparators = require('cmp.config.compare')
+local mappings = require('cmp').mapping
 local under_comparators = require('cmp-under-comparator')
 
 require('cmp').setup({
@@ -41,4 +42,5 @@ require('cmp').setup({
       base_comparators.order,
     },
   },
+  mapping = mappings.preset.insert(),
 })
