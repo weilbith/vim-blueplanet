@@ -1,6 +1,6 @@
 local function doesAnyClientSupportFormatting()
   for _, client in ipairs(vim.lsp.buf_get_clients()) do
-    if client.resolved_capabilities.document_formatting then
+    if client.supports_method('textDocument/formatting') then
       return true
     end
   end
@@ -9,7 +9,7 @@ local function doesAnyClientSupportFormatting()
 end
 
 local function formattingIsDisabledByUser()
-  return vim.b.formatting_disabled or false
+  return vim.b.formatting_disabled or vim.g.formatting_disabled or false
 end
 
 local function handle_format_response(error, result, context)
@@ -39,7 +39,7 @@ end
 local function formatBufferIfPossible()
   if doesAnyClientSupportFormatting() then
     if not formattingIsDisabledByUser() then
-      vim.lsp.buf.formatting_seq_sync()
+      vim.lsp.buf.format()
     end
   end
 end
