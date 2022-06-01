@@ -7,6 +7,7 @@ vim.g['test#enabled_runners'] = {
   'python#pytest',
   'typescript#mocha',
   'typescript#jest',
+  'typescript#vitest',
   'rust#cargotest',
   'lua#busted',
   'java#maventest',
@@ -14,7 +15,7 @@ vim.g['test#enabled_runners'] = {
 }
 
 vim.g['test#custom_runners'] = {
-  TypeScript = { 'Mocha', 'Jest' },
+  TypeScript = { 'Mocha', 'Jest', 'Vitest' },
 }
 
 vim.g['test#python#runner'] = 'pytest'
