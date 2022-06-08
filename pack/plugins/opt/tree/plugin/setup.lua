@@ -2,35 +2,12 @@ if vim.g.indentLine_fileTypeExclude ~= nil then
   table.insert(vim.g.indentLine_fileTypeExclude, 'NvimTree')
 end
 
--- TODO: check when these options get available in the setup function.
-vim.g.nvim_tree_indent_markers = 1
-vim.g.nvim_tree_highlight_opened_files = 2
-vim.g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1,
-  folder_arrows = 0,
-}
-
-vim.g.nvim_tree_icons = {
-  default = '',
-  git = {
-    unstaged = '',
-    staged = '',
-    unmerged = '',
-    renamed = '',
-    untracked = '',
-    deleted = '',
-  },
-}
-
 require('nvim-tree').setup({
   update_focused_file = {
     enable = true,
   },
   diagnostics = {
-    enable = true,
-    show_on_dirs = true,
+    enable = false,
   },
   git = {
     enable = true,
@@ -39,7 +16,32 @@ require('nvim-tree').setup({
   actions = {
     open_file = {
       window_picker = {
-        chars = { 'fjdksla;eiwo' },
+        chars = 'fjdksla;eiwo',
+      },
+    },
+  },
+  renderer = {
+    highlight_opened_files = 'name',
+    indent_markers = {
+      enable = false,
+    },
+    icons = {
+      show = {
+        git = true,
+        file = true,
+        folder = true,
+        folder_arrow = false,
+      },
+      glyphs = {
+        default = '',
+        git = {
+          unstaged = '',
+          staged = '',
+          unmerged = '',
+          renamed = '',
+          untracked = '',
+          deleted = '',
+        },
       },
     },
   },
