@@ -11,7 +11,7 @@ require('cmp').setup({
     { name = 'treesitter' },
     { name = 'path' },
   }, {
-    { name = 'cmp_git' },
+    { name = 'git' },
     { name = 'emoji', option = { insert = true } },
     { name = 'tmux', keyword_length = 5 },
   }),
