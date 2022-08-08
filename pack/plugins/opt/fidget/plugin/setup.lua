@@ -3,7 +3,4 @@ require('fidget').setup({
     spinner = 'arc',
     done = '',
   },
-  align = {
-    top = true,
-  },
 })
