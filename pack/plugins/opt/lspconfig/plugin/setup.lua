@@ -79,6 +79,15 @@ lsp_config.jdtls.setup({
       },
     },
   },
+  settings = {
+    java = {
+      inlayHints = {
+        parameterNames = {
+          enabled = 'all',
+        },
+      },
+    },
+  },
 })
 
 lsp_config.sumneko_lua.setup({
@@ -119,6 +128,28 @@ lsp_config.tsserver.setup({
   settings = {
     completions = {
       completeFunctionCalls = true,
+    },
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
     },
   },
 })
