@@ -9,7 +9,7 @@ require('cybu').setup({
   },
   display_time = 1000,
   exclude = {
-    'NvimTree',
+    'neo-tree',
     'NeogitStatus',
     'qf',
   },

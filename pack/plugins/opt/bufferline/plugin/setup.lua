@@ -9,7 +9,7 @@ require('bufferline').setup({
     show_buffer_close_icons = false,
     offsets = {
       {
-        filetype = 'NvimTree',
+        filetype = 'neo-tree',
         text = 'File Explorer',
         highlight = 'Grey',
         text_align = 'center',
