@@ -18,7 +18,7 @@ return lush(function()
     UnderlinedBold({ gui = 'underline,bold' }),
     White({ fg = hsl('#f1f1f2') }),
     Black({ fg = hsl('#18191B') }),
-    Grey({ fg = hsl('#363944') }),
+    Grey({ fg = hsl('#3b3e4a') }),
     DarkGrey({ fg = hsl('#2E2F33') }),
     LightGrey({ fg = hsl('#7f8490') }),
     Red({ fg = hsl('#fc5d7c') }),
