@@ -13,6 +13,7 @@ return lush(function()
   return {
     -- Base
     Bold({ gui = 'bold' }),
+    Italic({ gui = 'italic' }),
     Underlined({ gui = 'underline' }),
     Reversed({ gui = 'reverse' }),
     UnderlinedBold({ gui = 'underline,bold' }),
@@ -118,7 +119,7 @@ return lush(function()
     Pmenu({ GreyBackgroundContrast }),
     PmenuSbar({ Pmenu }),
     PmenuSel({ GreenBackgroundContrast }),
-    PmenuThumb({ GreyBackgroundContrast }),
+    PmenuThumb({ DarkGreyBackgroundContrast }),
     WildMenu({ PmenuSel }),
     Question({ Yellow }),
     SpellBad({ fg = Red.fg, gui = 'undercurl', guisp = '#00ff00' }),
@@ -127,8 +128,8 @@ return lush(function()
     SpellRare({ PurpleUnderline }),
     StatusLine({ DarkGreyBackgroundContrast }),
     StatusLineTerm({ StatusLine }),
-    StatusLineNC({ StatusLine }),
-    StatusLineTermNC({ StatusLineNC }),
+    StatusLineNC({ fg = DarkGrey.fg, bg = DarkGreyBackground.bg }),
+    StatusLineTermNC({ DarkGreyBackgroundContrast }),
     TabLine({ White, bg = RedBackground.bg }),
     TabLineFill({ StatusLineNC }),
     TabLineSel({ RedBackgroundContrast }),

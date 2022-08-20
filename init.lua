@@ -56,6 +56,8 @@ vim.opt.fillchars = {
   vertleft = '┫',
   vertright = '┣',
   verthoriz = '╋',
+  stl = ' ',
+  stlnc = ' ',
 }
 vim.opt.listchars = {
   eol = '',
