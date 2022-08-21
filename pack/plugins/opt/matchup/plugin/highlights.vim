@@ -1,2 +1,2 @@
-highlight! link MatchParenCur Search
-highlight! link MatchWordCur  IncSearch
+highlight! link MatchParenCur UnderlinedBold
+highlight! link MatchWordCur  Underlined
