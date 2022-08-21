@@ -14,5 +14,5 @@ highlight! link NeoTreeGitIgnored   White
 highlight! link NeoTreeGitModified  Orange
 highlight! link NeoTreeGitRenamed   Orange
 highlight! link NeoTreeGitStaged    Green
-highlight! link NeoTreeGitUntracked Red
+highlight! link NeoTreeGitUntracked Green
 highlight! link NeoTreeGitUnstaged  Orange

@@ -29,6 +29,7 @@ require('neo-tree').setup({
     width = 30,
     mappings = {
       ['a'] = '',
+      ['/'] = '',
     },
   },
   filesystem = {
