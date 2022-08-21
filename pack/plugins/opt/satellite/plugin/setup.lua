@@ -17,4 +17,12 @@ require('satellite').setup({
       enable = true,
     },
   },
+  excluded_filetypes = {
+    'code-action-menu',
+    'code-action-menu-details',
+    'code-action-menu-diff',
+    'code-action-menu-menu',
+    'code-action-menu-warning-message',
+    'neo-tree',
+  },
 })
