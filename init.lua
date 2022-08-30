@@ -1,3 +1,5 @@
+vim.cmd('packadd impatient') -- Must be sourced before all other start packages
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
