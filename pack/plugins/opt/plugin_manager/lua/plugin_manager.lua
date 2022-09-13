@@ -33,6 +33,7 @@ local function update()
   setup()
   vim.api.nvim_command('runtime! OPT register_plugin.lua')
   require('packer').sync()
+  vim.api.nvim_command('UpdateRemotePlugins')
 end
 
 return {
