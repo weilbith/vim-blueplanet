@@ -24,5 +24,6 @@ require('satellite').setup({
     'code-action-menu-menu',
     'code-action-menu-warning-message',
     'neo-tree',
+    'DressingInput',
   },
 })
