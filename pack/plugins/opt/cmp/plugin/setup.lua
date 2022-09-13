@@ -7,6 +7,7 @@ require('cmp').setup({
   sources = sources({
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lua' },
     { name = 'treesitter' },
     { name = 'path' },

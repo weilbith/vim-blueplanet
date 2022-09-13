@@ -8,6 +8,7 @@ require('packer').use({
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-emoji',
     'hrsh7th/cmp-nvim-lua',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
     'andersevenrud/cmp-tmux',
     'petertriho/cmp-git',
     'lukas-reineke/cmp-under-comparator',
