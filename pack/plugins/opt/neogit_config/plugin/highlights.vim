@@ -21,9 +21,9 @@ highlight! link NeogitObjectId GrayItalic
 highlight! link NeogitStash    GrayItalic
 highlight! link NeogitFold     White
 
-highlight! NeogitNotificationInfo    YellowBold
-highlight! NeogitNotificationWarning OrangeBold
-highlight! NeogitNotificationError   RedBold
+highlight! link NeogitNotificationInfo    YellowBold
+highlight! link NeogitNotificationWarning OrangeBold
+highlight! link NeogitNotificationError   RedBold
 
 highlight! link NeogitCommandText        WhiteItalic
 highlight! link NeogitCommandCodeNormal  GreenBold
