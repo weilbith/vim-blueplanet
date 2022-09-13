@@ -84,10 +84,24 @@ lsp_config.jdtls.setup({
   },
   settings = {
     java = {
+      completion = {
+        guessMethodArguments = true,
+      },
       inlayHints = {
         parameterNames = {
           enabled = 'all',
         },
+      },
+      signatureHelp = {
+        description = {
+          enabled = true,
+        },
+      },
+      referencesCodeLens = {
+        enabled = true,
+      },
+      implementationsCodeLens = {
+        enabled = true,
       },
     },
   },
