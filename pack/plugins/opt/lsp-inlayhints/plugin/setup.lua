@@ -1,5 +1,4 @@
 require('lsp-inlayhints').setup({
-  enabled_at_startup = true,
   inlay_hints = {
     parameter_hints = {
       prefix = ' ',
