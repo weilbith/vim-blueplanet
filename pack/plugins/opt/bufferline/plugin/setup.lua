@@ -2,7 +2,6 @@ local get_icon_by_severity_level = require('diagnostics.signs').get_icon_by_seve
 
 require('bufferline').setup({
   options = {
-    indicator_icon = '▌ ',
     separator_style = 'slant',
     diagnostics = 'nvim_lsp',
     show_close_icon = false,
