@@ -71,3 +71,4 @@ vim.opt.listchars = {
 vim.opt.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
 vim.opt.viewoptions = { 'cursor', 'folds', 'slash', 'unix' }
 vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
