@@ -1,6 +1,9 @@
 local base_capabilities =
   vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), {
     textDocument = {
+      colorProvider = {
+        dynamicRegistration = true,
+      },
       completion = {
         completionItem = {
           snippetSupport = true,
