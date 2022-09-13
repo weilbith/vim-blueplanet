@@ -1,7 +1,7 @@
 local snippet = require('luasnip').snippet
 local format = require('luasnip.extras.fmt').fmta
 
-local selected_text_node = require('snippets.utilitiy_nodes').selected_text_node
+local selected_text_node = require('snippets.nodes.general').selected_text_node
 
 local main_node = format(
   'public class App {\n  public static void main(String[] args) {\n    <body>\n  }\n}',
@@ -11,7 +11,5 @@ local main_node = format(
 )
 
 return {
-  snippets = {
-    snippet('main scaffold', main_node),
-  },
-}
+  snippet('main scaffold', main_node),
+}, nil

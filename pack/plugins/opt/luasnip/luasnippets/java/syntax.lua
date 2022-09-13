@@ -10,8 +10,8 @@ local indent_snippet_node = require('luasnip').indent_snippet_node
 
 local fix_closing_character_callbacks =
   require('snippets.callbacks').fix_closing_character_callbacks
-local trigger_name_node = require('snippets.utilitiy_nodes').trigger_name_node
-local selected_text_node = require('snippets.utilitiy_nodes').selected_text_node
+local trigger_name_node = require('snippets.nodes.general').trigger_name_node
+local selected_text_node = require('snippets.nodes.general').selected_text_node
 
 local package_node = format('<keyword><path>;', {
   keyword = trigger_name_node('package', ' '),
@@ -135,8 +135,8 @@ local while_node = format('<keyword><condition>) {\n  <body>\n}', {
   body = selected_text_node(2, '// TODO'),
 })
 
-return {
-  autosnippets = {
+return nil,
+  {
     snippet({ trig = '^package ', regTrig = true }, package_node),
     -- The trigger regex here is awkward, somehow a leading space doesn't work.
     snippet({ trig = '^%s*%a*%s?class ', regTrig = true }, class_node),
@@ -152,8 +152,7 @@ return {
       else_node,
       { callbacks = fix_closing_character_callbacks }
     ),
-    snippet({ trig = ' switch[%( ]', regTrig = true }, switch_case_node),
-    snippet({ trig = ' for[%( ]', regTrig = true }, for_node),
-    snippet({ trig = ' while[%( ]', regTrig = true }, while_node),
-  },
-}
+    snippet({ trig = '^%s*switch[%( ]', regTrig = true }, switch_case_node),
+    snippet({ trig = '^%s*for[%( ]', regTrig = true }, for_node),
+    snippet({ trig = '^%s*while[%( ]', regTrig = true }, while_node),
+  }

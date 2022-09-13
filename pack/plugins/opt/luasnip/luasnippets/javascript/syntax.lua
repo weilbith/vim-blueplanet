@@ -8,11 +8,11 @@ local dynamic_node = require('luasnip').dynamic_node
 
 local fix_closing_character_callbacks =
   require('snippets.callbacks').fix_closing_character_callbacks
-local trigger_name_node = require('snippets.utilitiy_nodes').trigger_name_node
-local selected_text_node = require('snippets.utilitiy_nodes').selected_text_node
-local file_name_node = require('snippets.utilitiy_nodes').file_name_node
+local trigger_name_node = require('snippets.nodes.general').trigger_name_node
+local selected_text_node = require('snippets.nodes.general').selected_text_node
+local file_name_node = require('snippets.nodes.general').file_name_node
 
-local get_return_type_node = require('snippets.filetypes.javascript.utils').get_return_type_node
+local get_return_type_node = require('snippets.nodes.javascript').get_return_type_node
 
 local class_node = format('<keyword><name> {\n  constructor(<parameter>) {\n    <body>\n  }\n}', {
   keyword = trigger_name_node('class', ' '),
@@ -78,8 +78,8 @@ local switch_case_node = format('<keyword><expression>) {\n  <case>\n}', {
   case = get_case_node(2),
 })
 
-return {
-  autosnippets = {
+return nil,
+  {
     snippet({ trig = '^class ', regTrig = true }, class_node),
     snippet({ trig = '^function ', regTrig = true }, vim.deepcopy(named_function_node)),
     snippet({ trig = ' function ' }, vim.deepcopy(named_function_node)),
@@ -104,5 +104,4 @@ return {
       { callbacks = fix_closing_character_callbacks }
     ),
     snippet({ trig = ' switch[%( ]', regTrig = true }, switch_case_node),
-  },
-}
+  }

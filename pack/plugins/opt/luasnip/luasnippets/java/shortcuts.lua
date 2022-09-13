@@ -6,8 +6,6 @@ local println_node = format('System.out.println(<message>);', {
   message = insert_node(1, '"TODO"'),
 })
 
-return {
-  autosnippets = {
-    snippet('syso', println_node),
-  },
+return nil, {
+  snippet('syso', println_node),
 }

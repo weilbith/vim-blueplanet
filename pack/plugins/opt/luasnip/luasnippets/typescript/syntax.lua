@@ -4,8 +4,8 @@ local text_node = require('luasnip').text_node
 local insert_node = require('luasnip').insert_node
 local choice_node = require('luasnip').choice_node
 
-local trigger_name_node = require('snippets.utilitiy_nodes').trigger_name_node
-local selected_text_node = require('snippets.utilitiy_nodes').selected_text_node
+local trigger_name_node = require('snippets.nodes.general').trigger_name_node
+local selected_text_node = require('snippets.nodes.general').selected_text_node
 
 local extends_node = format('<keyword><name> ', {
   keyword = trigger_name_node('extends', ' '),
@@ -28,9 +28,8 @@ local enum_node = format('<keyword><name> {\n  <body>\n}', {
   body = selected_text_node(2, '// TODO'),
 })
 
-return {
-  autosnippets = {
+return nil,
+  {
     snippet({ trig = '^interface ', regTrig = true }, interface_node),
     snippet({ trig = '^enum ', regTrig = true }, enum_node),
-  },
-}
+  }

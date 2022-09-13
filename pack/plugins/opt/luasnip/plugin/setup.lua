@@ -1,6 +1,4 @@
-local luasnip = require('luasnip')
 local snippet_types = require('luasnip.util.types')
-local SnippetLibrary = require('snippets.SnippetLibrary')
 
 require('luasnip.config').setup({
   enable_autosnippets = true,
@@ -27,7 +25,5 @@ require('luasnip.config').setup({
   },
 })
 
-luasnip.snippets = SnippetLibrary:new('snippets')
-luasnip.autosnippets = SnippetLibrary:new('autosnippets')
-
-luasnip.filetype_extend('typescript', { 'javascript' })
+require('luasnip.loaders.from_lua').lazy_load()
+require('luasnip').filetype_extend('typescript', { 'javascript' })

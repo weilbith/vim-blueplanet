@@ -5,7 +5,5 @@ local insert_node = require('luasnip').insert_node
 local console_log_node = format('console.log(<>)', insert_node(1))
 
 return {
-  snippets = {
-    snippet({ trig = 'cl', name = 'console.log' }, console_log_node),
-  },
-}
+  snippet({ trig = 'cl', name = 'console.log' }, console_log_node),
+}, nil

@@ -26,8 +26,8 @@ local function get_choose_async_node(index)
   return dynamic_node(index, function()
     return snippet_node(nil, {
       choice_node(1, {
-        insert_node(nil, 'async '),
         text_node(''),
+        insert_node(nil, 'async '),
       }),
     })
   end, {})

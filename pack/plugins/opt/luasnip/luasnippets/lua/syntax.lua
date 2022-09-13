@@ -6,8 +6,8 @@ local choice_node = require('luasnip').choice_node
 
 local fix_closing_character_callbacks =
   require('snippets.callbacks').fix_closing_character_callbacks
-local trigger_name_node = require('snippets.utilitiy_nodes').trigger_name_node
-local selected_text_node = require('snippets.utilitiy_nodes').selected_text_node
+local trigger_name_node = require('snippets.nodes.general').trigger_name_node
+local selected_text_node = require('snippets.nodes.general').selected_text_node
 
 local named_function_node = format('<keyword><name>(<parameter>)\n  <body>\nend', {
   keyword = trigger_name_node('function ', ' '),
@@ -50,8 +50,8 @@ local if_node = format('<keyword><condition> then\n  <body>\n<continuation>', {
   }),
 })
 
-return {
-  autosnippets = {
+return nil,
+  {
     snippet({ trig = '^function ', regTrig = true }, vim.deepcopy(named_function_node)),
     snippet({ trig = ' function ' }, vim.deepcopy(named_function_node)),
     snippet(
@@ -62,5 +62,4 @@ return {
     snippet(' if ', if_node),
     snippet(' else ', else_node),
     snippet(' elseif ', elseif_node),
-  },
-}
+  }
