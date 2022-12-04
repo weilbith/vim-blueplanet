@@ -3,20 +3,19 @@ require('satellite').setup({
   winblend = 0,
   zindex = 40,
   width = 4,
-  handlers = {
-    diagnostic = {
-      enable = true,
-    },
-    search = {
-      enable = false,
-    },
-    gitsigns = {
-      enable = true,
-    },
-    marks = {
-      enable = true,
-    },
-  },
+  --   diagnostic = {
+  --     enable = true,
+  --   },
+  --   search = {
+  --     enable = false,
+  --   },
+  --   gitsigns = {
+  --     enable = true,
+  --   },
+  --   marks = {
+  --     enable = true,
+  --   },
+  -- },
   excluded_filetypes = {
     'code-action-menu',
     'code-action-menu-details',
