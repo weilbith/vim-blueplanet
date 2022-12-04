@@ -12,6 +12,7 @@ vim.g['test#enabled_runners'] = {
   'lua#busted',
   'java#maventest',
   'java#gradletest',
+  'kotlin#gradletest',
 }
 
 vim.g['test#custom_runners'] = {
