@@ -1,6 +1,6 @@
-nnoremap <leader>gh <cmd>Gitsigns preview_hunk<CR>
-nnoremap <leader>gH <cmd>Gitsigns stage_hunk<CR>
-vnoremap <leader>gH :Gitsigns stage_hunk<CR>
+nnoremap <leader>ghh <cmd>Gitsigns preview_hunk_inline<CR>
+nnoremap <leader>ghs <cmd>Gitsigns stage_hunk<CR>
+vnoremap <leader>ghr :Gitsigns stage_hunk<CR>
 nnoremap <leader>gm <cmd>Gitsigns blame_line { full = true }<CR>
 
 nnoremap <silent> <expr> ]h &diff ? ']c' : ":\<C-u>Gitsigns next_hunk\<CR>"
