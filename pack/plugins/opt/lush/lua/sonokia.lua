@@ -122,7 +122,7 @@ return lush(function()
     PmenuThumb({ DarkGreyBackgroundContrast }),
     WildMenu({ PmenuSel }),
     Question({ Yellow }),
-    SpellBad({ fg = Red.fg, gui = 'undercurl', guisp = '#00ff00' }),
+    SpellBad({ gui = 'undercurl', sp = Red.fg }),
     SpellCap({ GreenUnderline }),
     SpellLocal({ BlueUnderline }),
     SpellRare({ PurpleUnderline }),
