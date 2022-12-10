@@ -20,4 +20,26 @@ require('telescope').setup({
       },
     },
   },
+  pickers = {
+    git_commits = {
+      mappings = {
+        i = {
+          ['d'] = function(buffer_number)
+            local actions = require('telescope.actions')
+            local state = require('telescope.actions.state')
+
+            local picker = state.get_current_picker(buffer_number)
+            local entries = picker:get_multi_selection()
+            local first_commit = entries[1].value
+            local last_commit = entries[#entries].value
+            local commit_range = last_commit .. '..' .. first_commit
+            local command = 'DiffviewFileHistory --reverse --range=' .. commit_range .. ' --reverse'
+
+            actions.close(buffer_number)
+            vim.cmd(command)
+          end,
+        },
+      },
+    },
+  },
 })
