@@ -5,6 +5,13 @@ local function is_test_file()
   return ok and result > 0
 end
 
+local function is_end_of_line(_, trigger)
+  local line = vim.api.nvim_get_current_line()
+  local match = line:match(trigger .. '$')
+  return match ~= nil
+end
+
 return {
   is_test_file = is_test_file,
+  is_end_of_line = is_end_of_line,
 }

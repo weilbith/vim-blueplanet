@@ -11,8 +11,18 @@ local fix_closing_character_callbacks =
 local trigger_name_node = require('snippets.nodes.general').trigger_name_node
 local selected_text_node = require('snippets.nodes.general').selected_text_node
 local file_name_node = require('snippets.nodes.general').file_name_node
+local is_end_of_line = require('snippets.conditions').is_end_of_line
 
 local get_return_type_node = require('snippets.nodes.javascript').get_return_type_node
+
+local import_node = format('<keyword><what> from "<from>"', {
+  keyword = trigger_name_node('import ', ' '),
+  from = insert_node(1, 'module'),
+  what = choice_node(2, {
+    format('{ <body> }', { body = insert_node(1, 'what') }),
+    insert_node(1, 'what'),
+  }),
+})
 
 local class_node = format('<keyword><name> {\n  constructor(<parameter>) {\n    <body>\n  }\n}', {
   keyword = trigger_name_node('class', ' '),
@@ -80,6 +90,7 @@ local switch_case_node = format('<keyword><expression>) {\n  <case>\n}', {
 
 return nil,
   {
+    snippet({ trig = '^import ', regTrig = true }, import_node),
     snippet({ trig = '^class ', regTrig = true }, class_node),
     snippet({ trig = '^function ', regTrig = true }, vim.deepcopy(named_function_node)),
     snippet({ trig = ' function ' }, vim.deepcopy(named_function_node)),
@@ -91,17 +102,17 @@ return nil,
     snippet(
       'async (',
       asynchronous_anonymous_function_node,
-      { callbacks = fix_closing_character_callbacks }
+      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
     ),
     snippet(
       { trig = ' if[%( ]', regTrig = true },
       if_node,
-      { callbacks = fix_closing_character_callbacks }
+      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
     ),
     snippet(
       { trig = '[} ]else ', regTrig = true },
       else_node,
-      { callbacks = fix_closing_character_callbacks }
+      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
     ),
     snippet({ trig = ' switch[%( ]', regTrig = true }, switch_case_node),
   }
