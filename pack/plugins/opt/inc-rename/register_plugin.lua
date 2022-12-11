@@ -1,5 +1,5 @@
 require('packer').use({
   'smjonas/inc-rename.nvim',
-  module = 'inc_rename',
+  cmd = 'IncRename',
   config = 'vim.cmd("packadd inc-rename")',
 })
