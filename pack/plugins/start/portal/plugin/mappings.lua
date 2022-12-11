@@ -1,0 +1,6 @@
+vim.keymap.set('n', '<C-o>', function()
+  require('portal').jump_backward()
+end, {})
+vim.keymap.set('n', '<C-i>', function()
+  require('portal').jump_forward()
+end, {})
