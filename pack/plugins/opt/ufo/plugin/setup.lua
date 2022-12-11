@@ -1,5 +1,7 @@
 local filetype_provider_mapping = {
   yaml = { 'treesitter', 'indent' },
+  ['neo-tree'] = '',
+  ['Outline'] = '',
 }
 
 require('ufo').setup({
