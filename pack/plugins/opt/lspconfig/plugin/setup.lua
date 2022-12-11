@@ -60,6 +60,15 @@ lsp_config.solargraph.setup(base_configuration)
 lsp_config.rnix.setup(base_configuration)
 lsp_config.yamlls.setup(base_configuration)
 lsp_config.solidity_ls.setup(base_configuration)
+lsp_config.kotlin_language_server.setup({
+  capabilities = base_capabilities,
+  settings = {
+    externalSources = {
+      autoConvertToKotlin = true,
+    },
+  },
+})
+
 lsp_config.jdtls.setup({
   -- TODO: issues to use base capabilities and remove (not `nil`!) the `tagSupport` entry.
   capabilities = {
