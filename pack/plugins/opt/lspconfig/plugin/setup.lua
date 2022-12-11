@@ -53,7 +53,13 @@ lsp_config.pylsp.setup({
 })
 lsp_config.texlab.setup(base_configuration)
 lsp_config.vimls.setup(base_configuration)
-lsp_config.volar.setup(base_configuration)
+lsp_config.volar.setup({
+  capabilities = base_capabilities,
+  on_attach = function(client)
+    -- Avoid conflicts with NullLS formatting
+    client.server_capabilities.documentFormattingProvider = false
+  end,
+})
 lsp_config.tailwindcss.setup(base_configuration)
 lsp_config.eslint.setup(base_configuration)
 lsp_config.solargraph.setup(base_configuration)
