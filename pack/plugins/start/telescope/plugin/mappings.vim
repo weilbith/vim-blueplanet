@@ -15,11 +15,10 @@ nnoremap <leader>sR <cmd>Telescope pickers<CR>
 " LSP
 nnoremap <leader>tf <cmd>Telescope lsp_document_symbols<CR>
 nnoremap <leader>tF <cmd>Telescope lsp_workspace_symbols<CR>
-nnoremap <leader>tr <cmd>Telescope lsp_references<CR>
 
 " Git
-nnoremap <leader>gl <cmd>Telescope git_commits<CR>
-nnoremap <leader>gL <cmd>Telescope git_bcommits<CR>
+nnoremap <leader>gll <cmd>Telescope git_commits<CR>
+nnoremap <leader>glL <cmd>Telescope git_bcommits<CR>
 nnoremap <leader>gc <cmd>Telescope git_branches<CR>
 
 " Lists
