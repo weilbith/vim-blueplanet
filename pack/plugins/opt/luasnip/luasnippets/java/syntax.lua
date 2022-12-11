@@ -67,7 +67,7 @@ local enum_node = format('<keyword><name> {\n  <body>\n}', {
   name = insert_node(1, 'Name'),
   body = selected_text_node(2, '// TODO'),
 })
-
+--
 local if_node = format('<keyword><condition>) {\n  <body>\n}', {
   keyword = trigger_name_node('if (', '('),
   condition = insert_node(1, 'true'),
