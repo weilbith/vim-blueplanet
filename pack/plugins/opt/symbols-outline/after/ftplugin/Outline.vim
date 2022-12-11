@@ -4,6 +4,3 @@ endif
 
 setlocal nospell
 let b:undo_ftplugin .= 'spell<'
-
-setlocal nowrap
-let b:undo_ftplugin .= 'wrap<'
