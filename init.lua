@@ -72,3 +72,4 @@ vim.opt.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patienc
 vim.opt.viewoptions = { 'cursor', 'folds', 'slash', 'unix' }
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
+vim.opt.splitkeep = 'screen'
