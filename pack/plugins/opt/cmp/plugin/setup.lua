@@ -44,4 +44,9 @@ require('cmp').setup({
     },
   },
   mapping = mappings.preset.insert(),
+  window = {
+    documentation = {
+      winhighlight = 'Normal:DarkGreyBackgroundContrast',
+    },
+  },
 })
