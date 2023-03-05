@@ -194,6 +194,12 @@ lsp_config.html.setup({
 
 lsp_config.jsonls.setup({
   capabilities = base_capabilities,
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
   cmd = { 'vscode-json-languageserver', '--stdio' },
 })
 
