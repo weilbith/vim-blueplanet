@@ -1,5 +1,5 @@
 require('packer').use({
   'cbochs/portal.nvim',
-  module = 'portal',
+  cmd = 'Portal',
   config = 'vim.cmd("packadd portal")',
 })
