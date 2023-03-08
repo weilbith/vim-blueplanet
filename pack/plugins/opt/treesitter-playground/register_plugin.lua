@@ -1,5 +1,5 @@
 require('packer').use({
   'nvim-treesitter/playground',
-  cmd = 'TSHighlightCapturesUnderCursor',
+  cmd = { 'TSPlaygroundToggle' },
   config = 'vim.cmd("packadd treesitter-playground")',
 })
