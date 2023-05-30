@@ -52,6 +52,7 @@ lsp_config.pylsp.setup({
   },
 })
 lsp_config.texlab.setup(base_configuration)
+lsp_config.lemminx.setup(base_configuration)
 lsp_config.vimls.setup(base_configuration)
 lsp_config.volar.setup({
   capabilities = base_capabilities,
