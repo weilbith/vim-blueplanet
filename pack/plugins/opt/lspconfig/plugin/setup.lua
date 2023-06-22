@@ -124,7 +124,7 @@ lsp_config.jdtls.setup({
   },
 })
 
-lsp_config.sumneko_lua.setup({
+lsp_config.lua_ls.setup({
   capabilities = base_capabilities,
   settings = {
     Lua = {
