@@ -2,17 +2,11 @@ vim.api.nvim_create_augroup('CodeLens', {})
 vim.api.nvim_create_autocmd({ 'LspAttach', 'InsertLeave' }, {
   group = 'CodeLens',
   callback = function()
-    local clients = vim.lsp.buf_get_clients()
-    local any_client_has_support = false
+    local supporting_clients = vim.tbl_filter(function(client)
+      return client.supports_method('textDocument/codeLens')
+    end, vim.lsp.buf_get_clients())
 
-    for _, client in pairs(clients) do
-      if client.server_capabilities.codeLensProvider then
-        any_client_has_support = true
-        break
-      end
-    end
-
-    if any_client_has_support then
+    if #supporting_clients > 0 then
       vim.lsp.codelens.refresh()
     end
   end,
