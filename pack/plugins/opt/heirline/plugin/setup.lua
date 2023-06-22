@@ -10,4 +10,4 @@ local Gap = { provider = '%=' }
 local WindowBar = { Space, Breadcrumbs, Gap, Tests, Space }
 local StatusBar = { Space, Project, Space, Git, Gap, Lsp, Space }
 
-require('heirline').setup(StatusBar, WindowBar)
+require('heirline').setup({ statusline = StatusBar, winbar = WindowBar })
