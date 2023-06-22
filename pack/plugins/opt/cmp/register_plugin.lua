@@ -11,7 +11,6 @@ require('packer').use({
     'hrsh7th/cmp-nvim-lsp-signature-help',
     'andersevenrud/cmp-tmux',
     'petertriho/cmp-git',
-    'lukas-reineke/cmp-under-comparator',
     'saadparwaiz1/cmp_luasnip',
   },
   config = 'vim.cmd("packadd cmp")',

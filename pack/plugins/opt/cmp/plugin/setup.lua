@@ -1,7 +1,5 @@
 local sources = require('cmp.config.sources')
-local base_comparators = require('cmp.config.compare')
 local mappings = require('cmp').mapping
-local under_comparators = require('cmp-under-comparator')
 
 require('cmp').setup({
   sources = sources({
@@ -30,18 +28,6 @@ require('cmp').setup({
   },
   formatting = {
     format = require('cmp_custom.formatting').format_entry,
-  },
-  sorting = {
-    comparators = {
-      base_comparators.offset,
-      base_comparators.exact,
-      base_comparators.score,
-      under_comparators.under,
-      base_comparators.kind,
-      base_comparators.sort_text,
-      base_comparators.length,
-      base_comparators.order,
-    },
   },
   mapping = mappings.preset.insert(),
   window = {
