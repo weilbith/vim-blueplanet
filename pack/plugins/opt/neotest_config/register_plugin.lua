@@ -6,7 +6,7 @@ require('packer').use({
     'antoinemadec/FixCursorHold.nvim',
     { 'nvim-neotest/neotest-vim-test', module = 'neotest-vim-test', requires = 'janko/vim-test' },
     { 'marilari88/neotest-vitest', module = 'neotest-vitest' },
-    { 'MarkEmmons/neotest-rust', module = 'neotest-rust', branch = 'feature/dap-support' },
+    { 'MarkEmmons/neotest-rust', module = 'neotest-rust' },
     { 'haydenmeade/neotest-jest', module = 'neotest-jest' },
     { 'nvim-neotest/neotest-python', module = 'neotest-python' },
   },
