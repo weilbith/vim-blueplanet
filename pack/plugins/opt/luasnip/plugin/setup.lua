@@ -10,7 +10,7 @@ require('luasnip.config').setup({
         virt_text = { { '', 'GreenBold' } },
       },
       passive = {
-        hl_group = 'GreenUnderline',
+        -- hl_group = 'GreenUnderline',
         virt_text = { { '', 'GreenBold' } },
       },
       visited = {
@@ -19,11 +19,10 @@ require('luasnip.config').setup({
     },
     [snippet_types.choiceNode] = {
       active = {
-        hl_group = 'PurpleBackground',
         virt_text = { { '', 'PurpleBold' } },
       },
       passive = {
-        hl_group = 'PurpleUnderline',
+        -- hl_group = 'PurpleUnderline',
         virt_text = { { '', 'PurpleBold' } },
       },
       visited = {
