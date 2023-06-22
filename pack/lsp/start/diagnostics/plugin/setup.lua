@@ -8,7 +8,7 @@ require('vim.diagnostic').config({
   underline = true,
   update_in_insert = true,
   virtual_text = {
-    source = 'if_many',
+    severity = vim.diagnostic.severity.ERROR,
   },
   float = {
     show_header = true,
