@@ -1,5 +1,6 @@
 require('neotest').setup({
   adapters = {
+    require('neotest_custom.adapters.gradle'),
     require('neotest-vitest'),
     require('neotest-rust'),
     require('neotest-jest')({
@@ -27,7 +28,7 @@ require('neotest').setup({
     boarder = 'single',
   },
   diagnostic = {
-    severity = 2,
+    severity = 1,
   },
   quickfix = {
     enabled = false,
