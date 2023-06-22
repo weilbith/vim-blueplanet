@@ -67,6 +67,7 @@ lsp_config.solargraph.setup(base_configuration)
 lsp_config.rnix.setup(base_configuration)
 lsp_config.yamlls.setup(base_configuration)
 lsp_config.solidity_ls.setup(base_configuration)
+lsp_config.gradle_ls.setup({})
 lsp_config.kotlin_language_server.setup({
   capabilities = base_capabilities,
   settings = {
