@@ -10,6 +10,6 @@ require('packer').use({
     { 'haydenmeade/neotest-jest', module = 'neotest-jest' },
     { 'nvim-neotest/neotest-python', module = 'neotest-python' },
   },
-  module = 'neotest',
+  cmd = 'Neotest',
   config = 'vim.cmd("packadd neotest_config")',
 })
