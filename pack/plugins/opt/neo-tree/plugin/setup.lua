@@ -59,6 +59,7 @@ require('neo-tree').setup({
     },
     use_libuv_file_watcher = true,
     group_empty_dirs = true,
+    scan_mode = 'deep',
   },
   -- source_selector = {
   --   winbar = true,
