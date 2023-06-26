@@ -5,10 +5,9 @@ glance.setup({
     fold_closed = '',
     fold_open = '',
   },
-  mappings = {
-    list = {
-      ['l'] = glance.actions.jump,
-      ['h'] = glance.actions.close,
-    },
+  border = {
+    enable = true,
+    top_char = '▔',
+    bottom_char = '▁',
   },
 })
