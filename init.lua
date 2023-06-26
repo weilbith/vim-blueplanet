@@ -73,3 +73,4 @@ vim.opt.viewoptions = { 'cursor', 'folds', 'slash', 'unix' }
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 vim.opt.splitkeep = 'screen'
+vim.opt.exrc = true
