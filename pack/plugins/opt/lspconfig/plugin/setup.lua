@@ -250,28 +250,5 @@ lsp_config.rust_analyzer.setup({
   },
 })
 
-lsp_config.efm.setup({
-  filetypes = { 'sh', 'json' },
-  init_options = {
-    documentFormatting = true,
-    hover = false,
-    documentSymbol = false,
-    codeAction = false,
-    completion = false,
-  },
-  settings = {
-    rootMarkers = { 'package.json', 'pyproject.toml', 'Cargo.toml', '.git/' },
-    languages = {
-      sh = {
-        require('efm_config.linting').shellcheck,
-        require('efm_config.formatting').shfmt,
-      },
-      json = {
-        require('efm_config.linting').jsonlint,
-      },
-    },
-  },
-})
-
 -- Note: Putting the setup calls into ftplggins saves 0.5ms per call during
 -- startup. At the moment it is not worth to write that many sudpid ftplugins.
