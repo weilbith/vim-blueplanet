@@ -1,4 +1,8 @@
 require('edgy').setup({
+  icons = {
+    closed = ' ▷',
+    open = ' ◢ ',
+  },
   left = {
     {
       title = 'EXPLORER',
