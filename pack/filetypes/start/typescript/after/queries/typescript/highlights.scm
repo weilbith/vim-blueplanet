@@ -1,0 +1,5 @@
+("===" @binary_expression (set! conceal "≡"))
+("==" @binary_expression (set! conceal "≡"))
+("!=" @binary_expression (set! conceal "≢"))
+("<=" @binary_expression (set! conceal "≤"))
+(">=" @binary_expression (set! conceal "≥"))

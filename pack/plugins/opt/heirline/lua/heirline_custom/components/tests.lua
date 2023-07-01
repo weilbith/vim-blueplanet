@@ -3,8 +3,9 @@ local get_highlight = require('heirline.utils').get_highlight
 
 local TestBlock = {
   condition = function()
-    local ok, result = pcall(vim.api.nvim_call_function, 'ultest#is_test_file', {})
-    return ok and result > 0
+    -- local ok, result = pcall(vim.api.nvim_call_function, 'ultest#is_test_file', {})
+    -- return ok and result > 0
+    return false
   end,
   init = function(self)
     local status = vim.api.nvim_call_function('ultest#status', {})

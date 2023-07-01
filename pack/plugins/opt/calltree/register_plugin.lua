@@ -1,0 +1,4 @@
+-- require('packer').use({
+--   'marcomayer/calltree.nvim',
+--   config = 'vim.cmd("packadd calltree")',
+-- })

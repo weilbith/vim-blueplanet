@@ -9,6 +9,7 @@ require('packer').use({
     { 'MarkEmmons/neotest-rust', module = 'neotest-rust' },
     { 'haydenmeade/neotest-jest', module = 'neotest-jest' },
     { 'nvim-neotest/neotest-python', module = 'neotest-python' },
+    { 'thenbe/neotest-playwright', module = 'neotest-playwright' },
   },
   cmd = 'Neotest',
   config = 'vim.cmd("packadd neotest_config")',
