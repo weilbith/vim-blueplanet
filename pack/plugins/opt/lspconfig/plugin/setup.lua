@@ -1,5 +1,7 @@
-local base_capabilities =
-  vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), {
+local simplified_capabilities = vim.tbl_deep_extend(
+  'force',
+  vim.lsp.protocol.make_client_capabilities(),
+  {
     textDocument = {
       colorProvider = {
         dynamicRegistration = true,
@@ -12,7 +14,6 @@ local base_capabilities =
           labelDetailsSupport = true,
           depractedSupport = true,
           commitCharactersSupport = true,
-          tagSupport = true,
           resolveSupport = {
             properties = {
               'documentation',
@@ -23,7 +24,16 @@ local base_capabilities =
         },
       },
     },
-  })
+  }
+)
+
+local base_capabilities = vim.tbl_deep_extend('force', simplified_capabilities, {
+  completion = {
+    completionItem = {
+      tagSupport = true,
+    },
+  },
+})
 
 local base_configuration = {
   capabilities = base_capabilities,
@@ -69,7 +79,7 @@ lsp_config.yamlls.setup(base_configuration)
 lsp_config.solidity_ls.setup(base_configuration)
 lsp_config.gradle_ls.setup({})
 lsp_config.kotlin_language_server.setup({
-  capabilities = base_capabilities,
+  capabilities = simplified_capabilities,
   settings = {
     externalSources = {
       autoConvertToKotlin = true,
@@ -78,28 +88,7 @@ lsp_config.kotlin_language_server.setup({
 })
 
 lsp_config.jdtls.setup({
-  -- TODO: issues to use base capabilities and remove (not `nil`!) the `tagSupport` entry.
-  capabilities = {
-    textDocument = {
-      completion = {
-        completionItem = {
-          snippetSupport = true,
-          preselectSupport = true,
-          insertReplaceSupport = true,
-          labelDetailsSupport = true,
-          depractedSupport = true,
-          commitCharactersSupport = true,
-          resolveSupport = {
-            properties = {
-              'documentation',
-              'details',
-              'additionalTextEdits',
-            },
-          },
-        },
-      },
-    },
-  },
+  capabilities = simplified_capabilities,
   settings = {
     java = {
       completion = {
@@ -147,12 +136,19 @@ lsp_config.lua_ls.setup({
       },
       hint = {
         enable = true,
+        arrayIndex = 'Disable',
+        setType = true,
       },
       IntelliSense = {
         traceLocalSet = true,
         traceReturn = true,
         traceBeSetted = true,
         traceFieldInject = true,
+      },
+      completion = {
+        callSnippet = 'Both',
+        keywordSnippet = 'Both',
+        showParams = false,
       },
     },
   },
@@ -245,6 +241,29 @@ lsp_config.rust_analyzer.setup({
       },
       inlayHints = {
         enable = true,
+      },
+      interpret = {
+        tests = true,
+      },
+      lens = {
+        references = {
+          adt = { enable = true },
+          enumVariant = { enable = true },
+          method = { enable = true },
+          trait = { enable = true },
+          excludeImports = true,
+        },
+      },
+      rustfmt = {
+        rangeFormatting = { enable = true },
+      },
+      workspace = {
+        symbol = {
+          search = {
+            kind = 'all_symbols',
+            limit = 1000,
+          },
+        },
       },
     },
   },
