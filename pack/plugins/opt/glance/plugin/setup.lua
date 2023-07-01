@@ -10,4 +10,7 @@ glance.setup({
     top_char = '▔',
     bottom_char = '▁',
   },
+  list = {
+    position = 'left',
+  },
 })
