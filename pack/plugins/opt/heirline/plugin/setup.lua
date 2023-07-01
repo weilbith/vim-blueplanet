@@ -1,3 +1,4 @@
+local buffer_matches = require('heirline.conditions').buffer_matches
 local Breadcrumbs = require('heirline_custom.components.breadcumbs')
 local Tests = require('heirline_custom.components.tests')
 local Project = require('heirline_custom.components.project')
@@ -7,7 +8,18 @@ local Lsp = require('heirline_custom.components.lsp')
 local Space = { provider = ' ' }
 local Gap = { provider = '%=' }
 
-local WindowBar = { Space, Breadcrumbs, Gap, Tests, Space }
-local StatusBar = { Space, Project, Space, Git, Gap, Lsp, Space }
+local status_bar = { Space, Project, Space, Git, Gap, Lsp, Space }
+local window_bar = { Space, Breadcrumbs, Gap, Tests, Space }
 
-require('heirline').setup({ statusline = StatusBar, winbar = WindowBar })
+require('heirline').setup({
+  statusline = status_bar,
+  winbar = window_bar,
+  opts = {
+    disable_winbar_cb = function(args)
+      return buffer_matches({
+        buftype = { 'help', 'quickfix' },
+        filetype = { 'Navbuddy', '' },
+      }, args.buf)
+    end,
+  },
+})
