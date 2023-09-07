@@ -1,1 +1,0 @@
-highlight! link TreesitterContext StatusLine
