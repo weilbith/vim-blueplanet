@@ -10,7 +10,6 @@ local function get_return_type_node(index)
     print(vim.inspect(get_filetype()[1]))
 
     if get_filetype()[1] == 'typescript' then
-      print('wtf')
       return snippet_node(nil, {
         text_node(': '),
         insert_node(1, 'void'),
