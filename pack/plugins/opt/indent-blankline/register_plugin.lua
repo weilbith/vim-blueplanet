@@ -1,4 +1,5 @@
 require('packer').use({
   'lukas-reineke/indent-blankline.nvim',
-  setup = 'vim.cmd("packadd indent-blankline")',
+  branch = 'v3',
+  config = 'vim.cmd("packadd indent-blankline")',
 })
