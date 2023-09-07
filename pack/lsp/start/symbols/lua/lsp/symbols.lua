@@ -1,6 +1,6 @@
 return {
   File = {
-    icon = '',
+    icon = '󰈔',
     highlight = '@text.uri',
     is_symbol_kind = true,
     is_completion_kind = true,
@@ -12,7 +12,7 @@ return {
     is_completion_kind = false,
   },
   Namespace = {
-    icon = '',
+    icon = '󱃺',
     highlight = '@namespace',
     is_symbol_kind = true,
     is_completion_kind = false,
@@ -24,7 +24,7 @@ return {
     is_completion_kind = false,
   },
   Class = {
-    icon = 'ﴯ',
+    icon = '󰠱',
     highlight = '@type',
     is_symbol_kind = true,
     is_completion_kind = true,
@@ -36,7 +36,7 @@ return {
     is_completion_kind = true,
   },
   Method = {
-    icon = '',
+    icon = '󰆦',
     highlight = '@method',
     is_symbol_kind = true,
     is_completion_kind = true,
@@ -48,13 +48,13 @@ return {
     is_completion_kind = true,
   },
   Field = {
-    icon = 'ﰠ',
+    icon = '󰜢',
     highlight = '@field',
     is_symbol_kind = true,
     is_completion_kind = true,
   },
   Constructor = {
-    icon = '',
+    icon = '󰏖',
     highlight = '@constructor',
     is_symbol_kind = true,
     is_completion_kind = true,
@@ -66,7 +66,7 @@ return {
     is_completion_kind = true,
   },
   Value = {
-    icon = '',
+    icon = '󰎠',
     highlight = '@constant',
     is_symbol_kind = false,
     is_completion_kind = true,
@@ -78,7 +78,7 @@ return {
     is_completion_kind = true,
   },
   Keyword = {
-    icon = '',
+    icon = '󰌋',
     highlight = '@keyword',
     is_symbol_kind = false,
     is_completion_kind = true,
@@ -90,7 +90,7 @@ return {
     is_completion_kind = true,
   },
   Color = {
-    icon = '',
+    icon = '󰏘',
     highlight = '@constant',
     is_symbol_kind = false,
     is_completion_kind = true,
@@ -102,25 +102,25 @@ return {
     is_completion_kind = true,
   },
   Function = {
-    icon = '',
+    icon = '󰆦',
     highlight = '@function',
     is_symbol_kind = true,
     is_completion_kind = true,
   },
   Variable = {
-    icon = '',
+    icon = '󰂡',
     highlight = '@constant',
     is_symbol_kind = true,
     is_completion_kind = true,
   },
   Constant = {
-    icon = '',
+    icon = '󰏿',
     highlight = '@constant',
     is_symbol_kind = true,
     is_completion_kind = true,
   },
   String = {
-    icon = 'ﳳ',
+    icon = '󰟵',
     highlight = '@string',
     is_symbol_kind = true,
     is_completion_kind = false,
@@ -138,25 +138,25 @@ return {
     is_completion_kind = false,
   },
   Array = {
-    icon = '',
+    icon = '󰅨',
     highlight = '@constant',
     is_symbol_kind = true,
     is_completion_kind = false,
   },
   Object = {
-    icon = '',
+    icon = '󰅲',
     highlight = '@type',
     is_symbol_kind = true,
     is_completion_kind = false,
   },
   Key = {
-    icon = '',
+    icon = '󰌋',
     highlight = '@type',
     is_symbol_kind = true,
     is_completion_kind = false,
   },
   Null = {
-    icon = 'ﳠ',
+    icon = '󰟢',
     highlight = '@type',
     is_symbol_kind = true,
     is_completion_kind = false,
@@ -192,13 +192,13 @@ return {
     is_completion_kind = true,
   },
   Operator = {
-    icon = '璉',
+    icon = '󰒕',
     highlight = '@operator',
     is_symbol_kind = true,
     is_completion_kind = true,
   },
   TypeParameter = {
-    icon = '',
+    icon = '󰅲',
     highlight = '@parameter',
     is_symbol_kind = true,
     is_completion_kind = true,
