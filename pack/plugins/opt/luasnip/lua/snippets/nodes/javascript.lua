@@ -7,15 +7,12 @@ local get_filetype = require('luasnip.extras.filetype_functions').from_pos_or_fi
 
 local function get_return_type_node(index)
   return dynamic_node(index, function()
-    print(vim.inspect(get_filetype()[1]))
-
     if get_filetype()[1] == 'typescript' then
       return snippet_node(nil, {
         text_node(': '),
         insert_node(1, 'void'),
       })
     else
-      print('correct')
       return snippet_node(nil, { text_node('') })
     end
   end, {})
