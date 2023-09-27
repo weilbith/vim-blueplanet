@@ -1,5 +1,11 @@
-inoremap <C-s>  <cmd>lua require('luasnip').expand_or_jump()<CR>
-snoremap <C-s>  <cmd>lua require('luasnip').expand_or_jump()<CR>
+nnoremap <C-s>  <cmd>lua require('luasnip').jump(1)<CR>
+inoremap <C-s>  <cmd>lua require('luasnip').jump(1)<CR>
+snoremap <C-s>  <cmd>lua require('luasnip').jump(1)<CR>
+
+nnoremap <C-b>  <cmd>lua require('luasnip').jump(-1)<CR>
+inoremap <C-b>  <cmd>lua require('luasnip').jump(-1)<CR>
+snoremap <C-b>  <cmd>lua require('luasnip').jump(-1)<CR>
+
 inoremap <C-c>  <cmd>lua require('luasnip').change_choice(1)<CR>
 snoremap <C-c>  <cmd>lua require('luasnip').change_choice(1)<CR>
 
