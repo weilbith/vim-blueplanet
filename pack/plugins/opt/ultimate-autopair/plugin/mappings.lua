@@ -1,0 +1,10 @@
+-- local completion_menu = require('completion_menu')
+-- local autopair_new_line = require('ultimate-autopair.maps.cr')
+--
+-- vim.keymap.set('i', '<CR>', function()
+--   if completion_menu.is_open_and_entry_selected() then
+--     return '<C-y>'
+--   else
+--     autopair_new_line.cmpnewline()
+--   end
+-- end, { expr = true })
