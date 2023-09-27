@@ -23,8 +23,18 @@ local function is_open_and_entry_selected()
   return is_open() and entry_is_selected()
 end
 
+local function confirm_selected_entry()
+  if type(vim.g.completion_menu_confirm_selected_entry) == 'function' then
+    return vim.g.completion_menu_confirm_selected_entry()
+  else
+    local control_y_keys = vim.api.nvim_replace_termcodes('<C-y>', true, false, true)
+    return vim.api.nvim_feedkeys(control_y_keys, 'm', true)
+  end
+end
+
 return {
   is_open = is_open,
   entry_is_selected = entry_is_selected,
   is_open_and_entry_selected = is_open_and_entry_selected,
+  confirm_selected_entry = confirm_selected_entry,
 }

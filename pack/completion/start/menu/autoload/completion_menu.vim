@@ -13,3 +13,7 @@ endfunction
 function! completion_menu#is_open_and_entry_selected() abort
   return luaeval('require("completion_menu").is_open_and_entry_selected()')
 endfunction
+
+function! completion_menu#confirm_selected_entry() abort
+  return luaeval('require("completion_menu").confirm_selected_entry()')
+endfunction
