@@ -22,8 +22,13 @@ require('other-nvim').setup({
     },
     {
       pattern = 'src/main/.*/(.*).kt',
-      target = 'src/%1/%2Test.kt',
-      context = 'source',
+      target = 'src/test/**/%1Test.kt',
+      context = 'tests',
+    },
+    {
+      pattern = 'src/test/.*/(.*)Test.kt',
+      target = 'src/main/**/%1.kt',
+      context = 'tests',
     },
   },
 })
