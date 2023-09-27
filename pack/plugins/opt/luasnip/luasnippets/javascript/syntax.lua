@@ -5,13 +5,14 @@ local text_node = require('luasnip').text_node
 local insert_node = require('luasnip').insert_node
 local choice_node = require('luasnip').choice_node
 local dynamic_node = require('luasnip').dynamic_node
+local line_begin = require('luasnip.extras.conditions.expand').line_begin
+local line_end = require('luasnip.extras.conditions.show').line_end
 
 local fix_closing_character_callbacks =
   require('snippets.callbacks').fix_closing_character_callbacks
 local trigger_name_node = require('snippets.nodes.general').trigger_name_node
 local selected_text_node = require('snippets.nodes.general').selected_text_node
 local file_name_node = require('snippets.nodes.general').file_name_node
-local is_end_of_line = require('snippets.conditions').is_end_of_line
 
 local get_return_type_node = require('snippets.nodes.javascript').get_return_type_node
 
@@ -102,17 +103,17 @@ return nil,
     snippet(
       'async (',
       asynchronous_anonymous_function_node,
-      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
+      { callbacks = fix_closing_character_callbacks, condition = line_end }
     ),
     snippet(
       { trig = ' if[%( ]', regTrig = true },
       if_node,
-      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
+      { callbacks = fix_closing_character_callbacks, condition = line_begin * line_end }
     ),
     snippet(
       { trig = '[} ]else ', regTrig = true },
       else_node,
-      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
+      { callbacks = fix_closing_character_callbacks, condition = line_begin * line_end }
     ),
     snippet({ trig = ' switch[%( ]', regTrig = true }, switch_case_node),
   }

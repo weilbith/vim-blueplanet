@@ -3,12 +3,13 @@ local format = require('luasnip.extras.fmt').fmta
 local text_node = require('luasnip').text_node
 local insert_node = require('luasnip').insert_node
 local choice_node = require('luasnip').choice_node
+local line_begin = require('luasnip.extras.conditions.expand').line_begin
+local line_end = require('luasnip.extras.conditions.show').line_end
 
 local fix_closing_character_callbacks =
   require('snippets.callbacks').fix_closing_character_callbacks
 local trigger_name_node = require('snippets.nodes.general').trigger_name_node
 local selected_text_node = require('snippets.nodes.general').selected_text_node
-local is_end_of_line = require('snippets.conditions').is_end_of_line
 
 local named_function_node = format('<keyword><name>(<parameter>)\n  <body>\nend', {
   keyword = trigger_name_node('function ', ' '),
@@ -53,18 +54,13 @@ local if_node = format('<keyword><condition> then\n  <body>\n<continuation>', {
 
 return nil,
   {
-    snippet({ trig = '^function ', regTrig = true }, vim.deepcopy(named_function_node)),
-    snippet(
-      { trig = ' function ' },
-      vim.deepcopy(named_function_node),
-      { condition = is_end_of_line }
-    ),
+    snippet('function ', vim.deepcopy(named_function_node), { condition = line_end }),
     snippet(
       { trig = '[= ]function%(', regTrig = true },
       annonymous_function_node,
-      { callbacks = fix_closing_character_callbacks, condition = is_end_of_line }
+      { callbacks = fix_closing_character_callbacks, condition = line_end }
     ),
-    snippet(' if ', if_node, { condition = is_end_of_line }),
-    snippet(' else ', else_node, { condition = is_end_of_line }),
-    snippet(' elseif ', elseif_node, { condition = is_end_of_line }),
+    snippet('if', if_node, { condition = line_begin * line_end }),
+    snippet('else', else_node, { condition = line_begin * line_end }),
+    snippet('elseif', elseif_node, { condition = line_begin * line_end }),
   }
