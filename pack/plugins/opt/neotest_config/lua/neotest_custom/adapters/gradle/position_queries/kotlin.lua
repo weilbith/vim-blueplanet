@@ -22,7 +22,7 @@ local function_with_test_marker_and_display_name_annotation = [[
           (annotation
             (constructor_invocation
               (user_type (type_identifier) @display_name.identifier)
-              (value_arguments (value_argument (line_string_literal) @display_name.value))
+              (value_arguments (value_argument (string_literal) @display_name.value))
             )
           )
         )
@@ -33,7 +33,6 @@ local function_with_test_marker_and_display_name_annotation = [[
     ) @test.definition
   ]]
 
--- Remind the order of the queries as first listed has higher priority.
 return plain_class
   .. function_with_test_marker_and_display_name_annotation
   .. function_with_test_marker
