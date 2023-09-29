@@ -168,7 +168,7 @@ return {
     is_completion_kind = true,
   },
   Folder = {
-    icon = '',
+    icon = '󰉋',
     highlight = '@text.uri',
     is_symbol_kind = false,
     is_completion_kind = true,
