@@ -11,5 +11,4 @@ require('packer').use({
     },
   },
   module = 'dap',
-  config = 'vim.cmd("packadd dap")',
 })
