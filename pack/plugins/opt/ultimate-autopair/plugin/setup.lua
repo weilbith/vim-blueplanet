@@ -18,4 +18,11 @@ require('ultimate-autopair').setup({
       end,
     },
   },
+  extensions = {
+    alpha = {
+      no_ft_iskeyword = function(options)
+        return 'rust' == require('ultimate-autopair.utils').getsmartft(options)
+      end,
+    },
+  },
 })
