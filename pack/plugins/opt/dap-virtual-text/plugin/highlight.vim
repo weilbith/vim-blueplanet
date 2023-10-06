@@ -1,2 +1,2 @@
-highlight! link NvimDapVirtualText        YellowItalic
-highlight! link NvimDapVirtualTextChanged Orange
+highlight! link NvimDapVirtualText        YellowBackgroundContrast
+highlight! link NvimDapVirtualTextChanged OrangeBackgroundContrast
