@@ -1,11 +1,7 @@
 local function doesAnyClientSupportFormatting()
-  for _, client in ipairs(vim.lsp.buf_get_clients()) do
-    if client.supports_method('textDocument/formatting') then
-      return true
-    end
-  end
+  local clients_with_support = vim.lsp.get_clients({ bufnr = 0, method = 'textDocument/inlayHint' })
 
-  return false
+  return #clients_with_support > 0
 end
 
 local function formattingIsDisabledByUser()
@@ -13,15 +9,13 @@ local function formattingIsDisabledByUser()
 end
 
 local function formatBufferIfPossible()
-  if doesAnyClientSupportFormatting() then
-    if not formattingIsDisabledByUser() then
-      vim.lsp.buf.format({
-        async = true,
-        filter = function(client)
-          return client.name ~= 'kotlin_language_server'
-        end,
-      })
-    end
+  if doesAnyClientSupportFormatting() and not formattingIsDisabledByUser() then
+    vim.lsp.buf.format({
+      async = true,
+      filter = function(client)
+        return client.name ~= 'kotlin_language_server'
+      end,
+    })
   end
 end
 
