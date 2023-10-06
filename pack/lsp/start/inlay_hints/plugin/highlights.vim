@@ -1,1 +1,1 @@
-highlight! link LspInlayHint LightGrey
+highlight! link LspInlayHint LightGreyItalic
