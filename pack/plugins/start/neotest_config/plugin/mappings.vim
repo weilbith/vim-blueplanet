@@ -7,6 +7,7 @@ nnoremap <localleader>to <cmd>Neotest output enter=true<CR>
 nnoremap <localleader>tO <cmd>Neotest output-panel toggle<CR>
 nnoremap <localleader>tx <cmd>Neotest stop<CR>
 nnoremap <localleader>ts <cmd>Neotest summary toggle<CR>
+nnoremap <localleader>tA <cmd>lua require("neotest").playwright.attachment()<CR>
 
 nnoremap ]t <cmd>Neotest jump next<CR>
 nnoremap ]T <cmd>Neotest jump next status=failed<CR>

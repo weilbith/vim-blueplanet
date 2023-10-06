@@ -7,9 +7,15 @@ require('neotest').setup({
       jestCommand = 'npm exec -- jest',
     }),
     require('neotest-python'),
-    require('neotest-vim-test')({
-      ignore_filetypes = { 'rust', 'python', 'typescript', 'javascript', 'vue' },
+    require('neotest-playwright').adapter({
+      options = {
+        persist_project_selection = true,
+        enable_dynamic_test_discovery = true,
+      },
     }),
+  },
+  consumers = {
+    playwright = require('neotest-playwright.consumers').consumers,
   },
   icons = {
     failed = '',
