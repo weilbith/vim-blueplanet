@@ -22,4 +22,12 @@ require('symbol-usage').setup({
       SymbolKind.Method,
     },
   },
+  filetypes = {
+    -- Conflicts with Rusts language server lenses which are better.
+    rust = {
+      definition = { enabled = false },
+      implementation = { enabled = false },
+      references = { enabled = false },
+    },
+  },
 })
