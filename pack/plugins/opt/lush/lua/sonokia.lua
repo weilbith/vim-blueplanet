@@ -170,7 +170,7 @@ return lush(function(injected_functions)
     LspReferenceRead({ Underlined }),
     LspReferenceWrite({ Reversed }),
     LspInlayHint({ LightGreyItalic }),
-    LspCodeLens({ LightGrey }),
+    LspCodeLens({ DarkGreyBackground, fg = LightGrey.fg, italic = true }),
     LspCodeLensSeparator({ GreyBold }),
     LspSignatureActiveParameter({ GreenBold }),
     -- Diagnostic
