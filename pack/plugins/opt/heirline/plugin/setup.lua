@@ -24,7 +24,6 @@ require('heirline').setup({
     disable_winbar_cb = function(args)
       return buffer_matches({
         buftype = { 'help', 'quickfix' },
-        filetype = { 'Navbuddy', 'dropbar_menu' },
       }, args.buf) or vim.bo[args.buf].ft == ''
     end,
   },

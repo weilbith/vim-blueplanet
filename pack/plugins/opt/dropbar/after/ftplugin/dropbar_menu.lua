@@ -32,3 +32,7 @@ vim.keymap.set('n', 'l', expand_sub_menu, { buffer = true })
 vim.keymap.set('n', 'h', close_sub_menu, { buffer = true })
 
 vim.opt_local.winhighlight = 'Normal:BlueBackgroundContrast'
+
+vim.defer_fn(function()
+  vim.opt_local.winbar = nil
+end, 1)
