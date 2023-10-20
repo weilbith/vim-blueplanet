@@ -165,9 +165,14 @@ return lush(function(injected_functions)
     healthError({ Red }),
     healthSuccess({ Green }),
     healthWarning({ Yellow }),
+    -- LSP
     LspReferenceText({ Underlined }),
     LspReferenceRead({ Underlined }),
     LspReferenceWrite({ Reversed }),
+    LspInlayHint({ LightGreyItalic }),
+    LspCodeLens({ LightGrey }),
+    LspCodeLensSeparator({ GreyBold }),
+    LspSignatureActiveParameter({ GreenBold }),
     -- Diagnostic
     DiagnosticSignError({ RedBold }),
     DiagnosticSignWarn({ OrangeBold }),
