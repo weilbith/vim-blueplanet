@@ -61,12 +61,12 @@ vim.opt.fillchars = {
   stlnc = ' ',
 }
 vim.opt.listchars = {
-  eol = '',
-  tab = '',
+  eol = '󰌑',
+  tab = '󰌒󰌒',
   space = '.',
   nbsp = '.',
   trail = '.',
-  extends = '',
+  extends = '󰇘',
   precedes = ' ',
 }
 vim.opt.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
