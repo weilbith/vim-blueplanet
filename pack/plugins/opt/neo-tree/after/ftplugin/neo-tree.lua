@@ -29,3 +29,8 @@ end
 
 vim.api.nvim_buf_set_keymap(0, 'n', 'P', '', { callback = goto_parent })
 vim.api.nvim_buf_set_keymap(0, 'n', 'a', '', { callback = add_to_parent })
+
+vim.defer_fn(function()
+  vim.opt_local.statuscolumn = nil
+  vim.opt_local.winbar = nil
+end, 1)
