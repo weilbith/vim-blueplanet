@@ -24,7 +24,7 @@ require('heirline').setup({
     disable_winbar_cb = function(args)
       return buffer_matches({
         buftype = { 'help', 'quickfix' },
-      }, args.buf) or vim.bo[args.buf].ft == ''
+      }, args.buf) or vim.bo[args.buf].ft == '' or not vim.bo[args.buf].buflisted
     end,
   },
 })
