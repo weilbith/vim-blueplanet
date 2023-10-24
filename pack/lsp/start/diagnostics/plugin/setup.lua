@@ -5,13 +5,16 @@ local function number_to_circular_number(_, index)
 end
 
 require('vim.diagnostic').config({
-  underline = true,
   update_in_insert = true,
+  severity_sort = true,
   virtual_text = {
     severity = vim.diagnostic.severity.ERROR,
   },
   float = {
-    show_header = true,
+    border = 'single',
+    header = '',
+    focusable = false,
+    anchor_bias = 'below',
     source = true,
     prefix = number_to_circular_number,
   },
