@@ -97,7 +97,7 @@ return lush(function(injected_functions)
     BlueUnderline({ gui = 'underline', sp = Blue.fg }),
     PurpleUnderline({ gui = 'underline', sp = Purple.fg }),
     -- Windows
-    LightPopupBackground({ bg = '#28292b' }),
+    LightPopupBackground({ bg = '#313235' }),
     LightPopupBorder({ LightPopupBackground, fg = LightGrey.fg, gui = 'bold' }),
     DarkPopupBackground({ bg = '#222325' }),
     DarkPopupBorder({ DarkPopupBackground, fg = LightGrey.fg, gui = 'bold' }),
@@ -328,7 +328,7 @@ return lush(function(injected_functions)
     symbol('@text.strike')({ Strikethrough }),
     symbol('@text.title')({ Title }),
     symbol('@text.literal')({ String }),
-    symbol('@text.uri')({ Underlined }),
+    symbol('@text.uri')({ WhiteItalic }),
     symbol('@text.math')({ Special }),
     symbol('@text.reference')({ Constant }),
     symbol('@text.environment')({ Macro }),
