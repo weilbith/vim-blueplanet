@@ -1,1 +1,1 @@
-runtime! after/ftplugin/DiffviewFileHistory.vim
+runtime! after/ftplugin/DiffviewFileHistory.lua
