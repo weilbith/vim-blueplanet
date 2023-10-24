@@ -1,14 +1,14 @@
-highlight! link TelescopeNormal          Pmenu
-highlight! link TelescopeBorder          TelescopeNormal
-highlight! link TelescopePreviewNormal   BlackBackgroundContrast
-highlight! link TelescopePreviewBorder   TelescopePreviewNormal
-highlight! link TelescopePreviewTitle    GreenBackgroundContrast
-" highlight! link TelescopePromptNormal    BlueBackgroundContrast
-highlight! link TelescopePromptBorder    BlueBackgroundContrast
-highlight! link TelescopePromptTitle     BlueBackgroundContrast
-highlight! link TelescopeResultsTitle    TelescopeNormal
-highlight! link TelescopePromptPrefix    BlueBackgroundContrast
-highlight! link TelescopeMatching        GreenItalic
-highlight! link TelescopePreviewLine     GreenBackgroundContrast
+highlight! link TelescopePromptNormal    LightPopupBackground
+highlight! link TelescopePromptBorder    LightPopupBorder
+highlight! link TelescopePromptPrefix    TelescopePromptNormal
+highlight! link TelescopePromptCounter   White
+
+highlight! link TelescopeResultsNormal   LightPopupBackground
+highlight! link TelescopeResultsBorder   LightPopupBorder
+highlight! link TelescopeMatching        ItalicBold
 highlight! link TelescopeSelection       GreenBackgroundContrast
 highlight! link TelescopeMultiSelection  YellowBackgroundContrast
+
+highlight! link TelescopePreviewNormal   DarkPopupBackground
+highlight! link TelescopePreviewBorder   DarkPopupBorder
+highlight! link TelescopePreviewLine     GreenBackgroundContrast
