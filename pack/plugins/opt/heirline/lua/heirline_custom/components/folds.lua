@@ -1,4 +1,4 @@
-local get_fill_character = require('heirline_custom.utils').get_fill_character
+local get_fill_character = require('custom.utils').get_fill_character
 
 local function is_fold_start()
   return vim.fn.foldlevel(vim.v.lnum) > vim.fn.foldlevel(vim.v.lnum - 1)
