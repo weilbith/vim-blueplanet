@@ -1,1 +1,1 @@
-highlight! link ScrollView CursorLine
+highlight! link SatelliteBar PmenuThumb
