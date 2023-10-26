@@ -1,5 +1,4 @@
 local sources = require('cmp.config.sources')
-local mappings = require('cmp').mapping
 
 require('cmp').setup({
   sources = sources({
@@ -28,7 +27,6 @@ require('cmp').setup({
   formatting = {
     format = require('custom.cmp.formatting').format_entry,
   },
-  mapping = mappings.preset.insert(),
   window = {
     documentation = {
       winhighlight = 'Normal:DarkGreyBackgroundContrast',
@@ -40,7 +38,6 @@ require('cmp').setup.cmdline('/', {
   sources = sources({
     { name = 'buffer' },
   }),
-  mapping = mappings.preset.cmdline(),
 })
 
 require('cmp').setup.cmdline(':', {
@@ -48,7 +45,6 @@ require('cmp').setup.cmdline(':', {
     { name = 'path' },
     { name = 'cmdline' },
   }),
-  mapping = mappings.preset.cmdline(),
 })
 
 require('cmp_git').setup()
