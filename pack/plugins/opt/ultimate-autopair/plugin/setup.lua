@@ -6,6 +6,8 @@ require('ultimate-autopair').setup({
     single_delete = true,
   },
   cr = {
+    -- prevent direct mapping and do it manually
+    map = '<plug>ultimate-autopair-CR',
     autoclose = true,
     conf = {
       cond = function()
