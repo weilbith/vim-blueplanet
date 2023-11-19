@@ -3,6 +3,7 @@ require('neotest').setup({
     require('neotest_custom.adapters.gradle'),
     require('neotest-vitest'),
     require('neotest-rust'),
+    require('neotest-go'),
     require('neotest-jest')({
       jestCommand = 'npm exec -- jest',
     }),

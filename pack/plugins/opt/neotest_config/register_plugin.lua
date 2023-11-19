@@ -9,6 +9,7 @@ require('packer').use({
     { 'haydenmeade/neotest-jest', module = 'neotest-jest' },
     { 'nvim-neotest/neotest-python', module = 'neotest-python' },
     { 'thenbe/neotest-playwright', module = 'neotest-playwright' },
+    { 'nvim-neotest/neotest-go', module = 'neotest-go' },
   },
   module = 'neotest',
   cmd = 'Neotest',
