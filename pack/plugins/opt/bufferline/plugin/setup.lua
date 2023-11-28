@@ -9,8 +9,8 @@ require('bufferline').setup({
     offsets = {
       {
         filetype = 'neo-tree',
-        text = 'File Explorer',
-        highlight = 'Grey',
+        text = 'Explorer',
+        highlight = 'LightGrey',
         text_align = 'center',
       },
     },
@@ -60,7 +60,7 @@ require('bufferline').setup({
           end
         end
 
-        local text = '' .. number_of_loaded_buffers
+        local text = ' ' .. number_of_loaded_buffers
         return { { text = text, gui = 'bold' } }
       end,
     },
