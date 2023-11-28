@@ -1,5 +1,6 @@
 require('satellite').setup({
   current_only = true,
+  winblend = 0,
   handlers = {
     cursor = {
       enable = false,
@@ -9,9 +10,9 @@ require('satellite').setup({
     },
     gitsigns = {
       signs = {
-        add = '▂',
-        change = '▂',
-        delete = '▂',
+        add = '┃',
+        change = '┃',
+        delete = '┃',
       },
     },
   },
