@@ -20,9 +20,7 @@ return nil,
       },
       format(
         [[
-          fn <name>(<arguments>)<return_type> {
-            <body>
-          }
+          fn <name>(<arguments>)<return_type><body>
         ]],
         {
           name = insert_node(1, 'name'),
@@ -31,7 +29,11 @@ return nil,
             format(' ->> <>', { insert_node(1, 'Type') }, { dedent = false }),
             text_node(''),
           }),
-          body = insert_node(4, '// TODO'),
+          body = choice_node(4, {
+            -- TODO: Do this automatically in a trait definition.
+            text_node(';'),
+            format('{\n  <>\n}', { insert_node(1, 'todo();') }),
+          }),
         }
       ),
       {
@@ -41,23 +43,34 @@ return nil,
 
     multi_snippet(
       {
+        common = { descr = 'define a struct type' },
+        'struct',
+        'pub struct',
+      },
+      format('struct <name><body>', {
+        name = file_name_node(1, 'Name', true),
+        body = choice_node(2, {
+          text_node(';'),
+          format('(<>);', { insert_node(1, '') }),
+          format(' {\n  <>\n}', { insert_node(1, '') }, { dedent = false }),
+        }),
+      }),
+      {
+        condition = line_begin * line_end,
+      }
+    ),
+
+    multi_snippet(
+      {
         common = { descr = 'template for "type" declarations' },
-        'struct ',
         'enum ',
         'trait ',
       },
-      format(
-        [[
-          <keyword><name> {
-            <body>
-          }
-        ]],
-        {
-          keyword = trigger_name_node('struct', ' '),
-          name = file_name_node(1, 'name', true),
-          body = insert_node(2, '// TODO'),
-        }
-      ),
+      format('<keyword><name> {<body>}', {
+        keyword = trigger_name_node('enum', ' '),
+        name = file_name_node(1, 'name', true),
+        body = insert_node(2, ''),
+      }),
       {
         condition = line_begin * line_end,
       }
@@ -66,24 +79,22 @@ return nil,
     snippet(
       {
         trig = 'impl ',
-        descr = 'implement trait for struct or enum',
+        descr = 'implement trait for a type',
       },
       format(
         [[
-          impl <statement> {
-            <body>
-          }
+          impl <type> {<body>}
         ]],
         {
-          statement = choice_node(1, {
-            restore_node(nil, 'struct', insert_node(nil, 'struct')),
-            format('<trait> for <struct>', {
+          type = choice_node(1, {
+            restore_node(nil, 'type', insert_node(nil, 'Type')),
+            format('<trait> for <type>', {
               -- TODO: How to get all stubs automatically?
-              struct = restore_node(1, 'struct', insert_node(nil, 'struct')),
+              type = restore_node(1, 'type', insert_node(nil, 'Type')),
               trait = insert_node(2, 'trait'),
             }),
           }, { restore_cursor = true }),
-          body = insert_node(2, '// TODO'),
+          body = insert_node(2, ''),
         }
       ),
       {
@@ -104,11 +115,31 @@ return nil,
         ]],
         {
           structinee = insert_node(1, 'structinee'),
-          body = insert_node(2, '// TODO'),
+          body = insert_node(2, ''),
         }
       ),
       {
         condition = line_end,
+      }
+    ),
+
+    snippet(
+      {
+        trig = 'type ',
+        descr = 'define a type alias',
+      },
+      format('type <identifier> = <type><where_clause>;', {
+        identifier = insert_node(1, 'Identifier'),
+        type = insert_node(2, 'Type'),
+        where_clause = choice_node(3, {
+          -- TODO: Do automatically if there is a generic type without
+          -- definition.
+          text_node(''),
+          format(' where <>', { insert_node(1, '') }, { dedent = false }),
+        }),
+      }),
+      {
+        condition = line_begin * line_end,
       }
     ),
   }
