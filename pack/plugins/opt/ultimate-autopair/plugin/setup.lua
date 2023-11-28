@@ -23,7 +23,8 @@ require('ultimate-autopair').setup({
   extensions = {
     alpha = {
       no_ft_iskeyword = function(options)
-        return 'rust' == require('ultimate-autopair.utils').getsmartft(options)
+        local file_type = require('ultimate-autopair.utils').getsmartft(options)
+        return file_type == 'rust' or file_type == 'go'
       end,
     },
   },
