@@ -21,7 +21,7 @@ require('telescope').setup({
     multi_icon = '  ',
     prompt_title = '',
     results_title = '',
-    file_ignore_patterns = { '.git/*', '%.fls', '%.fdb_latexmk' },
+    file_ignore_patterns = { '%.fls', '%.fdb_latexmk' },
     borderchars = {
       prompt = {
         '▔',
@@ -73,6 +73,7 @@ require('telescope').setup({
     find_files = {
       prompt_title = '',
       preview_title = '',
+      entry_maker = require('custom.telescope.entry_maker').file_entry_maker,
     },
     git_commits = {
       mappings = {
