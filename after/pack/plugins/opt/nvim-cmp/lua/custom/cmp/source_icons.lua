@@ -1,11 +1,13 @@
 return {
+  luasnip_choice = '',
+  luasnip = '',
   nvim_lsp = '',
   nvim_lsp_signature_help = '󰆧',
   nvim_lua = '',
-  treesitter = '',
+  treesitter = '󰅨',
   path = '󰋊',
-  cmp_git = '',
-  tmux = '',
   emoji = '',
+  tmux = '',
+  cmp_git = '',
   dap = '',
 }
