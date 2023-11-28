@@ -5,8 +5,8 @@ highlight! link TelescopePromptCounter   White
 
 highlight! link TelescopeResultsNormal   LightPopupBackground
 highlight! link TelescopeResultsBorder   LightPopupBorder
-highlight! link TelescopeMatching        ItalicBold
-highlight! link TelescopeSelection       GreenBackgroundContrast
+highlight! link TelescopeMatching        Blue
+highlight! link TelescopeSelection       DarkBlueBackground
 highlight! link TelescopeMultiSelection  YellowBackgroundContrast
 
 highlight! link TelescopePreviewNormal   DarkPopupBackground

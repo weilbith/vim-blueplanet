@@ -1,6 +1,9 @@
 require('packer').use({
   'nvim-telescope/telescope.nvim',
-  requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons' },
+  requires = {
+    'nvim-lua/plenary.nvim',
+    { 'nvim-tree/nvim-web-devicons', module = 'nvim-web-devicons' },
+  },
   cmd = 'Telescope',
   module = 'telescope',
   config = 'vim.cmd("packadd telescope")',
