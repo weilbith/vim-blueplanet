@@ -5,6 +5,7 @@ require('gitsigns').setup({
   current_line_blame_opts = {
     virt_text_pos = 'eol',
   },
+  _signs_staged_enable = true,
   current_line_blame_formatter_opts = {
     relative_time = true,
   },
