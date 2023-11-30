@@ -34,7 +34,7 @@ local function select_next_entry()
 end
 
 local function select_previous_entry()
-  if type(vim.g.completion_menu_select_previous_entry) == 'function' then
+  if type(vim.g.completion_menu_select_previous_entry_function) == 'function' then
     vim.g.completion_menu_select_previous_entry_function()
   else
     escape_and_feed_keys('<Up>', 'n')
