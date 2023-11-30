@@ -14,11 +14,7 @@ require('cmp').setup({
   }),
   snippet = {
     expand = function(arguments)
-      local ok, luasnip = pcall(require, 'luasnip')
-
-      if ok then
-        luasnip.lsp_expand(arguments.body)
-      end
+      vim.snippet.expand(arguments.body)
     end,
   },
   experimental = {
