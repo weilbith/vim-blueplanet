@@ -1,7 +1,7 @@
-local completion_menu = require('completion_menu')
+local completion_menu = require('completion.menu')
 local escape_and_feed_keys = require('custom.utils').escape_and_feed_keys
 
-vim.keymap.set({ 'i', 'c' }, '<CR>', function()
+vim.keymap.set({ 'i', 'c', 's' }, '<CR>', function()
   if completion_menu.is_open_and_entry_selected() then
     completion_menu.confirm_selected_entry()
   else
@@ -12,7 +12,7 @@ end, {
   desc = 'confirm selected entry if completion menu is open, else normal <CR>',
 })
 
-vim.keymap.set({ 'i', 'c' }, '<Tab>', function()
+vim.keymap.set({ 'i', 'c', 's' }, '<Tab>', function()
   if completion_menu.is_open() then
     completion_menu.select_next_entry()
   else
@@ -23,7 +23,7 @@ end, {
   desc = 'select next entry if completion menu is open, else normal <Tab>',
 })
 
-vim.keymap.set({ 'i', 'c' }, '<S-Tab>', function()
+vim.keymap.set({ 'i', 'c', 's' }, '<S-Tab>', function()
   if completion_menu.is_open() then
     completion_menu.select_previous_entry()
   else
@@ -34,7 +34,7 @@ end, {
   desc = 'select previous entry if completion menu is open, else normal <S-Tab>',
 })
 
-vim.keymap.set({ 'i', 'c' }, '<C-e>', function()
+vim.keymap.set({ 'i', 'c', 's' }, '<C-e>', function()
   if completion_menu.is_open() then
     completion_menu.close_menu()
   else

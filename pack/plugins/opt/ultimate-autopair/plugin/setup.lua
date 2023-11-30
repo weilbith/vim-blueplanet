@@ -1,4 +1,4 @@
-local completion_menu = require('completion_menu')
+local completion_menu = require('completion.menu')
 
 require('ultimate-autopair').setup({
   bs = {
