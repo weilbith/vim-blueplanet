@@ -16,8 +16,16 @@ local function get_gradle_executable(project_directory)
 end
 
 --- @param gradle_executable string
-local function get_test_results_directory(gradle_executable)
-  local command = { gradle_executable, 'properties', '--property', 'testResultsDir' }
+--- @param project_directory string
+local function get_test_results_directory(gradle_executable, project_directory)
+  local command = {
+    gradle_executable,
+    '--project-dir',
+    project_directory,
+    'properties',
+    '--property',
+    'testResultsDir',
+  }
   local _, output = lib.process.run(command, { stdout = true })
   local output_lines = vim.split(output.stdout or '', '\n')
 
@@ -64,7 +72,7 @@ return function(arguments)
   vim.list_extend(command, get_test_filter_arguments(arguments.tree, position))
 
   local context = {}
-  context.test_resuls_directory = get_test_results_directory(gradle_executable)
+  context.test_resuls_directory = get_test_results_directory(gradle_executable, project_directory)
 
   return { command = table.concat(command, ' '), context = context }
 end
