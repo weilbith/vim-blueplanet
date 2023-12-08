@@ -41,41 +41,25 @@ local base_configuration = {
 
 local lsp_config = require('lspconfig')
 
-lsp_config.cmake.setup(base_configuration)
-lsp_config.flow.setup(base_configuration)
-lsp_config.dockerls.setup(base_configuration)
-lsp_config.solc.setup(base_configuration)
-lsp_config.pylsp.setup({
-  capabilities = base_capabilities,
-  cmd = { 'pyls' },
-  settings = {
-    pyls = {
-      plugins = {
-        pycodestyle = {
-          enabled = false,
-        },
-        pyls_mypy = {
-          enabled = true,
-        },
-      },
-    },
-  },
-})
 lsp_config.texlab.setup(base_configuration)
 lsp_config.lemminx.setup(base_configuration)
-lsp_config.vimls.setup(base_configuration)
-lsp_config.volar.setup({
-  capabilities = base_capabilities,
-  on_attach = function(client)
-    -- Avoid conflicts with NullLS formatting
-    client.server_capabilities.documentFormattingProvider = false
-  end,
-})
 lsp_config.tailwindcss.setup(base_configuration)
 lsp_config.eslint.setup(base_configuration)
 lsp_config.solargraph.setup(base_configuration)
 lsp_config.rnix.setup(base_configuration)
-lsp_config.yamlls.setup(base_configuration)
+lsp_config.yamlls.setup({
+  capabilities = base_capabilities,
+  settings = {
+    yaml = {
+      schemastore = {
+        enable = false,
+        url = '',
+      },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
+})
+
 lsp_config.solidity_ls.setup(base_configuration)
 lsp_config.gradle_ls.setup({})
 lsp_config.kotlin_language_server.setup({
@@ -113,78 +97,6 @@ lsp_config.jdtls.setup({
     },
   },
 })
-
-lsp_config.lua_ls.setup({
-  capabilities = base_capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {
-          'vim',
-          -- Busted - why does it not pick it up from the library?
-          'insulate',
-          'describe',
-          'it',
-          'assert',
-        },
-      },
-      runtime = {
-        path = { '?.lua', '?/init.lua' },
-      },
-      format = {
-        enable = false,
-      },
-      hint = {
-        enable = true,
-        arrayIndex = 'Disable',
-        setType = true,
-      },
-      IntelliSense = {
-        traceLocalSet = true,
-        traceReturn = true,
-        traceBeSetted = true,
-        traceFieldInject = true,
-      },
-      completion = {
-        callSnippet = 'Both',
-        keywordSnippet = 'Both',
-        showParams = false,
-      },
-    },
-  },
-})
-
-lsp_config.tsserver.setup({
-  capabilities = base_capabilities,
-  settings = {
-    completions = {
-      completeFunctionCalls = true,
-    },
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-  },
-})
-
 lsp_config.html.setup({
   capabilities = base_capabilities,
   cmd = { 'vscode-html-languageserver', '--stdio' },
@@ -215,58 +127,6 @@ lsp_config.cssls.setup({
   capabilities = base_capabilities,
   filetypes = { 'css', 'scss', 'sass', 'less' },
   cmd = { 'vscode-html-languageserver', '--stdio' },
-})
-
-lsp_config.rust_analyzer.setup({
-  capabilities = vim.tbl_deep_extend('force', base_capabilities, {
-    experimental = {
-      hoverActions = true,
-      hoverRange = true,
-      serverStatusNotification = true,
-      snippetTextEdit = true,
-      codeActionGroup = true,
-      commands = {
-        'rust-analyzer.runSingle',
-        'rust-analyzer.debugSingle',
-        'rust-analyzer.showReferences',
-        'rust-analyzer.gotoLocation',
-        'editor.action.triggerParameterHints',
-      },
-    },
-  }),
-  settings = {
-    ['rust-analyzer'] = {
-      completion = {
-        autoimport = { enable = true },
-      },
-      inlayHints = {
-        enable = true,
-      },
-      interpret = {
-        tests = true,
-      },
-      lens = {
-        references = {
-          adt = { enable = true },
-          enumVariant = { enable = true },
-          method = { enable = true },
-          trait = { enable = true },
-          excludeImports = true,
-        },
-      },
-      rustfmt = {
-        rangeFormatting = { enable = true },
-      },
-      workspace = {
-        symbol = {
-          search = {
-            kind = 'all_symbols',
-            limit = 1000,
-          },
-        },
-      },
-    },
-  },
 })
 
 -- Note: Putting the setup calls into ftplggins saves 0.5ms per call during

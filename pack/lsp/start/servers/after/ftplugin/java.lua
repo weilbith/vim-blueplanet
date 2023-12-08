@@ -1,0 +1,14 @@
+-- local build_start_options = require('custom.lsp').build_start_options
+-- local find_root = require('custom.lsp.utilities').find_root
+--
+--
+-- vim.lsp.start(vim.tbl_deep_extend('force', build_start_options('java'), {
+--   name = 'SonarLint',
+--   cmd = {
+--     'sonarlint-ls',
+--     '-stdio',
+--     '-analyzers',
+--     '/usr/share/java/sonarlint-ls/analyzers/sonarjava.jar',
+--   },
+--   root_dir = find_root({ 'build.gradle', 'build.gralde.kts' }),
+-- }))
