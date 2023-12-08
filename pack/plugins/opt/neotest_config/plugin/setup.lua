@@ -1,6 +1,6 @@
 require('neotest').setup({
   adapters = {
-    require('neotest_custom.adapters.gradle'),
+    require('neotest-gradle'),
     require('neotest-vitest'),
     require('neotest-rust'),
     require('neotest-go'),
