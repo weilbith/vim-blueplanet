@@ -47,8 +47,17 @@ require('neo-tree').setup({
       },
     },
   },
+  commands = {
+    toggle_group_empty_dir = function(state)
+      state.group_empty_dirs = not state.group_empty_dirs
+      require('neo-tree.sources.manager').refresh(state.name)
+    end,
+  },
   window = {
     insert_as = 'sibling',
+    mappings = {
+      ['F'] = 'toggle_group_empty_dir',
+    },
   },
   filesystem = {
     filtered_items = {

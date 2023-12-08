@@ -11,7 +11,7 @@ highlight! link NeoTreeGitDeleted   Red
 highlight! link NeoTreeGitIgnored   GreyUnderline
 highlight! link NeoTreeGitModified  Blue
 highlight! link NeoTreeGitRenamed   BlueUnderline
-highlight! link NeoTreeGitStaged    GreenUnderline
+highlight! link NeoTreeGitStaged    LightGrey
 highlight! link NeoTreeGitUntracked Yellow
 highlight! link NeoTreeGitUnstaged  Normal
 
