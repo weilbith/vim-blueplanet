@@ -1,5 +1,5 @@
 vim.defer_fn(function()
-  vim.opt_local.statuscolumn = nil
+  vim.opt_local.statuscolumn = ''
 
   vim.keymap.del('n', 'z', { buffer = 0 })
   vim.keymap.set('n', 'l', '<CR>', { buffer = 0, remap = true })
