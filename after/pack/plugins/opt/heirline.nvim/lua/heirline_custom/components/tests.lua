@@ -10,8 +10,10 @@ local failed_icon = (vim.api.nvim_call_function('sign_getdefined', { 'neotest_fa
 
 local function has_test_cases(buffer_number)
   for _, adapter_identifier in pairs(require('neotest').state.adapter_ids()) do
-    local positions =
-      require('neotest').state.positions(adapter_identifier, { buffer = buffer_number })
+    local positions = require('neotest').state.positions(
+      adapter_identifier,
+      { buffer = buffer_number }
+    )
     if positions ~= nil then
       return true
     end

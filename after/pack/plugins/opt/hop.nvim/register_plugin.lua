@@ -16,5 +16,4 @@ require('packer').use({
     'HopParameters',
     'HopComments',
   },
-  config = 'vim.cmd("packadd hop")',
 })
