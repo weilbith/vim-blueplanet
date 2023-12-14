@@ -22,9 +22,14 @@ require('heirline').setup({
   statuscolumn = status_column,
   opts = {
     disable_winbar_cb = function(args)
-      return buffer_matches({
-        buftype = { 'help', 'quickfix' },
-      }, args.buf) or vim.bo[args.buf].ft == '' or not vim.bo[args.buf].buflisted
+      local has_no_filetype = vim.bo[args.buf].ft == ''
+      local buffer_is_listed = vim.bo[args.buf].buflisted
+      local is_special_listed_buffer = buffer_is_listed
+        and buffer_matches({ buftype = { 'help', 'quickfix' } }, args.buf)
+      local is_special_unlisted_buffer = not buffer_is_listed
+        and not buffer_matches({ filetype = { 'dapui*' } }, args.buf)
+
+      return has_no_filetype or is_special_listed_buffer or is_special_unlisted_buffer
     end,
   },
 })
