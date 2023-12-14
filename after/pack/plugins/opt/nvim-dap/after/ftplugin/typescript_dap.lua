@@ -6,7 +6,7 @@ require('dap').configurations[vim.bo[0].ft] = {
   {
     type = 'pwa-node',
     request = 'attach',
-    processId = require('dap.utils').pick_process({ filter = 'bin/vite' }),
+    processId = '${command:pickProcess}',
     name = 'Attach Vite development server',
     resolveSourceMapLocations = { '${workspaceFolder}/**', '!**/node_modules/**' },
     cwd = '${workspaceFolder}/src',
