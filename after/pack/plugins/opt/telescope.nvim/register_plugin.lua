@@ -3,8 +3,8 @@ require('packer').use({
   requires = {
     'nvim-lua/plenary.nvim',
     { 'nvim-tree/nvim-web-devicons', module = 'nvim-web-devicons' },
+    { 'nvim-telescope/telescope-fzy-native.nvim', module = 'telescope._extensions.fzy_native' },
   },
   cmd = 'Telescope',
   module = 'telescope',
-  config = 'vim.cmd("packadd telescope")',
 })
