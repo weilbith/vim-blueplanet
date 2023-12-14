@@ -15,4 +15,11 @@ require('ufo').setup({
     table.insert(fold_text, { suffix, 'Comment' })
     return fold_text
   end,
+  preview = {
+    win_config = {
+      border = { '', '▔', '', '', '', '▁', '', '' },
+      winhighlight = 'Normal:NormalFloat',
+      winblend = 0,
+    },
+  },
 })
