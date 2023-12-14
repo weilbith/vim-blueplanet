@@ -5,7 +5,7 @@ local filetype_provider_mapping = {
 }
 
 require('ufo').setup({
-  close_fold_kinds = { 'imports', 'comment', 'region' },
+  close_fold_kinds = { 'imports', 'comment' },
   provider_selector = function(_, filetype)
     return filetype_provider_mapping[filetype] or { 'lsp', 'indent' }
   end,
