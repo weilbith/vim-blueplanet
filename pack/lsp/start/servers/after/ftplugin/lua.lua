@@ -1,7 +1,7 @@
 local build_start_options = require('custom.lsp').build_start_options
 local find_root = require('custom.lsp.utilities').find_root
 
-vim.lsp.start(vim.tbl_deep_extend('force', build_start_options('lua'), {
+vim.lsp.start(vim.tbl_deep_extend('force', build_start_options(vim.bo[0].ft), {
   name = 'LuaLS',
   cmd = { 'lua-language-server' },
   root_dir = find_root({
