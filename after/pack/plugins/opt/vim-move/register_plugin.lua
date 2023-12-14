@@ -5,8 +5,8 @@ require('packer').use({
     '<Plug>MoveLineDown',
     '<Plug>MoveBlockUp',
     '<Plug>MoveBlockDown',
-    '<Plug>MoveBlockRight',
-    '<Plug>MoveBlockLeft',
   },
-  setup = 'vim.cmd("packadd vim-move")',
+  setup = function()
+    vim.g.move_map_keys = false
+  end,
 })
