@@ -22,3 +22,4 @@ require('luasnip').setup({
 require('luasnip.loaders.from_lua').lazy_load()
 require('luasnip').filetype_extend('typescript', { 'javascript' })
 require('luasnip').filetype_extend('vue', { 'typescript', 'javascript' })
+require('luasnip').filetype_extend('typescriptreact', { 'typescript', 'javascript' })
