@@ -24,7 +24,7 @@ local ProjectName = {
       local is_typescript_project = #get_shell_output(
         'jq .devDependencies.typescript ./package.json'
       ) > 0
-      self.project_icon = is_vue_project and '﵂' or (is_typescript_project and '' or '')
+      self.project_icon = is_vue_project and '' or (is_typescript_project and '' or '')
       self.project_name = vim.fn.substitute(package_name, '"', '', 'g')
     else
       self.project_name = working_directory ~= project_directory and working_directory or ''
