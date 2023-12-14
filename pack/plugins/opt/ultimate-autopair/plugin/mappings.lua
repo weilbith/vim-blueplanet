@@ -1,4 +1,4 @@
-local completion_menu = require('completion_menu')
+local completion_menu = require('completion.menu')
 local autopair = require('ultimate-autopair.core')
 
 vim.keymap.set('i', '<CR>', function()
