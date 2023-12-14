@@ -7,7 +7,7 @@ require('dap').adapters.codelldb = {
   },
 }
 
-require('dap').configurations.rust = {
+require('dap').configurations[vim.bo[0].ft] = {
   {
     name = 'Launch file',
     type = 'codelldb',

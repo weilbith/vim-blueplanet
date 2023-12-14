@@ -1,4 +1,4 @@
-require('dap').adapters.python = {
+require('dap').adapters[vim.bo[0].ft] = {
   type = 'executable',
   command = 'python',
   args = { '-m', 'debugpy.adapter' },

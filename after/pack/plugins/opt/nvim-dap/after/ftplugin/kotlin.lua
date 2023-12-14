@@ -1,9 +1,9 @@
-require('dap').adapters.kotlin = {
+require('dap').adapters[vim.bo[0].ft] = {
   type = 'executable',
   command = 'kotlin-debug-adapter',
 }
 
-require('dap').configurations.kotlin = {
+require('dap').configurations[vim.bo[0].ft] = {
   {
     type = 'kotlin',
     request = 'launch',
@@ -13,4 +13,4 @@ require('dap').configurations.kotlin = {
   },
 }
 
-require('dap').defaults.kotlin.auto_continue_if_many_stopped = false
+require('dap').defaults[vim.bo[0].ft].auto_continue_if_many_stopped = false
