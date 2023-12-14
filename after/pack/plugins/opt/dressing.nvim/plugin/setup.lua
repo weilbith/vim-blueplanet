@@ -8,7 +8,4 @@ require('dressing').setup({
       return configuration
     end,
   },
-  select = {
-    enabled = false,
-  },
 })
