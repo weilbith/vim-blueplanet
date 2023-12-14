@@ -1,2 +1,2 @@
 nnoremap <space>de <cmd>lua require("dapui").eval()<CR>
-nnoremap <space>dC <cmd>lua require("dapui").close()<CR>
+nnoremap <space>dQ <cmd>lua require("dapui").close()<CR>
