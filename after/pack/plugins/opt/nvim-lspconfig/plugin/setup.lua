@@ -1,3 +1,10 @@
+-- **NOTE:**
+--
+-- Most of the servers are started manually now within the `lsp server` package.
+-- This are just some remaining servers I haven't configured yet myself. The new
+-- approach also makes use of the new middleware and global configuration
+-- approach.
+
 local simplified_capabilities = vim.tbl_deep_extend(
   'force',
   vim.lsp.protocol.make_client_capabilities(),
