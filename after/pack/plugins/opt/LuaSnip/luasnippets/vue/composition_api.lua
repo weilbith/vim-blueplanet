@@ -119,7 +119,11 @@ return nil,
 
     multi_snippet(
       {
-        common = { regTrig = true, descr = 'component lifecycle hook' },
+        common = {
+          regTrig = true,
+          descr = 'component lifecycle hook',
+          condition = line_end,
+        },
         '^onBeforeMount',
         '^onMounted',
         '^onActivated',
@@ -139,9 +143,6 @@ return nil,
             }),
           }),
         }),
-      }),
-      {
-        condition = line_end,
-      }
+      })
     ),
   }

@@ -43,7 +43,10 @@ return nil,
 
     multi_snippet(
       {
-        common = { descr = 'define a struct type' },
+        common = {
+          descr = 'define a struct type',
+          condition = line_begin * line_end,
+        },
         'struct',
         'pub struct',
       },
@@ -54,15 +57,15 @@ return nil,
           format('(<>);', { insert_node(1, '') }),
           format(' {\n  <>\n}', { insert_node(1, '') }, { dedent = false }),
         }),
-      }),
-      {
-        condition = line_begin * line_end,
-      }
+      })
     ),
 
     multi_snippet(
       {
-        common = { descr = 'template for "type" declarations' },
+        common = {
+          descr = 'template for "type" declarations',
+          condition = line_begin * line_end,
+        },
         'enum ',
         'trait ',
       },
@@ -70,10 +73,7 @@ return nil,
         keyword = trigger_name_node('enum', ' '),
         name = file_name_node(1, 'name', true),
         body = insert_node(2, ''),
-      }),
-      {
-        condition = line_begin * line_end,
-      }
+      })
     ),
 
     snippet(

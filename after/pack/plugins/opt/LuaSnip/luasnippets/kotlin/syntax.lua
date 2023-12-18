@@ -129,9 +129,10 @@ return nil,
     snippet('for ', for_node, { condition = line_begin * line_end }),
     snippet('while ', while_node, { condition = line_begin * line_end }),
     snippet('companion ', companion_node, { condition = line_begin * line_end }),
-    multi_snippet(
-      { '.let', '.apply', { trig = '^%s*init ', regTrig = true } },
-      scope_node,
-      { condition = line_end }
-    ),
+    multi_snippet({
+      common = { condition = line_end },
+      '.let',
+      '.apply',
+      { trig = '^%s*init ', regTrig = true },
+    }, scope_node),
   }
