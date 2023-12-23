@@ -91,7 +91,7 @@ end
 --- handler reports a success or a cancel condition is reached. The latter
 --- happens if a maximum number of retries have been reached or a potential
 --- deadlock is suspected.
---- When the retry option to wait for diagnostics is set, retries happen without
+--- When the retry option is set to wait for diagnostics, retries happen without
 --- the actual count to increase. This can be helpful for servers which need to
 --- populate the diagnostic first (based on the snippet code) to be integrated
 --- into the request back again.
@@ -100,7 +100,7 @@ end
 ---
 --- @param options RequestOptions
 --- @param retry_count number | nil set on recursive retry calls (default 0)
---- @param deadlock_count number | nil additional counter when waiting for diagnostics
+--- @param deadlock_count number | nil absolute recursive counter (default 0)
 --- @return nil
 local function request_client_with_retries(options, retry_count, deadlock_count)
   retry_count = retry_count or 0
@@ -169,9 +169,10 @@ local function try_to_run_matching_code_action_at_nodes_position(
   end
 end
 
---- Will immediately return, scheduling two pieces of functionality for
---- immediate execution. First is the core functionality to execute a potential
---- LSP code action. Second is a jump to the next node in the current snippet.
+--- The created callback itself will immediately return, scheduling two pieces
+--- of functionality for immediate execution. First is the core functionality to
+--- execute a potential LSP code action. Second is a jump to the next node in
+--- the current snippet.
 ---
 --- The code actions are requested via the specified LSP client. If the server
 --- responds with a code action that has a matching title, it gets automatically
