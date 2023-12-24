@@ -18,6 +18,17 @@ local function trigger_name_node(default_name, required_last_character)
     end
 
     return name
+  end, {}, {})
+end
+
+--- @param index number
+--- @param node_options table | nil
+--- @return table insert_node
+local function trigger_text_insert_node(index, node_options)
+  node_options = node_options or {}
+
+  return dynamic_node(index, function(_, snippet)
+    return snippet_node(nil, { insert_node(1, snippet.trigger, node_options) })
   end, {})
 end
 
@@ -55,6 +66,7 @@ end
 
 return {
   trigger_name_node = trigger_name_node,
+  trigger_text_insert_node = trigger_text_insert_node,
   selected_text_node = selected_text_node,
   file_name_node = file_name_node,
 }
