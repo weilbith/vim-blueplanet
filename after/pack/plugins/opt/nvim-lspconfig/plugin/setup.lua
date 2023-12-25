@@ -13,6 +13,10 @@ local simplified_capabilities = vim.tbl_deep_extend(
       colorProvider = {
         dynamicRegistration = true,
       },
+      foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      },
       completion = {
         completionItem = {
           snippetSupport = true,
@@ -30,6 +34,16 @@ local simplified_capabilities = vim.tbl_deep_extend(
           },
         },
       },
+      -- Observe Features
+      documentLink = {
+        dynamicRegistration = true,
+        tooltipSupport = true,
+      },
+      typeHierarchy = {
+        dynamicRegistration = true,
+      },
+      linkedEditingRange = true,
+      onTypeFormatting = true,
     },
   }
 )
