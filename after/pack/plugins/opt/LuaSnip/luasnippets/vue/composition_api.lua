@@ -9,6 +9,9 @@ local restore_node = require('luasnip').restore_node
 local line_end = require('luasnip.extras.conditions.show').line_end
 
 local trigger_name_node = require('snippets.nodes.general').trigger_name_node
+local get_node_options_with_lsp_code_action_callback = require(
+  'snippets.callbacks.lsp_code_actions'
+).get_node_options_with_lsp_code_action_callback
 
 local function block_or_statement_node(jump_index, restore_key)
   restore_key = restore_key or 'block_or_statement'
@@ -95,9 +98,14 @@ return nil,
         regTrig = true,
         descr = 'explicit watcher',
       },
-      format('watch(<source>, <callback><options>)', {
-        source = insert_node(1, 'source'),
-        callback = choice_node(2, {
+      format('<watch>(<source>, <callback><options>)', {
+        watch = insert_node(
+          1,
+          'watch',
+          get_node_options_with_lsp_code_action_callback('Vue Language Server', 'import from "vue"')
+        ),
+        source = insert_node(2, 'source'),
+        callback = choice_node(3, {
           format('(<new_value>) =>> <body>', {
             new_value = insert_node(1, ''),
             body = choice_node(2, {
@@ -107,7 +115,7 @@ return nil,
           }),
           insert_node(nil, 'callback'),
         }),
-        options = choice_node(3, {
+        options = choice_node(4, {
           text_node(''),
           format(', { <> }', { insert_node(1, 'immediate: true') }),
         }),

@@ -14,6 +14,14 @@ require('luasnip').setup({
     [snippet_types.choiceNode] = {
       active = {
         virt_text = { { '', 'PurpleBold' } },
+        virt_text_pos = 'inline',
+      },
+    },
+    [snippet_types.insertNode] = {
+      unvisited = {
+        virt_text = { { ' 󱥇 ', 'OrangeBold' } },
+        virt_text_pos = 'inline',
+        hl_group = 'DarkOrangeBackground',
       },
     },
   },

@@ -1,3 +1,4 @@
+local snippet_events = require('luasnip.util.events')
 local code_action_method_name = require('vim.lsp.protocol').Methods.textDocument_codeAction
 
 --- @param name string
@@ -169,10 +170,10 @@ local function try_to_run_matching_code_action_at_nodes_position(
   end
 end
 
---- The created callback itself will immediately return, scheduling two pieces
---- of functionality for immediate execution. First is the core functionality to
---- execute a potential LSP code action. Second is a jump to the next node in
---- the current snippet.
+--- The created node options define an enter event callback function that will
+--- immediately return, scheduling two pieces of functionality for immediate
+--- execution. First is the core functionality to execute a potential LSP code
+--- action. Second is a jump to the next node in the current snippet.
 ---
 --- The code actions are requested via the specified LSP client. If the server
 --- responds with a code action that has a matching title, it gets automatically
@@ -189,13 +190,22 @@ end
 --- a non-interactive node, an immediate jump is triggered on behalf of the
 --- user, leading to an basically seamless user experience. The code action
 --- might happen noticeably later.
+--- Unfortunately does this mean that backwards jumping in snippet across such
+--- a node does not work anymore.
+---
+--- Finally this also removes node markers for these nodes as they should appear
+--- as non interactive.
 ---
 --- @param client_name string name of LSP server client to request
 --- @param title_pattern string to filter code actions for a match
 --- @param retry_options RetryOptions | nil for case specific optimization
---- @return function callback function that can be registered for a snippet
-local function get_lsp_code_action_callback(client_name, title_pattern, retry_options)
-  return function(snippet_node)
+--- @return table node_options
+local function get_node_options_with_lsp_code_action_callback(
+  client_name,
+  title_pattern,
+  retry_options
+)
+  local code_action_callback = function(snippet_node)
     vim.defer_fn(function()
       try_to_run_matching_code_action_at_nodes_position(
         snippet_node,
@@ -209,8 +219,25 @@ local function get_lsp_code_action_callback(client_name, title_pattern, retry_op
       require('luasnip').jump(1)
     end, 0)
   end
+
+  local node_callbacks = {
+    [snippet_events.enter] = code_action_callback,
+  }
+
+  local neutral_marker_options = {
+    virt_text = { { '' } },
+    hl_group = '',
+  }
+
+  local node_marker_options = {
+    visited = neutral_marker_options,
+    unvisited = neutral_marker_options,
+    active = neutral_marker_options,
+  }
+
+  return { node_callbacks = node_callbacks, node_ext_opts = node_marker_options }
 end
 
 return {
-  get_lsp_code_action_callback = get_lsp_code_action_callback,
+  get_node_options_with_lsp_code_action_callback = get_node_options_with_lsp_code_action_callback,
 }
