@@ -4,4 +4,4 @@ sign define DapBreakpoint           text=  texthl=OrangeBold  linehl=BoldDark
 sign define DapLogPoint             text=  texthl=OrangeBold  linehl=BoldDarkOrangeBackground
 sign define DapBreakpointCondition  text=  texthl=OrangeBold  linehl=BoldDarkOrangeBackground
 sign define DapBreakpointRejected   text=  texthl=OrangeBold  linehl=RedBackground
-sign define DapStopped              text=󰜴  texthl=BlueBold    linehl=BoldDarkBlueBackground
+sign define DapStopped              text=󰌕  texthl=BlueBold    linehl=BoldDarkBlueBackground
