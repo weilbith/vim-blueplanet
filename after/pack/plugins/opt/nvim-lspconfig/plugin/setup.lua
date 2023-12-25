@@ -40,10 +40,14 @@ local simplified_capabilities = vim.tbl_deep_extend(
         tooltipSupport = true,
       },
       typeHierarchy = {
-        dynamicRegistration = true,
+        dynamicRegistration = false,
       },
-      linkedEditingRange = true,
-      onTypeFormatting = true,
+      linkedEditingRange = {
+        dynamicRegistration = false,
+      },
+      onTypeFormatting = {
+        dynamicRegistration = false,
+      },
     },
   }
 )
