@@ -1,1 +1,1 @@
-vim.cmd('runtime! ftplugin/typescript_dap.lua')
+vim.cmd('runtime! ftplugin/javascript_dap.lua')
