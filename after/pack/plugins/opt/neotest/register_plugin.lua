@@ -3,6 +3,7 @@ require('packer').use({
   requires = {
     'nvim-lua/plenary.nvim',
     'antoinemadec/FixCursorHold.nvim',
+    { 'nvim-neotest/nvim-nio', module = 'nio' },
     { 'marilari88/neotest-vitest', module = 'neotest-vitest' },
     { 'rouge8/neotest-rust', module = 'neotest-rust' },
     { 'haydenmeade/neotest-jest', module = 'neotest-jest' },
