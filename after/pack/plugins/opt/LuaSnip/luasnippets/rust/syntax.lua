@@ -50,7 +50,8 @@ return nil,
         'struct',
         'pub struct',
       },
-      format('struct <name><body>', {
+      format('<keyword> <name><body>', {
+        keyword = trigger_name_node('struct'),
         name = file_name_node(1, 'Name', true),
         body = choice_node(2, {
           text_node(';'),
