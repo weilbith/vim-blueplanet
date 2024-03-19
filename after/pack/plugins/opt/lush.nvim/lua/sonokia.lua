@@ -120,7 +120,7 @@ return lush(function(injected_functions)
     ColorColumn({ CursorColumn }),
     CursorLine({ CursorColumn }),
     CursorLineNr({ White }),
-    DiffAdd({ bg = '#273849' }),
+    DiffAdd({ bg = '#274949' }),
     DiffChange({ bg = '#252a3f' }),
     DiffText({ bg = '#394b70', gui = 'bold' }),
     DiffDelete({ fg = Red.fg, bg = '#3a273a' }),
