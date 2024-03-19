@@ -1,3 +1,3 @@
-vim.keymap.set('i', '<C-l>', function()
+vim.keymap.set({ 'i', 'v' }, '<C-l>', function()
   require('smart-tab').smart_tab()
 end, {})
