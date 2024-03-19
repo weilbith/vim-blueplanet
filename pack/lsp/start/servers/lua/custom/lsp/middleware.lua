@@ -1,5 +1,10 @@
 local ALL_FILE_TYPES = require('custom.lsp.constants').ALL_FILE_TYPES
 
+--- @class HandlerWithPriority
+--- @field handler function
+--- @field priority number
+
+--- @type table<string, table<string, HandlerWithPriority[]>>
 local storage = {}
 
 --- @param method_name string
@@ -9,10 +14,10 @@ local function is_valid_method_name(method_name)
   return vim.tbl_contains(valid_method_names, method_name)
 end
 
---- @param method_name string - protocol method add handler for
+--- @param method_name string - protocol method to add handler for
 --- @param handler function - handler to add on middleware stack for this method
---- @param priority number | nil - used to sort handlers in the middleware stack on execution
---- @param file_type string | nil - apply configuration for this file type only, all by default
+--- @param priority number? - used to sort handlers in the middleware stack on execution
+--- @param file_type string? - apply configuration for this file type only, all by default
 ---
 --- A middleware handle function must return a list of values:
 ---   - A boolean value that decided if the client should continue processing the
@@ -63,7 +68,7 @@ local function get_middleware_stack(method_name, file_type)
   return middleware_stack
 end
 
---- @param method_name string - protocol method add handler for
+--- @param method_name string - protocol method to get handler for
 --- @param file_type string - apply configuration for this file type only
 local function get_client_response_handler_for_method(method_name, file_type)
   return function(error, result, context, configuration)

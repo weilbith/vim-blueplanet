@@ -3,9 +3,18 @@ local get_client_response_handlers = require('custom.lsp.middleware').get_client
 
 --- @param file_type string
 local function build_start_options(file_type)
-  return vim.tbl_deep_extend('force', get_configuration(file_type), {
+  local middleware_handler_configuration = {
     handlers = get_client_response_handlers(file_type),
-  })
+  }
+
+  return vim.tbl_deep_extend(
+    'force',
+    -- Rank middleware handler configuration highest as it uses a meta-table and
+    -- the other configuration might access the handlers too (e.g. `before_init`
+    -- hooks)
+    middleware_handler_configuration,
+    get_configuration(file_type)
+  )
 end
 
 return {
