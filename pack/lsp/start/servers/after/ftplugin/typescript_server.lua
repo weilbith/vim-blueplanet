@@ -4,7 +4,7 @@ local find_root = require('custom.lsp.utilities').find_root
 
 local function start_typescript_server()
   -- TODO: Should I use `vtsls`?
-  vim.lsp.start(vim.tbl_deep_extend('force', build_start_options(vim.bo[0].ft), {
+  vim.lsp.start(build_start_options(vim.bo[0].ft, {
     name = 'TypeScript Language Server',
     cmd = { 'typescript-language-server', '--stdio' },
     root_dir = find_root({

@@ -2,6 +2,7 @@
 -- local find_root = require('custom.lsp.utilities').find_root
 --
 --
+-- vim.lsp.start(build_start_options(vim.bo[0].ft, {
 -- vim.lsp.start(vim.tbl_deep_extend('force', build_start_options('java'), {
 --   name = 'SonarLint',
 --   cmd = {
