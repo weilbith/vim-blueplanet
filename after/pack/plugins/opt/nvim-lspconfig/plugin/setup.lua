@@ -72,19 +72,6 @@ lsp_config.tailwindcss.setup(base_configuration)
 lsp_config.eslint.setup(base_configuration)
 lsp_config.solargraph.setup(base_configuration)
 lsp_config.rnix.setup(base_configuration)
-lsp_config.yamlls.setup({
-  capabilities = base_capabilities,
-  settings = {
-    yaml = {
-      schemastore = {
-        enable = false,
-        url = '',
-      },
-      schemas = require('schemastore').yaml.schemas(),
-    },
-  },
-})
-
 lsp_config.solidity_ls.setup(base_configuration)
 lsp_config.gradle_ls.setup({})
 lsp_config.kotlin_language_server.setup({
@@ -135,17 +122,6 @@ lsp_config.jsonls.setup({
       validate = { enable = true },
     },
   },
-  cmd = { 'vscode-json-languageserver', '--stdio' },
-})
-
-lsp_config.terraformls.setup({
-  capabilities = base_capabilities,
-  cmd = { 'terraform-lsp', 'serve' },
-})
-
-lsp_config.bashls.setup({
-  capabilities = base_capabilities,
-  filetypes = { 'sh', 'zsh' },
 })
 
 lsp_config.cssls.setup({
