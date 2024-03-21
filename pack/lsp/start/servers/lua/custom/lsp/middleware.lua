@@ -71,8 +71,13 @@ end
 --- @param method_name string - protocol method to get handler for
 --- @param file_type string - apply configuration for this file type only
 local function get_client_response_handler_for_method(method_name, file_type)
+  local middleware_stack = get_middleware_stack(method_name, file_type)
+
+  if #middleware_stack == 0 then
+    return nil
+  end
+
   return function(error, result, context, configuration)
-    local middleware_stack = get_middleware_stack(method_name, file_type)
     local continue = true
 
     for _, next_handler in ipairs(middleware_stack) do
