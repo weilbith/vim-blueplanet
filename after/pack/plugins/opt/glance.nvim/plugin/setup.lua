@@ -7,6 +7,12 @@ glance.register_method({
   label = 'Component Usages',
 })
 
+glance.register_method({
+  name = 'rust-analyzer_related-tests',
+  method = 'rust-analyzer/relatedTests',
+  label = 'Related Tests',
+})
+
 glance.setup({
   folds = {
     fold_closed = get_fill_character('foldclose'),
@@ -19,5 +25,16 @@ glance.setup({
   },
   list = {
     position = 'left',
+  },
+  hooks = {
+    before_open = function(results, open, _, method)
+      if method == 'rust-analyzer_related-tests' then
+        results = vim.tbl_map(function(entry)
+          return entry.runnable.location
+        end, results)
+      end
+
+      open(results)
+    end,
   },
 })
