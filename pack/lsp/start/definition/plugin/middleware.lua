@@ -3,7 +3,10 @@ local add_middleware = require('custom.lsp.middleware').add_middleware
 --- @param location table<string, any> - Location object according to LSP
 --- @return boolean
 local function location_points_to_react_type_definitions(location)
-  return vim.endswith(location.targetUri, 'react/index.d.ts')
+  local uri = location.targetUri or location.uri or ''
+  return vim.endswith(uri, 'react/index.d.ts')
+    or vim.endswith(uri, 'react-redux.d.ts')
+    or vim.endswith(uri, 'react-scripts/lib/react-app.d.ts')
 end
 
 --- @param result table? - according to LSP response object
@@ -27,6 +30,7 @@ end
 --- This is very annoying. Identifying this scenario and filtering that
 --- unwanted second response entry helps to jump (preview, ...) directly to
 --- the intended location.
+--- There are more cases like with the Redux library too.
 ---
 --- @param result table - according to LSP response object
 --- @return table result but potentially filtered
