@@ -4,3 +4,5 @@ endif
 
 setlocal nospell
 let b:undo_ftplugin .= 'spell<'
+
+setlocal winfixbuf

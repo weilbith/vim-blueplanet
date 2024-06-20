@@ -7,3 +7,5 @@ let b:undo_ftplugin .= 'wrap<'
 
 setlocal foldcolumn=0
 let b:undo_ftplugin .= 'foldcolumn<'
+
+setlocal winfixbuf
