@@ -1,9 +1,9 @@
+-- local start_server = require('custom.lsp').start_server
 -- local build_start_options = require('custom.lsp').build_start_options
 -- local find_root = require('custom.lsp.utilities').find_root
 --
 --
--- vim.lsp.start(build_start_options(vim.bo[0].ft, {
--- vim.lsp.start(vim.tbl_deep_extend('force', build_start_options('java'), {
+-- start_server(build_start_options({
 --   name = 'SonarLint',
 --   cmd = {
 --     'sonarlint-ls',

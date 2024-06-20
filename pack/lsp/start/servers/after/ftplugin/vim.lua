@@ -1,6 +1,7 @@
+local start_server = require('custom.lsp').start_server
 local build_start_options = require('custom.lsp').build_start_options
 
-vim.lsp.start(build_start_options(vim.bo[0].ft, {
+start_server(build_start_options({
   name = 'Vim Language Server',
   cmd = { 'vim-language-server', '--stdio' },
   init_options = {
