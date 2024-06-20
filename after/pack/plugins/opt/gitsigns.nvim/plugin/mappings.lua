@@ -30,7 +30,7 @@ vim.keymap.set('n', ']c', function()
   if vim.wo.diff then
     escape_and_feed_keys(']c', 'n')
   else
-    git_signs.next_hunk()
+    git_signs.nav_hunk('next')
   end
 end, {})
 
@@ -38,6 +38,6 @@ vim.keymap.set('n', '[c', function()
   if vim.wo.diff then
     escape_and_feed_keys('[c', 'n')
   else
-    git_signs.prev_hunk()
+    git_signs.nav_hunk('prev')
   end
 end, {})
