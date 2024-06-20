@@ -4,7 +4,7 @@ require('nvim-treesitter.configs').setup({
     prev_selection = ',',
     keymaps = {
       ['.'] = 'textsubjects-smart',
-      [';'] = 'textsubjects-container-outer',
+      [';'] = 'textsubjects-container-inner',
     },
   },
 })
