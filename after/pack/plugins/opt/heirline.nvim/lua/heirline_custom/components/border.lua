@@ -19,8 +19,8 @@ end
 
 return {
   init = function(self)
-    local unstaged_highlight_group = get_git_signs_highlight_group('gitsigns_extmark_signs_')
-    local staged_highlight_group = get_git_signs_highlight_group('gitsigns_extmark_signs_staged')
+    local unstaged_highlight_group = get_git_signs_highlight_group('gitsigns_signs_')
+    local staged_highlight_group = get_git_signs_highlight_group('gitsigns_signs_staged')
     self.gitsigns_highlight_group = unstaged_highlight_group or staged_highlight_group
   end,
   provider = '▌',
