@@ -10,8 +10,7 @@ local storage = {}
 --- @param method_name string
 --- @return boolean
 local function is_valid_method_name(method_name)
-  local valid_method_names = getmetatable(vim.lsp.protocol.Methods).__index
-  return vim.tbl_contains(valid_method_names, method_name)
+  return vim.tbl_contains(vim.lsp.protocol.Methods, method_name)
 end
 
 --- @param method_name string - protocol method to add handler for
