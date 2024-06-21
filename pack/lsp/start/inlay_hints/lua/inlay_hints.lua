@@ -13,7 +13,7 @@ local function create_auto_commands()
     group = group_identifier,
     callback = function(arguments)
       if inlay_hints_are_supported(arguments.buf) then
-        vim.lsp.inlay_hint.enable(arguments.buf, true)
+        vim.lsp.inlay_hint.enable(true, { bufnr = arguments.buf })
       end
     end,
   })
@@ -22,7 +22,7 @@ local function create_auto_commands()
     group = group_identifier,
     callback = function(arguments)
       if inlay_hints_are_supported(arguments.buf) then
-        vim.lsp.inlay_hint.enable(arguments.buf, false)
+        vim.lsp.inlay_hint.enable(false, { bufnr = arguments.buf })
       end
     end,
   })
@@ -34,9 +34,9 @@ local function create_auto_commands()
   vim.api.nvim_create_autocmd({ 'CursorHold' }, {
     group = group_identifier,
     callback = function(arguments)
-      if vim.lsp.inlay_hint.is_enabled(arguments.buf) then
-        vim.lsp.inlay_hint.enable(arguments.buf, false)
-        vim.lsp.inlay_hint.enable(arguments.buf, true)
+      if vim.lsp.inlay_hint.is_enabled({ bufnr = arguments.buf }) then
+        vim.lsp.inlay_hint.enable(false, { bufnr = arguments.buf })
+        vim.lsp.inlay_hint.enable(true, { bufnr = arguments.buf })
       end
     end,
   })
