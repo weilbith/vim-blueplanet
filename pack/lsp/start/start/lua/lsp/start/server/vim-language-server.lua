@@ -10,4 +10,4 @@ require("lsp.start")({
     },
     suggest = { fromVimruntime = true },
   },
-)
+})

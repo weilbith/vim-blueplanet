@@ -9,4 +9,4 @@ require("lsp.start")({
       },
     },
   },
-)
+})

@@ -1,4 +1,4 @@
-local configuration = require('custom.lsp.configuration')
+local configuration = require('lsp.start.configuration')
 
 configuration.add_configuration(
   configuration.ConfigurationKind.capabilities,

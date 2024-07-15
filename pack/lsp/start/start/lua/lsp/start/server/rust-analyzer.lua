@@ -57,4 +57,4 @@ require("lsp.start")({
       },
     },
   },
-)
+})

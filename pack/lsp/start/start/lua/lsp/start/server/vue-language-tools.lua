@@ -7,4 +7,4 @@ require("lsp.start")({
       tsdk = require("lsp.start.utilities").find_root({ 'node_modules' }) .. '/node_modules/typescript/lib',
     },
   },
-)
+})

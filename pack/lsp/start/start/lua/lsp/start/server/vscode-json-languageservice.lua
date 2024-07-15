@@ -5,4 +5,4 @@ require("lsp.start")({
   init_options = {
     provideFormatter = true,
   },
-)
+})
