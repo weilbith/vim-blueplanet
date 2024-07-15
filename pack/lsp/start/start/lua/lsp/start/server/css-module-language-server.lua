@@ -4,10 +4,12 @@ local function containsAnyCSSModuleLoading()
   end) > 0
 end
 
-if containsAnyCSSModuleLoading() then
-  require("lsp.start")({
-    name = 'CSS-Module Language Server',
-    cmd = { 'cssmodules-language-server' },
-    root_dir = require('lsp.start.utiltities').find_root({ 'package.json' }),
-  })
+return function()
+  if containsAnyCSSModuleLoading() then
+    require("lsp.start")({
+      name = 'CSS-Module Language Server',
+      cmd = { 'cssmodules-language-server' },
+      root_dir = require('lsp.start.utiltities').find_root({ 'package.json' }),
+    })
+  end
 end

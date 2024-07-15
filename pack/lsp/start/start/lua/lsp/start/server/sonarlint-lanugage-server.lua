@@ -1,10 +1,12 @@
--- require("lsp.start")({
---   name = 'SonarLint',
---   cmd = {
---     'sonarlint-ls',
---     '-stdio',
---     '-analyzers',
---     '/usr/share/java/sonarlint-ls/analyzers/sonarjava.jar',
---   },
---   root_dir = find_root({ 'build.gradle', 'build.gralde.kts' }),
--- })
+-- return function()
+--   require("lsp.start")({
+--     name = 'SonarLint',
+--     cmd = {
+--       'sonarlint-ls',
+--       '-stdio',
+--       '-analyzers',
+--       '/usr/share/java/sonarlint-ls/analyzers/sonarjava.jar',
+--     },
+--     root_dir = find_root({ 'build.gradle', 'build.gralde.kts' }),
+--   })
+-- end

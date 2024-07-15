@@ -1,5 +1,7 @@
--- require("lsp.start")({
---   name = 'Cucumber Language Server',
---   cmd = { 'cucumber-language-server', '--stdio' },
---   root = require("lsp.start.utilities").find_root({ '.git' }),
--- })
+-- return function()
+--   require("lsp.start")({
+--     name = 'Cucumber Language Server',
+--     cmd = { 'cucumber-language-server', '--stdio' },
+--     root = require("lsp.start.utilities").find_root({ '.git' }),
+--   })
+-- end
