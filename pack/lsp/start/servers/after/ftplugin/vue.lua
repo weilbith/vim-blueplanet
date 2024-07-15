@@ -11,8 +11,4 @@ start_server(build_start_options({
       tsdk = find_root({ 'node_modules' }) .. '/node_modules/typescript/lib',
     },
   },
-  on_attach = function(client)
-    -- Avoid conflicts with NullLS formatting
-    client.server_capabilities.documentFormattingProvider = false
-  end,
 }))

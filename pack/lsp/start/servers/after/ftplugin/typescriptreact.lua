@@ -1,2 +1,2 @@
-vim.cmd('runtime! ftplugin/typescript_server.lua')
-vim.cmd('runtime! ftplugin/css-modules_server.lua')
+require("lsp.custom.server.vtsls")
+require("lsp.custom.server.css-module-language-server")
