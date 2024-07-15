@@ -1,1 +1,1 @@
-require("custom.lsp.server.terraform-language-server")
+require("lsp.start.server.terraform-language-server")

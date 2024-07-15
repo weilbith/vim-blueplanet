@@ -1,12 +1,8 @@
-local start_server = require('custom.lsp').start_server
-local build_start_options = require('custom.lsp').build_start_options
-local find_root = require('custom.lsp.utilities').find_root
-
 -- TODO: Check with Vue take-over mode
-start_server(build_start_options({
+require("lsp.start")({
   name = 'VSCode TypeScript Wrapper',
   cmd = { 'vtsls', '--stdio' },
-  root_dir = find_root({ 'tsconfig.json' }),
+  root_dir = require("lsp.start.utilities").find_root({ 'tsconfig.json' }),
   capabilities = {
     workspace = {
       fileOperations = {
@@ -52,4 +48,4 @@ start_server(build_start_options({
       },
     },
   },
-}))
+})

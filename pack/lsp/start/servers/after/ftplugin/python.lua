@@ -1,1 +1,1 @@
-require("custom.lsp.server.python-lsp-server")
+require("lsp.start.server.python-lsp-server")

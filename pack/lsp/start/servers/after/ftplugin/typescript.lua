@@ -1,2 +1,2 @@
-require("lsp.custom.server.vtsls")
-require("lsp.custom.server.deno-lanugage-server")
+require("lsp.start.server.vtsls")
+require("lsp.start.server.deno-language-server")

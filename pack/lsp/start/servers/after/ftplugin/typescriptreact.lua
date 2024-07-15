@@ -1,2 +1,2 @@
-require("lsp.custom.server.vtsls")
-require("lsp.custom.server.css-module-language-server")
+require("lsp.start.server.vtsls")
+require("lsp.start.server.css-module-language-server")

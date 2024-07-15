@@ -1,1 +1,1 @@
-require("custom.lsp.server.rust-analyzer")
+require("lsp.start.server.rust-analyzer")

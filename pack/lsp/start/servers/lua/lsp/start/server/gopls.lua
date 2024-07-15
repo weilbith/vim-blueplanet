@@ -1,11 +1,7 @@
-local start_server = require('custom.lsp').start_server
-local build_start_options = require('custom.lsp').build_start_options
-local find_root = require('custom.lsp.utilities').find_root
-
-start_server(build_start_options({
+require("lsp.start")({
   name = 'Go Language Server',
   cmd = { 'gopls' },
-  root_dir = find_root({ 'go.mod', 'go.work' }),
+  root_dir = require("lsp.start.utilities").find_root({ 'go.mod', 'go.work' }),
   settings = {
     gopls = {
       hints = {
@@ -18,4 +14,4 @@ start_server(build_start_options({
       usePlaceholders = true,
     },
   },
-}))
+})

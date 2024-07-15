@@ -1,1 +1,1 @@
-require("custom.lsp.server.cucumber-lanugage-server")
+require("lsp.start.server.cucumber-lanugage-server")

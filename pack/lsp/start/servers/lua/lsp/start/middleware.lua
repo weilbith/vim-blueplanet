@@ -1,4 +1,4 @@
-local ALL_FILE_TYPES = require('custom.lsp.constants').ALL_FILE_TYPES
+local ALL_FILE_TYPES = 'all-file-types'
 
 --- @class HandlerWithPriority
 --- @field handler function

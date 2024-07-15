@@ -1,1 +1,1 @@
-require("custom.lsp.server.bash-language-server")
+require("lsp.start.server.bash-language-server")

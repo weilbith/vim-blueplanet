@@ -1,1 +1,1 @@
-require("custom.lsp.server.vtsls")
+require("lsp.start.server.vtsls")

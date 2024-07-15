@@ -1,1 +1,1 @@
-require("custom.lsp.server.vim-language-server")
+require("lsp.start.server.vim-language-server")
