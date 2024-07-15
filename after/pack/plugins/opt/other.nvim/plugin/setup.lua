@@ -30,5 +30,38 @@ require('other-nvim').setup({
       target = 'src/main/**/%1.kt',
       context = 'tests',
     },
+    -- ---
+    {
+      pattern = '(.*)/(.*).tsx',
+      target = '%1/%2.spec.tsx',
+      context = 'tests',
+    },
+    {
+      pattern = '(.*)/(.*).spec.tsx',
+      target = '%1/%2.tsx',
+      context = 'source',
+    },
+    {
+      pattern = '(.*)/(.*).tsx',
+      target = '%1/%2.test.tsx',
+      context = 'tests',
+    },
+    {
+      pattern = '(.*)/(.*).test.tsx',
+      target = '%1/%2.tsx',
+      context = 'source',
+    },
+    -- ---
+    -- TODO: more generic
+    {
+      pattern = '(.*)/(.*).tsx',
+      target = '%1/%2.module.css',
+      context = 'style',
+    },
+    {
+      pattern = '(.*)/(.*).module.css',
+      target = '%1/%2.tsx',
+      context = 'component',
+    },
   },
 })
