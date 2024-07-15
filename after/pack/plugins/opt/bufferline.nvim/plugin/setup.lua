@@ -1,5 +1,3 @@
-local get_icon_by_severity_level = require('diagnostics.signs').get_icon_by_severity_level
-
 require('bufferline').setup({
   options = {
     separator_style = 'slant',
@@ -14,17 +12,6 @@ require('bufferline').setup({
         text_align = 'center',
       },
     },
-    diagnostics_indicator = function(_, _, diagnostics)
-      local all_indicators = ''
-
-      for severity, count in pairs(diagnostics) do
-        severity = severity == 'warning' and 'warn' or severity
-        local indicator = ' ' .. count .. ' ' .. get_icon_by_severity_level(severity)
-        all_indicators = all_indicators .. indicator
-      end
-
-      return all_indicators
-    end,
     groups = {
       options = {
         toggle_hidden_on_enter = true,

@@ -1,5 +1,3 @@
-local diagnostic_signs = require('diagnostics.signs')
-
 require('neo-tree').setup({
   enable_modified_markers = false,
   -- TODO: How to display expanders only where folds are?
@@ -24,14 +22,6 @@ require('neo-tree').setup({
     name = {
       highlight_opened_files = true,
       use_git_status_colors = false,
-    },
-    diagnostics = {
-      symbols = {
-        hint = '',
-        info = '',
-        warn = diagnostic_signs.get_icon_by_severity_level('warn'),
-        error = diagnostic_signs.get_icon_by_severity_level('error'),
-      },
     },
     git_status = {
       symbols = {
