@@ -10,7 +10,7 @@ local LspBlock = {
   end, {
     {
       provider = function()
-        return #vim.lsp.buf_get_clients(0) .. ' Servers'
+        return #vim.lsp.get_clients({ bufnr = 0 }) .. ' Servers'
       end,
     },
   }),
