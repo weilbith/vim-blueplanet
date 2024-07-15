@@ -43,7 +43,7 @@ end
 --- @param start_options table see vim.lsp.start options
 local function start_server(start_options)
   local has_root_directory = start_options.root_dir ~= nil and #start_options.root_dir > 0
-  local command_is_executable = vim.fn.executable(start_options.cmd[1])
+  local command_is_executable = vim.fn.executable(start_options.cmd[1]) == 1
   local should_start_server = has_root_directory and command_is_executable
 
   if should_start_server then
