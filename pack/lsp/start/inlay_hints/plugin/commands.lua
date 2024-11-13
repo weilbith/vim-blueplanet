@@ -1,17 +1,9 @@
-local create_auto_commands = require('inlay_hints').create_auto_commands
-local clear_auto_commands = require('inlay_hints').clear_auto_commands
-
-vim.api.nvim_create_user_command('ToggleInlayHints', function()
-  local buffer_number = 0
-  local is_enabled = vim.lsp.inlay_hint.is_enabled(buffer_number)
-
-  if is_enabled then
-    clear_auto_commands()
-    vim.lsp.inlay_hint.enable(0, false)
-  else
-    create_auto_commands()
-    vim.lsp.inlay_hint.enable(0, true)
-  end
+vim.api.nvim_create_user_command('ToggleInlayHints', function(options)
+  local buffer = tonumber(options.fargs[1])
+  local is_enabled_now = require('inlay_hints').toggle(buffer)
+  print('Inlay hints are ' .. (is_enabled_now and 'on' or 'off'))
 end, {
-  desc = 'Toggle the visibility of LSP inlay hints for the current buffer.',
+  desc = 'Toggle the visibility of LSP inlay hints (globally if no buffer is specified).',
+  complete = require('custom.utils').get_buffers_as_completion_options,
+  nargs = '?',
 })

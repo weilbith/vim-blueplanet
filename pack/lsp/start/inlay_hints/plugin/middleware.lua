@@ -1,5 +1,3 @@
-local add_middleware = require('custom.lsp.middleware').add_middleware
-
 local function indent_blankline_is_available()
   local loaded_successfully, _ = pcall(require, 'ibl')
   return loaded_successfully
@@ -27,7 +25,7 @@ end
 --- and focuses them on the current piece of code where these hints might be
 --- helpful.
 --- Requires for more eager redrawing of inlay hints to take properly effect.
-add_middleware('textDocument/inlayHint', function(error, result, context, configuration)
+require("lsp.start.middleware").add_middleware('textDocument/inlayHint', function(error, result, context, configuration)
   if #(result or {}) > 0 then
     local range = get_active_scope_range(context.bufnr)
 
