@@ -67,6 +67,9 @@ require('telescope').setup({
         width = { padding = 0 },
         height = { 0.5, min = 40, max = 60 },
       },
+      cursor = {
+        height = { 0.5, min = 5, max = 5 },
+      },
     },
   },
   pickers = {
