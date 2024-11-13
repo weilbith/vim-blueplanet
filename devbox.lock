@@ -1,0 +1,149 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "lua-language-server@3.11.1": {
+      "last_modified": "2024-10-13T23:44:06Z",
+      "resolved": "github:NixOS/nixpkgs/d4f247e89f6e10120f911e2e2d2254a050d0f732#lua-language-server",
+      "source": "devbox-search",
+      "version": "3.11.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/w1jabmc21ad2h5460149d79rv4vv8sxa-lua-language-server-3.11.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/w1jabmc21ad2h5460149d79rv4vv8sxa-lua-language-server-3.11.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/b1db40vispc9sjsphd1wcrkkw632bjy1-lua-language-server-3.11.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/b1db40vispc9sjsphd1wcrkkw632bjy1-lua-language-server-3.11.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7kw9sy90z0sx6nijj01jk8ws3wr2xwdi-lua-language-server-3.11.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/7kw9sy90z0sx6nijj01jk8ws3wr2xwdi-lua-language-server-3.11.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/y2dh9brx19j35j41m3blq5v4whmw2c92-lua-language-server-3.11.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/y2dh9brx19j35j41m3blq5v4whmw2c92-lua-language-server-3.11.1"
+        }
+      }
+    },
+    "stylua@0.20.0": {
+      "last_modified": "2024-10-13T23:44:06Z",
+      "resolved": "github:NixOS/nixpkgs/d4f247e89f6e10120f911e2e2d2254a050d0f732#stylua",
+      "source": "devbox-search",
+      "version": "0.20.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1qxlykx797nllc3hkan058a0dy68f6dg-stylua-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1qxlykx797nllc3hkan058a0dy68f6dg-stylua-0.20.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fhh3z8s0ns5phh42r6llcm7b3jvlpcnp-stylua-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/fhh3z8s0ns5phh42r6llcm7b3jvlpcnp-stylua-0.20.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x97kgn8rmc2q25mlfvrmczjva87q8k8r-stylua-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/x97kgn8rmc2q25mlfvrmczjva87q8k8r-stylua-0.20.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/srrrchzq3n4wx9kfnzr26ig2spvq2kc3-stylua-0.20.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/srrrchzq3n4wx9kfnzr26ig2spvq2kc3-stylua-0.20.0"
+        }
+      }
+    },
+    "vim-language-server@2.3.1": {
+      "last_modified": "2024-11-03T14:18:04Z",
+      "resolved": "github:NixOS/nixpkgs/4ae2e647537bcdbb82265469442713d066675275#vim-language-server",
+      "source": "devbox-search",
+      "version": "2.3.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/kvxp4zw4f3b23bg5djksnl6gjif0v7qd-vim-language-server-2.3.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/kvxp4zw4f3b23bg5djksnl6gjif0v7qd-vim-language-server-2.3.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mbyk3l7fxfkslbwgm6131kdcgc4343mb-vim-language-server-2.3.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mbyk3l7fxfkslbwgm6131kdcgc4343mb-vim-language-server-2.3.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4lvpzkyv9cj9rcaqx2frncbbnih6yc51-vim-language-server-2.3.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/4lvpzkyv9cj9rcaqx2frncbbnih6yc51-vim-language-server-2.3.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pz9zk53p1vvrg2ylc9f4cgi5gwnk6j6f-vim-language-server-2.3.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pz9zk53p1vvrg2ylc9f4cgi5gwnk6j6f-vim-language-server-2.3.1"
+        }
+      }
+    }
+  }
+}

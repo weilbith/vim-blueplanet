@@ -1,7 +1,8 @@
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'Vim Language Server',
     cmd = { 'vim-language-server', '--stdio' },
+    root_dir = require('lsp.start.utilities').find_root({ '.git' }),
     init_options = {
       isNeovim = true,
       iskeyword = '@,48-57,_,192-255,-#',
