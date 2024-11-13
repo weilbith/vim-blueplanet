@@ -32,6 +32,7 @@ return function()
           propertyDeclarationTypes = { enabled = true },
           functionLikeReturnTypes = { enabled = true },
         },
+        -- format = { enable = false },
         preferences = {
           preferTypeOnlyAutoImports = true,
           renameShorthandProperties = false,

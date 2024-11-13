@@ -1,1 +1,1 @@
-require("lsp.start.server.sonarlint-language-server")
+require("lsp.start.server.sonarlint-language-server")()

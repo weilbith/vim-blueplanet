@@ -1,1 +1,1 @@
-require("lsp.start.server.yaml-language-server")
+require("lsp.start.server.yaml-language-server")()

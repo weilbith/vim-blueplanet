@@ -1,1 +1,1 @@
-require("lsp.start.server.vscode-json-languageservice")
+require("lsp.start.server.vscode-json-languageservice")()

@@ -9,7 +9,7 @@ return function()
     require("lsp.start")({
       name = 'CSS-Module Language Server',
       cmd = { 'cssmodules-language-server' },
-      root_dir = require('lsp.start.utiltities').find_root({ 'package.json' }),
+      root_dir = require('lsp.start.utilities').find_root({ 'package.json' }),
     })
   end
 end

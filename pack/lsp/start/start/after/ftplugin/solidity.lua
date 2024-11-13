@@ -1,1 +1,1 @@
-require("lsp.start.server.solc")
+require("lsp.start.server.solc")()

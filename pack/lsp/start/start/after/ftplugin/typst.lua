@@ -1,1 +1,1 @@
-require("lsp.start.server.typst-lsp")
+require("lsp.start.server.typst-lsp")()

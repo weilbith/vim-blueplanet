@@ -1,1 +1,1 @@
-require("lsp.start.server.gopls")
+require("lsp.start.server.gopls")()

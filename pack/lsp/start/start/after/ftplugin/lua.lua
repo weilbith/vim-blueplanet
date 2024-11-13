@@ -1,1 +1,1 @@
-require("lsp.start.server.lua-language-server")
+require("lsp.start.server.lua-language-server")()

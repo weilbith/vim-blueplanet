@@ -1,1 +1,1 @@
-require("lsp.start.server.dockerfile-language-server")
+require("lsp.start.server.dockerfile-language-server")()
