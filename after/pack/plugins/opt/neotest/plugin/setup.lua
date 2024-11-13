@@ -32,7 +32,7 @@ require('neotest').setup({
     signs = true,
   },
   floating = {
-    boarder = 'single',
+    border = 'single',
   },
   diagnostic = {
     severity = 1,
