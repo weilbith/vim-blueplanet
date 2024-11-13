@@ -6,11 +6,9 @@ local function open_completion_menu_for_choices()
   end)
 end
 
-local group_name = 'cmp_luasnip_choice'
-
-vim.api.nvim_create_augroup(group_name, {})
+local group = vim.api.nvim_create_augroup('cmp_luasnip_choice', {})
 vim.api.nvim_create_autocmd('User', {
-  group = group_name,
+  group = group,
   pattern = { 'LuasnipChangeChoice', 'LuasnipChoiceNodeEnter' },
   callback = open_completion_menu_for_choices,
 })

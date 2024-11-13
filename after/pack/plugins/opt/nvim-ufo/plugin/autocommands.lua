@@ -1,6 +1,6 @@
-vim.api.nvim_create_augroup('ufo-peek', {})
+local group = vim.api.nvim_create_augroup('ufo-peek', {})
 vim.api.nvim_create_autocmd('CursorHold', {
-  group = 'ufo-peek',
+  group = group,
   callback = function()
     local window_number = require('ufo').peekFoldedLinesUnderCursor()
 

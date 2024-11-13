@@ -1,7 +1,7 @@
-vim.api.nvim_create_augroup('DAP-UI', {})
+local group = vim.api.nvim_create_augroup('DAP-UI', {})
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = '*',
-  group = 'DAP-UI',
+  group = group,
   callback = function(arguments)
     local file_type = vim.bo[arguments.buf].ft
     local is_dap_ui_buffer = file_type:sub(1, #'dapui') == 'dapui'
