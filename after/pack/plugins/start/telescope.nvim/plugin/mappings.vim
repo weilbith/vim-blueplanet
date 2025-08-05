@@ -13,8 +13,8 @@ nnoremap <leader>sr <cmd>Telescope resume<CR>
 nnoremap <leader>sR <cmd>Telescope pickers<CR>
 
 " LSP
-nnoremap <leader>gO <cmd>Telescope lsp_document_symbols<CR>
-nnoremap <leader>to <cmd>Telescope lsp_workspace_symbols<CR>
+nnoremap gO <cmd>Telescope lsp_document_symbols<CR>
+nnoremap to <cmd>Telescope lsp_workspace_symbols<CR>
 
 " Git
 nnoremap <leader>gll <cmd>Telescope git_commits<CR>
