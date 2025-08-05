@@ -1,5 +1,0 @@
-command! HopFunctions   lua require('hop-extensions').hint_textobjects('function')
-command! HopParameters  lua require('hop-extensions').hint_textobjects('parameter')
-command! HopComments    lua require('hop-extensions').hint_textobjects('comments')
-command! HopObjects     lua require('hop-extensions').hint_textobjects()
-command! HopDiagnostics lua require('hop-extensions').hint_diagnostics()

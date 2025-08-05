@@ -16,21 +16,4 @@ vnoremap <BS>f <cmd>HopChar1AC<CR>
 nnoremap <BS>F <cmd>HopChar1BC<CR>
 vnoremap <BS>F <cmd>HopChar1BC<CR>
 
-nnoremap <BS>m <cmd>lua require("hop-extensions").ts.hint_textobjects({}, '@function')<CR>
-vnoremap <BS>m <cmd>HopFunctions<CR>
-
-nnoremap <BS>o <cmd>lua require("hop-extensions").ts.hint_locals()<CR>
-vnoremap <BS>o <cmd>HopObjects<CR>
-
-nnoremap <BS>d <cmd>HopDiagnostics<CR>
-vnoremap <BS>d <cmd>HopDiagnostics<CR>
-
-nnoremap <BS>p <cmd>HopParameters<CR>
-vnoremap <BS>p <cmd>HopParameters<CR>
-
-nnoremap <BS>c <cmd>HopComments<CR>
-vnoremap <BS>c <cmd>HopComments<CR>
-
-nnoremap <BS>r <cmd>lua require("hop-extensions").lsp.hint_references()<CR>
-
 " TODO: open PR for `e` and `t` movements
