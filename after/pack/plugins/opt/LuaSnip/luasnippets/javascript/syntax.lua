@@ -25,6 +25,15 @@ local import_node = format('<keyword><what> from "<from>"', {
   }),
 })
 
+local export_node = format('<keyword><what> from "<from>"', {
+  keyword = trigger_name_node('export ', ' '),
+  from = insert_node(1, 'module'),
+  what = choice_node(2, {
+    format('{ <body> }', { body = insert_node(1, 'what') }),
+    insert_node(1, '*'),
+  }),
+})
+
 local class_node = format('<keyword><name> {\n  constructor(<parameter>) {\n    <body>\n  }\n}', {
   keyword = trigger_name_node('class', ' '),
   name = file_name_node(1, 'Name'),
@@ -91,7 +100,8 @@ local switch_case_node = format('<keyword><expression>) {\n  <case>\n}', {
 
 return nil,
   {
-    snippet({ trig = '^import ', regTrig = true }, import_node),
+    snippet({ trig = '^import ', regTrig = true }, import_node, { condition = line_end }),
+    snippet({ trig = '^export ', regTrig = true }, export_node, { condition = line_end }),
     snippet({ trig = '^class ', regTrig = true }, class_node),
     snippet({ trig = '^function ', regTrig = true }, vim.deepcopy(named_function_node)),
     snippet({ trig = ' function ' }, vim.deepcopy(named_function_node)),
