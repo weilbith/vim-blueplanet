@@ -7,9 +7,8 @@ local line_begin = require('luasnip.extras.conditions.expand').line_begin
 local line_end = require('luasnip.extras.conditions.show').line_end
 
 local trigger_text_insert_node = require('snippets.nodes.general').trigger_text_insert_node
-local get_node_options_with_lsp_code_action_callback = require(
-  'snippets.callbacks.lsp_code_actions'
-).get_node_options_with_lsp_code_action_callback
+local get_node_options_with_lsp_code_action_callback =
+  require('snippets.callbacks.lsp_code_actions').get_node_options_with_lsp_code_action_callback
 
 return nil,
   {
@@ -34,11 +33,6 @@ return nil,
         { trig = 'useCallback', snippetType = 'snippet', descr = 'cache a function' },
         { trig = 'useCallback', snippetType = 'autosnippet', descr = 'cace a function' },
         { trig = 'useMemo', snippetType = 'snippet', descr = 'cache result of a computation' },
-        {
-          trig = 'useMemo',
-          snippetType = 'autosnippet',
-          descr = 'cache result of a computation',
-        },
       },
       format(
         [[
@@ -50,7 +44,7 @@ return nil,
           hook_name = trigger_text_insert_node(
             1,
             get_node_options_with_lsp_code_action_callback(
-              'TypeScript Language Server',
+              'VSCode TypeScript Wrapper',
               'import from "react"',
               { wait_for_diagnostics = true }
             )
@@ -91,7 +85,7 @@ return nil,
         hook_name = trigger_text_insert_node(
           1,
           get_node_options_with_lsp_code_action_callback(
-            'TypeScript Language Server',
+            'VSCode TypeScript Wrapper',
             'import from "react"'
           )
         ),
@@ -117,7 +111,7 @@ return nil,
         hook_name = trigger_text_insert_node(
           1,
           get_node_options_with_lsp_code_action_callback(
-            'TypeScript Language Server',
+            'VSCode TypeScript Wrapper',
             'import from "react"'
           )
         ),
@@ -138,7 +132,7 @@ return nil,
         hook_name = trigger_text_insert_node(
           1,
           get_node_options_with_lsp_code_action_callback(
-            'TypeScript Language Server',
+            'VSCode TypeScript Wrapper',
             'import from "react"'
           )
         ),
@@ -179,7 +173,7 @@ return nil,
           hook_name = trigger_text_insert_node(
             1,
             get_node_options_with_lsp_code_action_callback(
-              'TypeScript Language Server',
+              'VSCode TypeScript Wrapper',
               'import from "react"'
             )
           ),
