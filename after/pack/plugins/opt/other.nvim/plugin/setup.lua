@@ -1,13 +1,13 @@
 require('other-nvim').setup({
   mappings = {
     {
-      pattern = 'src/.*/(.*).ts',
-      target = 'test/**/%1.spec.ts',
+      pattern = '.*/(.*).ts',
+      target = '**/%1.spec.ts',
       context = 'tests',
     },
     {
-      pattern = 'test/.*/(.*).spec.ts',
-      target = 'src/**/%1.ts',
+      pattern = '.*/(.*).spec.ts',
+      target = '**/%1.ts',
       context = 'source',
     },
     {
