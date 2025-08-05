@@ -41,8 +41,32 @@ local jest_hook_node = format('<keyword><async>() =>> {\n  <body>\n})', {
   body = selected_text_node(2, '// TODO'),
 })
 
+local vitest_in_source_wrapper = format(
+  [[
+    if (import.meta.vitest) {
+      const { describe, it, expect } = import.meta.vitest
+
+      describe("<description>", () =>> {
+        <body>
+      })
+    }
+  ]],
+  {
+    description = insert_node(1, "what"),
+    body = insert_node(2),
+  }
+)
+
 return nil,
   {
+    snippet(
+      {
+        trig = "vitest wrapper",
+        snippetType = "snippet",
+        descr = "create wrapper for Vitet in-source testing",
+      },
+      vitest_in_source_wrapper
+    ),
     snippet('describe(', jest_describe_node, {
       callbacks = fix_closing_character_callbacks,
       condition = is_test_file,
