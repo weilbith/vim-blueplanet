@@ -8,7 +8,13 @@ require('nvim-treesitter.configs').setup({
     },
     navigation = {
       enable = true,
-      keymaps = {},
+      keymaps = {
+        goto_definition = false,
+        list_definitions = false,
+        list_definitions_toc = false,
+        goto_next_usage = false,
+        goto_previous_usage = false,
+      },
     },
   },
 })
