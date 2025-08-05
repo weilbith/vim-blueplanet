@@ -31,8 +31,8 @@ return nil,
           }),
           body = choice_node(4, {
             -- TODO: Do this automatically in a trait definition.
+            format(' {\n  <>\n}', { insert_node(1, 'todo();') }),
             text_node(';'),
-            format('{\n  <>\n}', { insert_node(1, 'todo();') }),
           }),
         }
       ),
