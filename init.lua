@@ -11,6 +11,7 @@ vim.opt.encoding = 'utf-8'
 vim.opt.spell = true
 vim.opt.spelloptions = 'camel'
 vim.opt.spellfile = vim.fn.stdpath('data') .. '/spell/en.utf-8.add'
+vim.opt.spelllang = { "en", "de" }
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.number = true
