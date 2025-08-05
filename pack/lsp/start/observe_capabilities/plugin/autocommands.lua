@@ -1,6 +1,6 @@
-vim.api.nvim_create_augroup('ObserveFeatures', {})
+local group = vim.api.nvim_create_augroup('ObserveFeatures', {})
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = 'ObserveFeatures',
+  group = group,
   callback = function(arguments)
     local client_identifier = (arguments.data or {}).client_id
     local client = vim.lsp.get_client_by_id(client_identifier)
@@ -27,14 +27,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if #feature_list > 0 then
       local message = client.name .. ' supports: \n- ' .. table.concat(feature_list, '\n- ')
 
-      -- TODO: Why does plugin not work?
-      require('notify')(message, vim.log.levels.INFO)
+      vim.notify_once(message, vim.log.levels.INFO)
     end
   end,
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = 'ObserveFeatures',
+  group = group,
   callback = function(arguments)
     local client_identifier = (arguments.data or {}).client_id
     local client = vim.lsp.get_client_by_id(client_identifier)
@@ -46,7 +45,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local result = (response or {}).result or {}
 
       if #result > 0 then
-        require('notify')('#' .. #result .. ' document links by ' .. client.name)
+        vim.notify('#' .. #result .. ' document links by ' .. client.name)
+        print('Document Links:')
         print(vim.inspect(result))
       end
     end
