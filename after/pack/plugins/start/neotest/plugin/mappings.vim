@@ -1,4 +1,5 @@
 nnoremap <localleader>tn <cmd>Neotest run<CR>
+nnoremap <localleader>tl <cmd>Neotest run last<CR>
 nnoremap <localleader>td <cmd>Neotest run strategy=dap<CR>
 nnoremap <localleader>tf <cmd>Neotest run file<CR>
 nnoremap <localleader>tS <cmd>Neotest run suite=true<CR>
