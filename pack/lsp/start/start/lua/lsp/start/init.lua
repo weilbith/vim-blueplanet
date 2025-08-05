@@ -14,6 +14,12 @@ local get_client_response_handlers = require('lsp.start.middleware').get_client_
 local function should_start_server(start_options)
   local has_root_directory = start_options.root_dir ~= nil and #start_options.root_dir > 0
   local command_is_executable = vim.fn.executable(start_options.cmd[1]) == 1
+
+  if not command_is_executable then
+    local message = 'Language server "' .. start_options.name .. '" is not available.'
+    vim.notify_once(message, vim.log.levels.INFO)
+  end
+
   return has_root_directory and command_is_executable
 end
 

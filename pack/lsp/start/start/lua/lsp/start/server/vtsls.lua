@@ -1,9 +1,9 @@
 -- TODO: Check with Vue take-over mode
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'VSCode TypeScript Wrapper',
     cmd = { 'vtsls', '--stdio' },
-    root_dir = require("lsp.start.utilities").find_root({ 'tsconfig.json' }),
+    root_dir = require('lsp.start.utilities').find_root({ 'tsconfig.json' }),
     capabilities = {
       workspace = {
         fileOperations = {
