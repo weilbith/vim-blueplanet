@@ -1,94 +1,76 @@
 local encoding = require('on_type_formatting.encoding')
 
-local function number_of_entries_in_table(tbl)
-  local count = 0
+--- @alias BufferConfiguration table<number, string> mapping of LSP client
+--- identifier to registered trigger characters. Trigger characters must be
+--- encoded as terminal codes for fast comparison on key strokes.
 
-  for _ in pairs(tbl) do
-    count = count + 1
-  end
-
-  return count
+--- @param buffer_number number
+--- @return BufferConfiguration configuration empty if buffer has no LSP client
+--- attached with matching capability or any trigger characters are registered
+local function get_configuration_for_buffer(buffer_number)
+  return vim.b[buffer_number].configuration_for_lsp_on_type_formatting or {}
 end
 
---- @alias BufferConfiguration table<number, string> mapping of client identifier to trigger characters
-
---- @param buffer number
---- @return BufferConfiguration
-local function get_buffer_configuration(buffer)
-  return vim.b[buffer].on_type_formatting or {}
-end
-
---- @param buffer number
---- @param configuration BufferConfiguration
+--- @param buffer_number number
+--- @param configuration BufferConfiguration will be filtered for empty values
 --- @return nil
-local function set_buffer_configuration(buffer, configuration)
-  local configuration_without_nil = vim.tbl_filter(function(entry)
-    return entry ~= vim.NIL
-  end, configuration)
+local function set_configuration_for_buffer(buffer_number, configuration)
+  local clean_configuration = {}
 
-  local has_non_nil_entries = #configuration_without_nil > 0
-  configuration = has_non_nil_entries and configuration or {}
+  for client_identifier, trigger_characters in pairs(configuration) do
+    local has_trigger_characters = trigger_characters ~= vim.NIL
+      and type(trigger_characters) == 'string'
+      and #trigger_characters > 0
 
-  vim.b[buffer].on_type_formatting = configuration
-end
-
---- @param client table
---- @return string
-local function get_trigger_characters(client)
-  local capabilities = client.server_capabilities or {}
-  local options = capabilities.documentOnTypeFormattingProvider or {}
-  local trigger_characters = options.firstTriggerCharacter or ''
-  trigger_characters = trigger_characters .. table.concat(options.moreTriggerCharacter or {})
-  return encoding.encode_json_escape_sequences_as_terminal_codes(trigger_characters)
-end
-
---- If the client has support for on type formatting, the trigger characters
---- will be added to the configured attached to the buffer the client is
---- attached to.
----
---- @param client_identifier number
---- @param buffer number
---- @return nil
-local function maybe_add_configuration_for_client(client_identifier, buffer)
-  local client = vim.lsp.get_client_by_id(client_identifier) or {}
-  local trigger_characters = get_trigger_characters(client)
-
-  if #trigger_characters > 0 then
-    local configuration = get_buffer_configuration(buffer)
-    configuration[client.id] = trigger_characters
-    set_buffer_configuration(buffer, configuration)
-  end
-end
-
-local function any_buffer_has_non_empty_configuration()
-  for _, buffer in pairs(vim.api.nvim_list_bufs()) do
-    local configuration = get_buffer_configuration(buffer)
-    local not_empty = number_of_entries_in_table(configuration) > 0
-
-    if not_empty then
-      return true
+    if has_trigger_characters then
+      clean_configuration[client_identifier] = trigger_characters
     end
   end
 
-  return false
+  vim.b[buffer_number].configuration_for_lsp_on_type_formatting = clean_configuration
 end
 
---- If the client had support for on type formatting, its associated trigger
---- characters gets removed from the buffer configuration the client was
---- attached to.
----
 --- @param client_identifier number
---- @param buffer number
+--- @return string trigger_characters encoded as terminal codes; empty if
+--- unsupported or none registered
+local function read_trigger_characters_of_client(client_identifier)
+  local client = vim.lsp.get_client_by_id(client_identifier) or {}
+  local capabilities = client.server_capabilities or {}
+  local provider = capabilities.documentOnTypeFormattingProvider or {}
+  local trigger_characters = provider.firstTriggerCharacter or ''
+  trigger_characters = trigger_characters .. table.concat(provider.moreTriggerCharacter or {})
+  return encoding.decode_terminal_codes_from_json_escape_sequences(trigger_characters)
+end
+
+--- @param client_identifier number
+--- @param buffer_number number
 --- @return nil
-local function maybe_remove_configuration_for_client(client_identifier, buffer)
-  local configuration = get_buffer_configuration(buffer)
+local function add_configuration_for_client(client_identifier, buffer_number)
+  local configuration = get_configuration_for_buffer(buffer_number)
+  configuration[client_identifier] = read_trigger_characters_of_client(client_identifier)
+  set_configuration_for_buffer(buffer_number, configuration)
+end
+
+--- @param client_identifier number
+--- @param buffer_number number
+--- @return nil
+local function remove_configuration_for_client(client_identifier, buffer_number)
+  local configuration = get_configuration_for_buffer(buffer_number)
   configuration[client_identifier] = nil
-  set_buffer_configuration(buffer, configuration)
+  set_configuration_for_buffer(buffer_number, configuration)
+end
+
+--- @return boolean
+local function has_any_buffer_trigger_characters_configured()
+  return vim.iter(vim.api.nvim_list_bufs()):any(function(buffer_number)
+    local configuration = get_configuration_for_buffer(buffer_number)
+    return not vim.tbl_isempty(configuration)
+  end)
 end
 
 return {
-  get_buffer_configuration = get_buffer_configuration,
-  maybe_add_configuration_for_client = maybe_add_configuration_for_client,
-  maybe_remove_configuration_for_client = maybe_remove_configuration_for_client,
-  any_buffer_has_non_empty_configuration = any_buffer_has_non_empty_configuration,
+  get_configuration_for_buffer = get_configuration_for_buffer,
+  add_configuration_for_client = add_configuration_for_client,
+  remove_configuration_for_client = remove_configuration_for_client,
+  has_any_buffer_trigger_characters_configured = has_any_buffer_trigger_characters_configured,
 }

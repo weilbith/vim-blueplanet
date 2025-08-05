@@ -1,21 +1,29 @@
 local configuration = require('on_type_formatting.configuration')
-local request = require('on_type_formatting.request')
+local encoding = require('on_type_formatting.encoding')
+local formatting = require('on_type_formatting.formatting')
 
-local on_key_namespace_identifier = nil
+local key_listener_namespace_identifier = nil
 
 --- @return boolean
 local function is_in_insert_mode()
   return vim.api.nvim_get_mode().mode == 'i'
 end
 
---- @param key string
---- @param trigger_characters string
+--- Must be performant because it will be executed for each key stroke per
+--- attached LSP client.
+---
+--- @param key string as terminal code
+--- @param trigger_characters string as terminal codes
 --- @return boolean
-local function is_trigger_character(key, trigger_characters)
+local function is_key_a_trigger_character(key, trigger_characters)
   local escaped_pattern = vim.pesc(key)
-  return string.match(trigger_characters, escaped_pattern) ~= nil
+  return trigger_characters ~= vim.NIL and string.match(trigger_characters, escaped_pattern) ~= nil
 end
 
+--- Executed on every key stroke of the user (needs to be efficient).
+--- Triggers formatting if the typed key is configured as a trigger character of
+--- an attached LSP client for the current buffer.
+---
 --- @param key string
 --- @return nil
 local function on_key_handler(key)
@@ -23,35 +31,45 @@ local function on_key_handler(key)
     return
   end
 
-  local buffer_configuration = configuration.get_buffer_configuration(0)
+  local buffer_configuration = configuration.get_configuration_for_buffer(0)
 
   for client_identifier, trigger_characters in pairs(buffer_configuration) do
-    if trigger_characters ~= vim.NIL and is_trigger_character(key, trigger_characters) then
-      request.trigger_on_key_formatting(key, client_identifier)
+    if is_key_a_trigger_character(key, trigger_characters) then
+      local trigger_character = encoding.encode_terminal_codes_as_json_escape_sequences(key)
+      formatting.request_formatting(trigger_character, client_identifier)
     end
   end
 end
 
-local function maybe_establish_key_listener()
-  local should_establish = on_key_namespace_identifier == nil
-    and configuration.any_buffer_has_non_empty_configuration()
+--- There is always just one key listener for on-type-formatting purposes.
+--- Register only if none exists yet and any buffer needs it.
+---
+--- @return nil
+local function register_the_key_listener_if_needed()
+  local has_on_key_listener = key_listener_namespace_identifier == nil
+  local is_listener_needed = has_on_key_listener
+    and configuration.has_any_buffer_trigger_characters_configured()
 
-  if should_establish then
-    on_key_namespace_identifier = vim.on_key(on_key_handler, nil)
+  if is_listener_needed then
+    key_listener_namespace_identifier = vim.on_key(on_key_handler, nil)
   end
 end
 
-local function maybe_remove_key_listener()
-  local should_remove = on_key_namespace_identifier ~= nil
-    and not configuration.any_buffer_has_non_empty_configuration()
+--- Checks if listener exists but no buffer needs it (anymore).
+---
+--- @return nil
+local function unregister_the_key_listener_if_needless()
+  local has_on_key_listener = key_listener_namespace_identifier == nil
+  local is_listener_needed = has_on_key_listener
+    and configuration.has_any_buffer_trigger_characters_configured()
 
-  if should_remove then
-    vim.on_key(nil, on_key_namespace_identifier)
-    on_key_namespace_identifier = nil
+  if not is_listener_needed then
+    vim.on_key(nil, key_listener_namespace_identifier)
+    key_listener_namespace_identifier = nil
   end
 end
 
 return {
-  maybe_establish_key_listener = maybe_establish_key_listener,
-  maybe_remove_key_listener = maybe_remove_key_listener,
+  register_the_key_listener_if_needed = register_the_key_listener_if_needed,
+  unregister_the_key_listener_if_needless = unregister_the_key_listener_if_needless,
 }
