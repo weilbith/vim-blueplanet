@@ -5,10 +5,8 @@
 -- approach also makes use of the new middleware and global configuration
 -- approach.
 
-local simplified_capabilities = vim.tbl_deep_extend(
-  'force',
-  vim.lsp.protocol.make_client_capabilities(),
-  {
+local simplified_capabilities =
+  vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), {
     textDocument = {
       colorProvider = {
         dynamicRegistration = true,
@@ -49,8 +47,7 @@ local simplified_capabilities = vim.tbl_deep_extend(
         dynamicRegistration = false,
       },
     },
-  }
-)
+  })
 
 local base_capabilities = vim.tbl_deep_extend('force', simplified_capabilities, {
   completion = {
@@ -76,6 +73,11 @@ lsp_config.kotlin_language_server.setup({
   settings = {
     externalSources = {
       autoConvertToKotlin = true,
+    },
+    hints = {
+      typeHints = true,
+      parameterHints = true,
+      chainedHints = true,
     },
   },
 })
@@ -109,22 +111,31 @@ lsp_config.jdtls.setup({
 lsp_config.html.setup({
   capabilities = base_capabilities,
   cmd = { 'vscode-html-languageserver', '--stdio' },
-})
-
-lsp_config.jsonls.setup({
-  capabilities = base_capabilities,
-  settings = {
-    json = {
-      schemas = require('schemastore').json.schemas(),
-      validate = { enable = true },
+  filetypes = vim.list_extend(
+    lsp_config.html.document_config.default_config.filetypes,
+    { --[[ 'rust' ]]
+    } -- Fix issue with formatting
+  ),
+  init_options = {
+    userLanguages = {
+      rust = 'html',
     },
   },
 })
 
 lsp_config.cssls.setup({
   capabilities = base_capabilities,
-  filetypes = { 'css', 'scss', 'sass', 'less' },
-  cmd = { 'vscode-html-languageserver', '--stdio' },
+  filetypes = vim.list_extend(
+    lsp_config.cssls.document_config.default_config.filetypes,
+    { --[[ 'rust' ]]
+    } -- Fix issue with formatting
+  ),
+  cmd = { 'vscode-css-language-server', '--stdio' },
+  init_options = {
+    userLanguages = {
+      rust = 'html',
+    },
+  },
 })
 
 -- Note: Putting the setup calls into ftplggins saves 0.5ms per call during
