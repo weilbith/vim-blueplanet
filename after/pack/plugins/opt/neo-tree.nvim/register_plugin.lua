@@ -6,5 +6,5 @@ require('packer').use({
     { 'MunifTanjim/nui.nvim', module = 'nui' },
     { 'antosha417/nvim-lsp-file-operations', module = 'lsp-file-operations' },
   },
-  cmd = 'Neotree',
+  opt = true,
 })

@@ -3,5 +3,5 @@ require('packer').use({
   setup = function()
     vim.g.choosewin_overlay_enable = 1
   end,
-  cmd = { 'ChooseWin', 'ChooseWinSwap' },
+  opt = true,
 })

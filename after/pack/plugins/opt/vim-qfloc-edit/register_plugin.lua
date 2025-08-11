@@ -3,8 +3,5 @@ require('packer').use({
   setup = function()
     vim.g.qfloc_edit_disable_mappings = true
   end,
-  cmd = {
-    'RemoveEntryUnderCursorInCurrentListWindow',
-    'UndoLastEntryRemovalInCurrentListWindow',
-  },
+  opt = true,
 })

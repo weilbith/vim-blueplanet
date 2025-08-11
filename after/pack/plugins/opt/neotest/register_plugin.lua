@@ -13,5 +13,5 @@ require('packer').use({
     { 'weilbith/neotest-gradle', module = 'neotest-gradle' },
   },
   module = 'neotest',
-  cmd = 'Neotest',
+  opt = true,
 })

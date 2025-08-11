@@ -1,4 +1,1 @@
-require('packer').use({
-  'weilbith/vim-qfloc-moves',
-  cmd = { 'Copen', 'Lopen', 'Wincmd' },
-})
+require('packer').use({ 'weilbith/vim-qfloc-moves', opt = true })

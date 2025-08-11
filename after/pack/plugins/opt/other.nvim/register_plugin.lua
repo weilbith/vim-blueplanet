@@ -1,4 +1,1 @@
-require('packer').use({
-  'rgroli/other.nvim',
-  cmd = { 'Other', 'OtherVSplit' },
-})
+require('packer').use({ 'rgroli/other.nvim', opt = true })

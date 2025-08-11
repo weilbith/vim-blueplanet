@@ -3,5 +3,4 @@ require('packer').use({
   branch = 'better_callbacks',
   event = 'InsertEnter',
   module = 'luasnip',
-  cmd = 'LuaSnipEdit',
 })

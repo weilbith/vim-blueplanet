@@ -1,3 +1,6 @@
-vim.keymap.set('n', '<leader>rr', function()
-  return ':IncRename ' .. vim.fn.expand('<cword>')
-end, { expr = true })
+require('plugin_manager').load_package_on_command_s('inc-rename.nvim', 'IncRename')
+
+vim.keymap.set('n', 'grN', function()
+  local current_name = vim.fn.expand('<cword>')
+  vim.api.nvim_command('IncRename ' .. current_name)
+end, { desc = 'rename target under cursor with preview' })

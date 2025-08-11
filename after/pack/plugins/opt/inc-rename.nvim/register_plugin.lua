@@ -1,4 +1,1 @@
-require('packer').use({
-  'smjonas/inc-rename.nvim',
-  cmd = 'IncRename',
-})
+require('packer').use({ 'smjonas/inc-rename.nvim', opt = true })

@@ -3,5 +3,5 @@ require('packer').use({
   requires = {
     { 'kyazdani42/nvim-web-devicons', module = 'nvim-web-devicons' },
   },
-  cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
+  opt = true,
 })

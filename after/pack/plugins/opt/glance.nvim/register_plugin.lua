@@ -1,4 +1,1 @@
-require('packer').use({
-  'DNLHC/glance.nvim',
-  cmd = 'Glance',
-})
+require('packer').use({ 'DNLHC/glance.nvim', opt = true })

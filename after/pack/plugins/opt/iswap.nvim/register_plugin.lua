@@ -1,4 +1,1 @@
-require('packer').use({
-  'mizlan/iswap.nvim',
-  cmd = { 'ISwap', 'ISwapWith' },
-})
+require('packer').use({ 'mizlan/iswap.nvim', opt = true })
