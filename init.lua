@@ -3,9 +3,9 @@ vim.loader.enable()
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
-vim.cmd('filetype plugin on')
-vim.cmd('filetype indent on')
-vim.cmd('syntax on')
+vim.cmd.filetype('plugin', 'on')
+vim.cmd.filetype('indent', 'on')
+vim.cmd.syntax('on')
 
 vim.opt.encoding = 'utf-8'
 vim.opt.spell = true

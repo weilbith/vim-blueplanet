@@ -1,6 +1,6 @@
 vim.opt_local.winfixbuf = true
 
-vim.cmd('packadd vim-qfloc-edit')
+vim.cmd.packadd('vim-qfloc-edit')
 
 vim.keymap.set(
   'n',

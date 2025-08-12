@@ -1,6 +1,6 @@
 --- Parse the captured arguments of a callback function for a user command into
 --- an executable command again.
---- (see `:help nvim_create_user_command()` and `:help nvim_cmd()`)
+--- (see `:help nvim_create_user_command()` and `:help vim.cmd()`)
 ---
 --- @param captured_arguments table
 --- @return table command
@@ -28,10 +28,10 @@ end
 --- @return function command_handler
 local function create_handler_for_placeholder_command(package_name)
   return function(captured_arguments)
-    vim.api.nvim_command('packadd ' .. package_name)
+    vim.cmd.packadd(package_name)
 
     local command = parse_captured_arguments_as_command(captured_arguments)
-    vim.api.nvim_cmd(command, {})
+    vim.cmd(command)
   end
 end
 
@@ -43,7 +43,7 @@ end
 --- @return function handler
 local function create_callback_for_command_completion(package_name, command_name)
   return function()
-    vim.api.nvim_command('packadd ' .. package_name)
+    vim.cmd.packadd(package_name)
     return vim.fn.getcompletion(command_name .. ' ', 'cmdline') -- Without the trailing space, completion does not trigger properly.
   end
 end

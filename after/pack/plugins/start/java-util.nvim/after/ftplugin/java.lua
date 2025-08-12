@@ -1,4 +1,4 @@
-vim.cmd('packadd java-util.nvim')
+vim.cmd.packadd('java-util.nvim')
 
 vim.keymap.set(
   'n',

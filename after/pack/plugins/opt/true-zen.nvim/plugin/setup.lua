@@ -1,6 +1,6 @@
 -- TODO: Issue is open to fix this properly.
 local function fix_highlighting()
-  vim.cmd('highlight! link StatusLine DarkGreyBackgroundContrast')
+  vim.cmd.highlight({ 'link StatusLine DarkGreyBackgroundContrast', bang = true })
 end
 
 require('true-zen').setup({

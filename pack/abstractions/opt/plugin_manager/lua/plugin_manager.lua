@@ -7,14 +7,14 @@ local function install_packer()
   local installation_path = package_path .. '/packer/opt/packer.nvim'
 
   if #vim.api.nvim_call_function('glob', { installation_path }) == 0 then
-    vim.api.nvim_command(string.format('!git clone %s %s', packer_source_url, installation_path))
+    vim.cmd(string.format('!git clone %s %s', packer_source_url, installation_path))
   end
 end
 
 local function setup()
   if not has_been_setup then
     install_packer()
-    vim.api.nvim_command('packadd packer.nvim')
+    vim.cmd.packadd('packer.nvim')
     require('packer').init({
       package_root = package_path,
       autoremove = true,
@@ -31,13 +31,13 @@ end
 
 local function update()
   setup()
-  vim.api.nvim_command('runtime! OPT register_plugin.lua')
+  vim.cmd.runtime({ 'OPT register_plugin.lua', bang = true })
   require('packer').sync()
 end
 
 local function install_new()
   setup()
-  vim.api.nvim_command('runtime! OPT register_plugin.lua')
+  vim.cmd.runtime({ 'OPT register_plugin.lua', bang = true })
   require('packer').install()
 end
 
