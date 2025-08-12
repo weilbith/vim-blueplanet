@@ -1,4 +1,1 @@
-require('packer').use({
-  'rktjmp/lush.nvim',
-  config = 'vim.cmd("packadd lush.nvim")',
-})
+require('packer').use('rktjmp/lush.nvim')

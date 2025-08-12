@@ -1,4 +1,5 @@
 require('fidget').setup({
+  config = 'vim.cmd("packadd fidget.nvim")',
   progress = {
     display = {
       done_icon = '',

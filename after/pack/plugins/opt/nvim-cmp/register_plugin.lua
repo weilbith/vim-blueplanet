@@ -14,7 +14,6 @@ require('packer').use({
     { 'saadparwaiz1/cmp_luasnip' },
     { 'rcarriga/cmp-dap', module = 'cmp-dap' },
   },
-  config = 'vim.cmd("packadd nvim-cmp")',
 })
 -- add vcard for mails
 -- add signature help

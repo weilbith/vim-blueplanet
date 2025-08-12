@@ -9,7 +9,7 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<leader>fb',
+  '<leader>bb',
   '<cmd>Telescope buffers<CR>',
   { desc = 'search for buffers in fuzzy finder' }
 )

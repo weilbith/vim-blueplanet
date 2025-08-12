@@ -21,7 +21,7 @@ vim.g.completion_menu_select_previous_entry_function = function()
   local previous_entry = menu_utilities.get_previous_menu_entry()
   local behavior = menu_utilities.get_selection_behavior_for_menu_entry(previous_entry)
   cmp.select_prev_item({ behavior = behavior })
-  automatic_confirmation.set_last_selected_completion_entry(previous_entry)
+  -- automatic_confirmation.set_last_selected_completion_entry(previous_entry)
 end
 
 vim.g.completion_menu_confirm_selected_entry_function = function()

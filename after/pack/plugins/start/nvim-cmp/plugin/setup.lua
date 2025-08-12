@@ -45,8 +45,8 @@ require('cmp').setup.cmdline(':', {
 
 require('cmp_git').setup()
 
-require('plugin_configuration').reload_filetype_plugins_for_loaded_buffers()
+-- require('plugin_configuration').reload_filetype_plugins_for_loaded_buffers()
 
-require('cmp').event:on('menu_closed', function()
-  require('custom.cmp.automatic_confirmation').maybe_confirm_last_selected_completion_entry()
-end)
+-- require('cmp').event:on('menu_closed', function()
+--   require('custom.cmp.automatic_confirmation').maybe_confirm_last_selected_completion_entry()
+-- end)
