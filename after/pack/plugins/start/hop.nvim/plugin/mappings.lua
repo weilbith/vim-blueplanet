@@ -20,7 +20,7 @@ vim.keymap.set({ 'n', 'v' }, '<BS>m', function()
   require('hop-extensions').ts.hint_textobjects({}, '@function')
 end)
 
-vim.keymap.set({ 'n', 'v' }, '<BS>p', function()
+vim.keymap.set({ 'n', 'v' }, '<BS>a', function()
   require('hop-extensions').ts.hint_textobjects({}, '@parameter')
 end)
 

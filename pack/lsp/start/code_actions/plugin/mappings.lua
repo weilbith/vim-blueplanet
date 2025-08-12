@@ -5,8 +5,4 @@ vim.keymap.set({ 'n', 'x' }, 'grA', function()
     end,
     apply = true,
   })
-end, {
-  desc = 'apply preferred code action if there is one',
-  noremap = true,
-  silent = true,
-})
+end, { desc = 'apply preferred code action if there is one' })

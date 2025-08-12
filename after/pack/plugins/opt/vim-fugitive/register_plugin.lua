@@ -1,4 +1,1 @@
-require('packer').use({
-  'tpope/vim-fugitive',
-  cmd = 'Git',
-})
+require('packer').use({ 'tpope/vim-fugitive', opt = true })

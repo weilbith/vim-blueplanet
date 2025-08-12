@@ -1,5 +1,20 @@
-vim.api.nvim_set_keymap('n', '<leader>bd', '<cmd>bdelete<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>bn', '<cmd>bnext<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>bN', '<cmd>bprevious<CR>', {})
+vim.keymap.set(
+  'n',
+  '<leader>bd',
+  '<cmd>bdelete<CR>',
+  { desc = 'close current buffer with its window', unique = true }
+)
 
--- Gets extended by a couple of plugin specific mappings.
+vim.keymap.set(
+  'n',
+  '<leader>bn',
+  '<cmd>bnext<CR>',
+  { desc = 'open next listed buffer in current window' }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>bN',
+  '<cmd>bprevious<CR>',
+  { desc = 'open previous listed buffer in current window' }
+)
