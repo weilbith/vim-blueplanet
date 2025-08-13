@@ -1,0 +1,1 @@
+require('plugin_manager').load_package_on_event_s('ultimate-autopair.nvim', 'InsertEnter')

@@ -1,4 +1,1 @@
-require('packer').use({
-  'romainl/vim-cool',
-  event = 'CursorMoved',
-})
+require('packer').use({ 'romainl/vim-cool', opt = true })

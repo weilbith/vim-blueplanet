@@ -1,5 +1,5 @@
 require('packer').use({
   'akinsho/bufferline.nvim',
-  event = 'BufEnter',
+  opt = true,
   requires = { 'kyazdani42/nvim-web-devicons' },
 })

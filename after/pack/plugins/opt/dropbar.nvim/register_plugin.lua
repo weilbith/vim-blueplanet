@@ -1,6 +1,6 @@
 require('packer').use({
   'Bekaboo/dropbar.nvim',
-  event = 'VimEnter',
+  opt = true,
   requires = {
     { 'nvim-tree/nvim-web-devicons', module = 'nvim-web-devicons' },
   },

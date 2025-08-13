@@ -1,4 +1,1 @@
-require('packer').use({
-  'altermo/ultimate-autopair.nvim',
-  event = 'InsertEnter',
-})
+require('packer').use({ 'altermo/ultimate-autopair.nvim', opt = true })

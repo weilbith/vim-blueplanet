@@ -1,4 +1,1 @@
-require('packer').use({
-  'RRethy/vim-illuminate',
-  event = 'BufWinEnter',
-})
+require('packer').use({ 'RRethy/vim-illuminate', opt = true })

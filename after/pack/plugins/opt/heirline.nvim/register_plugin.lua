@@ -1,4 +1,1 @@
-require('packer').use({
-  'rebelot/heirline.nvim',
-  event = 'VimEnter',
-})
+require('packer').use({ 'rebelot/heirline.nvim', opt = true })
