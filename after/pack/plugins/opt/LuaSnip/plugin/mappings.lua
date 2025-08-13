@@ -5,5 +5,3 @@ vim.keymap.set({ 'i', 's' }, '<C-c>', function()
 end, {
   desc = 'cycle through choice nodes of active snippet',
 })
-
-vim.keymap.del('s', 'p') -- disable default mapping and recover default
