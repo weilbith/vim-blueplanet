@@ -1,4 +1,1 @@
-require('packer').use({
-  'psliwka/vim-smoothie',
-  fn = 'smoothie#*',
-})
+require('packer').use({ 'psliwka/vim-smoothie', opt = true })

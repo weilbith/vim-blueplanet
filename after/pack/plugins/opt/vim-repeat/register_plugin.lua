@@ -1,4 +1,1 @@
-require('packer').use({
-  'tpope/vim-repeat',
-  fn = 'repeat#*',
-})
+require('packer').use({ 'tpope/vim-repeat', opt = true })
