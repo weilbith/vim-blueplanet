@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_require_lua_module('conform.nvim', 'conform')
+require('plugin_manager').lazy_load_plugin_on_lua_module('conform.nvim', 'conform')
 
 vim.g.format_buffer_function = function(buffer)
   require('conform').format({ bufnr = buffer })

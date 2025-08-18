@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_require_lua_module('nvim-dap', 'dap')
+require('plugin_manager').lazy_load_plugin_on_lua_module('nvim-dap', 'dap')
 
 vim.keymap.set('n', '<leader>db', function()
   require('dap').toggle_breakpoint()

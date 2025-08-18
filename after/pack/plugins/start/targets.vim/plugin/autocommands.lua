@@ -1,1 +1,1 @@
-require('plugin_manager').load_package_on_event_s('targets.vim', 'BufEnter')
+require('plugin_manager').lazy_load_plugin_on_event('targets.vim', 'BufEnter')

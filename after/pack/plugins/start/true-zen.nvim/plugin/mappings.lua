@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_require_lua_module('true-zen.nvim', 'true-zen')
+require('plugin_manager').lazy_load_plugin_on_lua_module('true-zen.nvim', 'true-zen')
 
 vim.keymap.set('n', '<leader>wf', function()
   require('true-zen.focus').toggle()

@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_command_s('vim-sayonara', 'Sayonara')
+require('plugin_manager').lazy_load_plugin_on_command('vim-sayonara', 'Sayonara')
 
 vim.keymap.set(
   'n',

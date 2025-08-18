@@ -1,4 +1,4 @@
-require("plugin_manager").load_package_on_require_lua_module("gitlinker.nvim", "gitlinker")
+require('plugin_manager').lazy_load_plugin_on_lua_module('gitlinker.nvim', 'gitlinker')
 
 vim.keymap.set('n', '<leader>gy', function()
   require('gitlinker').get_buf_range_url('n')

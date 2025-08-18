@@ -63,7 +63,7 @@ end
 ---
 --- @param plugin_name string
 --- @param command_name_s string | string[]
-local function load_package_on_command_s(plugin_name, command_name_s)
+local function lazy_load_plugin_on_command_s(plugin_name, command_name_s)
   local command_names = type(command_name_s) == 'string' and { command_name_s }
     or type(command_name_s) == 'table' and command_name_s
     or {}
@@ -86,6 +86,4 @@ local function load_package_on_command_s(plugin_name, command_name_s)
   end
 end
 
-return {
-  load_package_on_command_s = load_package_on_command_s,
-}
+return lazy_load_plugin_on_command_s

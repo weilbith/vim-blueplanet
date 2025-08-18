@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_command_s(
+require('plugin_manager').lazy_load_plugin_on_command(
   'vim-choosewin',
   { 'ChooseWin', 'ChooseWinSwap' }
 )

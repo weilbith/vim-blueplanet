@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_command_s('octo.nvim', 'Octo')
+require('plugin_manager').lazy_load_plugin_on_command('octo.nvim', 'Octo')
 
 vim.keymap.set(
   'n',

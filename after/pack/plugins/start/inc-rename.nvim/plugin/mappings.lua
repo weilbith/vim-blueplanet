@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_command_s('inc-rename.nvim', 'IncRename')
+require('plugin_manager').lazy_load_plugin_on_command('inc-rename.nvim', 'IncRename')
 
 vim.keymap.set('n', 'grN', function()
   local current_name = vim.fn.expand('<cword>')

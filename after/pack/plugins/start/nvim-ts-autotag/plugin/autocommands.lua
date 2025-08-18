@@ -1,1 +1,1 @@
-require('plugin_manager').load_package_on_event_s('nvim-ts-autotag', 'InsertEnter')
+require('plugin_manager').lazy_load_plugin_on_event('nvim-ts-autotag', 'InsertEnter')

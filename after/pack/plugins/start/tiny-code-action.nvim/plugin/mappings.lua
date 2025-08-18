@@ -1,5 +1,4 @@
--- TODO: causes errors
-require('plugin_manager').load_package_on_require_lua_module(
+require('plugin_manager').lazy_load_plugin_on_lua_module(
   'tiny-code-action.nvim',
   'tiny-code-action'
 )

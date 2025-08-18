@@ -9,7 +9,7 @@
 --- @param plugin_name string
 --- @param event_name_s string | string[] see `:help autocmd-events`
 --- @param pattern? string | string[] see `:help autocmd-pattern`
-local function load_package_on_event_s(plugin_name, event_name_s, pattern)
+local function lazy_load_plugin_on_event_s(plugin_name, event_name_s, pattern)
   local group_name = 'lazy-load-plugin_' .. plugin_name
   local group = vim.api.nvim_create_augroup(group_name, {})
 
@@ -23,6 +23,4 @@ local function load_package_on_event_s(plugin_name, event_name_s, pattern)
   })
 end
 
-return {
-  load_package_on_event_s = load_package_on_event_s,
-}
+return lazy_load_plugin_on_event_s

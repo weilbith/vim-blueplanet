@@ -1,1 +1,1 @@
-require('plugin_manager').load_package_on_event_s('heirline.nvim', 'VimEnter')
+require('plugin_manager').lazy_load_plugin_on_event('heirline.nvim', 'VimEnter')

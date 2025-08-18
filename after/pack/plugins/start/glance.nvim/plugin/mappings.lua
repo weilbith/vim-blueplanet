@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_command_s('glance.nvim', 'Glance')
+require('plugin_manager').lazy_load_plugin_on_command('glance.nvim', 'Glance')
 
 vim.keymap.set(
   'n',

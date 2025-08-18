@@ -1,1 +1,1 @@
-require('plugin_manager').load_package_on_event_s('vim-illuminate', 'BufEnter')
+require('plugin_manager').lazy_load_plugin_on_event('vim-illuminate', 'BufEnter')

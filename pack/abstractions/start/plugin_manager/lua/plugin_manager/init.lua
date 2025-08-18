@@ -1,5 +1,5 @@
 return {
-  load_package_on_event_s = require('plugin_manager.autocommand').load_package_on_event_s,
-  load_package_on_command_s = require('plugin_manager.placeholder_command').load_package_on_command_s,
-  load_package_on_require_lua_module = require('plugin_manager.module').load_package_on_require_lua_module,
+  lazy_load_plugin_on_command = require('plugin_manager.lazy_loading.on_command'),
+  lazy_load_plugin_on_event = require('plugin_manager.lazy_loading.on_event'),
+  lazy_load_plugin_on_lua_module = require('plugin_manager.lazy_loading.on_lua_module'),
 }

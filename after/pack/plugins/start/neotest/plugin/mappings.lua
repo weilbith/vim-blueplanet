@@ -1,5 +1,5 @@
-require('plugin_manager').load_package_on_command_s('neotest', 'Neotest')
-require('plugin_manager').load_package_on_require_lua_module('neotest', 'neotest')
+require('plugin_manager').lazy_load_plugin_on_command('neotest', 'Neotest')
+require('plugin_manager').lazy_load_plugin_on_lua_module('neotest', 'neotest')
 
 vim.keymap.set('n', '<localleader>tn', '<cmd>Neotest run<CR>', { desc = 'run test case at cursor' })
 

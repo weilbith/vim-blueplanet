@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_require_lua_module('nvim-treehopper', 'tsht')
+require('plugin_manager').lazy_load_plugin_on_lua_module('nvim-treehopper', 'tsht')
 
 vim.keymap.set('n', '<C-l>', function()
   require('tsht').move({ side = 'end' })

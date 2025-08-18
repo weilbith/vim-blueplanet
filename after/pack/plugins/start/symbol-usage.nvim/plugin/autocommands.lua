@@ -1,1 +1,1 @@
-require('plugin_manager').load_package_on_event_s('symbol-usage.nvim', 'LspAttach')
+require('plugin_manager').lazy_load_plugin_on_event('symbol-usage.nvim', 'LspAttach')

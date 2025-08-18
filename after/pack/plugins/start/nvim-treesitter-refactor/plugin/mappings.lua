@@ -1,4 +1,4 @@
-require('plugin_manager').load_package_on_require_lua_module(
+require('plugin_manager').lazy_load_plugin_on_lua_module(
   'nvim-treesitter-refactor',
   'nvim-treesitter-refactor'
 )

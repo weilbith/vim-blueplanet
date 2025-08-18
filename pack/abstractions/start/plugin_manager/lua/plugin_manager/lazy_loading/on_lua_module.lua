@@ -57,13 +57,11 @@ end
 --- @param plugin_name string
 --- @param root_module_name string
 --- @return nil
-local function load_package_on_require_lua_module(plugin_name, root_module_name)
+local function lazy_load_plugin_on_lua_module(plugin_name, root_module_name)
   local searcher_function = create_searcher_function_for_module(plugin_name, root_module_name)
   local index_of_new_loader = #package.loaders - 1 -- Insert before default error handler function.
   table.insert(package.loaders, index_of_new_loader, searcher_function)
   -- TODO: How to remove enty after module is loaded? Issue with list indicies.
 end
 
-return {
-  load_package_on_require_lua_module = load_package_on_require_lua_module,
-}
+return lazy_load_plugin_on_lua_module
