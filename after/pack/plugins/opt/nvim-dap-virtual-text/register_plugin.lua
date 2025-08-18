@@ -1,5 +1,4 @@
-require('packer').use({
-  'theHamsta/nvim-dap-virtual-text',
-  requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
-  after = 'nvim-dap',
-})
+require('packer').use({ 'theHamsta/nvim-dap-virtual-text', after = 'nvim-dap' })
+
+-- Dependencies
+require('packer').use({ 'nvim-treesitter/nvim-treesitter', opt = true })

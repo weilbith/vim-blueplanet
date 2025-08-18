@@ -1,5 +1,4 @@
-require('packer').use({
-  'rcarriga/nvim-dap-ui',
-  requires = { 'nvim-neotest/nvim-nio', opt = true },
-  after = 'nvim-dap',
-})
+require('packer').use({ 'rcarriga/nvim-dap-ui', after = 'nvim-dap' })
+
+-- Dependencies
+require('packer').use({ 'nvim-neotest/nvim-nio', opt = true })

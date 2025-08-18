@@ -1,8 +1,5 @@
-require('packer').use({
-  'tobias-z/java-util.nvim',
-  requires = {
-    { 'nvim-treesitter/nvim-treesitter', opt = true },
-    { 'nvim-lua/plenary.nvim', opt = true },
-  },
-  opt = true,
-})
+require('packer').use({ 'tobias-z/java-util.nvim', opt = true })
+
+-- Dependencies
+require('packer').use({ 'nvim-treesitter/nvim-treesitter', opt = true })
+require('packer').use({ 'nvim-lua/plenary.nvim', opt = true })

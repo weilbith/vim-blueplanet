@@ -1,9 +1,9 @@
 require('packer').use({
   'nvim-telescope/telescope.nvim',
-  requires = {
-    { 'nvim-lua/plenary.nvim', opt = true },
-    { 'nvim-tree/nvim-web-devicons', opt = true },
-    { 'nvim-telescope/telescope-fzy-native.nvim', opt = true },
-  },
   opt = true,
 })
+
+-- Dependencies
+require('packer').use({ 'nvim-lua/plenary.nvim', opt = true })
+require('packer').use({ 'nvim-tree/nvim-web-devicons', opt = true })
+require('packer').use({ 'nvim-telescope/telescope-fzy-native.nvim', opt = true })

@@ -1,14 +1,10 @@
+require('packer').use({ 'mfussenegger/nvim-dap', opt = true })
+
+-- Dependencies
+require('packer').use({ 'mxsdev/nvim-dap-vscode-js', opt = true })
 require('packer').use({
-  'mfussenegger/nvim-dap',
+  'microsoft/vscode-js-debug',
   opt = true,
-  requires = {
-    'mxsdev/nvim-dap-vscode-js',
-    opt = true,
-    requires = {
-      'microsoft/vscode-js-debug',
-      opt = true,
-      tag = 'v1.74.0',
-      run = 'npm install --legacy-peer-deps --no-audit && npm run compile',
-    },
-  },
+  tag = 'v1.74.0',
+  run = 'npm install --legacy-peer-deps --no-audit && npm run compile',
 })
