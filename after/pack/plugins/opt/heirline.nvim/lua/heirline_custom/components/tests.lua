@@ -47,8 +47,8 @@ local TestBlock = {
   condition = function(self)
     local window_identifier = vim.fn.win_getid(self.winnr)
     self.buffer_number = vim.api.nvim_win_get_buf(window_identifier)
-    local neotest_available, _ = pcall(require, 'neotest')
-    return neotest_available and has_test_cases(self.buffer_number)
+    local is_neotest_loaded, _ = package.loaded.neotest
+    return is_neotest_loaded and has_test_cases(self.buffer_number)
   end,
   init = function(self)
     local test_case_numbers = get_test_case_numbers(self.buffer_number)
