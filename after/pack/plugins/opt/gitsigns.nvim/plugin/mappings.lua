@@ -10,7 +10,7 @@ vim.keymap.set(
 vim.keymap.set(
   'n',
   '<leader>ghd',
-  '<cmdsGitsigns preview_hunk_inline<CR>',
+  '<cmd>Gitsigns preview_hunk_inline<CR>',
   { desc = 'preview the diff of the git hunk under the cursor' }
 )
 
