@@ -1,15 +1,16 @@
---- Mechanism to postpone the loading of an optional package ("plugin") by the
---- trigger of an event. Also known as lazy loading. (see `:help packages`)
+--- Mechanism to postpone the loading of a plugin in an optional package by the
+--- trigger of an event. Also known as lazy loading.
+--- (see `:help packages`)
 ---
 --- This is quite trivial logic, but saves some annoying boilerplate code
 --- everywhere. Under the hood it simply defines a one-shot auto-command to load
---- the package.
+--- the plugin.
 ---
---- @param package_name string
+--- @param plugin_name string
 --- @param event_name_s string | string[] see `:help autocmd-events`
 --- @param pattern? string | string[] see `:help autocmd-pattern`
-local function load_package_on_event_s(package_name, event_name_s, pattern)
-  local group_name = 'load-' .. package_name
+local function load_package_on_event_s(plugin_name, event_name_s, pattern)
+  local group_name = 'lazy-load-plugin_' .. plugin_name
   local group = vim.api.nvim_create_augroup(group_name, {})
 
   vim.api.nvim_create_autocmd(event_name_s, {
@@ -17,7 +18,7 @@ local function load_package_on_event_s(package_name, event_name_s, pattern)
     once = true,
     pattern = pattern,
     callback = function()
-      vim.cmd.packadd(package_name)
+      vim.cmd.packadd(plugin_name)
     end,
   })
 end

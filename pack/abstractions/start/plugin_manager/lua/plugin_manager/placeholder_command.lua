@@ -24,11 +24,11 @@ end
 --- Handler for a user command. Mediates to the actual command.
 --- (see `:help nvim_create_user_command()`)
 ---
---- @param package_name string
+--- @param plugin_name string
 --- @return function command_handler
-local function create_handler_for_placeholder_command(package_name)
+local function create_handler_for_placeholder_command(plugin_name)
   return function(captured_arguments)
-    vim.cmd.packadd(package_name)
+    vim.cmd.packadd(plugin_name)
 
     local command = parse_captured_arguments_as_command(captured_arguments)
     vim.cmd(command)
@@ -38,32 +38,32 @@ end
 --- Callback for user command completion. Mediates to the actual command.
 --- (see `:help nvim_create_user_command()`)
 ---
---- @param package_name string
+--- @param plugin_name string
 --- @param command_name string
 --- @return function handler
-local function create_callback_for_command_completion(package_name, command_name)
+local function create_callback_for_command_completion(plugin_name, command_name)
   return function()
-    vim.cmd.packadd(package_name)
+    vim.cmd.packadd(plugin_name)
     return vim.fn.getcompletion(command_name .. ' ', 'cmdline') -- Without the trailing space, completion does not trigger properly.
   end
 end
 
---- Mechanism to postpone the loading of an optional package ("plugin") by the
---- trigger of a command. Also known as lazy loading. (see `:help packages`)
+--- Mechanism to postpone the loading of a plugin in an optional package by the
+--- trigger of a command. (see `:help packages`)
 ---
---- This creates a placeholder command for each given command of the package. On
---- first call it loads the package that actually defines the command(s) and
+--- This creates a placeholder command for each given command of the plugin. On
+--- first call it loads the plugin that actually defines the command(s) and
 --- dispatches the command call again.
 --- A similar mechanism is triggered when any placeholder command is used
 --- directly in the command-line and autocompletion is triggered.
 ---
 --- Note:
---- It is expected that packages "force" overwrite all of its commands. That
+--- It is expected that plugins "force" overwrite all of its commands. That
 --- means they do no set the `unique` option.
 ---
---- @param package_name string
---- @param command_name_s string | string[] command name(s) - one or more
-local function load_package_on_command_s(package_name, command_name_s)
+--- @param plugin_name string
+--- @param command_name_s string | string[]
+local function load_package_on_command_s(plugin_name, command_name_s)
   local command_names = type(command_name_s) == 'string' and { command_name_s }
     or type(command_name_s) == 'table' and command_name_s
     or {}
@@ -71,12 +71,12 @@ local function load_package_on_command_s(package_name, command_name_s)
   for _, command_name in ipairs(command_names) do
     vim.api.nvim_create_user_command(
       command_name,
-      create_handler_for_placeholder_command(package_name),
+      create_handler_for_placeholder_command(plugin_name),
       {
         nargs = '*',
         bang = true,
         range = true,
-        complete = create_callback_for_command_completion(package_name, command_name),
+        complete = create_callback_for_command_completion(plugin_name, command_name),
         desc = string.format(
           'Lazy loading listener to load real %s command. The actual command description will be available on first usage.',
           command_name
