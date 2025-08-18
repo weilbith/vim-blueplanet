@@ -1,8 +1,9 @@
 require('packer').use({
   'mfussenegger/nvim-dap',
+  opt = true,
   requires = {
     'mxsdev/nvim-dap-vscode-js',
-    module = 'dap-vscode-js',
+    opt = true,
     requires = {
       'microsoft/vscode-js-debug',
       opt = true,
@@ -10,5 +11,4 @@ require('packer').use({
       run = 'npm install --legacy-peer-deps --no-audit && npm run compile',
     },
   },
-  module = 'dap',
 })

@@ -1,4 +1,1 @@
-require('packer').use({
-  'b0o/SchemaStore.nvim',
-  module = 'schemastore',
-})
+require('packer').use({ 'b0o/SchemaStore.nvim' })

@@ -12,6 +12,5 @@ require('packer').use({
     { 'nvim-neotest/neotest-go', module = 'neotest-go' },
     { 'weilbith/neotest-gradle', module = 'neotest-gradle' },
   },
-  module = 'neotest',
   opt = true,
 })

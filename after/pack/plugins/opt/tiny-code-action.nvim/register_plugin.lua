@@ -4,5 +4,4 @@ require('packer').use({
     { 'nvim-lua/plenary.nvim', module = 'plenary' },
     { 'nvim-telescope/telescope.nvim', module = 'telescope' },
   },
-  module = 'tiny-code-action',
 })

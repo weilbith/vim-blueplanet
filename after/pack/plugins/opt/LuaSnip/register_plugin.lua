@@ -1,1 +1,1 @@
-require('packer').use({ 'L3MON4D3/LuaSnip', branch = 'better_callbacks' })
+require('packer').use({ 'L3MON4D3/LuaSnip', branch = 'better_callbacks', opt = true })

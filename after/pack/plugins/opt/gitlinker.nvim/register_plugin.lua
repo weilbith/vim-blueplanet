@@ -1,4 +1,1 @@
-require('packer').use({
-  'ruifm/gitlinker.nvim',
-  module = 'gitlinker',
-})
+require('packer').use({ 'ruifm/gitlinker.nvim', opt = true })

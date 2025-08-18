@@ -12,6 +12,9 @@ vim.keymap.set({ 'n', 'x' }, '<BS>k', '<cmd>HopWordBC<CR>')
 vim.keymap.set({ 'n', 'x' }, '<BS>f', '<cmd>HopChar1AC<CR>')
 vim.keymap.set({ 'n', 'x' }, '<BS>F', '<cmd>HopChar1BC<CR>')
 
+require('plugin_manager').load_package_on_require_lua_module('hop.nvim', 'hop')
+require('plugin_manager').load_package_on_require_lua_module('hop-extensions', 'hop-extensions')
+
 vim.keymap.set({ 'n', 'v' }, '<BS>o', function()
   require('hop-extensions').ts.hint_locals()
 end)

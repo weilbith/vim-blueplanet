@@ -1,3 +1,8 @@
+require('plugin_manager').load_package_on_require_lua_module(
+  'nvim-treesitter-refactor',
+  'nvim-treesitter-refactor'
+)
+
 vim.keymap.set('n', 'gd', function()
   require('nvim-treesitter-refactor.navigation').goto_definition()
 end, { desc = 'go to local definition of target under cursor (by Treesitter)' })
