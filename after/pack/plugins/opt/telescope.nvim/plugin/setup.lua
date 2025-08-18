@@ -1,3 +1,6 @@
+vim.cmd.packadd('plenary.nvim')
+vim.cmd.packadd('nvim-web-devicons')
+
 local function show_file_history(buffer_number)
   local actions = require('telescope.actions')
   local state = require('telescope.actions.state')
@@ -93,4 +96,5 @@ require('telescope').setup({
   },
 })
 
+vim.cmd.packadd('telescope-fzy-native.nvim')
 require('telescope').load_extension('fzy_native')

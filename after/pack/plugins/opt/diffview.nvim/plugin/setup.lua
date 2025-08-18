@@ -1,3 +1,5 @@
+vim.cmd.packadd('nvim-web-devicons')
+
 local get_fill_character = require('custom.utils').get_fill_character
 
 require('diffview').setup({

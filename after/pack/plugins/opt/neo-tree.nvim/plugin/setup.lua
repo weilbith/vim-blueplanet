@@ -1,3 +1,7 @@
+vim.cmd.packadd('plenary.nvim')
+vim.cmd.packadd('nui.nvim')
+vim.cmd.packadd('nvim-web-devicons')
+
 require('neo-tree').setup({
   enable_modified_markers = false,
   -- TODO: How to display expanders only where folds are?
@@ -105,4 +109,5 @@ require('neo-tree').setup({
   },
 })
 
+vim.cmd.packadd('nvim-lsp-file-operations')
 require('lsp-file-operations').setup()

@@ -1,6 +1,6 @@
 require('packer').use({
   'LiadOz/nvim-dap-repl-highlights',
-  requires = 'nvim-treesitter/nvim-treesitter',
+  requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
   opt = true,
   run = function()
     require('nvim-dap-repl-highlights').setup()

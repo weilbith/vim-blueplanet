@@ -1,6 +1,6 @@
 require('packer').use({
   'tpope/vim-dadbod',
-  requires = { 'kristijanhusak/vim-dadbod-ui' },
+  requires = { 'kristijanhusak/vim-dadbod-ui', opt = true },
   opt = true,
 })
 

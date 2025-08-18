@@ -1,7 +1,10 @@
+vim.cmd.packadd('nvim-dap-vscode-js')
+
 require('dap-vscode-js').setup({
   adapters = { 'pwa-node', 'pwa-chrome' },
 })
 
+-- TODO: fix registration
 require('dap').configurations[vim.bo[0].ft] = {
   {
     type = 'pwa-node',

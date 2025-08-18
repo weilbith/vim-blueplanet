@@ -1,3 +1,6 @@
+vim.cmd.packadd('plenary.nvim')
+vim.cmd.packadd('telescope.nvim')
+
 require('tiny-code-action').setup({
   backend = 'delta',
   backend_opts = {

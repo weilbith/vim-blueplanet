@@ -1,3 +1,5 @@
+vim.cmd.packadd('nvim-nio')
+
 require('dapui').setup()
 
 local dap = require('dap')

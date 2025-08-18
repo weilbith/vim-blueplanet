@@ -1,3 +1,5 @@
+vim.cmd.packadd('plenary.nvim')
+
 local sources = require('cmp.config.sources')
 
 require('cmp').setup({

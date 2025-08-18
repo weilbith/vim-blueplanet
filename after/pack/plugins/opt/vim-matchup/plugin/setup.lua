@@ -1,3 +1,5 @@
+vim.cmd.packadd('nvim-treesitter')
+
 vim.g.matchup_matchparen_enabled = 1
 vim.g.matchup_matchparen_status_offscreen = 'popup'
 vim.g.matchup_matchparen_defer = 1

@@ -1,3 +1,15 @@
+vim.cmd.packadd('plenary.nvim')
+vim.cmd.packadd('FixCursorHold.nvim')
+vim.cmd.packadd('nvim-nio')
+-- TODO: How to load and register adapter on filetype?
+vim.cmd.packadd('neotest-gradle')
+vim.cmd.packadd('neotest-vitest')
+vim.cmd.packadd('neotest-rust')
+vim.cmd.packadd('neotest-go')
+vim.cmd.packadd('neotest-jest')
+vim.cmd.packadd('neotest-python')
+vim.cmd.packadd('neotest-playwright')
+
 require('neotest').setup({
   adapters = {
     require('neotest-gradle'),

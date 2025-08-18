@@ -1,3 +1,5 @@
+vim.cmd.packadd('nvim-treesitter')
+
 require('nvim-treesitter.configs').setup({
   textsubjects = {
     enable = true,

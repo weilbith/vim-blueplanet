@@ -12,7 +12,7 @@ require('packer').use({
     { 'andersevenrud/cmp-tmux' },
     { 'petertriho/cmp-git' },
     { 'saadparwaiz1/cmp_luasnip' },
-    { 'rcarriga/cmp-dap', module = 'cmp-dap' },
+    { 'rcarriga/cmp-dap', opt = true }, -- TODO: Why is this not used?
   },
 })
 -- add vcard for mails

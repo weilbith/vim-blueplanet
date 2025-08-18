@@ -1,3 +1,5 @@
+vim.cmd.packadd('nvim-web-devicons')
+
 local constants = require('dropbar_custom.constants')
 
 require('dropbar').setup({

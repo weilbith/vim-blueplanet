@@ -1,3 +1,5 @@
+vim.cmd.packadd('promise-async')
+
 local filetype_provider_mapping = {
   yaml = { 'treesitter', 'indent' },
   ['neo-tree'] = '',
