@@ -1,4 +1,1 @@
-require('packer').use({
-  'RRethy/nvim-treesitter-textsubjects',
-  after = 'nvim-treesitter',
-})
+require('packer').use({ 'RRethy/nvim-treesitter-textsubjects' })
