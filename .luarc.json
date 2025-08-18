@@ -1,4 +1,7 @@
 {
+  "runtime": {
+    "version": "LuaJIT"
+  },
   "workspace": {
     "ignoreDir": [
       ".devbox"
