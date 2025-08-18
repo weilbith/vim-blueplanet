@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd({ 'LspAttach', 'InsertLeave' }, {
   group = group,
   callback = function(arguments)
     local supporting_clients = vim.tbl_filter(function(client)
-      return client.supports_method('textDocument/codeLens')
+      return client:supports_method('textDocument/codeLens')
     end, vim.lsp.get_clients({ bufnr = arguments.buf }))
 
     if #supporting_clients > 0 then

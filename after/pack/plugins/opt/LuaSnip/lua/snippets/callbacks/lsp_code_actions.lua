@@ -135,7 +135,7 @@ local function request_client_with_retries(options, retry_count, deadlock_count)
       end
     end
 
-    options.client.request(options.method_name, parameter, handle_response, options.buffer)
+    options.client:request(options.method_name, parameter, handle_response, options.buffer)
   end
 end
 

@@ -23,7 +23,7 @@ end
 local function send_request_to_server(trigger_character, client_identifier)
   local client = vim.lsp.get_client_by_id(client_identifier)
   local parameters = build_request_parameters(trigger_character)
-  client.request('textDocument/onTypeFormatting', parameters, apply_text_edits_of_response, 0)
+  client:request('textDocument/onTypeFormatting', parameters, apply_text_edits_of_response, 0)
 end
 
 --- This schedules a request via the client to request formatting.

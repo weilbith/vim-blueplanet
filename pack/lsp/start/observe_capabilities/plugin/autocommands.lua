@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if client ~= nil and client.server_capabilities.documentLinkProvider then
       local method = 'textDocument/documentLink'
       local parameter = { textDocument = vim.lsp.util.make_text_document_params(0) }
-      local response = client.request_sync(method, parameter)
+      local response = client:request_sync(method, parameter)
       local result = (response or {}).result or {}
 
       if #result > 0 then

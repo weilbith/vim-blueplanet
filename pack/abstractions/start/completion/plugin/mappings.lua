@@ -8,7 +8,6 @@ vim.keymap.set({ 'i', 'c', 's' }, '<CR>', function()
     escape_and_feed_keys('<CR>', 'n')
   end
 end, {
-  unique = true,
   desc = 'confirm selected entry if completion menu is open, else normal <CR>',
 })
 
@@ -19,7 +18,6 @@ vim.keymap.set({ 'i', 'c', 's' }, '<Tab>', function()
     escape_and_feed_keys('<Tab>', 'n')
   end
 end, {
-  unique = true,
   desc = 'select next entry if completion menu is open, else normal <Tab>',
 })
 
@@ -30,7 +28,6 @@ vim.keymap.set({ 'i', 'c', 's' }, '<S-Tab>', function()
     escape_and_feed_keys('<S-Tab>', 'n')
   end
 end, {
-  unique = true,
   desc = 'select previous entry if completion menu is open, else normal <S-Tab>',
 })
 
@@ -41,6 +38,5 @@ vim.keymap.set({ 'i', 'c', 's' }, '<C-e>', function()
     escape_and_feed_keys('<C-e>', 'n')
   end
 end, {
-  unique = true,
   desc = 'close completion menu if open, else normal control <C-e>',
 })

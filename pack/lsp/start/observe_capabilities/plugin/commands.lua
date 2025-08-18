@@ -2,7 +2,7 @@ local function request_all_supporting_clients(method, parameter)
   local all_clients = vim.lsp.get_clients({ method = method })
 
   for _, client in ipairs(all_clients) do
-    client.request(method, parameter, function(error, result, context)
+    client:request(method, parameter, function(error, result, context)
       local name = vim.lsp.get_client_by_id(context.client_id).name
       print(name)
 
