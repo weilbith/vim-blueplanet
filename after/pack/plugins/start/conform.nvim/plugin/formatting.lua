@@ -1,13 +1,5 @@
 require('plugin_manager').load_package_on_require_lua_module('conform.nvim', 'conform')
 
 vim.g.format_buffer_function = function(buffer)
-  require('conform').format({
-    bufnr = buffer,
-    lsp_format = "first",
-    filter = function (client)
-      -- Causes issues in combination with Prettier formatting.
-      -- Disabling formatting on server configuration causes issues in conform.
-      return client.name ~= "VSCode TypeScript Wrapper"
-    end
-  })
+  require('conform').format({ bufnr = buffer })
 end
