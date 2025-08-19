@@ -1,5 +1,3 @@
-local escape_and_feed_keys = require('custom.utils').escape_and_feed_keys
-
 vim.keymap.set(
   'n',
   '<leader>gm',
@@ -65,20 +63,24 @@ vim.keymap.set(
 
 vim.keymap.set('n', ']c', function()
   if vim.wo.diff then
-    escape_and_feed_keys(']c', 'n')
+    return ']c'
   else
     vim.cmd('Gitsigns nav_hunk next')
+    return ''
   end
 end, {
+  expr = true,
   desc = 'jump to next git change hunk',
 })
 
 vim.keymap.set('n', '[c', function()
   if vim.wo.diff then
-    escape_and_feed_keys('[c', 'n')
+    return '[c'
   else
     vim.cmd('Gitsigns nav_hunk prev')
+    return ''
   end
 end, {
+  expr = true,
   desc = 'jump to previous git change hunk',
 })
