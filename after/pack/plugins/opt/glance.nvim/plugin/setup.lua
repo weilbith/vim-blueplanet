@@ -1,4 +1,3 @@
-local get_fill_character = require('custom.utils').get_fill_character
 local glance = require('glance')
 
 glance.register_method({
@@ -15,8 +14,8 @@ glance.register_method({
 
 glance.setup({
   folds = {
-    fold_closed = get_fill_character('foldclose'),
-    fold_open = get_fill_character('foldopen'),
+    fold_closed = vim.opt.fillchars:get().foldclose,
+    fold_open = vim.opt.fillchars:get().foldopen,
   },
   border = {
     enable = true,
