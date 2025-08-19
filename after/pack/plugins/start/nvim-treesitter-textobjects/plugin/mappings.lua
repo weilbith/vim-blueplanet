@@ -1,3 +1,11 @@
+require('plugin_manager').lazy_load_plugin_on_command('nvim-treesitter-textobjects', {
+  'TSTextobjectSelect',
+  'TSTextobjectGotoNextStart',
+  'TSTextobjectGotoPreviousStart',
+  'TSTextobjectGotoNextEnd',
+  'TSTextobjectGotoPreviousEnd',
+})
+
 vim.keymap.set(
   { 'o', 'v' },
   'am',
