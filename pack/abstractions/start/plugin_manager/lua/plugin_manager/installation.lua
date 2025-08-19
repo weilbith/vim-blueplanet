@@ -31,13 +31,13 @@ end
 
 local function update()
   setup()
-  vim.cmd.runtime({ 'OPT register_plugin.lua', bang = true })
+  vim.cmd.runtime({ 'START plugin_specification.lua', bang = true })
   require('packer').sync()
 end
 
 local function install_new()
   setup()
-  vim.cmd.runtime({ 'OPT register_plugin.lua', bang = true })
+  vim.cmd.runtime({ 'START plugin_specification.lua', bang = true })
   require('packer').install()
 end
 
