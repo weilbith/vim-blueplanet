@@ -1,19 +1,14 @@
 local surround = require('heirline.utils').surround
 local get_highlight = require('heirline.utils').get_highlight
 
-local running_icon = (vim.api.nvim_call_function('sign_getdefined', { 'neotest_running' })[1] or {}).text
-  or ''
-local passed_icon = (vim.api.nvim_call_function('sign_getdefined', { 'neotest_passed' })[1] or {}).text
-  or ''
-local failed_icon = (vim.api.nvim_call_function('sign_getdefined', { 'neotest_failed' })[1] or {}).text
-  or ''
+local running_icon = (vim.fn.sign_getdefined('neotest_running')[1] or {}).text or ''
+local passed_icon = (vim.fn.sign_getdefined('neotest_passed')[1] or {}).text or ''
+local failed_icon = (vim.fn.sign_getdefined('neotest_failed')[1] or {}).text or ''
 
 local function has_test_cases(buffer_number)
   for _, adapter_identifier in pairs(require('neotest').state.adapter_ids()) do
-    local positions = require('neotest').state.positions(
-      adapter_identifier,
-      { buffer = buffer_number }
-    )
+    local positions =
+      require('neotest').state.positions(adapter_identifier, { buffer = buffer_number })
     if positions ~= nil then
       return true
     end
