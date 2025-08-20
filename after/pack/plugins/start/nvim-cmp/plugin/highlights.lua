@@ -1,5 +1,5 @@
-vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { link = 'Blue' })
-vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link = 'BlueItalic' })
+vim.api.nvim_set_hl(0, 'CmpItemAbbrMatch', { link = 'Bold' })
+vim.api.nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link = 'ItalicBold' })
 vim.api.nvim_set_hl(0, 'CmpItemAbbrDeprecated', { foreground = '#808080', strikethrough = true })
 vim.api.nvim_set_hl(0, 'CmpItemKind', { link = 'LightGrey' })
 

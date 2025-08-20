@@ -1,0 +1,8 @@
+vim.api.nvim_set_hl(0, 'GlanceFoldIcon', { link = 'LightGreyBold' })
+vim.api.nvim_set_hl(0, 'GlanceIndent', { link = 'Grey' })
+vim.api.nvim_set_hl(0, 'GlanceListCount', { link = 'PurpleBackgroundContrast' })
+vim.api.nvim_set_hl(0, 'GlanceListFilename', { link = 'Blue' })
+vim.api.nvim_set_hl(0, 'GlanceListFilepath', { link = 'WhiteItalic' })
+vim.api.nvim_set_hl(0, 'GlanceListMatch', { link = 'GreenItalic' })
+vim.api.nvim_set_hl(0, 'GlanceListNormal', { link = 'LightPopupBackground' })
+vim.api.nvim_set_hl(0, 'GlancePreviewNormal', { link = 'DarkPopupBackground' })

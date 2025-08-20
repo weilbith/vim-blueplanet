@@ -1,0 +1,19 @@
+vim.api.nvim_set_hl(0, 'NeotestPassed', { link = 'GreenBold' })
+vim.api.nvim_set_hl(0, 'NeotestFailed', { link = 'RedBold' })
+vim.api.nvim_set_hl(0, 'NeotestRunning', { link = 'YellowBold' })
+vim.api.nvim_set_hl(0, 'NeotestSkipped', { link = 'GreyBold' })
+vim.api.nvim_set_hl(0, 'NeotestUnknown', { link = 'Grey' })
+vim.api.nvim_set_hl(0, 'NeotestMarked', { link = 'PurpleItalic' })
+vim.api.nvim_set_hl(0, 'NeotestTarget', { link = 'BlueBold' })
+vim.api.nvim_set_hl(0, 'NeotestExpandMarker', { link = 'Grey' })
+vim.api.nvim_set_hl(0, 'NeotestIndent', { link = 'Grey' })
+vim.api.nvim_set_hl(0, 'NeotestTest', { link = 'WhiteItalic' })
+vim.api.nvim_set_hl(0, 'NeotestFile', { link = 'White' })
+vim.api.nvim_set_hl(0, 'NeotestFocused', { link = 'UnderlinedBold' })
+vim.api.nvim_set_hl(0, 'NeotestNamespace', { link = 'Bold' })
+vim.api.nvim_set_hl(0, 'NeotestDir', { link = 'Blue' })
+vim.api.nvim_set_hl(0, 'NeotestAdapterName', { link = 'BlueBold' })
+
+-- border = "NeotestBorder",
+-- namespace = "NeotestNamespace",
+-- select_win = "NeotestWinSelect",

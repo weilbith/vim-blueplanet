@@ -1,4 +1,9 @@
-for name, settings in pairs(require('lsp.symbols')) do
+for name, settings in pairs(require('icons.lsp.symbol_kind')) do
+  vim.api.nvim_set_hl(0, 'DropBarKind' .. name, { link = settings.highlight, force = true })
+  vim.api.nvim_set_hl(0, 'DropBarIconKind' .. name, { link = 'DropBarKind' .. name, force = true })
+end
+
+for name, settings in pairs(require('icons.lsp.completion_item_kind')) do
   vim.api.nvim_set_hl(0, 'DropBarKind' .. name, { link = settings.highlight, force = true })
   vim.api.nvim_set_hl(0, 'DropBarIconKind' .. name, { link = 'DropBarKind' .. name, force = true })
 end
