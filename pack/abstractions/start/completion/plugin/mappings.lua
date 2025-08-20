@@ -1,49 +1,48 @@
 local completion_menu = require('completion.menu')
 
+--- @param keys string
+--- @param mode string | nil - mode according to `:help feedkeys`
+local function escape_and_feed_keys(keys, mode)
+  local escaped_keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  vim.api.nvim_feedkeys(escaped_keys, mode, false)
+end
+
 vim.keymap.set({ 'i', 'c', 's' }, '<CR>', function()
   if completion_menu.is_open_and_entry_selected() then
     completion_menu.confirm_selected_entry()
-    return ''
   else
-    return '<CR>'
+    escape_and_feed_keys('<CR>', 'n')
   end
 end, {
-  expr = true,
   desc = 'confirm selected entry if completion menu is open, else normal <CR>',
 })
 
 vim.keymap.set({ 'i', 'c', 's' }, '<Tab>', function()
   if completion_menu.is_open() then
     completion_menu.select_next_entry()
-    return ''
   else
-    return '<Tab>'
+    escape_and_feed_keys('<Tab>', 'n')
   end
 end, {
-  expr = true,
   desc = 'select next entry if completion menu is open, else normal <Tab>',
 })
 
 vim.keymap.set({ 'i', 'c', 's' }, '<S-Tab>', function()
   if completion_menu.is_open() then
     completion_menu.select_previous_entry()
-    return ''
   else
-    return '<S-Tab>'
+    escape_and_feed_keys('<S-Tab>', 'n')
   end
 end, {
-  expr = true,
   desc = 'select previous entry if completion menu is open, else normal <S-Tab>',
 })
 
 vim.keymap.set({ 'i', 'c', 's' }, '<C-e>', function()
   if completion_menu.is_open() then
     completion_menu.close_menu()
-    return ''
   else
-    return '<C-e>'
+    escape_and_feed_keys('<C-e>', 'n')
   end
 end, {
-  expr = true,
   desc = 'close completion menu if open, else normal control <C-e>',
 })
