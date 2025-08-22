@@ -9,9 +9,6 @@ configuration.add_configuration(configuration.ConfigurationKind.capabilities, {
     typeHierarchy = {
       dynamicRegistration = false,
     },
-    linkedEditingRange = {
-      dynamicRegistration = false,
-    },
     onTypeFormatting = {
       dynamicRegistration = false,
     },
