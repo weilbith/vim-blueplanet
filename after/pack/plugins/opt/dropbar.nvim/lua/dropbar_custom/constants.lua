@@ -1,12 +1,10 @@
-local symbols = {}
+local icons = require('icons')
 
-for name, settings in pairs(require('lsp.symbols')) do
-  if settings.is_symbol_kind then
-    symbols[name] = { icon = settings.icon, hl = settings.highlight }
-  end
-end
+local symbols = vim.tbl_map(function(symbol_kind)
+  return { icon = symbol_kind.icon, hl = symbol_kind.highlight }
+end, icons.LSP.symbol_kind)
 
 return {
-  separator = '',
+  separator = icons.ChevronRight,
   symbols = symbols,
 }

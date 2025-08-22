@@ -2,7 +2,7 @@ require('fidget').setup({
   config = 'vim.cmd("packadd fidget.nvim")',
   progress = {
     display = {
-      done_icon = '',
+      done_icon = require('icons').CircleCheck,
       done_style = 'GreenBold',
       progress_icon = {
         pattern = 'arc',

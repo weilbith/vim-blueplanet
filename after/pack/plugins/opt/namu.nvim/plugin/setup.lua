@@ -1,12 +1,12 @@
-local lsp_symbols = require('lsp.symbols')
+local icons = require('icons')
 
-local kindIcons = vim.tbl_map(function(symbol)
-  return symbol.icon
-end, lsp_symbols)
+local kindIcons = vim.tbl_map(function(symbol_kind)
+  return symbol_kind.icon
+end, icons.LSP.symbol_kind)
 
-local kindsHighlights = vim.tbl_map(function(symbol)
-  return symbol.highlight
-end, lsp_symbols)
+local kindsHighlights = vim.tbl_map(function(symbol_kind)
+  return symbol_kind.highlight
+end, icons.LSP.symbol_kind)
 
 require('namu').setup({
   namu_symbols = {
@@ -20,10 +20,10 @@ require('namu').setup({
       highlights = kindsHighlights,
     },
     current_highlight = {
-      prefix_icon = ' ',
+      prefix_icon = icons.ChevronRight .. ' ',
     },
     multiselect = {
-      selected_icon = '',
+      selected_icon = icons.CheckboxChecked,
       unselected_icon = ' ',
     },
     window = {
@@ -33,7 +33,7 @@ require('namu').setup({
       height_ratio = 0.5,
       min_height = 40,
       max_height = 60,
-      title_prefix = ' ',
+      title_prefix = icons.ChevronRight .. ' ',
       border = {
         '▔',
         '▔',

@@ -1,9 +1,6 @@
 local surround = require('heirline.utils').surround
 local get_highlight = require('heirline.utils').get_highlight
-
-local running_icon = (vim.fn.sign_getdefined('neotest_running')[1] or {}).text or ''
-local passed_icon = (vim.fn.sign_getdefined('neotest_passed')[1] or {}).text or ''
-local failed_icon = (vim.fn.sign_getdefined('neotest_failed')[1] or {}).text or ''
+local icons = require('icons')
 
 local function has_test_cases(buffer_number)
   for _, adapter_identifier in pairs(require('neotest').state.adapter_ids()) do
@@ -63,7 +60,7 @@ local TestBlock = {
         return self.running > 0
       end,
       provider = function(self)
-        return running_icon .. ' ' .. self.running .. ' '
+        return icons.PlayCircleFilled .. ' ' .. self.running .. ' '
       end,
       hl = get_highlight('YellowBold'),
     },
@@ -72,7 +69,7 @@ local TestBlock = {
         return self.passed > 0
       end,
       provider = function(self)
-        return passed_icon .. ' ' .. self.passed .. ' '
+        return icons.CheckboxChecked .. ' ' .. self.passed .. ' '
       end,
       hl = get_highlight('GreenBold'),
     },
@@ -81,7 +78,7 @@ local TestBlock = {
         return self.failed > 0
       end,
       provider = function(self)
-        return failed_icon .. ' ' .. self.failed .. ' '
+        return icons.Error .. ' ' .. self.failed .. ' '
       end,
       hl = get_highlight('RedBold'),
     },

@@ -10,6 +10,8 @@ vim.cmd.packadd('neotest-jest')
 vim.cmd.packadd('neotest-python')
 vim.cmd.packadd('neotest-playwright')
 
+local icons = require('icons')
+
 require('neotest').setup({
   adapters = {
     require('neotest-gradle'),
@@ -20,20 +22,20 @@ require('neotest').setup({
       jestCommand = 'npm exec -- jest',
     }),
     require('neotest-python'),
-    require('neotest-playwright').adapter({
-      options = {
-        persist_project_selection = true,
-        enable_dynamic_test_discovery = true,
-      },
-    }),
+    -- require('neotest-playwright').adapter({
+    --   options = {
+    --     persist_project_selection = true,
+    --     enable_dynamic_test_discovery = true,
+    --   },
+    -- }),
   },
   consumers = {
     playwright = require('neotest-playwright.consumers').consumers,
   },
   icons = {
-    failed = '',
-    passed = '',
-    running = '',
+    failed = icons.Error,
+    passed = icons.CircleCheck,
+    running = icons.PlayCircleFilled,
     skipped = '',
     unknown = '',
     expanded = '┬',

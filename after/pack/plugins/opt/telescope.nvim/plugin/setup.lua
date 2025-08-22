@@ -16,12 +16,14 @@ local function show_file_history(buffer_number)
   vim.cmd(command)
 end
 
+local icons = require('icons')
+
 require('telescope').setup({
   defaults = {
-    prompt_prefix = '  ',
+    prompt_prefix = ' ' .. icons.ChevronRight .. ' ',
     entry_prefix = '   ',
-    selection_caret = '  ',
-    multi_icon = '  ',
+    selection_caret = ' ' .. icons.ChevronRight .. ' ',
+    multi_icon = ' ' .. icons.CheckboxChecked .. ' ',
     prompt_title = '',
     results_title = '',
     file_ignore_patterns = { '%.fls', '%.fdb_latexmk' },
