@@ -24,11 +24,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       )
     end
 
-    if #feature_list > 0 then
-      local message = client.name .. ' supports: \n- ' .. table.concat(feature_list, '\n- ')
-
-      vim.notify_once(message, vim.log.levels.INFO)
-    end
+    -- if #feature_list > 0 then
+    --   local message = client.name .. ' supports: \n- ' .. table.concat(feature_list, '\n- ')
+    --
+    --   vim.notify_once(message, vim.log.levels.INFO)
+    -- end
   end,
 })
 
