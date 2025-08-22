@@ -1,8 +1,8 @@
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'Go Language Server',
     cmd = { 'gopls' },
-    root_dir = require("lsp.start.utilities").find_root({ 'go.mod', 'go.work' }),
+    root_dir = vim.fs.root(0, { { 'go.mod', 'go.work' } }),
     settings = {
       gopls = {
         hints = {

@@ -1,8 +1,8 @@
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'Rust Analyzer',
     cmd = { 'rust-analyzer' },
-    root_dir = require("lsp.start.utilities").find_root({ 'Cargo.toml' }),
+    root_dir = vim.fs.root(0, { 'Cargo.toml' }),
     capabilities = {
       experimental = {
         serverStatusNotification = true,

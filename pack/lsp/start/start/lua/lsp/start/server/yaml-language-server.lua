@@ -2,7 +2,7 @@ return function()
   require('lsp.start')({
     name = 'YAML Language Server',
     cmd = { 'yaml-language-server', '--stdio' },
-    root_dir = require('lsp.start.utilities').find_root({ '.git' }),
+    root_dir = vim.fs.root(0, '.git'),
     settings = {
       redhat = {
         telemetry = {

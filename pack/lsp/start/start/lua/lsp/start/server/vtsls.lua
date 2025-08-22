@@ -3,7 +3,7 @@ return function()
   require('lsp.start')({
     name = 'VSCode TypeScript Wrapper',
     cmd = { 'vtsls', '--stdio' },
-    root_dir = require('lsp.start.utilities').find_root({ 'tsconfig.json' }),
+    root_dir = vim.fs.root(0, 'tsconfig.json'),
     capabilities = {
       workspace = {
         fileOperations = {

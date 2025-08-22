@@ -6,10 +6,10 @@ end
 
 return function()
   if containsAnyCSSModuleLoading() then
-    require("lsp.start")({
+    require('lsp.start')({
       name = 'CSS-Module Language Server',
       cmd = { 'cssmodules-language-server' },
-      root_dir = require('lsp.start.utilities').find_root({ 'package.json' }),
+      root_dir = vim.fs.root(0, 'package.json'),
     })
   end
 end

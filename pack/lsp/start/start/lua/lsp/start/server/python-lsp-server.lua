@@ -1,11 +1,8 @@
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'Python LSP Server',
     cmd = { 'pylsp' },
-    root_dir = require("lsp.start.utilities").find_root({
-      'pyproject.toml',
-      'setup.py',
-    }),
+    root_dir = vim.fs.root(0, { 'pyproject.toml', 'setup.py' }),
     settings = {
       pyls = {
         plugins = {

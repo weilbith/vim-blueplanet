@@ -1,8 +1,8 @@
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'VSCode JSON Language-Service',
     cmd = { 'vscode-json-language-server', '--stdio' },
-    root_dir = require("lsp.start.utilities").find_root({ '.git' }),
+    root_dir = vim.fs.root(0, '.git'),
     init_options = {
       provideFormatter = true,
     },

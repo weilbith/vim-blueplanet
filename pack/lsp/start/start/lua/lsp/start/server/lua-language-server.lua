@@ -1,8 +1,8 @@
 return function()
-  require("lsp.start")({
+  require('lsp.start')({
     name = 'Lua Language Server',
     cmd = { 'lua-language-server' },
-    root_dir = require("lsp.start.utilities").find_root({
+    root_dir = vim.fs.root(0, {
       '.luarc.json',
       '.luarc.jsonc',
       '.luacheckrc',
@@ -44,6 +44,14 @@ return function()
           callSnippet = 'Both',
           keywordSnippet = 'Both',
           showParams = false,
+        },
+        workspace = {
+          library = {
+            vim.env.VIMRUNTIME,
+          },
+        },
+        type = {
+          strict = true,
         },
       },
     },

@@ -2,6 +2,6 @@
 --   require("lsp.start")({
 --     name = 'Cucumber Language Server',
 --     cmd = { 'cucumber-language-server', '--stdio' },
---     root = require("lsp.start.utilities").find_root({ '.git' }),
+--     root_dir = vim.fs.root(0, '.git'),
 --   })
 -- end

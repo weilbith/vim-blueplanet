@@ -7,6 +7,6 @@
 --       '-analyzers',
 --       '/usr/share/java/sonarlint-ls/analyzers/sonarjava.jar',
 --     },
---     root_dir = find_root({ 'build.gradle', 'build.gralde.kts' }),
+--     root_dir = vim.fs.root(0, { 'build.gradle', 'build.gradle.kts' }),
 --   })
 -- end
