@@ -36,4 +36,9 @@ glance.setup({
       open(results)
     end,
   },
+  mappings = {
+    list = {
+      t = false, -- Avoid conflict with custom buffer local key mapping.
+    },
+  },
 })
