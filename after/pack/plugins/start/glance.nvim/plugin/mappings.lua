@@ -24,6 +24,6 @@ vim.keymap.set(
 vim.keymap.set(
   'n',
   'grd',
-  '<cmd>Glance type_definitions<CR>',
+  '<cmd>Glance definitions<CR>',
   { desc = 'peek definitions of target under cursor' }
 )
