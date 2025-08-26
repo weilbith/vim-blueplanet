@@ -171,10 +171,11 @@ return lush(function(injected_functions)
     LspReferenceText({ Underlined }),
     LspReferenceRead({ Underlined }),
     LspReferenceWrite({ Reversed }),
+    LspReferenceTarget({ IncSearch }),
     LspInlayHint({ LightGreyItalic }),
     LspCodeLens({ DarkGreyBackground, fg = LightGrey.fg, italic = true }),
     LspCodeLensSeparator({ GreyBold }),
-    LspSignatureActiveParameter({ GreenBold }),
+    LspSignatureActiveParameter({ BlueBackgroundContrast }),
     -- Diagnostic
     DiagnosticSignError({ RedBold }),
     DiagnosticSignWarn({ OrangeBold }),
