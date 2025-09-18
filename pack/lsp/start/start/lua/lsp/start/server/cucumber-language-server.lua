@@ -1,7 +1,0 @@
--- return function()
---   require("lsp.start")({
---     name = 'Cucumber Language Server',
---     cmd = { 'cucumber-language-server', '--stdio' },
---     root_dir = vim.fs.root(0, '.git'),
---   })
--- end

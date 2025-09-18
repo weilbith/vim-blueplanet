@@ -23,6 +23,11 @@ vim.lsp.config('vscode-json-language-server', {
       schemas = require('schemastore').json.schemas(),
       validate = { enable = true },
     },
+  },
+})
+
+vim.lsp.config('yaml-language-server', {
+  settings = {
     yaml = {
       schemastore = {
         enable = false,
