@@ -7,7 +7,7 @@
 --- the plugin.
 ---
 --- @param plugin_name string
---- @param event_name_s string | string[] see `:help autocmd-events`
+--- @param event_name_s vim.api.keyset.events | vim.api.keyset.events[] see `:help autocmd-events`
 --- @param pattern? string | string[] see `:help autocmd-pattern`
 local function lazy_load_plugin_on_event_s(plugin_name, event_name_s, pattern)
   local group_name = 'lazy-load-plugin_' .. plugin_name
