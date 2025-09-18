@@ -1,6 +1,3 @@
-vim.keymap.set(
-  'n',
-  'K',
-  vim.lsp.buf.hover,
-  { desc = 'show hover information for target under cursor' }
-)
+vim.keymap.set('n', 'K', function()
+  vim.lsp.buf.hover({ border = 'single' })
+end, { desc = 'show hover information for target under cursor' })

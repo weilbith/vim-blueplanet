@@ -1,1 +1,3 @@
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, {})
+vim.keymap.set({ 'n', 'i', 'o' }, '<C-k>', function()
+  vim.lsp.buf.signature_help({ border = 'single' })
+end, {})
