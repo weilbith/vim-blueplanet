@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
   "packages": [
     "stylua@0.20.0",
-    "lua-language-server@3.11.1",
+    "lua-language-server@3.15.0",
     "vim-language-server@2.3.1"
   ]
 }
