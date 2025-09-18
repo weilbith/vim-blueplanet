@@ -33,15 +33,17 @@ end
 --- a decentralized/decoupled manner where any plugin or part of the NeoVim
 --- configuration can inject its options or logic.
 ---
---- @param custom_configuration? table
+--- @param custom_configuration? vim.lsp.ClientConfig
 --- @param file_type? string file-type of active buffer per default
+--- @return vim.lsp.ClientConfig full_configuration
 local function build_start_options(custom_configuration, file_type)
   file_type = file_type or vim.bo[0].ft
 
   local middleware_handler_configuration = {
-    handlers = get_client_response_handlers(file_type),
+    handlers = get_client_response_handlers(file_type, {}),
   }
 
+  --- @type vim.lsp.ClientConfig
   return vim.tbl_deep_extend(
     'force',
     -- Rank middleware handler configuration highest as it uses a meta-table and
@@ -56,7 +58,7 @@ end
 --- Wrapper around `vim.lsp.start` which applies some checks as well as merges
 --- the different configuration levels and middleware.
 ---
---- @param start_options table see vim.lsp.start options
+--- @param start_options vim.lsp.ClientConfig
 --- @return nil
 return function(start_options)
   if should_start_server(start_options) then

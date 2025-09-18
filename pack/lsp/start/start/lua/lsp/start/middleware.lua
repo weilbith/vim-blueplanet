@@ -1,22 +1,21 @@
 local ALL_FILE_TYPES = 'all-file-types'
 
---- @class HandlerWithPriority
---- @field handler function
---- @field priority number
+--- @alias FileType string
+--- @alias MethodName vim.lsp.protocol.Methods
+--- @alias ResponseHandler fun(error?: lsp.ResponseError, result: any, context: lsp.HandlerContext, configuration?: table)
+--- @alias MiddlewareReponseHandler fun(continue: boolean, error?: lsp.ResponseError, result: any, context: lsp.HandlerContext)
 
---- @type table<string, table<string, HandlerWithPriority[]>>
+--- @class HandlerWithPriority
+--- @field handler MiddlewareReponseHandler
+--- @field priority integer
+
+--- @type { [FileType]: { [MethodName]: HandlerWithPriority[] } }
 local storage = {}
 
---- @param method_name string
---- @return boolean
-local function is_valid_method_name(method_name)
-  return vim.tbl_contains(vim.lsp.protocol.Methods, method_name)
-end
-
---- @param method_name string - protocol method to add handler for
---- @param handler function - handler to add on middleware stack for this method
---- @param priority number? - used to sort handlers in the middleware stack on execution
---- @param file_type string? - apply configuration for this file type only, all by default
+--- @param method_name MethodName - protocol method to add handler for
+--- @param handler MiddlewareReponseHandler - handler to add on middleware stack for this method
+--- @param priority integer? - used to sort handlers in the middleware stack on execution
+--- @param file_type FileType? - apply configuration for this file type only, all by default
 ---
 --- A middleware handle function must return a list of values:
 ---   - A boolean value that decided if the client should continue processing the
@@ -25,11 +24,7 @@ end
 ---     configuration. This can be used to manipulate the response for the next
 ---     middleware handler in the stack.
 local function add_middleware(method_name, handler, priority, file_type)
-  if not is_valid_method_name(method_name) then
-    error('Can not set LSP middleware for unknown method name: ' .. method_name)
-  end
-
-  vim.validate({ handler = { handler, 'f', false } })
+  vim.validate({ handler = { handler, 'function', false } })
 
   file_type = file_type or ALL_FILE_TYPES
   priority = priority or 1
@@ -39,13 +34,14 @@ local function add_middleware(method_name, handler, priority, file_type)
   end
 
   local handler_list = storage[file_type][method_name] or {}
+  --- @type HandlerWithPriority
   local handler_entry = { handler = handler, priority = priority }
   table.insert(handler_list, handler_entry)
   storage[file_type][method_name] = handler_list
 end
 
---- @param method_name string - protocol method add handler for
---- @param file_type string - apply configuration for this file type only
+--- @param method_name MethodName - protocol method add handler for
+--- @param file_type FileType - apply configuration for this file type only
 --- @return table[function]
 ---
 --- Collects all handler functions for the specified method and sorts them based
@@ -67,27 +63,24 @@ local function get_middleware_stack(method_name, file_type)
   return middleware_stack
 end
 
---- @param method_name string - protocol method to get handler for
---- @param file_type string - apply configuration for this file type only
-local function get_client_response_handler_for_method(method_name, file_type)
-  local middleware_stack = get_middleware_stack(method_name, file_type)
-
-  if #middleware_stack == 0 then
-    return nil
-  end
-
+--- @param method_name MethodName - protocol method to get handler for
+--- @param file_type FileType - apply configuration for this file type only
+--- @param base_handler ResponseHandler? - handler external to middleware or NeoVim default
+--- @return ResponseHandler?
+local function get_client_response_handler_for_method(method_name, file_type, base_handler)
   return function(error, result, context, configuration)
+    local middleware_stack = get_middleware_stack(method_name, file_type)
     local continue = true
 
-    for _, next_handler in ipairs(middleware_stack) do
+    for _, next_handler in ipairs(middleware_stack or {}) do
       if continue then
-        continue, error, result, context, configuration = next_handler(
-          error,
-          result,
-          context,
-          configuration
-        )
+        continue, error, result, context, configuration =
+          next_handler(error, result, context, configuration)
       end
+    end
+
+    if base_handler ~= nil then
+      base_handler(error, result, context, configuration)
     end
 
     local default_handler = vim.lsp.handlers[method_name]
@@ -100,11 +93,16 @@ local function get_client_response_handler_for_method(method_name, file_type)
   end
 end
 
---- @param file_type string - apply configuration for this file type only
-local function get_client_response_handlers(file_type)
+--- @param file_type FileType configuration for this file type only
+--- @param base_handlers { [MethodName]: ResponseHandler } set of existing handlers to mix with middleware
+--- @return { [MethodName]: ResponseHandler }
+local function get_client_response_handlers(file_type, base_handlers)
   return setmetatable({}, {
+    --- @param method_name MethodName
+    --- @return ResponseHandler?
     __index = function(_, method_name)
-      return get_client_response_handler_for_method(method_name, file_type)
+      local base_handler = (base_handlers or {})[method_name]
+      return get_client_response_handler_for_method(method_name, file_type, base_handler)
     end,
   })
 end
