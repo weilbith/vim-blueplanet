@@ -16,3 +16,19 @@ configuration.add_configuration(configuration.ConfigurationKind.settings, {
     schemas = require('schemastore').yaml.schemas(),
   },
 }, 'yaml')
+
+vim.lsp.config('vscode-json-language-server', {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+    yaml = {
+      schemastore = {
+        enable = false,
+        url = '',
+      },
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
+})

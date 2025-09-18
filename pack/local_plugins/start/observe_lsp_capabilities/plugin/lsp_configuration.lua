@@ -14,3 +14,20 @@ configuration.add_configuration(configuration.ConfigurationKind.capabilities, {
     },
   },
 })
+
+vim.lsp.config('*', {
+  capabilities = {
+    textDocument = {
+      documentLink = {
+        dynamicRegistration = true,
+        tooltipSupport = true,
+      },
+      typeHierarchy = {
+        dynamicRegistration = false,
+      },
+      onTypeFormatting = {
+        dynamicRegistration = false,
+      },
+    },
+  },
+})
