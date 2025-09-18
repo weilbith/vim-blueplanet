@@ -24,6 +24,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       )
     end
 
+    if capabilities.inlineCompletionProvider then
+      table.insert(feature_list, 'inlineCompletion')
+      print('LSP inlineCompletion is supported')
+    end
+
     -- if #feature_list > 0 then
     --   local message = client.name .. ' supports: \n- ' .. table.concat(feature_list, '\n- ')
     --
