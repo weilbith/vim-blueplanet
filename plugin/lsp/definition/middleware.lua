@@ -1,4 +1,4 @@
-local add_middleware = require('custom.lsp.middleware').add_middleware
+local add_middleware = require('lsp.start.middleware').add_middleware
 
 --- @param location table<string, any> - Location object according to LSP
 --- @return boolean
@@ -14,11 +14,8 @@ local function result_matches_scenario_of_react_component_definition_result(resu
   result = result or {}
 
   local has_scenario_specific_number_of_entries = #result == 2
-  local any_entry_points_to_react_type_definition = vim.tbl_contains(
-    result,
-    location_points_to_react_type_definitions,
-    { predicate = true }
-  )
+  local any_entry_points_to_react_type_definition =
+    vim.tbl_contains(result, location_points_to_react_type_definitions, { predicate = true })
 
   return has_scenario_specific_number_of_entries and any_entry_points_to_react_type_definition
 end

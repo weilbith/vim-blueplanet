@@ -1,3 +1,4 @@
+local icons = require('icons')
 local severity = vim.diagnostic.severity
 local circular_numbers = { '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽', '❾' }
 
@@ -13,7 +14,7 @@ vim.diagnostic.config({
   },
   signs = {
     text = {
-      [severity.ERROR] = '',
+      [severity.ERROR] = icons.Error,
       [severity.WARN] = '',
       [severity.INFO] = '',
       [severity.HINT] = '󰍢',
