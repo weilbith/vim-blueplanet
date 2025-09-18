@@ -11,7 +11,7 @@ vim.opt.encoding = 'utf-8'
 vim.opt.spell = true
 vim.opt.spelloptions = 'camel'
 vim.opt.spellfile = vim.fn.stdpath('data') .. '/spell/en.utf-8.add'
-vim.opt.spelllang = { "en", "de" }
+vim.opt.spelllang = { 'en', 'de' }
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.number = true
@@ -73,7 +73,7 @@ vim.opt.listchars = {
 }
 vim.opt.diffopt = 'internal,filler,closeoff,vertical,context:3,algorithm:patience'
 vim.opt.viewoptions = { 'cursor', 'folds', 'slash', 'unix' }
-vim.opt.laststatus = 3
+vim.opt.laststatus = 0
 vim.opt.cmdheight = 1
 vim.opt.splitkeep = 'screen'
 vim.opt.exrc = true
