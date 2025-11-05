@@ -1,16 +1,18 @@
 vim.cmd.packadd('nvim-web-devicons')
 
-local constants = require('dropbar_custom.constants')
+local icons = require('icons')
 
 require('dropbar').setup({
   icons = {
-    symbols = constants.symbols,
+    symbols = vim.tbl_map(function(symbol_kind)
+      return { icon = symbol_kind.icon, hl = symbol_kind.highlight }
+    end, icons.LSP.symbol_kind),
     ui = {
       bar = {
-        separator = ' ' .. constants.separator .. ' ',
+        separator = ' ' .. icons.ChevronRight .. ' ',
       },
       menu = {
-        indicator = constants.separator,
+        indicator = icons.ChevronRight,
       },
     },
   },
