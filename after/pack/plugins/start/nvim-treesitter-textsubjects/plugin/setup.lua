@@ -1,13 +1,10 @@
 vim.cmd.packadd('nvim-treesitter')
 
-require('nvim-treesitter.configs').setup({
-  textsubjects = {
-    enable = true,
-    prev_selection = ',',
-    keymaps = {
-      ['.'] = 'textsubjects-smart',
-      [';'] = 'textsubjects-container-inner',
-    },
+require('nvim-treesitter-textsubjects').configure({
+  prev_selection = ',',
+  keymaps = {
+    ['.'] = 'textsubjects-smart',
+    [';'] = 'textsubjects-container-inner',
   },
 })
 
