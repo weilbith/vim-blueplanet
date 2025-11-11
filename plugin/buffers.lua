@@ -1,20 +1,20 @@
 vim.keymap.set(
   'n',
   '<leader>bd',
-  '<cmd>bdelete<CR>',
-  { desc = 'close current buffer with its window', unique = true }
+  vim.cmd.bdelete,
+  { desc = 'close current buffer with its window' }
 )
 
 vim.keymap.set(
   'n',
   '<leader>bn',
-  '<cmd>bnext<CR>',
+  vim.cmd.bnext,
   { desc = 'open next listed buffer in current window' }
 )
 
 vim.keymap.set(
   'n',
   '<leader>bN',
-  '<cmd>bprevious<CR>',
+  vim.cmd.bprevious,
   { desc = 'open previous listed buffer in current window' }
 )

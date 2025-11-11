@@ -3,14 +3,14 @@ require('plugin_manager').lazy_load_plugin_on_command(
   { 'HopWordAC', 'HopWordBC', 'HopLineAC', 'HopLineBC', 'HopChar1AC', 'HopChar1BC' }
 )
 
-vim.keymap.set({ 'n', 'x' }, '<BS>w', '<cmd>HopWordAC<CR>')
-vim.keymap.set({ 'n', 'x' }, '<BS>b', '<cmd>HopWordBC<CR>')
+vim.keymap.set({ 'n', 'x' }, '<BS>w', vim.cmd.HopWordAC)
+vim.keymap.set({ 'n', 'x' }, '<BS>b', vim.cmd.HopWordBC)
 
-vim.keymap.set({ 'n', 'x' }, '<BS>j', '<cmd>HopLineAC<CR>')
-vim.keymap.set({ 'n', 'x' }, '<BS>k', '<cmd>HopWordBC<CR>')
+vim.keymap.set({ 'n', 'x' }, '<BS>j', vim.cmd.HopLineAC)
+vim.keymap.set({ 'n', 'x' }, '<BS>k', vim.cmd.HopWordBC)
 
-vim.keymap.set({ 'n', 'x' }, '<BS>f', '<cmd>HopChar1AC<CR>')
-vim.keymap.set({ 'n', 'x' }, '<BS>F', '<cmd>HopChar1BC<CR>')
+vim.keymap.set({ 'n', 'x' }, '<BS>f', vim.cmd.HopChar1AC)
+vim.keymap.set({ 'n', 'x' }, '<BS>F', vim.cmd.HopChar1BC)
 
 require('plugin_manager').lazy_load_plugin_on_lua_module('hop.nvim', 'hop')
 require('plugin_manager').lazy_load_plugin_on_lua_module('hop-extensions', 'hop-extensions')

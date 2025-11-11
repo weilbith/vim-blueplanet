@@ -1,23 +1,14 @@
-vim.keymap.set(
-  'n',
-  '<leader>gm',
-  '<cmd>Gitsigns blame_line<CR>',
-  { desc = 'show/blame git commit for line under cursor' }
-)
+vim.keymap.set('n', '<leader>gm', function()
+  vim.cmd.Gitsigns('blame_line')
+end, { desc = 'show/blame git commit for line under cursor' })
 
-vim.keymap.set(
-  'n',
-  '<leader>ghd',
-  '<cmd>Gitsigns preview_hunk_inline<CR>',
-  { desc = 'preview the diff of the git hunk under the cursor' }
-)
+vim.keymap.set('n', '<leader>ghd', function()
+  vim.cmd.Gitsigns('preview_hunk_inline')
+end, { desc = 'preview the diff of the git hunk under the cursor' })
 
-vim.keymap.set(
-  'n',
-  '<leader>ghs',
-  '<cmd>Gitsigns stage_hunk<CR>',
-  { desc = 'stage the current git change hunk under the cursor' }
-)
+vim.keymap.set('n', '<leader>ghs', function()
+  vim.cmd.Gitsigns('stage_hunk')
+end, { desc = 'stage the current git change hunk under the cursor' })
 
 vim.keymap.set(
   'v',
@@ -26,19 +17,13 @@ vim.keymap.set(
   { desc = 'stage the selected git changes' }
 )
 
-vim.keymap.set(
-  'n',
-  '<leader>gS',
-  '<cmd>Gitsigns stage_buffer<CR>',
-  { desc = 'stage the whole buffer with all git changes' }
-)
+vim.keymap.set('n', '<leader>gS', function()
+  vim.cmd.Gitsigns('stage_buffer')
+end, { desc = 'stage the whole buffer with all git changes' })
 
-vim.keymap.set(
-  'n',
-  '<leader>ghr',
-  '<cmd>Gitsigns reset_hunk<CR>',
-  { desc = 'reset the git change hunk under the cursor' }
-)
+vim.keymap.set('n', '<leader>ghr', function()
+  vim.cmd.Gitsigns('reset_hunk')
+end, { desc = 'reset the git change hunk under the cursor' })
 
 vim.keymap.set(
   'v',
@@ -47,25 +32,19 @@ vim.keymap.set(
   { desc = 'reset the selected git changes' }
 )
 
-vim.keymap.set(
-  'n',
-  '<leader>gR',
-  '<cmd>Gitsigns reset_buffer<CR>',
-  { desc = 'reset the whole buffer with all git changes' }
-)
+vim.keymap.set('n', '<leader>gR', function()
+  vim.cmd.Gitsigns('reset_buffer')
+end, { desc = 'reset the whole buffer with all git changes' })
 
-vim.keymap.set(
-  { 'v', 'o', 'x' },
-  'ih',
-  '<cmd>Gitsigns select_hunk<CR>',
-  { desc = 'select range of surrounding git change hunk' }
-)
+vim.keymap.set({ 'v', 'o', 'x' }, 'ih', function()
+  vim.cmd.Gitsigns('select_hunk')
+end, { desc = 'select range of surrounding git change hunk' })
 
 vim.keymap.set('n', ']c', function()
   if vim.wo.diff then
     return ']c'
   else
-    vim.cmd('Gitsigns nav_hunk next')
+    vim.cmd.Gitsigns('nav_hunk next')
     return ''
   end
 end, {
@@ -77,7 +56,7 @@ vim.keymap.set('n', '[c', function()
   if vim.wo.diff then
     return '[c'
   else
-    vim.cmd('Gitsigns nav_hunk prev')
+    vim.cmd.Gitsigns('nav_hunk prev')
     return ''
   end
 end, {

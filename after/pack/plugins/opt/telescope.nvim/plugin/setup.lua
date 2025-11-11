@@ -10,10 +10,10 @@ local function show_file_history(buffer_number)
   local first_commit = entries[1].value
   local last_commit = entries[#entries].value
   local commit_range = last_commit .. '..' .. first_commit
-  local command = 'DiffviewFileHistory --reverse --range=' .. commit_range .. ' --reverse'
+  local arguments = '--reverse --range=' .. commit_range .. ' --reverse'
 
   actions.close(buffer_number)
-  vim.cmd(command)
+  vim.cmd.DiffviewFileHistory(arguments)
 end
 
 local icons = require('icons')

@@ -1,91 +1,53 @@
 require('plugin_manager').lazy_load_plugin_on_command('neotest', 'Neotest')
 require('plugin_manager').lazy_load_plugin_on_lua_module('neotest', 'neotest')
 
-vim.keymap.set('n', '<localleader>tn', '<cmd>Neotest run<CR>', { desc = 'run test case at cursor' })
+vim.keymap.set('n', '<localleader>tn', function()
+  vim.cmd.Neotest('run')
+end, { desc = 'run test case at cursor' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>tl',
-  '<cmd>Neotest run last<CR>',
-  { desc = 're-run last test case again' }
-)
+vim.keymap.set('n', '<localleader>tl', function()
+  vim.cmd.Neotest('run last')
+end, { desc = 're-run last test case again' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>td',
-  '<cmd>Neotest run strategy=dap<CR>',
-  { desc = 'run test case at cursor in debug mode' }
-)
+vim.keymap.set('n', '<localleader>td', function()
+  vim.cmd.Neotest('run strategy=dap')
+end, { desc = 'run test case at cursor in debug mode' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>tf',
-  '<cmd>Neotest run file<CR>',
-  { desc = 'run all test case in current file' }
-)
+vim.keymap.set('n', '<localleader>tf', function()
+  vim.cmd.Neotest('run file')
+end, { desc = 'run all test case in current file' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>ta',
-  '<cmd>Neotest attach<CR>',
-  { desc = 'attach to the current test run and observe logs' }
-)
+vim.keymap.set('n', '<localleader>ta', function()
+  vim.cmd.Neotest('attach')
+end, { desc = 'attach to the current test run and observe logs' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>to',
-  '<cmd>Neotest output enter=true<CR>',
-  { desc = 'open the output of the (failed) test case at cursor' }
-)
+vim.keymap.set('n', '<localleader>to', function()
+  vim.cmd.Neotest('output enter=true')
+end, { desc = 'open the output of the (failed) test case at cursor' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>ts',
-  '<cmd>Neotest stop<CR>',
-  { desc = 'stop execution of running tests' }
-)
+vim.keymap.set('n', '<localleader>tc', function()
+  vim.cmd.Neotest('stop')
+end, { desc = 'cancel execution of running tests' })
 
-vim.keymap.set(
-  'n',
-  '<localleader>tc',
-  '<cmd>Neotest stop<CR>',
-  { desc = 'cancel execution of running tests' }
-)
-
-vim.keymap.set(
-  'n',
-  '<localleader>ts',
-  '<cmd>Neotest summary toggle<CR>',
-  { desc = 'toggle overview of test tree' }
-)
+vim.keymap.set('n', '<localleader>ts', function()
+  vim.cmd.Neotest('summary toggle')
+end, { desc = 'toggle overview of test tree' })
 
 vim.keymap.set('n', '<localleader>tA', function()
   require('neotest').playwright.attachment()
 end, { desc = 'open list of attachments of Playwright test case' })
 
-vim.keymap.set(
-  'n',
-  ']t',
-  '<cmd>Neotest jump next<CR>',
-  { desc = 'jump to next test case from cursor location' }
-)
-vim.keymap.set(
-  'n',
-  '[t',
-  '<cmd>Neotest jump prev<CR>',
-  { desc = 'jump to previous test case from cursor location' }
-)
+vim.keymap.set('n', ']t', function()
+  vim.cmd.Neotest('jump next')
+end, { desc = 'jump to next test case from cursor location' })
+vim.keymap.set('n', '[t', function()
+  vim.cmd.Neotest('jump prev')
+end, { desc = 'jump to previous test case from cursor location' })
 
-vim.keymap.set(
-  'n',
-  ']T',
-  '<cmd>Neotest jump next status=failed<CR>',
-  { desc = 'jump to next failed test case from cursor location' }
-)
+vim.keymap.set('n', ']T', function()
+  vim.cmd.Neotest('jump next status=failed')
+end, { desc = 'jump to next failed test case from cursor location' })
 
-vim.keymap.set(
-  'n',
-  '[T',
-  '<cmd>Neotest jump prev status=failed<CR>',
-  { desc = 'jump to previous failed test case from cursor location' }
-)
+vim.keymap.set('n', '[T', function()
+  vim.cmd.Neotest('jump prev status=failed')
+end, { desc = 'jump to previous failed test case from cursor location' })

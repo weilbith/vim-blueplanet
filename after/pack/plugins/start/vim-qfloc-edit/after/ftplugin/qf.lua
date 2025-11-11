@@ -5,13 +5,13 @@ vim.cmd.packadd('vim-qfloc-edit')
 vim.keymap.set(
   'n',
   'dd',
-  '<cmd>RemoveEntryUnderCursorInCurrentListWindow<CR>',
+  vim.cmd.RemoveEntryUnderCursorInCurrentListWindow,
   { desc = 'remove entry under cursor in current list window', buffer = true }
 )
 
 vim.keymap.set(
   'n',
   'u',
-  '<cmd>UndoLastEntryRemovalInCurrentListWindow<CR>',
+  vim.cmd.UndoLastEntryRemovalInCurrentListWindow,
   { desc = 'undo last entry removal in current list window', buffer = true }
 )

@@ -1,50 +1,45 @@
-vim.keymap.set(
-  'n',
-  '<leader>qq',
-  '<cmd>copen<CR>',
-  { desc = 'open quickfix window', unique = true }
-)
+vim.keymap.set('n', '<leader>qq', vim.cmd.copen, { desc = 'open quickfix window', unique = true })
 
-vim.keymap.set('n', '<leader>qc', '<cmd>cclose<CR>', { desc = 'close quickfix window' })
+vim.keymap.set('n', '<leader>qc', vim.cmd.cclose, { desc = 'close quickfix window' })
 
 vim.keymap.set(
   'n',
   '<leader>q<CR>',
-  '<cmd>cc<CR>',
+  vim.cmd.cc,
   { desc = 'jump to currently active entry of quickfix list' }
 )
 
 vim.keymap.set(
   'n',
   '<leader>ql',
-  '<cmd>chistory<CR>',
+  vim.cmd.chistory,
   { desc = 'list history of quickfix lists', unique = true }
 )
 
 vim.keymap.set(
   'n',
   '<leader>ll',
-  '<cmd>lopen<CR>',
+  vim.cmd.lopen,
   { desc = 'open location list for current window', unique = true }
 )
 
 vim.keymap.set(
   'n',
   '<leader>lc',
-  '<cmd>lclose<CR>',
+  vim.cmd.lclose,
   { desc = 'close location list for current window' }
 )
 
 vim.keymap.set(
   'n',
   '<leader>l<CR>',
-  '<cmd>ll<CR>',
+  vim.cmd.ll,
   { desc = 'jump to currently active entry of location list for current window' }
 )
 
 vim.keymap.set(
   'n',
   '<leader>ll',
-  '<cmd>lhistory<CR>',
+  vim.cmd.lhistory,
   { desc = 'list history of location lists for current window' }
 )

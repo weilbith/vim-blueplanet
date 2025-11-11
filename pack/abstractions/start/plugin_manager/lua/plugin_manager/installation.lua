@@ -7,7 +7,8 @@ local function install_packer()
   local installation_path = package_path .. '/packer/opt/packer.nvim'
 
   if #vim.fn.glob(installation_path) == 0 then
-    vim.cmd(string.format('!git clone %s %s', packer_source_url, installation_path))
+    local shell_command = { 'git', 'clone', packer_source_url, installation_path }
+    vim.cmd({ cmd = '!', args = shell_command })
   end
 end
 

@@ -6,27 +6,24 @@ require('plugin_manager').lazy_load_plugin_on_command(
 vim.keymap.set(
   'n',
   '<leader>ga',
-  '<cmd>DiffviewOpen<CR>',
+  vim.cmd.DiffviewOpen,
   { desc = 'open interface for git staging area to add files' }
 )
 
 vim.keymap.set(
   'n',
   '<leader>gld',
-  '<cmd>DiffviewFileHistory<CR>',
+  vim.cmd.DiffviewFileHistory,
   { desc = 'open interface to inspect git history in diff mode' }
 )
 
-vim.keymap.set(
-  'n',
-  '<leader>glD',
-  '<cmd>DiffviewFileHistory %<CR>',
-  { desc = 'open interface to inspect git history in diff mode for current file only' }
-)
+vim.keymap.set('n', '<leader>glD', function()
+  vim.cmd.DiffviewFileHistory('%')
+end, { desc = 'open interface to inspect git history in diff mode for current file only' })
 
 vim.keymap.set('n', '<leader>glm', function()
   local function_name = vim.fn.expand('<cword>')
   local file_path = vim.fn.expand('%:p')
-  local command = string.format('DiffviewFileHistory -L:%s:%s', function_name, file_path)
-  vim.cmd(command)
+  local arguments = string.format('-L:%s:%s', function_name, file_path)
+  vim.cmd.DiffviewFileHistory(arguments)
 end, { desc = 'open interface to inspect git history in diff mode for current function' })
