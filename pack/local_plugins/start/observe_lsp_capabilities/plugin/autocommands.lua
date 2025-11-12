@@ -11,28 +11,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
       table.insert(feature_list, 'typeHierarchy')
     end
 
-    if capabilities.linkedEditingRangeProvider then
-      table.insert(feature_list, 'linkedEditingRange')
-    end
-
-    if capabilities.documentOnTypeFormattingProvider then
-      local first_trigger = capabilities.documentOnTypeFormattingProvider.firstTriggerCharacter
-      local more_trigger = capabilities.documentOnTypeFormattingProvider.moreTriggerCharacter
-      table.insert(
-        feature_list,
-        'onTypeFormatting on "' .. first_trigger .. '" and ' .. vim.inspect(more_trigger)
-      )
-    end
-
     if capabilities.inlineCompletionProvider then
       table.insert(feature_list, 'inlineCompletion')
-      print('LSP inlineCompletion is supported')
     end
 
-    -- if #feature_list > 0 then
-    --   local message = client.name .. ' supports: \n- ' .. table.concat(feature_list, '\n- ')
-    --
-    --   vim.notify_once(message, vim.log.levels.INFO)
-    -- end
+    local client_name = vim.tbl_get(client or {}, 'name') or 'unknown client'
+
+    if #feature_list > 0 then
+      local message = client_name .. ' supports: \n- ' .. table.concat(feature_list, '\n- ')
+
+      vim.notify_once(message, vim.log.levels.INFO)
+    end
   end,
 })
