@@ -42,24 +42,16 @@ end, { desc = 'select range of surrounding git change hunk' })
 
 vim.keymap.set('n', ']c', function()
   if vim.wo.diff then
-    return ']c'
+    vim.cmd.normal({ ']c', bang = true })
   else
     vim.cmd.Gitsigns('nav_hunk next')
-    return ''
   end
-end, {
-  expr = true,
-  desc = 'jump to next git change hunk',
-})
+end, { desc = 'jump to next git change hunk' })
 
 vim.keymap.set('n', '[c', function()
   if vim.wo.diff then
-    return '[c'
+    vim.cmd.normal({ '[c', bang = true })
   else
     vim.cmd.Gitsigns('nav_hunk prev')
-    return ''
   end
-end, {
-  expr = true,
-  desc = 'jump to previous git change hunk',
-})
+end, { desc = 'jump to previous git change hunk' })
