@@ -1,5 +1,4 @@
 vim.cmd.packadd('plenary.nvim')
-vim.cmd.packadd('FixCursorHold.nvim')
 vim.cmd.packadd('nvim-nio')
 -- TODO: How to load and register adapter on filetype?
 vim.cmd.packadd('neotest-gradle')
