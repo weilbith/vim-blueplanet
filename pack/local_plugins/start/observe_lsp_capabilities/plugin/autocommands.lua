@@ -36,24 +36,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- end
   end,
 })
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = group,
-  callback = function(arguments)
-    local client_identifier = (arguments.data or {}).client_id
-    local client = vim.lsp.get_client_by_id(client_identifier)
-
-    if client ~= nil and client.server_capabilities.documentLinkProvider then
-      local method = 'textDocument/documentLink'
-      local parameter = { textDocument = vim.lsp.util.make_text_document_params(0) }
-      local response = client:request_sync(method, parameter)
-      local result = (response or {}).result or {}
-
-      if #result > 0 then
-        vim.notify('#' .. #result .. ' document links by ' .. client.name)
-        print('Document Links:')
-        print(vim.inspect(result))
-      end
-    end
-  end,
-})
