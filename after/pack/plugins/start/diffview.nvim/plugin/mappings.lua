@@ -21,7 +21,7 @@ vim.keymap.set('n', '<leader>glD', function()
   vim.cmd.DiffviewFileHistory('%')
 end, { desc = 'open interface to inspect git history in diff mode for current file only' })
 
-vim.keymap.set('n', '<leader>glm', function()
+vim.keymap.set('n', '<leader>glf', function()
   local function_name = vim.fn.expand('<cword>')
   local file_path = vim.fn.expand('%:p')
   local arguments = string.format('-L:%s:%s', function_name, file_path)

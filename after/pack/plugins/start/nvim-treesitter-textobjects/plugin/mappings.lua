@@ -11,27 +11,27 @@ local function move()
   return require('nvim-treesitter-textobjects.move')
 end
 
-vim.keymap.set({ 'o', 'v' }, 'am', function()
+vim.keymap.set({ 'o', 'v' }, 'af', function()
   select().select_textobject('@function.outer', 'textobjects')
 end, { desc = 'outer function text object' })
 
-vim.keymap.set({ 'o', 'v' }, 'im', function()
+vim.keymap.set({ 'o', 'v' }, 'if', function()
   select().select_textobject('@function.inner')
 end, { desc = 'inner function text object' })
 
-vim.keymap.set({ 'n', 'o', 'v' }, ']m', function()
+vim.keymap.set({ 'n', 'o', 'v' }, ']f', function()
   move().goto_next_start('@function.outer')
 end, { desc = 'jump to start of next function' })
 
-vim.keymap.set({ 'n', 'o', 'v' }, '[m', function()
+vim.keymap.set({ 'n', 'o', 'v' }, '[f', function()
   move().goto_previous_start('@function.outer')
 end, { desc = 'jump to start of previous/current function' })
 
-vim.keymap.set({ 'n', 'o', 'v' }, ']M', function()
+vim.keymap.set({ 'n', 'o', 'v' }, ']F', function()
   move().goto_next_end('@function.outer')
 end, { desc = 'jump to end of next/current function' })
 
-vim.keymap.set({ 'n', 'o', 'v' }, '[M', function()
+vim.keymap.set({ 'n', 'o', 'v' }, '[F', function()
   move().goto_previous_end('@function.outer')
 end, { desc = 'jump to end of previous function' })
 
