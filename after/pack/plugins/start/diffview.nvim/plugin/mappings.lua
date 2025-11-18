@@ -12,12 +12,12 @@ vim.keymap.set(
 
 vim.keymap.set(
   'n',
-  '<leader>gld',
+  '<leader>gd',
   vim.cmd.DiffviewFileHistory,
   { desc = 'open interface to inspect git history in diff mode' }
 )
 
-vim.keymap.set('n', '<leader>glD', function()
+vim.keymap.set('n', '<leader>gD', function()
   vim.cmd.DiffviewFileHistory('%')
 end, { desc = 'open interface to inspect git history in diff mode for current file only' })
 

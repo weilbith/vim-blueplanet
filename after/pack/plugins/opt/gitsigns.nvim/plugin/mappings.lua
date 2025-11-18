@@ -2,11 +2,11 @@ vim.keymap.set('n', '<leader>gm', function()
   vim.cmd.Gitsigns('blame_line')
 end, { desc = 'show/blame git commit for line under cursor' })
 
-vim.keymap.set('n', '<leader>ghd', function()
+vim.keymap.set('n', '<leader>gdh', function()
   vim.cmd.Gitsigns('preview_hunk_inline')
 end, { desc = 'preview the diff of the git hunk under the cursor' })
 
-vim.keymap.set('n', '<leader>ghs', function()
+vim.keymap.set('n', '<leader>gsh', function()
   vim.cmd.Gitsigns('stage_hunk')
 end, { desc = 'stage the current git change hunk under the cursor' })
 
@@ -17,11 +17,11 @@ vim.keymap.set(
   { desc = 'stage the selected git changes' }
 )
 
-vim.keymap.set('n', '<leader>gS', function()
+vim.keymap.set('n', '<leader>gsf', function()
   vim.cmd.Gitsigns('stage_buffer')
-end, { desc = 'stage the whole buffer with all git changes' })
+end, { desc = 'stage the whole file with all git changes' })
 
-vim.keymap.set('n', '<leader>ghr', function()
+vim.keymap.set('n', '<leader>grh', function()
   vim.cmd.Gitsigns('reset_hunk')
 end, { desc = 'reset the git change hunk under the cursor' })
 
@@ -32,9 +32,9 @@ vim.keymap.set(
   { desc = 'reset the selected git changes' }
 )
 
-vim.keymap.set('n', '<leader>gR', function()
+vim.keymap.set('n', '<leader>grf', function()
   vim.cmd.Gitsigns('reset_buffer')
-end, { desc = 'reset the whole buffer with all git changes' })
+end, { desc = 'reset the whole file with all git changes' })
 
 vim.keymap.set({ 'v', 'o', 'x' }, 'ih', function()
   vim.cmd.Gitsigns('select_hunk')
